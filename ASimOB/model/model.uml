@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_GwCwIGkiEeGibd9ACfCvxQ" name="model">
+  <packageMerge xmi:id="_kybHkGmDEeGYr6Wr0Ts4MQ"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_YSCicGl-EeGYr6Wr0Ts4MQ" name="Kernel"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_ZDEWwGl-EeGYr6Wr0Ts4MQ" name="GenericEGController"/>
+</uml:Model>
