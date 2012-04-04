@@ -419,7 +419,7 @@
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_eqd8J3lAEeGD85n1_uVhrQ"/>
       </children>
       <element xmi:type="uml:Class" href="PIMmodel.uml#_eqBQIHlAEeGD85n1_uVhrQ"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_eqd8EXlAEeGD85n1_uVhrQ" x="195" y="-300" width="151"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_eqd8EXlAEeGD85n1_uVhrQ" x="205" y="-305" width="151"/>
     </children>
     <children xmi:type="notation:Shape" xmi:id="_ugUacHlAEeGD85n1_uVhrQ" type="2008" fontHeight="8" lineColor="0">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ugUacnlAEeGD85n1_uVhrQ" source="ShadowFigure">
