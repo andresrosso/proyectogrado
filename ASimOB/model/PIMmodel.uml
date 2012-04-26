@@ -10,10 +10,10 @@
   <packagedElement xmi:type="uml:Class" xmi:id="_9CJvEHg2EeGg3MScEJDOrQ" name="StatisticsManager">
     <ownedOperation xmi:id="_m2n7sHhwEeGg3MScEJDOrQ" name="generateServiceTimeReport"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_ACFD4Hg3EeGg3MScEJDOrQ" name="JasperReportManager">
+  <packagedElement xmi:type="uml:Class" xmi:id="_ACFD4Hg3EeGg3MScEJDOrQ" name="JasperReportManager" clientDependency="_VHxRQI9OEeGUYfJrakxFXA">
     <ownedOperation xmi:id="_q-E5QHhwEeGg3MScEJDOrQ" name="generateJasperReport"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_B-8ZMHg3EeGg3MScEJDOrQ" name="BuildingSimulation">
+  <packagedElement xmi:type="uml:Class" xmi:id="_B-8ZMHg3EeGg3MScEJDOrQ" name="BuildingSimulator">
     <ownedAttribute xmi:id="_cz9Q9HlBEeGD85n1_uVhrQ" name="building" type="_eqBQIHlAEeGD85n1_uVhrQ" aggregation="composite" association="_cz9Q83lBEeGD85n1_uVhrQ">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cz9Q9XlBEeGD85n1_uVhrQ" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cz9Q9nlBEeGD85n1_uVhrQ"/>
@@ -33,6 +33,10 @@
     <ownedAttribute xmi:id="_WJdhEHoAEeGKI4lLiEg8ZQ" name="guiController" type="_Tj6bIHoAEeGKI4lLiEg8ZQ" aggregation="composite" association="_WJdhE3oAEeGKI4lLiEg8ZQ">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WJdhEXoAEeGKI4lLiEg8ZQ" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WJdhEnoAEeGKI4lLiEg8ZQ" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_-1JjwI9NEeGUYfJrakxFXA" name="jasperReportManager" type="_ACFD4Hg3EeGg3MScEJDOrQ" aggregation="composite" association="_-1e68I9NEeGUYfJrakxFXA">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-1JjwY9NEeGUYfJrakxFXA" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-1Jjwo9NEeGUYfJrakxFXA" value="1"/>
     </ownedAttribute>
     <ownedOperation xmi:id="_uq_28HhwEeGg3MScEJDOrQ" name="generateSummaryReport" visibility="private"/>
     <ownedOperation xmi:id="_w3N24HhwEeGg3MScEJDOrQ" name="updateStatistics" visibility="private"/>
@@ -464,13 +468,23 @@
     <generalization xmi:id="_KOU1sHoJEeGKI4lLiEg8ZQ" general="_xIc9cHoIEeGKI4lLiEg8ZQ"/>
     <ownedAttribute xmi:id="_pmZ8oHkpEeGD85n1_uVhrQ" name="Property1" isLeaf="true"/>
     <ownedAttribute xmi:id="_4D5g8HkpEeGD85n1_uVhrQ" name="deltaAdvance" isLeaf="true" type="_bl090HkpEeGD85n1_uVhrQ"/>
+    <ownedAttribute xmi:id="_g_YywI8-EeGUYfJrakxFXA" name="time" type="_bl090HkpEeGD85n1_uVhrQ"/>
     <nestedClassifier xmi:type="uml:PrimitiveType" xmi:id="String" name="String"/>
     <ownedOperation xmi:id="_pA9MYHkMEeGD85n1_uVhrQ" name="advanceSimulationClock"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_mHFQ4Hk7EeGD85n1_uVhrQ" name="CommandBox"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_mHFQ4Hk7EeGD85n1_uVhrQ" name="CommandShell"/>
   <packagedElement xmi:type="uml:Association" xmi:id="_cPGCoHk8EeGD85n1_uVhrQ"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_e5D5EHk9EeGD85n1_uVhrQ" name="Elevator">
-    <ownedAttribute xmi:id="_VoEckHlCEeGD85n1_uVhrQ" name="  elevatorId"/>
+    <ownedAttribute xmi:id="_VoEckHlCEeGD85n1_uVhrQ" name="elevatorId"/>
+    <ownedAttribute xmi:id="_p3qlkI8_EeGUYfJrakxFXA" name=" isInService"/>
+    <ownedAttribute xmi:id="_vy_7kI8_EeGUYfJrakxFXA" name=" capacity"/>
+    <ownedAttribute xmi:id="_3Y-1gI8_EeGUYfJrakxFXA" name="aceleration"/>
+    <ownedAttribute xmi:id="_5JwPkI8_EeGUYfJrakxFXA" name="speed"/>
+    <ownedAttribute xmi:id="_KtBSAI9AEeGUYfJrakxFXA" name="doorCloseTime"/>
+    <ownedAttribute xmi:id="_QJKKkI9AEeGUYfJrakxFXA" name="doorOpenTime"/>
+    <ownedAttribute xmi:id="_lRKfEI9AEeGUYfJrakxFXA" name="passangerTransferTime"/>
+    <ownedAttribute xmi:id="_VXy9MI9BEeGUYfJrakxFXA" name="numCurrentPassangers"/>
+    <ownedAttribute xmi:id="_tw2EUI9EEeGUYfJrakxFXA" name="direction"/>
     <ownedOperation xmi:id="_OQUkMHlIEeGD85n1_uVhrQ" name="move"/>
     <ownedOperation xmi:id="_QZaXoHlIEeGD85n1_uVhrQ" name="setDirection"/>
     <ownedOperation xmi:id="_Y5SuAHlIEeGD85n1_uVhrQ" name="stop"/>
@@ -482,6 +496,9 @@
     </ownedEnd>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_eqBQIHlAEeGD85n1_uVhrQ" name="BuildingModel">
+    <ownedComment xmi:id="_0GEIsI8-EeGUYfJrakxFXA">
+      <body>Alejandra Bordamalo</body>
+    </ownedComment>
     <ownedAttribute xmi:id="_iiHjFHlAEeGD85n1_uVhrQ" name="elevator" type="_e5D5EHk9EeGD85n1_uVhrQ" aggregation="composite" association="_iiHjE3lAEeGD85n1_uVhrQ">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iiHjFXlAEeGD85n1_uVhrQ" value="*"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iiHjFnlAEeGD85n1_uVhrQ" value="1"/>
@@ -499,6 +516,9 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CkNJEnlNEeGD85n1_uVhrQ" value="1"/>
     </ownedAttribute>
     <ownedAttribute xmi:id="_sr8QYHkMEeGD85n1_uVhrQ" name="time" isLeaf="true" type="_55zIEHkoEeGD85n1_uVhrQ"/>
+    <ownedAttribute xmi:id="_1mZTAI8-EeGUYfJrakxFXA" name="numFloors"/>
+    <ownedAttribute xmi:id="_9k724I8-EeGUYfJrakxFXA" name="floorGapDistance"/>
+    <ownedAttribute xmi:id="_lBruEI8_EeGUYfJrakxFXA" name="numElevator"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_iiHjE3lAEeGD85n1_uVhrQ" name="elevator_building_1" memberEnd="_iiHjFHlAEeGD85n1_uVhrQ _iiHjEHlAEeGD85n1_uVhrQ">
     <ownedEnd xmi:id="_iiHjEHlAEeGD85n1_uVhrQ" name="building" type="_eqBQIHlAEeGD85n1_uVhrQ" association="_iiHjE3lAEeGD85n1_uVhrQ">
@@ -509,6 +529,7 @@
   <packagedElement xmi:type="uml:Class" xmi:id="_ugBfgHlAEeGD85n1_uVhrQ" name="Floor">
     <ownedAttribute xmi:id="_YZFysHlCEeGD85n1_uVhrQ" name="floorId"/>
     <ownedAttribute xmi:id="_nSdTUHlFEeGD85n1_uVhrQ" name="population"/>
+    <ownedAttribute xmi:id="_5r698I8-EeGUYfJrakxFXA" name="isPortal"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_wjJ043lAEeGD85n1_uVhrQ" name="building_floor_1" memberEnd="_wjJ05HlAEeGD85n1_uVhrQ _wjJ04HlAEeGD85n1_uVhrQ">
     <ownedEnd xmi:id="_wjJ05HlAEeGD85n1_uVhrQ" name="building" type="_eqBQIHlAEeGD85n1_uVhrQ" association="_wjJ043lAEeGD85n1_uVhrQ">
@@ -549,7 +570,7 @@
     </ownedAttribute>
     <ownedAttribute xmi:id="_FalIAHlHEeGD85n1_uVhrQ" name="elevatorController" type="_wVV1cHkLEeGD85n1_uVhrQ" aggregation="composite" association="_FalIA3lHEeGD85n1_uVhrQ">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_FalIAXlHEeGD85n1_uVhrQ" value="1"/>
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FalIAnlHEeGD85n1_uVhrQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_FalIAnlHEeGD85n1_uVhrQ"/>
     </ownedAttribute>
     <ownedAttribute xmi:id="_lNbSsHoEEeGKI4lLiEg8ZQ" name="rutineManager" type="_6UQT0HlGEeGD85n1_uVhrQ" association="_lNbSs3oEEeGKI4lLiEg8ZQ">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lNbSsXoEEeGKI4lLiEg8ZQ" value="1"/>
@@ -608,12 +629,12 @@
     </ownedEnd>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_KqDLo3lJEeGD85n1_uVhrQ" name="kernel_statisticsManager_1" memberEnd="_KqDLpHlJEeGD85n1_uVhrQ _KqDLoHlJEeGD85n1_uVhrQ">
-    <ownedEnd xmi:id="_KqDLpHlJEeGD85n1_uVhrQ" name="kernel" type="_Tj6bIHoAEeGKI4lLiEg8ZQ" association="_KqDLo3lJEeGD85n1_uVhrQ">
+    <ownedEnd xmi:id="_KqDLpHlJEeGD85n1_uVhrQ" name="kernel" type="_6UQT0HlGEeGD85n1_uVhrQ" association="_KqDLo3lJEeGD85n1_uVhrQ">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KqDLpXlJEeGD85n1_uVhrQ" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KqDLpnlJEeGD85n1_uVhrQ" value="1"/>
     </ownedEnd>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_O1-5MHlMEeGD85n1_uVhrQ" name="TrafficController">
+  <packagedElement xmi:type="uml:Class" xmi:id="_O1-5MHlMEeGD85n1_uVhrQ" name="TrafficGenerator">
     <generalization xmi:id="_Oqoo8HoJEeGKI4lLiEg8ZQ" general="_xIc9cHoIEeGKI4lLiEg8ZQ"/>
     <ownedAttribute xmi:id="_1-WAQHoGEeGKI4lLiEg8ZQ" name="basicTrafficModel" type="_8a7UEHoEEeGKI4lLiEg8ZQ" association="_1-WAQ3oGEeGKI4lLiEg8ZQ">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1-WAQXoGEeGKI4lLiEg8ZQ" value="1"/>
@@ -667,6 +688,7 @@
     </ownedEnd>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_8a7UEHoEEeGKI4lLiEg8ZQ" name="BasicTrafficModel" clientDependency="_jvAXcHoFEeGKI4lLiEg8ZQ">
+    <ownedAttribute xmi:id="_UBthwI9GEeGUYfJrakxFXA" name="trafficDensity"/>
     <interfaceRealization xmi:id="_jvAXcHoFEeGKI4lLiEg8ZQ" name="InterfaceRealization1" supplier="_BBrcwHoFEeGKI4lLiEg8ZQ" client="_8a7UEHoEEeGKI4lLiEg8ZQ" contract="_BBrcwHoFEeGKI4lLiEg8ZQ"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="_BBrcwHoFEeGKI4lLiEg8ZQ" name="TrafficModel">
@@ -682,6 +704,7 @@
     <ownedOperation xmi:id="_4oYaEHoFEeGKI4lLiEg8ZQ" name="getEstimatedArrivalTime">
       <ownedParameter xmi:id="_GRkzoHoGEeGKI4lLiEg8ZQ" name="time" type="_55zIEHkoEeGD85n1_uVhrQ"/>
     </ownedOperation>
+    <ownedOperation xmi:id="_wz2F0I9FEeGUYfJrakxFXA" name="getTrafficMode"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_1-WAQ3oGEeGKI4lLiEg8ZQ" name="trafficController_basicTrafficModel_1" memberEnd="_1-WARHoGEeGKI4lLiEg8ZQ _1-WAQHoGEeGKI4lLiEg8ZQ">
     <ownedEnd xmi:id="_1-WARHoGEeGKI4lLiEg8ZQ" name="trafficController" type="_O1-5MHlMEeGD85n1_uVhrQ" association="_1-WAQ3oGEeGKI4lLiEg8ZQ">
@@ -691,4 +714,11 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Realization" xmi:id="_73FqYHoIEeGKI4lLiEg8ZQ" name="Realization1" supplier="_xIc9cHoIEeGKI4lLiEg8ZQ" client="_y8O_MHkLEeGD85n1_uVhrQ"/>
   <packagedElement xmi:type="uml:Realization" xmi:id="_8zSM4HoIEeGKI4lLiEg8ZQ" name="Realization2" supplier="_xIc9cHoIEeGKI4lLiEg8ZQ" client="_gP8CsHkMEeGD85n1_uVhrQ"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_-1e68I9NEeGUYfJrakxFXA" name="buildingSimulator_jasperReportManager_0" memberEnd="_-1e68Y9NEeGUYfJrakxFXA _-1JjwI9NEeGUYfJrakxFXA">
+    <ownedEnd xmi:id="_-1e68Y9NEeGUYfJrakxFXA" name="buildingSimulator" type="_B-8ZMHg3EeGg3MScEJDOrQ" association="_-1e68I9NEeGUYfJrakxFXA">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-1e68o9NEeGUYfJrakxFXA" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-1e6849NEeGUYfJrakxFXA" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_VHxRQI9OEeGUYfJrakxFXA" name="Usage0" supplier="_9CJvEHg2EeGg3MScEJDOrQ" client="_ACFD4Hg3EeGg3MScEJDOrQ"/>
 </uml:Model>
