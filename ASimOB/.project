@@ -15,8 +15,14 @@
 			<arguments>
 			</arguments>
 		</buildCommand>
+		<buildCommand>
+			<name>org.obeonetwork.pim.uml2.gen.java.ui.acceleoUMLToJavaBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
 	</buildSpec>
 	<natures>
+		<nature>org.obeonetwork.pim.uml2.gen.java.ui.acceleoUMLToJavaNature</nature>
 		<nature>net.sourceforge.texlipse.builder.TexlipseNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
