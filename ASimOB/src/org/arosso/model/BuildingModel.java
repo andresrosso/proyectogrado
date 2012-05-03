@@ -88,6 +88,7 @@ public class BuildingModel implements SimulationModel {
         
         //Read floor properties
         
+        is.close();
     }
     
     /**
