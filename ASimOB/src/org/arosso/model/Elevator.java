@@ -45,6 +45,8 @@ public class Elevator {
      */
     public Float speed = 0.0f;
     
+    public Float jerk = 0.0f;
+    
     /**
      * Description of the property doorCloseTime.
      */
@@ -66,11 +68,6 @@ public class Elevator {
     public Integer numCurrentPassangers = 0;
     
     /**
-     * Description of the property direction.
-     */
-    public Object direction = null;
-    
-    /**
      * Description of the property restFloor.
      */
     public Integer restFloor = 0;
@@ -84,6 +81,8 @@ public class Elevator {
      * Description of the property passengers.
      */
     public Vector<Passenger> passengers = new Vector<Passenger>();
+    
+    public Direction direction = Direction.UP;
     
     /**
      * Description of the property position.
@@ -102,7 +101,26 @@ public class Elevator {
     	// End of user code
     }
     
-    /**
+    
+    
+    public Elevator(Integer elevatorId, Integer capacity, Float aceleration,
+			Float speed, Float jerk, Float doorCloseTime, Float doorOpenTime,
+			Float passangerTransferTime, Integer restFloor) {
+		super();
+		this.elevatorId = elevatorId;
+		this.capacity = capacity;
+		this.aceleration = aceleration;
+		this.speed = speed;
+		this.jerk = jerk;
+		this.doorCloseTime = doorCloseTime;
+		this.doorOpenTime = doorOpenTime;
+		this.passangerTransferTime = passangerTransferTime;
+		this.restFloor = restFloor;
+	}
+
+
+
+	/**
      * Description of the method move.
      */
     public void move() {
@@ -110,14 +128,6 @@ public class Elevator {
     	// End of user code
     }
      
-    /**
-     * Description of the method setDirection.
-     */
-    public void setDirection(Direction dir) {
-    	// Start of user code for method setDirection
-    	this.dir = dir;
-    	// End of user code
-    }
      
     /**
      * Description of the method stop.
@@ -134,10 +144,6 @@ public class Elevator {
     	// Start of user code for method rest
     	// End of user code
     }
-     
-    // Start of user code (user defined methods)
-    
-    // End of user code
     
     /**
      * Returns elevatorId.
@@ -287,7 +293,7 @@ public class Elevator {
      * Returns direction.
      * @return direction 
      */
-    public Object getDirection() {
+    public Direction getDirection() {
     	return this.direction;
     }
     
@@ -295,7 +301,7 @@ public class Elevator {
      * Sets a value to attribute direction. 
      * @param newDirection 
      */
-    public void setDirection(Object newDirection) {
+    public void setDirection(Direction newDirection) {
         this.direction = newDirection;
     }
     

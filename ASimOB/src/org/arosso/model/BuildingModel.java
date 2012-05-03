@@ -5,12 +5,13 @@ package org.arosso.model;
  */
 
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 import java.util.Vector;
 
 import org.arosso.egcs.ElevatorGroupController;
 import org.arosso.sim.SimulationModel;
-
-// End of user code
 
 /**
  * Alejandra Bordamalo
@@ -19,17 +20,17 @@ public class BuildingModel implements SimulationModel {
     /**
      * Description of the property elevator.
      */
-    public Vector<Elevator> elevator = new Vector<Elevator>();
+    public Vector<Elevator> elevators;
     
     /**
      * Description of the property floor.
      */
-    public Vector<Floor> floor = new Vector<Floor>();
+    public Vector<Floor> floors;
     
     /**
-     * Description of the property passanger.
+     * Description of the property passenger.
      */
-    public Vector<Passenger> passanger = new Vector<Passenger>();
+    public Vector<Passenger> passenger = new Vector<Passenger>();
     
     /**
      * Description of the property elevatorGroupController.
@@ -44,17 +45,17 @@ public class BuildingModel implements SimulationModel {
     /**
      * Description of the property numFloors.
      */
-    public Object numFloors = null;
+    public Integer numFloors = null;
     
     /**
      * Description of the property floorGapDistance.
      */
-    public Object floorGapDistance = null;
+    public Float floorGapDistance = null;
     
     /**
-     * Description of the property numElevator.
+     * Description of the property numElevators.
      */
-    public Object numElevator = null;
+    public Integer numElevators = null;
     
     /**
      * http://intermediatetwo.webs.com/listening.htm  en 
@@ -66,69 +67,121 @@ public class BuildingModel implements SimulationModel {
      */
     public Vector<Passenger> futureArrivals = new Vector<Passenger>();
     
-    // Start of user code (user defined attributes)
-    
-    // End of user code
+
     
     /**
      * The constructor.
+     * @throws IOException 
      */
-    public BuildingModel() {
-    	// Start of user code constructor
+    public BuildingModel() throws IOException, Exception {
     	super();
-    	// End of user code
+    	InputStream is = this.getClass().getResourceAsStream("/building.properties");
+    	Properties prop = new Properties();  
+        prop.load(is);  
+        
+        //Read model properties
+        numElevators = (Integer)prop.getProperty("numElevators");
+        numFloors = (Integer)prop.getProperty("numFloors");
+        
+        //Read elevator props
+        this.readElevatorProps(prop);
+        
+        //Read floor properties
+        
     }
     
-    // Start of user code (user defined methods)
+    /**
+     * 
+     * @param prop
+     */
+    public void readElevatorProps(Properties prop){
+    	//Read elevator properties
+        Integer capacity= (Integer)prop.getProperty("capacity");
+        Float aceleration= (Float)prop.getProperty("aceleration");
+        Float jerk= (Float)prop.getProperty("jerk");
+        Float speed= (Float)prop.getProperty("speed");
+        Float doorCloseTime= (Float)prop.getProperty("doorCloseTime");
+        Float doorOpenTime= (Float)prop.getProperty("doorOpenTime");
+        Float passangerTransferTime= (Float)prop.getProperty("passangerTransferTime");
+        Integer restFloor= (Integer)prop.getProperty("numElevators");
+        elevators = new Vector<Elevator>(numElevators);
+        int counter = 1;
+        for(Elevator elevator : elevators){
+        	elevator = new Elevator(counter, capacity, aceleration, speed, jerk, doorCloseTime, doorOpenTime, passangerTransferTime, restFloor);
+        	elevators.add(elevator);
+        	counter++;
+        }
+    }   
     
-    // End of user code
+    /**
+     * 
+     * @param prop
+     */
+    public void readFloorProps(Properties prop){
+    	//Read floor properties
+        Integer capacity= (Integer)prop.getProperty("capacity");
+        Float aceleration= (Float)prop.getProperty("aceleration");
+        Float jerk= (Float)prop.getProperty("jerk");
+        Float speed= (Float)prop.getProperty("speed");
+        Float doorCloseTime= (Float)prop.getProperty("doorCloseTime");
+        Float doorOpenTime= (Float)prop.getProperty("doorOpenTime");
+        Float passangerTransferTime= (Float)prop.getProperty("passangerTransferTime");
+        Integer restFloor= (Integer)prop.getProperty("numElevators");
+        floors = new Vector<Floor>(numFloors);
+        int counter = 0;
+        for(Elevator elevator : elevators){
+        	elevator = new Elevator(counter, capacity, aceleration, speed, jerk, doorCloseTime, doorOpenTime, passangerTransferTime, restFloor);
+        	elevators.add(elevator);
+        	counter++;
+        }
+    }
     
     /**
      * Returns elevator.
      * @return elevator 
      */
-    public Vector<Elevator> getElevator() {
-    	return this.elevator;
+    public Vector<Elevator> getElevators() {
+    	return this.elevators;
     }
     
     /**
      * Sets a value to attribute elevator. 
      * @param newElevator 
      */
-    public void setElevator(Vector<Elevator> newElevator) {
-        this.elevator = newElevator;
+    public void setElevators(Vector<Elevator> newElevators) {
+        this.elevators = newElevators;
     }
     
     /**
      * Returns floor.
      * @return floor 
      */
-    public Vector<Floor> getFloor() {
-    	return this.floor;
+    public Vector<Floor> getFloors() {
+    	return this.floors;
     }
     
     /**
      * Sets a value to attribute floor. 
      * @param newFloor 
      */
-    public void setFloor(Vector<Floor> newFloor) {
-        this.floor = newFloor;
+    public void setFloors(Vector<Floor> newFloors) {
+        this.floors = newFloors;
     }
     
     /**
-     * Returns passanger.
-     * @return passanger 
+     * Returns passenger.
+     * @return passenger 
      */
-    public Vector<Passenger> getPassanger() {
-    	return this.passanger;
+    public Vector<Passenger> getpassenger() {
+    	return this.passenger;
     }
     
     /**
-     * Sets a value to attribute passanger. 
-     * @param newPassanger 
+     * Sets a value to attribute passenger. 
+     * @param newpassenger 
      */
-    public void setPassanger(Vector<Passenger> newPassanger) {
-        this.passanger = newPassanger;
+    public void setpassenger(Vector<Passenger> newpassenger) {
+        this.passenger = newpassenger;
     }
     
     /**
@@ -192,7 +245,7 @@ public class BuildingModel implements SimulationModel {
      * @return numElevator 
      */
     public Object getNumElevator() {
-    	return this.numElevator;
+    	return this.numElevators;
     }
     
     /**
@@ -200,7 +253,7 @@ public class BuildingModel implements SimulationModel {
      * @param newNumElevator 
      */
     public void setNumElevator(Object newNumElevator) {
-        this.numElevator = newNumElevator;
+        this.numElevators = newNumElevator;
     }
     
     /**

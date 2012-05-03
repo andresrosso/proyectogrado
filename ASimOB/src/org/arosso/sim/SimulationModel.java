@@ -13,11 +13,6 @@ package org.arosso.sim;
  * Description of SimulationModel.
  */
 public interface SimulationModel {
-	// Start of user code (user defined attributes)
-    
-    // End of user code
 	
-	// Start of user code (user defined methods)
-    
-    // End of user code
+	
 }

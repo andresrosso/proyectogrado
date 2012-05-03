@@ -1,6 +1,4 @@
 package org.arosso.sim;
-import java.util.Observer;
-
 import org.arosso.model.Elevator;
 
 /**
