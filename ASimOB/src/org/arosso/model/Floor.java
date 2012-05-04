@@ -47,7 +47,20 @@ public class Floor {
     	// End of user code
     }
     
-    // Start of user code (user defined methods)
+    
+    
+    public Floor(String floorId, Integer population, Boolean isPortal,
+			String floorName) {
+		super();
+		this.floorId = floorId;
+		this.population = population;
+		this.isPortal = isPortal;
+		this.floorName = floorName;
+	}
+
+
+
+	// Start of user code (user defined methods)
     
     // End of user code
     

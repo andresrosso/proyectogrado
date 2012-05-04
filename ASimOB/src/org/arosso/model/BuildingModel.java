@@ -75,13 +75,13 @@ public class BuildingModel implements SimulationModel {
      */
     public BuildingModel() throws IOException, Exception {
     	super();
-    	InputStream is = this.getClass().getResourceAsStream("/building.properties");
+    	InputStream is = this.getClass().getResourceAsStream("/building.properties"));
     	Properties prop = new Properties();  
         prop.load(is);  
         
         //Read model properties
-        numElevators = (Integer)prop.getProperty("numElevators");
-        numFloors = (Integer)prop.getProperty("numFloors");
+        numElevators = Integer.valueOf(prop.getProperty("numElevators"));
+        numFloors =  Integer.valueOf(prop.getProperty("numFloors"));
         
         //Read elevator props
         this.readElevatorProps(prop);
@@ -97,14 +97,14 @@ public class BuildingModel implements SimulationModel {
      */
     public void readElevatorProps(Properties prop){
     	//Read elevator properties
-        Integer capacity= (Integer)prop.getProperty("capacity");
-        Float aceleration= (Float)prop.getProperty("aceleration");
-        Float jerk= (Float)prop.getProperty("jerk");
-        Float speed= (Float)prop.getProperty("speed");
-        Float doorCloseTime= (Float)prop.getProperty("doorCloseTime");
-        Float doorOpenTime= (Float)prop.getProperty("doorOpenTime");
-        Float passangerTransferTime= (Float)prop.getProperty("passangerTransferTime");
-        Integer restFloor= (Integer)prop.getProperty("numElevators");
+        Integer capacity=  Integer.valueOf(prop.getProperty("capacity"));
+        Float aceleration= Float.valueOf(prop.getProperty("aceleration"));
+        Float jerk= Float.valueOf(prop.getProperty("jerk"));
+        Float speed= Float.valueOf(prop.getProperty("speed"));
+        Float doorCloseTime= Float.valueOf(prop.getProperty("doorCloseTime"));
+        Float doorOpenTime= Float.valueOf(prop.getProperty("doorOpenTime"));
+        Float passangerTransferTime= Float.valueOf(prop.getProperty("passangerTransferTime"));
+        Integer restFloor=  Integer.valueOf(prop.getProperty("numElevators"));
         elevators = new Vector<Elevator>(numElevators);
         int counter = 1;
         for(Elevator elevator : elevators){
@@ -120,18 +120,18 @@ public class BuildingModel implements SimulationModel {
      */
     public void readFloorProps(Properties prop){
     	//Read floor properties
-        Integer capacity= (Integer)prop.getProperty("capacity");
-        Float aceleration= (Float)prop.getProperty("aceleration");
-        Float jerk= (Float)prop.getProperty("jerk");
-        Float speed= (Float)prop.getProperty("speed");
-        Float doorCloseTime= (Float)prop.getProperty("doorCloseTime");
-        Float doorOpenTime= (Float)prop.getProperty("doorOpenTime");
-        Float passangerTransferTime= (Float)prop.getProperty("passangerTransferTime");
-        Integer restFloor= (Integer)prop.getProperty("numElevators");
+        Integer capacity=  Integer.valueOf(prop.getProperty("capacity"));
+        Float aceleration= Float.valueOf(prop.getProperty("aceleration"));
+        Float jerk= Float.valueOf(prop.getProperty("jerk"));
+        Float speed= Float.valueOf(prop.getProperty("speed"));
+        Float doorCloseTime= Float.valueOf(prop.getProperty("doorCloseTime"));
+        Float doorOpenTime= Float.valueOf(prop.getProperty("doorOpenTime"));
+        Float passangerTransferTime= Float.valueOf(prop.getProperty("passangerTransferTime"));
+        Integer restFloor=  Integer.valueOf(prop.getProperty("numElevators"));
         floors = new Vector<Floor>(numFloors);
         int counter = 0;
-        for(Elevator elevator : elevators){
-        	elevator = new Elevator(counter, capacity, aceleration, speed, jerk, doorCloseTime, doorOpenTime, passangerTransferTime, restFloor);
+        for(Floor floor : floors){
+        	floor = new Floor(counter, population, isPortal, floorName);
         	elevators.add(elevator);
         	counter++;
         }
