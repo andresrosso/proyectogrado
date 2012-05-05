@@ -10,8 +10,11 @@ import java.io.InputStream;
 import java.util.Properties;
 import java.util.Vector;
 
+import static org.arosso.util.Constants.*;
 import org.arosso.egcs.ElevatorGroupController;
 import org.arosso.sim.SimulationModel;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Alejandra Bordamalo
@@ -58,37 +61,48 @@ public class BuildingModel implements SimulationModel {
     public Integer numElevators = null;
     
     /**
-     * http://intermediatetwo.webs.com/listening.htm  en 
+     * users
      */
     public Vector<Passenger> users = new Vector<Passenger>();
     
     /**
      * Description of the property futureArrivals.
      */
-    public Vector<Passenger> futureArrivals = new Vector<Passenger>();
+    public Vector<Passenger> futureArrivals;
     
-
+    /**
+     * Logger
+     */
+    Logger logger = LoggerFactory.getLogger(this.getClass());
+    
+    /**
+     * Default
+     * @throws Exception 
+     * @throws IOException 
+     */
+    public BuildingModel() throws IOException, Exception {
+		this(BUILDING_PROPS_FILE_DEF);
+	}
     
     /**
      * The constructor.
      * @throws IOException 
      */
-    public BuildingModel() throws IOException, Exception {
+    public BuildingModel(String buildingPropsFile) throws IOException, Exception {
     	super();
-    	InputStream is = this.getClass().getResourceAsStream("/building.properties"));
+    	InputStream is = this.getClass().getResourceAsStream(buildingPropsFile);
     	Properties prop = new Properties();  
         prop.load(is);  
-        
         //Read model properties
         numElevators = Integer.valueOf(prop.getProperty("numElevators"));
-        numFloors =  Integer.valueOf(prop.getProperty("numFloors"));
-        
-        //Read elevator props
+        numFloors = Integer.valueOf(prop.getProperty("numFloors"));
+        floorGapDistance = Float.valueOf(prop.getProperty("floorGapDistance"));
+        //Read elevator properties
         this.readElevatorProps(prop);
-        
         //Read floor properties
-        
+        this.readFloorProps(prop);
         is.close();
+        logger.info("BuildingModel made based on properties ("+buildingPropsFile+")");
     }
     
     /**
@@ -115,24 +129,21 @@ public class BuildingModel implements SimulationModel {
     }   
     
     /**
-     * 
+     * Read floor properties
      * @param prop
      */
     public void readFloorProps(Properties prop){
     	//Read floor properties
-        Integer capacity=  Integer.valueOf(prop.getProperty("capacity"));
-        Float aceleration= Float.valueOf(prop.getProperty("aceleration"));
-        Float jerk= Float.valueOf(prop.getProperty("jerk"));
-        Float speed= Float.valueOf(prop.getProperty("speed"));
-        Float doorCloseTime= Float.valueOf(prop.getProperty("doorCloseTime"));
-        Float doorOpenTime= Float.valueOf(prop.getProperty("doorOpenTime"));
-        Float passangerTransferTime= Float.valueOf(prop.getProperty("passangerTransferTime"));
-        Integer restFloor=  Integer.valueOf(prop.getProperty("numElevators"));
+        String portalFloors=  prop.getProperty("portalFloors");
         floors = new Vector<Floor>(numFloors);
         int counter = 0;
         for(Floor floor : floors){
-        	floor = new Floor(counter, population, isPortal, floorName);
-        	elevators.add(elevator);
+        	boolean isPortalFloor = false;
+        	if( portalFloors.contains(("["+String.valueOf(counter)+"]")) ){
+        		isPortalFloor=true;
+        	}
+        	floor = new Floor(String.valueOf(counter), 0, isPortalFloor, String.valueOf(counter));
+        	floors.add(floor);
         	counter++;
         }
     }
@@ -221,7 +232,7 @@ public class BuildingModel implements SimulationModel {
      * Sets a value to attribute numFloors. 
      * @param newNumFloors 
      */
-    public void setNumFloors(Object newNumFloors) {
+    public void setNumFloors(Integer newNumFloors) {
         this.numFloors = newNumFloors;
     }
     
@@ -237,7 +248,7 @@ public class BuildingModel implements SimulationModel {
      * Sets a value to attribute floorGapDistance. 
      * @param newFloorGapDistance 
      */
-    public void setFloorGapDistance(Object newFloorGapDistance) {
+    public void setFloorGapDistance(Float newFloorGapDistance) {
         this.floorGapDistance = newFloorGapDistance;
     }
     
@@ -253,7 +264,7 @@ public class BuildingModel implements SimulationModel {
      * Sets a value to attribute numElevator. 
      * @param newNumElevator 
      */
-    public void setNumElevator(Object newNumElevator) {
+    public void setNumElevator(Integer newNumElevator) {
         this.numElevators = newNumElevator;
     }
     

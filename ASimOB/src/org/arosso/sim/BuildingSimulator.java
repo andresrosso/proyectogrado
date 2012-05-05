@@ -1,9 +1,13 @@
 package org.arosso.sim;
+import java.io.IOException;
+
 import org.arosso.gui.GraphicManager;
 import org.arosso.gui.GuiController;
 import org.arosso.model.BuildingModel;
 import org.arosso.stats.JasperReportManager;
 import org.arosso.stats.StatisticsManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * File generated from the model::BuildingSimulator uml Class
@@ -50,10 +54,10 @@ public class BuildingSimulator {
      */
     public Object simTime = null;
     
-    
-    // Start of user code (user defined attributes)
-    
-    // End of user code
+    /**
+     * Logger
+     */
+    Logger logger = LoggerFactory.getLogger(this.getClass());
     
     /**
      * The constructor.
@@ -78,6 +82,10 @@ public class BuildingSimulator {
     private void updateStatistics() {
     	// Start of user code for method updateStatistics
     	// End of user code
+    }
+    
+    public void init() throws IOException, Exception{
+    	building = new BuildingModel();
     }
      
     /**
@@ -244,5 +252,19 @@ public class BuildingSimulator {
         this.simTime = newSimTime;
     }
     
+    /**
+     * Just for testing purposes
+     * @param args
+     */
+    public static void main(String[] args){
+    	BuildingSimulator simulator = new BuildingSimulator();
+    	try {
+			simulator.init();
+		} catch (IOException e) {
+			simulator.logger.error("Error",e);
+		} catch (Exception e) {
+			simulator.logger.error("Error",e);
+		}
+    }
     
 }
