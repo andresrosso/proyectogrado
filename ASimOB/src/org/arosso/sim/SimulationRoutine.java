@@ -168,4 +168,9 @@ public class SimulationRoutine extends Observable {
     }
     
     
+    @Override
+    public String toString() {
+    	return this.routineName;
+    }
+    
 }

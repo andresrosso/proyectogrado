@@ -1,4 +1,5 @@
 package org.arosso.sim;
+import java.util.ArrayList;
 import java.util.TreeMap;
 
 import org.arosso.egcs.conventionalElevatorGroupController;
@@ -36,7 +37,7 @@ public class RoutineManager {
     /**
      * Description of the property registeredRoutines.
      */
-    public TreeMap registeredRoutines = null;
+    public ArrayList<SimulationRoutine> registeredRoutines = null;
     
     /**
      * Description of the property simTime.
@@ -230,7 +231,7 @@ public class RoutineManager {
      * Returns registeredRoutines.
      * @return registeredRoutines 
      */
-    public TreeMap getRegisteredRoutines() {
+    public ArrayList<SimulationRoutine> getRegisteredRoutines() {
     	return this.registeredRoutines;
     }
     
@@ -238,7 +239,7 @@ public class RoutineManager {
      * Sets a value to attribute registeredRoutines. 
      * @param newRegisteredRoutines 
      */
-    public void setRegisteredRoutines(TreeMap newRegisteredRoutines) {
+    public void setRegisteredRoutines(ArrayList<SimulationRoutine>  newRegisteredRoutines) {
         this.registeredRoutines = newRegisteredRoutines;
     }
     
@@ -288,6 +289,15 @@ public class RoutineManager {
      */
     public void setModel(Object newModel) {
         this.model = newModel;
+    }
+    
+    @Override
+    public String toString() {
+    	String routines;
+    	for(SimulationRoutine routine : registeredRoutines){
+    		routines += routine;
+    	}
+    	return super.toString();
     }
     
     

@@ -27,7 +27,7 @@ public class BuildingSimulator {
     /**
      * Description of the property rutineManager.
      */
-    public RoutineManager rutineManager = null;
+    public RoutineManager routineManager = null;
     
     /**
      * Description of the property graphicManager.
@@ -52,7 +52,7 @@ public class BuildingSimulator {
     /**
      * Description of the property simTime.
      */
-    public Object simTime = null;
+    public Double simTime = null;
     
     /**
      * Logger
@@ -86,14 +86,18 @@ public class BuildingSimulator {
     
     public void init() throws IOException, Exception{
     	building = new BuildingModel();
+    	routineManager = new RoutineManager();
+    	//Add traffic generator routine
+    	TrafficGenerator traffic = new TrafficGenerator();
+    	routineManager.addRoutine(traffic);
+    	// Init time counter
+    	simTime = 0d;
     }
      
     /**
      * Description of the method startSimulation.
      */
     public void startSimulation() {
-    	// Start of user code for method startSimulation
-    	// End of user code
     }
      
     /**
@@ -127,18 +131,6 @@ public class BuildingSimulator {
     	// Start of user code for method addElevatorCall
     	// End of user code
     }
-     
-    /**
-     * Description of the method Operation1.
-     */
-    public void Operation1() {
-    	// Start of user code for method Operation1
-    	// End of user code
-    }
-     
-    // Start of user code (user defined methods)
-    
-    // End of user code
     
     /**
      * Returns building.
@@ -160,16 +152,16 @@ public class BuildingSimulator {
      * Returns rutineManager.
      * @return rutineManager 
      */
-    public RoutineManager getRutineManager() {
-    	return this.rutineManager;
+    public RoutineManager getRoutineManager() {
+    	return this.routineManager;
     }
     
     /**
      * Sets a value to attribute rutineManager. 
      * @param newRutineManager 
      */
-    public void setRutineManager(RoutineManager newRutineManager) {
-        this.rutineManager = newRutineManager;
+    public void setRutineManager(RoutineManager newRoutineManager) {
+        this.routineManager = newRoutineManager;
     }
     
     /**
@@ -240,7 +232,7 @@ public class BuildingSimulator {
      * Returns simTime.
      * @return simTime 
      */
-    public Object getSimTime() {
+    public Double getSimTime() {
     	return this.simTime;
     }
     
@@ -248,8 +240,16 @@ public class BuildingSimulator {
      * Sets a value to attribute simTime. 
      * @param newSimTime 
      */
-    public void setSimTime(Object newSimTime) {
+    public void setSimTime(Double newSimTime) {
         this.simTime = newSimTime;
+    }
+    
+    @Override
+    public String toString() {
+    	String sim = "Time: "+this.simTime+"\n";
+    	sim += "Building Model {"+this.building+"}\n";
+    	
+    	return sim;
     }
     
     /**
@@ -260,6 +260,8 @@ public class BuildingSimulator {
     	BuildingSimulator simulator = new BuildingSimulator();
     	try {
 			simulator.init();
+			System.out.println(simulator);
+			simulator.startSimulation();
 		} catch (IOException e) {
 			simulator.logger.error("Error",e);
 		} catch (Exception e) {

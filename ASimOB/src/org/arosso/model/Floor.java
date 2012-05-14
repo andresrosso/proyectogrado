@@ -47,13 +47,22 @@ public class Floor {
     	// End of user code
     }
     
-    
+
     
     public Floor(String floorId, Integer population, Boolean isPortal,
 			String floorName) {
 		super();
 		this.floorId = floorId;
 		this.population = population;
+		this.isPortal = isPortal;
+		this.floorName = floorName;
+	}
+
+    
+    public Floor(String floorId, Boolean isPortal,
+			String floorName) {
+		super();
+		this.floorId = floorId;
 		this.isPortal = isPortal;
 		this.floorName = floorName;
 	}

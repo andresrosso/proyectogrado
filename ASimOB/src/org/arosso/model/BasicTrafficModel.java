@@ -12,10 +12,6 @@ public class BasicTrafficModel implements TrafficModel {
      */
     public Vector <Float> trafficDensity = null;
     
-    // Start of user code (user defined attributes)
-    
-    // End of user code
-    
     /**
      * The constructor.
      */

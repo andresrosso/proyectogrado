@@ -1098,7 +1098,7 @@
       </children>
       <styles xmi:type="notation:FontStyle" xmi:id="_wzPfUXlAEeGD85n1_uVhrQ" fontHeight="8"/>
       <element xmi:type="uml:Association" href="PIMmodel.uml#_wjJ043lAEeGD85n1_uVhrQ"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_wzPfUnlAEeGD85n1_uVhrQ" points="[-75, 22, 233, -71]$[-292, 89, 16, -4]"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_wzPfUnlAEeGD85n1_uVhrQ" points="[-85, 70, 197, -163]$[-278, 230, 4, -3]"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_w0byIHlAEeGD85n1_uVhrQ" id="(0.9659863945578231,0.3644067796610169)"/>
     </edges>
     <edges xmi:type="notation:Connector" xmi:id="_cz9Q93lBEeGD85n1_uVhrQ" type="4001" source="_eqd8EHlAEeGD85n1_uVhrQ" target="_B_GKMHg3EeGg3MScEJDOrQ" lineColor="0">

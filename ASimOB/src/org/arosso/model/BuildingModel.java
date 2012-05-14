@@ -142,7 +142,7 @@ public class BuildingModel implements SimulationModel {
         	if( portalFloors.contains(("["+String.valueOf(counter)+"]")) ){
         		isPortalFloor=true;
         	}
-        	floor = new Floor(String.valueOf(counter), 0, isPortalFloor, String.valueOf(counter));
+        	floor = new Floor(String.valueOf(counter), isPortalFloor, String.valueOf(counter));
         	floors.add(floor);
         	counter++;
         }
@@ -298,6 +298,14 @@ public class BuildingModel implements SimulationModel {
      */
     public void setFutureArrivals(Vector<Passenger> newFutureArrivals) {
         this.futureArrivals = newFutureArrivals;
+    }
+    
+    @Override
+    public String toString() {
+    	String model = "Floors: "+this.numFloors+"\n";
+    	model += "Elevators: "+this.numElevators+"\n";
+    	model += "Floor Gap Distance: "+this.floorGapDistance+"\n";
+    	return model;
     }
     
     
