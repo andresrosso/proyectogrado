@@ -54,7 +54,7 @@ public class conventionalElevatorGroupController extends SimulationRoutine imple
     
     /**
      * Returns rutineManager.
-     * @return rutineManager 
+     * @return rutineManager
      */
     public RoutineManager getRutineManager() {
     	return this.rutineManager;
@@ -62,7 +62,7 @@ public class conventionalElevatorGroupController extends SimulationRoutine imple
     
     /**
      * Sets a value to attribute rutineManager. 
-     * @param newRutineManager 
+     * @param newRutineManager
      */
     public void setRutineManager(RoutineManager newRutineManager) {
         this.rutineManager = newRutineManager;
