@@ -293,7 +293,7 @@ public class RoutineManager {
     
     @Override
     public String toString() {
-    	String routines;
+    	String routines="";
     	for(SimulationRoutine routine : registeredRoutines){
     		routines += routine;
     	}

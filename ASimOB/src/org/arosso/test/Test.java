@@ -3,6 +3,8 @@
  */
 package org.arosso.test;
 
+import org.arosso.sim.BuildingSimulator;
+
 /**
  * @author arosso
  *
@@ -21,6 +23,7 @@ public class Test {
 	 */
 	public static void main(String[] args) {
 		System.out.println("test ");
+		BuildingSimulator bs = new BuildingSimulator();
 	}
 
 }
