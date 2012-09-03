@@ -6,13 +6,12 @@ package org.arosso.model;
 
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.Properties;
 import java.util.Vector;
 
-import static org.arosso.util.Constants.*;
 import org.arosso.egcs.ElevatorGroupController;
 import org.arosso.sim.SimulationModel;
+import org.arosso.util.PropertiesBroker;
+import org.arosso.util.PropertiesBroker.PROP_SET;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -81,44 +80,34 @@ public class BuildingModel implements SimulationModel {
      * @throws IOException 
      */
     public BuildingModel() throws IOException, Exception {
-		this(BUILDING_PROPS_FILE_DEF);
-	}
-    
-    /**
-     * The constructor.
-     * @throws IOException 
-     */
-    public BuildingModel(String buildingPropsFile) throws IOException, Exception {
-    	super();
-    	InputStream is = this.getClass().getResourceAsStream(buildingPropsFile);
-    	Properties prop = new Properties();  
-        prop.load(is);  
-        //Read model properties
-        numElevators = Integer.valueOf(prop.getProperty("numElevators"));
-        numFloors = Integer.valueOf(prop.getProperty("numFloors"));
-        floorGapDistance = Float.valueOf(prop.getProperty("floorGapDistance"));
-        //Read elevator properties
-        this.readElevatorProps(prop);
-        //Read floor properties
-        this.readFloorProps(prop);
-        is.close();
-        logger.info("BuildingModel made based on properties ("+buildingPropsFile+")");
+		// Read model properties
+    	PropertiesBroker propertiesBroker = PropertiesBroker.getInstance();
+		numElevators = Integer.valueOf(propertiesBroker.getProperty(PROP_SET.SIMULATION,"numElevators"));
+		numFloors = Integer.valueOf(propertiesBroker.getProperty(PROP_SET.SIMULATION,"numFloors"));
+		floorGapDistance = Float.valueOf(propertiesBroker.getProperty(PROP_SET.SIMULATION,"floorGapDistance"));
+		// Read elevator properties
+		this.readElevatorProps(propertiesBroker);
+		// Read floor properties
+		this.readFloorProps(propertiesBroker);
+        logger.info("BuildingModel loaded");
     }
+    
+    
     
     /**
      * 
      * @param prop
      */
-    public void readElevatorProps(Properties prop){
+    public void readElevatorProps(PropertiesBroker prop){
     	//Read elevator properties
-        Integer capacity=  Integer.valueOf(prop.getProperty("capacity"));
-        Float aceleration= Float.valueOf(prop.getProperty("aceleration"));
-        Float jerk= Float.valueOf(prop.getProperty("jerk"));
-        Float speed= Float.valueOf(prop.getProperty("speed"));
-        Float doorCloseTime= Float.valueOf(prop.getProperty("doorCloseTime"));
-        Float doorOpenTime= Float.valueOf(prop.getProperty("doorOpenTime"));
-        Float passangerTransferTime= Float.valueOf(prop.getProperty("passangerTransferTime"));
-        Integer restFloor=  Integer.valueOf(prop.getProperty("numElevators"));
+        Integer capacity=  Integer.valueOf(prop.getProperty(PROP_SET.SIMULATION,"capacity"));
+        Float aceleration= Float.valueOf(prop.getProperty(PROP_SET.SIMULATION,"aceleration"));
+        Float jerk= Float.valueOf(prop.getProperty(PROP_SET.SIMULATION,"jerk"));
+        Float speed= Float.valueOf(prop.getProperty(PROP_SET.SIMULATION,"speed"));
+        Float doorCloseTime= Float.valueOf(prop.getProperty(PROP_SET.SIMULATION,"doorCloseTime"));
+        Float doorOpenTime= Float.valueOf(prop.getProperty(PROP_SET.SIMULATION,"doorOpenTime"));
+        Float passangerTransferTime= Float.valueOf(prop.getProperty(PROP_SET.SIMULATION,"passangerTransferTime"));
+        Integer restFloor=  Integer.valueOf(prop.getProperty(PROP_SET.SIMULATION,"numElevators"));
         elevators = new Vector<Elevator>(numElevators);
         int counter = 1;
         for(Elevator elevator : elevators){
@@ -132,9 +121,9 @@ public class BuildingModel implements SimulationModel {
      * Read floor properties
      * @param prop
      */
-    public void readFloorProps(Properties prop){
+    public void readFloorProps(PropertiesBroker prop){
     	//Read floor properties
-        String portalFloors=  prop.getProperty("portalFloors");
+        String portalFloors=  prop.getProperty(PROP_SET.SIMULATION,"portalFloors");
         floors = new Vector<Floor>(numFloors);
         int counter = 0;
         for(Floor floor : floors){

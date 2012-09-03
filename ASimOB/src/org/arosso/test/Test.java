@@ -3,6 +3,8 @@
  */
 package org.arosso.test;
 
+import java.io.IOException;
+
 import org.arosso.sim.BuildingSimulator;
 
 /**
@@ -24,6 +26,15 @@ public class Test {
 	public static void main(String[] args) {
 		System.out.println("test ");
 		BuildingSimulator bs = new BuildingSimulator();
+		try {
+			bs.init();
+			bs.startSimulation();
+			bs.stopSimulation();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

@@ -1,38 +1,17 @@
 package org.arosso.sim;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.TreeMap;
-
-import org.arosso.egcs.conventionalElevatorGroupController;
 
 
 /**
  * Description of RoutineManager.
  */
 public class RoutineManager {
-    /**
-     * Description of the property elevatorGroupController.
-     */
-    public conventionalElevatorGroupController elevatorGroupController = null;
-    
-    /**
-     * Description of the property simulationClock.
-     */
-    public ArrivalChecker simulationClock = null;
-    
-    /**
-     * Description of the property elevatorController.
-     */
-    public ElevatorController elevatorController = null;
     
     /**
      * Description of the property rutineManager.
      */
     public RoutineManager rutineManager = null;
-    
-    /**
-     * Description of the property trafficController.
-     */
-    public TrafficGenerator trafficController = null;
     
     /**
      * Description of the property registeredRoutines.
@@ -54,17 +33,32 @@ public class RoutineManager {
      */
     public Object model = null;
     
-    // Start of user code (user defined attributes)
+    //ROUTINES TO LOAD
     
-    // End of user code
+    /** Checks if there are arrivals and enqeue the arrivals*/
+    public ArrivalChecker arrivalChecker;
+    /** Controls de dynamics of the elevator car*/
+    public ElevatorController elevatorController;
+    /** Generate users to the building*/
+    public TrafficGenerator trafficGenerator;
+    
     
     /**
      * The constructor.
      */
     public RoutineManager() {
-    	// Start of user code constructor
     	super();
-    	// End of user code
+    }
+    
+    /**
+     * Init the routine manager and load all default routine
+     * @throws Exception 
+     * @throws IOException 
+     */
+    private void init() throws IOException, Exception{
+    	arrivalChecker=new ArrivalChecker();
+    	elevatorController=new ElevatorController();
+    	trafficGenerator=new TrafficGenerator();
     }
     
     /**
@@ -99,14 +93,6 @@ public class RoutineManager {
      */
     public void advanceSimulationClock() {
     	// Start of user code for method advanceSimulationClock
-    	// End of user code
-    }
-     
-    /**
-     * Description of the method init.
-     */
-    public void init() {
-    	// Start of user code for method init
     	// End of user code
     }
      
@@ -147,37 +133,7 @@ public class RoutineManager {
     
     // End of user code
     
-    /**
-     * Returns elevatorGroupController.
-     * @return elevatorGroupController 
-     */
-    public conventionalElevatorGroupController getElevatorGroupController() {
-    	return this.elevatorGroupController;
-    }
-    
-    /**
-     * Sets a value to attribute elevatorGroupController. 
-     * @param newElevatorGroupController 
-     */
-    public void setElevatorGroupController(conventionalElevatorGroupController newElevatorGroupController) {
-        this.elevatorGroupController = newElevatorGroupController;
-    }
-    
-    /**
-     * Returns simulationClock.
-     * @return simulationClock 
-     */
-    public ArrivalChecker getSimulationClock() {
-    	return this.simulationClock;
-    }
-    
-    /**
-     * Sets a value to attribute simulationClock. 
-     * @param newSimulationClock 
-     */
-    public void setSimulationClock(ArrivalChecker newSimulationClock) {
-        this.simulationClock = newSimulationClock;
-    }
+   
     
     /**
      * Returns elevatorController.
@@ -211,21 +167,6 @@ public class RoutineManager {
         this.rutineManager = newRutineManager;
     }
     
-    /**
-     * Returns trafficController.
-     * @return trafficController 
-     */
-    public TrafficGenerator getTrafficController() {
-    	return this.trafficController;
-    }
-    
-    /**
-     * Sets a value to attribute trafficController. 
-     * @param newTrafficController 
-     */
-    public void setTrafficController(TrafficGenerator newTrafficController) {
-        this.trafficController = newTrafficController;
-    }
     
     /**
      * Returns registeredRoutines.
