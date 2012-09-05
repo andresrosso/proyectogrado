@@ -1,5 +1,7 @@
 package org.arosso.sim;
 import org.arosso.model.Elevator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Description of ElevatorController.
@@ -11,19 +13,23 @@ public class ElevatorController extends SimulationRoutine {
      */
     public Elevator elevator = null;
     
+    /**
+     * Logger
+     */
+    Logger logger = LoggerFactory.getLogger(this.getClass());
+    
     
     /**
      * The constructor.
      */
-    public ElevatorController() {
-    	// Start of user code constructor
-    	super();
-    	// End of user code
+    public ElevatorController(String routineName, Float activationTime) {
+    	super(routineName,activationTime);
     }
     
-    // Start of user code (user defined methods)
-    
-    // End of user code
+    @Override
+    public void execute() {
+    	logger.info("Controlling the elevator car");
+    }
     
     /**
      * Returns elevator.

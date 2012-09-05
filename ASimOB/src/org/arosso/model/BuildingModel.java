@@ -18,7 +18,12 @@ import org.slf4j.LoggerFactory;
 /**
  * Alejandra Bordamalo
  */
-public class BuildingModel implements SimulationModel {
+public class BuildingModel extends SimulationModel {
+	/** 
+	 * Intance
+	 */
+	private static BuildingModel instance = null;
+	
     /**
      * Description of the property elevator.
      */
@@ -74,17 +79,24 @@ public class BuildingModel implements SimulationModel {
      */
     Logger logger = LoggerFactory.getLogger(this.getClass());
     
+    public enum SIM_STATE {STARTED, PAUSED, STOPPED};
+    
+    public SIM_STATE simState = SIM_STATE.STOPPED;
+    
     /**
      * Default
      * @throws Exception 
      * @throws IOException 
      */
-    public BuildingModel() throws IOException, Exception {
+    private BuildingModel() throws IOException, Exception {
+    	super();
 		// Read model properties
     	PropertiesBroker propertiesBroker = PropertiesBroker.getInstance();
 		numElevators = Integer.valueOf(propertiesBroker.getProperty(PROP_SET.SIMULATION,"numElevators"));
 		numFloors = Integer.valueOf(propertiesBroker.getProperty(PROP_SET.SIMULATION,"numFloors"));
 		floorGapDistance = Float.valueOf(propertiesBroker.getProperty(PROP_SET.SIMULATION,"floorGapDistance"));
+		endSimulationTime = Long.valueOf(propertiesBroker.getProperty(PROP_SET.SIMULATION,"endSimulationTime"));
+		deltaAdvaceTime = Float.valueOf(propertiesBroker.getProperty(PROP_SET.SIMULATION,"deltaAdvaceTime"));
 		// Read elevator properties
 		this.readElevatorProps(propertiesBroker);
 		// Read floor properties
@@ -92,13 +104,18 @@ public class BuildingModel implements SimulationModel {
         logger.info("BuildingModel loaded");
     }
     
-    
+    public static BuildingModel getInstance() throws IOException, Exception{
+    	if(instance==null){
+    		instance = new BuildingModel();
+    	}
+    	return instance;
+    }
     
     /**
      * 
      * @param prop
      */
-    public void readElevatorProps(PropertiesBroker prop){
+    private void readElevatorProps(PropertiesBroker prop){
     	//Read elevator properties
         Integer capacity=  Integer.valueOf(prop.getProperty(PROP_SET.SIMULATION,"capacity"));
         Float aceleration= Float.valueOf(prop.getProperty(PROP_SET.SIMULATION,"aceleration"));
@@ -121,7 +138,7 @@ public class BuildingModel implements SimulationModel {
      * Read floor properties
      * @param prop
      */
-    public void readFloorProps(PropertiesBroker prop){
+    private void readFloorProps(PropertiesBroker prop){
     	//Read floor properties
         String portalFloors=  prop.getProperty(PROP_SET.SIMULATION,"portalFloors");
         floors = new Vector<Floor>(numFloors);
@@ -213,7 +230,7 @@ public class BuildingModel implements SimulationModel {
      * Returns numFloors.
      * @return numFloors 
      */
-    public Object getNumFloors() {
+    public int getNumFloors() {
     	return this.numFloors;
     }
     
@@ -291,7 +308,7 @@ public class BuildingModel implements SimulationModel {
     
     @Override
     public String toString() {
-    	String model = "Floors: "+this.numFloors+"\n";
+    	String model = "SimTime ("+time+") Floors: "+this.numFloors+"\n";
     	model += "Elevators: "+this.numElevators+"\n";
     	model += "Floor Gap Distance: "+this.floorGapDistance+"\n";
     	return model;

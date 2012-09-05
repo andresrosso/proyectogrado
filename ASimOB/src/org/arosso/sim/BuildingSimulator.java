@@ -65,7 +65,7 @@ public class BuildingSimulator {
     public BuildingSimulator() {
     	// Start of user code constructor
     	super();
-    	// End of user code
+    	logger.debug("BuildingSimulator created!");
     }
     
     /**
@@ -85,51 +85,46 @@ public class BuildingSimulator {
     }
     
     public void init() throws IOException, Exception{
-    	building = new BuildingModel();
+    	building = BuildingModel.getInstance();
     	routineManager = new RoutineManager();
-    	//Add traffic generator routine
-    	TrafficGenerator traffic = new TrafficGenerator();
-    	routineManager.addRoutine(traffic);
     	// Init time counter
     	simTime = 0d;
+    	logger.info("BuildingSimulator initiated!");
     }
      
     /**
      * Description of the method startSimulation.
      */
     public void startSimulation() {
+    	logger.info("BuildingSimulator started!");
     }
      
     /**
      * Description of the method pauseSimulation.
      */
     public void pauseSimulation() {
-    	// Start of user code for method pauseSimulation
-    	// End of user code
+    	logger.info("BuildingSimulator paused!");
     }
      
     /**
      * Description of the method stopSimulation.
      */
     public void stopSimulation() {
-    	// Start of user code for method stopSimulation
-    	// End of user code
+    	logger.info("BuildingSimulator stopped!");
     }
      
     /**
      * Description of the method openSimulationConfig.
      */
     public void openSimulationConfig() {
-    	// Start of user code for method openSimulationConfig
-    	// End of user code
+    	logger.info("BuildingSimulator openSimulationConfig!");
     }
      
     /**
      * Description of the method addElevatorCall.
      */
     public void addElevatorCall() {
-    	// Start of user code for method addElevatorCall
-    	// End of user code
+    	logger.debug("BuildingSimulator addElevatorCall!");
     }
     
     /**
@@ -262,6 +257,7 @@ public class BuildingSimulator {
 			simulator.init();
 			System.out.println(simulator);
 			simulator.startSimulation();
+			
 		} catch (IOException e) {
 			simulator.logger.error("Error",e);
 		} catch (Exception e) {

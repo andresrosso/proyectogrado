@@ -2,11 +2,16 @@ package org.arosso.sim;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.arosso.model.BuildingModel;
+import org.arosso.model.BuildingModel.SIM_STATE;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import static org.arosso.util.Constants.*;
 
 /**
  * Description of RoutineManager.
  */
-public class RoutineManager {
+public class RoutineManager implements Runnable {
     
     /**
      * Description of the property rutineManager.
@@ -31,7 +36,7 @@ public class RoutineManager {
     /**
      * Description of the property model.
      */
-    public Object model = null;
+    public BuildingModel buildingModel;
     
     //ROUTINES TO LOAD
     
@@ -42,13 +47,22 @@ public class RoutineManager {
     /** Generate users to the building*/
     public TrafficGenerator trafficGenerator;
     
+    /**
+     * Logger
+     */
+    Logger logger = LoggerFactory.getLogger(this.getClass());
+    
     
     /**
      * The constructor.
+     * @throws Exception 
+     * @throws IOException 
      */
-    public RoutineManager() {
+    public RoutineManager() throws IOException, Exception {
     	super();
+		init();
     }
+
     
     /**
      * Init the routine manager and load all default routine
@@ -56,10 +70,25 @@ public class RoutineManager {
      * @throws IOException 
      */
     private void init() throws IOException, Exception{
-    	arrivalChecker=new ArrivalChecker();
-    	elevatorController=new ElevatorController();
-    	trafficGenerator=new TrafficGenerator();
+    	buildingModel = BuildingModel.getInstance();
+    	arrivalChecker=new ArrivalChecker("ArrivalChecker",ROUTINE_DEFAULT_ACTIVATION_TIME);
+    	elevatorController=new ElevatorController("ArrivalChecker",ROUTINE_DEFAULT_ACTIVATION_TIME);
+    	trafficGenerator=new TrafficGenerator("ArrivalChecker");
     }
+
+	@Override
+	public void run() {
+		while(buildingModel.simulationClock<=buildingModel.endSimulationTime && 
+				buildingModel.simState!=SIM_STATE.STOPPED){
+			for(SimulationRoutine routine : registeredRoutines){
+				  if(buildingModel.simulationClock % routine.activationTime == 0){
+					  logger.debug("Executing routine ("+routine.getRoutineName()+") at time:"+buildingModel.simulationClock);
+					  routine.execute();
+				  }
+			}
+		}
+		logger.info("Simulation has finished state : "+buildingModel.simState);
+	}
     
     /**
      * Description of the method addRoutine.
@@ -100,8 +129,7 @@ public class RoutineManager {
      * Description of the method start.
      */
     public void start() {
-    	// Start of user code for method start
-    	// End of user code
+    	
     }
      
     /**
@@ -216,22 +244,6 @@ public class RoutineManager {
         this.deltaAdvance = newDeltaAdvance;
     }
     
-    /**
-     * Returns model.
-     * @return model 
-     */
-    public Object getModel() {
-    	return this.model;
-    }
-    
-    /**
-     * Sets a value to attribute model. 
-     * @param newModel 
-     */
-    public void setModel(Object newModel) {
-        this.model = newModel;
-    }
-    
     @Override
     public String toString() {
     	String routines="";
@@ -240,6 +252,7 @@ public class RoutineManager {
     	}
     	return super.toString();
     }
+
     
     
 }

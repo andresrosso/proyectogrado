@@ -1,7 +1,10 @@
 package org.arosso.model;
+import java.io.IOException;
 import java.util.Vector;
 
 import org.arosso.sim.TrafficModel;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Description of BasicTrafficModel.
@@ -11,14 +14,26 @@ public class BasicTrafficModel implements TrafficModel {
      * Description of the property trafficDensity.
      */
     public Vector <Float> trafficDensity = null;
+    /**
+     * Building model
+     */
+    private BuildingModel buildingModel = null;
+    
+    /**
+     * Logger
+     */
+    Logger logger = LoggerFactory.getLogger(this.getClass());
     
     /**
      * The constructor.
+     * @throws Exception 
+     * @throws IOException 
      */
-    public BasicTrafficModel() {
+    public BasicTrafficModel() throws IOException, Exception {
     	// Start of user code constructor
     	super();
-    	// End of user code
+    	buildingModel = BuildingModel.getInstance();
+    	logger.info(this.getClass()+" loaded!");
     }
     
     /**
@@ -26,20 +41,8 @@ public class BasicTrafficModel implements TrafficModel {
      * @see .TrafficModel
      *
      */
-    public void getTrafficMode() {
-    	// Start of user code for method getTrafficMode
-    	// End of user code
-    }
-    
-    /**
-     * {@inheritDoc}
-     * @see .TrafficModel
-     *
-     * @param time
-     */
-    public void getEstimatedPassengerNumber(Long time) {
-    	// Start of user code for method getEstimatedPassengerNumber
-    	// End of user code
+    public String getTrafficMode() {
+    	return "";
     }
     
     /**
@@ -48,9 +51,8 @@ public class BasicTrafficModel implements TrafficModel {
      *
      * @param time
      */
-    public void getEstimatedDestinationFloor(Long time) {
-    	// Start of user code for method getEstimatedDestinationFloor
-    	// End of user code
+    public int getEstimatedPassengerNumber(Long time) {
+    	return (int)(Math.random()*10);
     }
     
     /**
@@ -59,9 +61,9 @@ public class BasicTrafficModel implements TrafficModel {
      *
      * @param time
      */
-    public void getEstimatedOriginFloor(Long time) {
-    	// Start of user code for method getEstimatedOriginFloor
-    	// End of user code
+    public int getEstimatedDestinationFloor(Long time) {
+    	int destFloor = (int)(Math.random()*buildingModel.getNumFloors());
+    	return destFloor;
     }
     
     /**
@@ -70,9 +72,21 @@ public class BasicTrafficModel implements TrafficModel {
      *
      * @param time
      */
-    public void getEstimatedArrivalTime(Long time) {
-    	// Start of user code for method getEstimatedArrivalTime
-    	// End of user code
+    public int getEstimatedOriginFloor(Long time) {
+    	int oriFloor = (int)(Math.random()*buildingModel.getNumFloors());
+    	return oriFloor;
+    }
+    
+    /**
+     * {@inheritDoc}
+     * @see .TrafficModel
+     *
+     * @param time
+     */
+    public Long getEstimatedArrivalTime(Long time) {
+    	//The arrival period is 5 minutes
+    	Long arrivalTime = time + (int)(Math.random()*300);
+    	return arrivalTime;
     }
     
     // Start of user code (user defined methods)

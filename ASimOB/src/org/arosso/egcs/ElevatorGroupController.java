@@ -24,7 +24,7 @@ public interface ElevatorGroupController {
 	/**
 	 * Description of the method AssignCallToElevator.
 	 */
-	public void AssignCallToElevator();
+	public void assignCall();
 	
 	// Start of user code (user defined methods)
 	

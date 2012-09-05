@@ -12,7 +12,14 @@ package org.arosso.sim;
 /**
  * Description of SimulationModel.
  */
-public interface SimulationModel {
+public abstract class SimulationModel {
 	
+	public Long simulationClock=0L;
+	
+	public Float delayTime=0F;
+	
+	public Float deltaAdvaceTime=0F;
+	
+	public Long endSimulationTime=0L;
 	
 }

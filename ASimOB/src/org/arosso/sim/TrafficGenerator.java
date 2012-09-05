@@ -1,12 +1,11 @@
 package org.arosso.sim;
 
-import static org.arosso.util.Constants.BUILDING_PROPS_FILE_DEF;
+import static org.arosso.util.Constants.ASIMOB_PATH;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.Properties;
 
-import org.arosso.model.BasicTrafficModel;
+import org.arosso.util.PropertiesBroker;
+import org.arosso.util.PropertiesBroker.PROP_SET;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,56 +29,54 @@ public class TrafficGenerator extends SimulationRoutine {
      * @throws IOException
      * @throws Exception
      */
-    public TrafficGenerator() throws IOException, Exception {
-		this(BUILDING_PROPS_FILE_DEF);
+    public TrafficGenerator(String routineName) throws IOException, Exception {
+		this(routineName, ASIMOB_PATH);
 	}
     
     /**
      * The constructor.
      * @throws Exception 
      */
-    public TrafficGenerator(String buildingPropsFile) throws IOException, Exception {
+    public TrafficGenerator(String routineName, String buildingPropsFile) throws IOException, Exception {
     	super();
-    	InputStream is = this.getClass().getResourceAsStream(buildingPropsFile);
-    	Properties prop = new Properties();  
-        prop.load(is);  
-        String modelClass = prop.getProperty("trafficModel");
-        ClassLoader classLoader = this.getClass().getClassLoader();
-        classLoader.loadClass(modelClass);
-        is.close();
+    	// Read model properties
+    	PropertiesBroker propertiesBroker = PropertiesBroker.getInstance();
+        String modelClass = propertiesBroker.getProperty(PROP_SET.SIMULATION,"trafficModelImplementation");
+        Float trafficGenActivationTime = Float.valueOf(propertiesBroker.getProperty(PROP_SET.SIMULATION,"trafficGenActivationTime"));
         logger.info("BuildingModel made based on properties ("+buildingPropsFile+")");
+        ClassLoader classLoader = this.getClass().getClassLoader();
+        Class myObjectClass = classLoader.loadClass(modelClass);
+        trafficModel = (TrafficModel) myObjectClass.newInstance();
+    	logger.debug("TrafficGenerator created!");
+    	//Set variables
+    	this.setRoutineName(routineName);
+    	this.setActivationTime(trafficGenActivationTime);
+    }
+    
+    @Override
+    public void execute() {
+    	logger.info("Generating passangers");
     }
     
     /**
-     * Description of the method Operation1.
-     */
-    public void Operation1() {
-    	// Start of user code for method Operation1
-    	// End of user code
-    }
-     
-    /**
      * Description of the method calculateDestinationFloor.
      */
-    public void calculateDestinationFloor() {
-    	// Start of user code for method calculateDestinationFloor
-    	// End of user code
+    public void calculateDestinationFloor(long time) {
+    	trafficModel.getEstimatedDestinationFloor(time);
     }
      
     /**
      * Description of the method calculateOriginFloor.
      */
-    public void calculateOriginFloor() {
-    	// Start of user code for method calculateOriginFloor
-    	// End of user code
+    public void calculateOriginFloor(long time) {
+    	trafficModel.getEstimatedOriginFloor(time);
     }
      
     /**
      * Description of the method calculateArrivalTime.
      */
-    public void calculateArrivalTime() {
-    	// Start of user code for method calculateArrivalTime
-    	// End of user code
+    public void calculateArrivalTime(long time) {
+    	trafficModel.getEstimatedArrivalTime(time);
     }
     
     /**

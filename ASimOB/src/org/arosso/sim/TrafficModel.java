@@ -23,32 +23,29 @@ public interface TrafficModel {
 	 * Description of the method getEstimatedPassengerNumber.
 	 * @param time 
 	 */
-	public void getEstimatedPassengerNumber(Long time);
+	public int getEstimatedPassengerNumber(Long time);
 	
 	/**
 	 * Description of the method getEstimatedOriginFloor.
 	 * @param time 
 	 */
-	public void getEstimatedOriginFloor(Long time);
+	public int getEstimatedOriginFloor(Long time);
 	
 	/**
 	 * Description of the method getEstimatedDestinationFloor.
 	 * @param time 
 	 */
-	public void getEstimatedDestinationFloor(Long time);
+	public int getEstimatedDestinationFloor(Long time);
 	
 	/**
 	 * Description of the method getEstimatedArrivalTime.
 	 * @param time 
 	 */
-	public void getEstimatedArrivalTime(Long time);
+	public Long getEstimatedArrivalTime(Long time);
 	
 	/**
 	 * Description of the method getTrafficMode.
 	 */
-	public void getTrafficMode();
+	public String getTrafficMode();
 	
-	// Start of user code (user defined methods)
-	
-	// End of user code
 }

@@ -14,7 +14,7 @@ public class PropertiesBroker {
 	public enum PROP_SET{SIMULATION, TRAFFIC};
 	
 	/** Properties path*/
-	private static String PROP_PATH = BUILDING_PROPS_PATH;
+	private static String PROP_PATH = ASIMOB_PATH;
 	
 	/**
 	 * Singleton instance

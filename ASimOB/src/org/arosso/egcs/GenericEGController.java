@@ -13,7 +13,7 @@ public class GenericEGController {
     /**
      * Description of the property elevatorGroupController.
      */
-    public conventionalElevatorGroupController elevatorGroupController = null;
+    public ConventionalElevatorGroupController elevatorGroupController = null;
     
     // Start of user code (user defined attributes)
     
@@ -36,7 +36,7 @@ public class GenericEGController {
      * Returns elevatorGroupController.
      * @return elevatorGroupController 
      */
-    public conventionalElevatorGroupController getElevatorGroupController() {
+    public ConventionalElevatorGroupController getElevatorGroupController() {
     	return this.elevatorGroupController;
     }
     
@@ -44,7 +44,7 @@ public class GenericEGController {
      * Sets a value to attribute elevatorGroupController. 
      * @param newElevatorGroupController 
      */
-    public void setElevatorGroupController(conventionalElevatorGroupController newElevatorGroupController) {
+    public void setElevatorGroupController(ConventionalElevatorGroupController newElevatorGroupController) {
         this.elevatorGroupController = newElevatorGroupController;
     }
     
