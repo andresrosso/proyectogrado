@@ -6,9 +6,10 @@ package org.arosso.model;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Vector;
 
-import org.arosso.egcs.ElevatorGroupController;
+import org.arosso.routines.egcs.ElevatorGroupController;
 import org.arosso.sim.SimulationModel;
 import org.arosso.util.PropertiesBroker;
 import org.arosso.util.PropertiesBroker.PROP_SET;
@@ -27,57 +28,52 @@ public class BuildingModel extends SimulationModel {
     /**
      * Description of the property elevator.
      */
-    public Vector<Elevator> elevators;
+	private Vector<Elevator> elevators;
     
     /**
      * Description of the property floor.
      */
-    public Vector<Floor> floors;
+	private Vector<Floor> floors;
     
     /**
      * Description of the property passenger.
      */
-    public Vector<Passenger> passenger = new Vector<Passenger>();
+	private ArrayList<Passenger> passenger = new ArrayList<Passenger>();
     
     /**
      * Description of the property elevatorGroupController.
      */
-    public ElevatorGroupController elevatorGroupController = null;
-    
-    /**
-     * Description of the property time.
-     */
-    public final Long time = null;
+	private ElevatorGroupController elevatorGroupController = null;
     
     /**
      * Description of the property numFloors.
      */
-    public Integer numFloors = null;
+	private Integer numFloors = null;
     
     /**
      * Description of the property floorGapDistance.
      */
-    public Float floorGapDistance = null;
+	private Float floorGapDistance = null;
     
     /**
      * Description of the property numElevators.
      */
-    public Integer numElevators = null;
+	private Integer numElevators = null;
     
     /**
      * users
      */
-    public Vector<Passenger> users = new Vector<Passenger>();
+	private Vector<Passenger> users = new Vector<Passenger>();
     
     /**
      * Description of the property futureArrivals.
      */
-    public Vector<Passenger> futureArrivals;
+	private Vector<Passenger> futureArrivals;
     
     /**
      * Logger
      */
-    Logger logger = LoggerFactory.getLogger(this.getClass());
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
     
     public enum SIM_STATE {STARTED, PAUSED, STOPPED};
     
@@ -95,8 +91,9 @@ public class BuildingModel extends SimulationModel {
 		numElevators = Integer.valueOf(propertiesBroker.getProperty(PROP_SET.SIMULATION,"numElevators"));
 		numFloors = Integer.valueOf(propertiesBroker.getProperty(PROP_SET.SIMULATION,"numFloors"));
 		floorGapDistance = Float.valueOf(propertiesBroker.getProperty(PROP_SET.SIMULATION,"floorGapDistance"));
-		endSimulationTime = Long.valueOf(propertiesBroker.getProperty(PROP_SET.SIMULATION,"endSimulationTime"));
-		deltaAdvaceTime = Float.valueOf(propertiesBroker.getProperty(PROP_SET.SIMULATION,"deltaAdvaceTime"));
+		setEndSimulationTime(Long.valueOf(propertiesBroker.getProperty(PROP_SET.SIMULATION,"endSimulationTime")) );
+		setDeltaAdvaceTime(Float.valueOf(propertiesBroker.getProperty(PROP_SET.SIMULATION,"deltaAdvaceTime")) );
+		setDelayTime( Integer.valueOf(propertiesBroker.getProperty(PROP_SET.SIMULATION,"delayTime")) );
 		// Read elevator properties
 		this.readElevatorProps(propertiesBroker);
 		// Read floor properties
@@ -190,7 +187,7 @@ public class BuildingModel extends SimulationModel {
      * Returns passenger.
      * @return passenger 
      */
-    public Vector<Passenger> getpassenger() {
+    public ArrayList<Passenger> getPassenger() {
     	return this.passenger;
     }
     
@@ -198,7 +195,7 @@ public class BuildingModel extends SimulationModel {
      * Sets a value to attribute passenger. 
      * @param newpassenger 
      */
-    public void setpassenger(Vector<Passenger> newpassenger) {
+    public void setpassenger(ArrayList<Passenger> newpassenger) {
         this.passenger = newpassenger;
     }
     
@@ -217,15 +214,7 @@ public class BuildingModel extends SimulationModel {
     public void setElevatorGroupController(ElevatorGroupController newElevatorGroupController) {
         this.elevatorGroupController = newElevatorGroupController;
     }
-    
-    /**
-     * Returns time.
-     * @return time 
-     */
-    public Long getTime() {
-    	return this.time;
-    }
-    
+
     /**
      * Returns numFloors.
      * @return numFloors 
@@ -308,7 +297,7 @@ public class BuildingModel extends SimulationModel {
     
     @Override
     public String toString() {
-    	String model = "SimTime ("+time+") Floors: "+this.numFloors+"\n";
+    	String model = "SimTime ("+getSimulationClock()+") Floors: "+this.numFloors+"\n";
     	model += "Elevators: "+this.numElevators+"\n";
     	model += "Floor Gap Distance: "+this.floorGapDistance+"\n";
     	return model;

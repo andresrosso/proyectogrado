@@ -1,9 +1,13 @@
-package org.arosso.sim;
+package org.arosso.routines;
 
 import static org.arosso.util.Constants.ASIMOB_PATH;
 
 import java.io.IOException;
 
+import org.arosso.model.BuildingModel;
+import org.arosso.model.Passenger;
+import org.arosso.sim.SimulationRoutine;
+import org.arosso.sim.TrafficModel;
 import org.arosso.util.PropertiesBroker;
 import org.arosso.util.PropertiesBroker.PROP_SET;
 import org.slf4j.Logger;
@@ -16,8 +20,12 @@ public class TrafficGenerator extends SimulationRoutine {
     /**
      * Description of the property basicTrafficModel.
      */
-    public TrafficModel trafficModel = null;
+    private TrafficModel trafficModel = null;
     
+    /**
+     * 
+     */
+    private BuildingModel buildingModel;
     
     /**
      * Logger
@@ -51,32 +59,22 @@ public class TrafficGenerator extends SimulationRoutine {
     	//Set variables
     	this.setRoutineName(routineName);
     	this.setActivationTime(trafficGenActivationTime);
+    	//Get building model
+    	buildingModel = BuildingModel.getInstance();
     }
     
     @Override
     public void execute() {
     	logger.info("Generating passangers");
-    }
-    
-    /**
-     * Description of the method calculateDestinationFloor.
-     */
-    public void calculateDestinationFloor(long time) {
-    	trafficModel.getEstimatedDestinationFloor(time);
-    }
-     
-    /**
-     * Description of the method calculateOriginFloor.
-     */
-    public void calculateOriginFloor(long time) {
-    	trafficModel.getEstimatedOriginFloor(time);
-    }
-     
-    /**
-     * Description of the method calculateArrivalTime.
-     */
-    public void calculateArrivalTime(long time) {
-    	trafficModel.getEstimatedArrivalTime(time);
+    	int pass2gen = this.trafficModel.getEstimatedPassengerNumber(buildingModel.getSimulationClock());
+    	for(int j=0;j<=pass2gen; j++){
+    		Passenger passenger = new Passenger();
+    		passenger.setArrivalTime( this.trafficModel.getEstimatedArrivalTime(buildingModel.getSimulationClock()) );
+    		passenger.setOriginFloor( this.trafficModel.getEstimatedOriginFloor(buildingModel.getSimulationClock()) );
+    		passenger.setDestinationFloor( this.trafficModel.getEstimatedDestinationFloor(buildingModel.getSimulationClock()) );
+    		buildingModel.getPassenger().add(passenger);
+    		logger.info("Passenger generated "+passenger);
+    	}
     }
     
     /**

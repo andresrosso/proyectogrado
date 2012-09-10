@@ -4,6 +4,7 @@ import java.io.IOException;
 import org.arosso.gui.GraphicManager;
 import org.arosso.gui.GuiController;
 import org.arosso.model.BuildingModel;
+import org.arosso.model.BuildingModel.SIM_STATE;
 import org.arosso.stats.JasperReportManager;
 import org.arosso.stats.StatisticsManager;
 import org.slf4j.Logger;
@@ -87,8 +88,6 @@ public class BuildingSimulator {
     public void init() throws IOException, Exception{
     	building = BuildingModel.getInstance();
     	routineManager = new RoutineManager();
-    	// Init time counter
-    	simTime = 0d;
     	logger.info("BuildingSimulator initiated!");
     }
      
@@ -97,6 +96,8 @@ public class BuildingSimulator {
      */
     public void startSimulation() {
     	logger.info("BuildingSimulator started!");
+    	building.simState = SIM_STATE.STARTED;
+    	routineManager.start();
     }
      
     /**

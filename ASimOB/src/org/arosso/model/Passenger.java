@@ -16,17 +16,17 @@ public class Passenger {
     /**
      * Description of the property arrivalTime.
      */
-    public Float arrivalTime = 0.0f;
+    public Double arrivalTime = 0.0D;
     
     /**
      * Description of the property pushedTime.
      */
-    public Float pushedTime = 0.0f;
+    public Double pushedTime = 0.0D;
     
     /**
      * Description of the property pulledTime.
      */
-    public Float pulledTime = 0.0f;
+    public Double pulledTime = 0.0D;
     
     /**
      * Description of the property originFloor.
@@ -60,9 +60,9 @@ public class Passenger {
      * Description of the method getTravelTime.
      * @return 
      */
-    public Float getTravelTime() {
+    public Double getTravelTime() {
     	// Start of user code for method getTravelTime
-    	Float getTravelTime = 0.0f;
+    	Double getTravelTime = 0.0D;
     	return getTravelTime;
     	// End of user code
     }
@@ -71,7 +71,7 @@ public class Passenger {
      * Returns arrivalTime.
      * @return arrivalTime 
      */
-    public Float getArrivalTime() {
+    public Double getArrivalTime() {
     	return this.arrivalTime;
     }
     
@@ -79,7 +79,7 @@ public class Passenger {
      * Sets a value to attribute arrivalTime. 
      * @param newArrivalTime 
      */
-    public void setArrivalTime(Float newArrivalTime) {
+    public void setArrivalTime(Double newArrivalTime) {
         this.arrivalTime = newArrivalTime;
     }
     
@@ -87,7 +87,7 @@ public class Passenger {
      * Returns pushedTime.
      * @return pushedTime 
      */
-    public Float getPushedTime() {
+    public Double getPushedTime() {
     	return this.pushedTime;
     }
     
@@ -95,7 +95,7 @@ public class Passenger {
      * Sets a value to attribute pushedTime. 
      * @param newPushedTime 
      */
-    public void setPushedTime(Float newPushedTime) {
+    public void setPushedTime(Double newPushedTime) {
         this.pushedTime = newPushedTime;
     }
     
@@ -103,7 +103,7 @@ public class Passenger {
      * Returns pulledTime.
      * @return pulledTime 
      */
-    public Float getPulledTime() {
+    public Double getPulledTime() {
     	return this.pulledTime;
     }
     
@@ -111,7 +111,7 @@ public class Passenger {
      * Sets a value to attribute pulledTime. 
      * @param newPulledTime 
      */
-    public void setPulledTime(Float newPulledTime) {
+    public void setPulledTime(Double newPulledTime) {
         this.pulledTime = newPulledTime;
     }
     
@@ -163,5 +163,9 @@ public class Passenger {
         this.assignedElevator = newAssignedElevator;
     }
     
+    @Override
+    public String toString() {
+    	return "Po("+this.originFloor+") Pd("+this.destinationFloor+") "+" At("+this.arrivalTime+")";
+    }
     
 }

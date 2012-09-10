@@ -51,7 +51,7 @@ public class BasicTrafficModel implements TrafficModel {
      *
      * @param time
      */
-    public int getEstimatedPassengerNumber(Long time) {
+    public int getEstimatedPassengerNumber(Double time) {
     	return (int)(Math.random()*10);
     }
     
@@ -61,7 +61,7 @@ public class BasicTrafficModel implements TrafficModel {
      *
      * @param time
      */
-    public int getEstimatedDestinationFloor(Long time) {
+    public int getEstimatedDestinationFloor(Double time) {
     	int destFloor = (int)(Math.random()*buildingModel.getNumFloors());
     	return destFloor;
     }
@@ -72,7 +72,7 @@ public class BasicTrafficModel implements TrafficModel {
      *
      * @param time
      */
-    public int getEstimatedOriginFloor(Long time) {
+    public int getEstimatedOriginFloor(Double time) {
     	int oriFloor = (int)(Math.random()*buildingModel.getNumFloors());
     	return oriFloor;
     }
@@ -83,15 +83,12 @@ public class BasicTrafficModel implements TrafficModel {
      *
      * @param time
      */
-    public Long getEstimatedArrivalTime(Long time) {
+    public Double getEstimatedArrivalTime(Double time) {
     	//The arrival period is 5 minutes
-    	Long arrivalTime = time + (int)(Math.random()*300);
+    	Double arrivalTime = time + (int)(Math.random()*300);
     	return arrivalTime;
     }
     
-    // Start of user code (user defined methods)
-    
-    // End of user code
     
     /**
      * Returns trafficDensity.

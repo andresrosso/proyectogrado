@@ -1,6 +1,9 @@
-package org.arosso.egcs;
+package org.arosso.routines.egcs;
+import java.io.IOException;
 import java.util.Properties;
 
+import org.arosso.model.BuildingModel;
+import org.arosso.model.Passenger;
 import org.arosso.sim.RoutineManager;
 import org.arosso.sim.SimulationRoutine;
 import org.arosso.sim.TrafficModel;
@@ -29,16 +32,21 @@ public class ConventionalElevatorGroupController implements ElevatorGroupControl
      */
     Logger logger = LoggerFactory.getLogger(this.getClass());
     
+    BuildingModel buildingModel;
+    
     
     /**
      * The constructor.
+     * @throws Exception 
+     * @throws IOException 
      */
-    public ConventionalElevatorGroupController() {
+    public ConventionalElevatorGroupController() throws Exception {
     	super();
     	logger.debug("ConventionalElevatorGroupController created!");
+    	buildingModel = BuildingModel.getInstance();
     }
     
-    public void assignCalls() {
+    public void assignCalls(Passenger passenger) {
 	    logger.info("Assinging calls of the building");	
     }
     
@@ -55,14 +63,11 @@ public class ConventionalElevatorGroupController implements ElevatorGroupControl
      * @see .ElevatorGroupController
      *
      */
-    public void assignCall() {
-    	// Start of user code for method AssignCallToElevator
-    	// End of user code
+    public void assignCall(Passenger passenger) {
+	    logger.debug("Assinging calls of the building");	
+	    
     }
     
-    // Start of user code (user defined methods)
-    
-    // End of user code
     
     /**
      * Returns rutineManager.

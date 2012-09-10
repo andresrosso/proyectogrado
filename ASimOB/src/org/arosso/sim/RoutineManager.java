@@ -1,56 +1,55 @@
 package org.arosso.sim;
+import static org.arosso.util.Constants.ROUTINE_DEFAULT_ACTIVATION_TIME;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
 import org.arosso.model.BuildingModel;
 import org.arosso.model.BuildingModel.SIM_STATE;
+import org.arosso.routines.ArrivalChecker;
+import org.arosso.routines.ElevatorController;
+import org.arosso.routines.TrafficGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import static org.arosso.util.Constants.*;
 
 /**
  * Description of RoutineManager.
  */
-public class RoutineManager implements Runnable {
+public class RoutineManager extends Thread {
     
     /**
      * Description of the property rutineManager.
      */
-    public RoutineManager rutineManager = null;
+    private RoutineManager rutineManager = null;
     
     /**
      * Description of the property registeredRoutines.
      */
-    public ArrayList<SimulationRoutine> registeredRoutines = null;
-    
-    /**
-     * Description of the property simTime.
-     */
-    public Object simTime = null;
+    private ArrayList<SimulationRoutine> registeredRoutines = null;
     
     /**
      * Description of the property deltaAdvance.
      */
-    public Object deltaAdvance = null;
+    private Object deltaAdvance = null;
     
     /**
      * Description of the property model.
      */
-    public BuildingModel buildingModel;
+    private BuildingModel buildingModel;
     
     //ROUTINES TO LOAD
     
     /** Checks if there are arrivals and enqeue the arrivals*/
-    public ArrivalChecker arrivalChecker;
+    private ArrivalChecker arrivalChecker;
     /** Controls de dynamics of the elevator car*/
-    public ElevatorController elevatorController;
+    private ElevatorController elevatorController;
     /** Generate users to the building*/
-    public TrafficGenerator trafficGenerator;
+    private TrafficGenerator trafficGenerator;
     
     /**
      * Logger
      */
-    Logger logger = LoggerFactory.getLogger(this.getClass());
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
     
     
     /**
@@ -74,16 +73,27 @@ public class RoutineManager implements Runnable {
     	arrivalChecker=new ArrivalChecker("ArrivalChecker",ROUTINE_DEFAULT_ACTIVATION_TIME);
     	elevatorController=new ElevatorController("ArrivalChecker",ROUTINE_DEFAULT_ACTIVATION_TIME);
     	trafficGenerator=new TrafficGenerator("ArrivalChecker");
+    	registeredRoutines = new ArrayList<SimulationRoutine>();
+    	registeredRoutines.add(arrivalChecker);
+    	registeredRoutines.add(elevatorController);
+    	registeredRoutines.add(trafficGenerator);
     }
 
 	@Override
 	public void run() {
-		while(buildingModel.simulationClock<=buildingModel.endSimulationTime && 
+		while(buildingModel.getSimulationClock()<=buildingModel.getEndSimulationTime() && 
 				buildingModel.simState!=SIM_STATE.STOPPED){
+			buildingModel.setSimulationClock( buildingModel.getSimulationClock() + buildingModel.getDeltaAdvaceTime() );
 			for(SimulationRoutine routine : registeredRoutines){
-				  if(buildingModel.simulationClock % routine.activationTime == 0){
-					  logger.debug("Executing routine ("+routine.getRoutineName()+") at time:"+buildingModel.simulationClock);
+				  if(buildingModel.getSimulationClock() % routine.activationTime == 0){
+					  logger.debug("Executing routine ("+routine.getRoutineName()+") at time:"+buildingModel.getSimulationClock());
 					  routine.execute();
+				  }
+				  try {
+					  Thread.sleep(buildingModel.getDelayTime());
+				  } catch (InterruptedException e) {
+						logger.error("Error dalaying executed routines",e);
+						e.printStackTrace();
 				  }
 			}
 		}
@@ -124,29 +134,7 @@ public class RoutineManager implements Runnable {
     	// Start of user code for method advanceSimulationClock
     	// End of user code
     }
-     
-    /**
-     * Description of the method start.
-     */
-    public void start() {
-    	
-    }
-     
-    /**
-     * Description of the method pause.
-     */
-    public void pause() {
-    	// Start of user code for method pause
-    	// End of user code
-    }
-     
-    /**
-     * Description of the method stop.
-     */
-    public void stop() {
-    	// Start of user code for method stop
-    	// End of user code
-    }
+    
      
     /**
      * Description of the method RoutineManger.
@@ -210,22 +198,6 @@ public class RoutineManager implements Runnable {
      */
     public void setRegisteredRoutines(ArrayList<SimulationRoutine>  newRegisteredRoutines) {
         this.registeredRoutines = newRegisteredRoutines;
-    }
-    
-    /**
-     * Returns simTime.
-     * @return simTime 
-     */
-    public Object getSimTime() {
-    	return this.simTime;
-    }
-    
-    /**
-     * Sets a value to attribute simTime. 
-     * @param newSimTime 
-     */
-    public void setSimTime(Object newSimTime) {
-        this.simTime = newSimTime;
     }
     
     /**

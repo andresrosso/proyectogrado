@@ -1,6 +1,9 @@
-package org.arosso.sim;
+package org.arosso.routines;
 
-import org.arosso.egcs.ElevatorGroupController;
+import org.arosso.model.BuildingModel;
+import org.arosso.model.Passenger;
+import org.arosso.routines.egcs.ElevatorGroupController;
+import org.arosso.sim.SimulationRoutine;
 import org.arosso.util.PropertiesBroker;
 import org.arosso.util.PropertiesBroker.PROP_SET;
 import org.slf4j.Logger;
@@ -20,13 +23,14 @@ import org.slf4j.LoggerFactory;
  */
 public class ArrivalChecker extends SimulationRoutine {
     /**
-     * Description of the property Property1.
-     */
-    public final Object Property1 = null;
-    /**
      * Controller to assign calls to elevators
      */
     private ElevatorGroupController controller;
+    
+    /**
+     * 
+     */
+    private BuildingModel buildingModel;
 
     
     /**
@@ -46,13 +50,17 @@ public class ArrivalChecker extends SimulationRoutine {
         Class myObjectClass = classLoader.loadClass(egcsClass);
         logger.debug("ArrivalChecker using EGCS "+myObjectClass);
         controller = (ElevatorGroupController) myObjectClass.newInstance();
+        buildingModel = BuildingModel.getInstance();
     }
     
     @Override
     public void execute() {
     	logger.info("Checking for passangers arrivals");
-    	if(true){
-    		controller.assignCall();
+    	for(Passenger passenger: buildingModel.getPassenger()){
+    		if(buildingModel.getSimulationClock() == passenger.getArrivalTime()){
+    			logger.info("Assign passanger "+passenger);
+    			controller.assignCall(passenger);
+    		}
     	}
     }
     

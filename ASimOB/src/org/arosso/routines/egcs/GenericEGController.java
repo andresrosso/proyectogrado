@@ -1,4 +1,4 @@
-package org.arosso.egcs;
+package org.arosso.routines.egcs;
 
 /**
  * File generated from the model::GenericEGController uml Class

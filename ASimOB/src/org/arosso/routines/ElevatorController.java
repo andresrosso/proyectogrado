@@ -1,5 +1,6 @@
-package org.arosso.sim;
+package org.arosso.routines;
 import org.arosso.model.Elevator;
+import org.arosso.sim.SimulationRoutine;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

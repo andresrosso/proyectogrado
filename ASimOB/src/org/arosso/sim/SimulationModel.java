@@ -14,12 +14,44 @@ package org.arosso.sim;
  */
 public abstract class SimulationModel {
 	
-	public Long simulationClock=0L;
+	private Double simulationClock=0D;
 	
-	public Float delayTime=0F;
+	private Integer delayTime=0;
 	
-	public Float deltaAdvaceTime=0F;
+	private Float deltaAdvaceTime=0F;
 	
-	public Long endSimulationTime=0L;
+	private Long endSimulationTime=0L;
+
+	public Double getSimulationClock() {
+		return simulationClock;
+	}
+
+	public void setSimulationClock(Double simulationClock) {
+		this.simulationClock = simulationClock;
+	}
+
+	public Integer getDelayTime() {
+		return delayTime;
+	}
+
+	public void setDelayTime(Integer delayTime) {
+		this.delayTime = delayTime;
+	}
+
+	public Float getDeltaAdvaceTime() {
+		return deltaAdvaceTime;
+	}
+
+	public void setDeltaAdvaceTime(Float deltaAdvaceTime) {
+		this.deltaAdvaceTime = deltaAdvaceTime;
+	}
+
+	public Long getEndSimulationTime() {
+		return endSimulationTime;
+	}
+
+	public void setEndSimulationTime(Long endSimulationTime) {
+		this.endSimulationTime = endSimulationTime;
+	}
 	
 }
