@@ -9,5 +9,11 @@
 	<classpathentry kind="lib" path="ASimOB/lib/logback-classic-1.0.3.jar"/>
 	<classpathentry kind="lib" path="ASimOB/lib/logback-core-1.0.3.jar"/>
 	<classpathentry kind="lib" path="ASimOB/lib/slf4j-api-1.6.4.jar"/>
+	<classpathentry kind="lib" path="ASimOB/lib/pivot-charts-2.0.2.jar"/>
+	<classpathentry kind="lib" path="ASimOB/lib/pivot-core-2.0.2.jar"/>
+	<classpathentry kind="lib" path="ASimOB/lib/pivot-web-2.0.2.jar"/>
+	<classpathentry kind="lib" path="ASimOB/lib/pivot-web-server-2.0.2.jar"/>
+	<classpathentry kind="lib" path="ASimOB/lib/pivot-wtk-2.0.2.jar"/>
+	<classpathentry kind="lib" path="ASimOB/lib/pivot-wtk-terra-2.0.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
