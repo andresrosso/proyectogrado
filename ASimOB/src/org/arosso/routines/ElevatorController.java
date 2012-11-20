@@ -5,6 +5,7 @@ import javax.lang.model.element.ElementKind;
 
 import org.arosso.model.BuildingModel;
 import org.arosso.model.Elevator;
+import org.arosso.model.Passenger;
 import org.arosso.sim.SimulationRoutine;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -64,13 +65,14 @@ public class ElevatorController extends SimulationRoutine {
     			elevator.setPosition(calcNextMovement());
     			break;
 			case STOPPED:
-				elevator.setDirection(calcDirection());
 				break;
     		case OUT_OF_SERVICE:
     			break;
     		default:
     			break;
     	};
+    	//After all do calculate the elevator direccition
+    	elevator.setDirection(calcDirection());
     }
     
     /**
@@ -94,10 +96,20 @@ public class ElevatorController extends SimulationRoutine {
     	
     }
     
+    private pickUpPassengers(){
+    	//The simulation will only pickup passanger in the same elevator direction
+    	
+    }
     private Elevator.Direction calcDirection(){
     	Elevator.Direction dir = Elevator.Direction.NONE;
     	//Based on calls
+    	for(Passenger call : elevator.getCalls()){
+    		
+    	}
     	//Based on passengers
+    	for(Passenger passenger : elevator.getCalls()){
+    		
+    	}
     	return dir;
     }
     
