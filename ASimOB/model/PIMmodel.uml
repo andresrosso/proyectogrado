@@ -759,7 +759,7 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_O1-5MHlMEeGD85n1_uVhrQ" name="TrafficGenerator">
     <generalization xmi:id="_Oqoo8HoJEeGKI4lLiEg8ZQ" general="_xIc9cHoIEeGKI4lLiEg8ZQ"/>
-    <ownedAttribute xmi:id="_1-WAQHoGEeGKI4lLiEg8ZQ" name="basicTrafficModel" type="_8a7UEHoEEeGKI4lLiEg8ZQ" association="_1-WAQ3oGEeGKI4lLiEg8ZQ">
+    <ownedAttribute xmi:id="_1-WAQHoGEeGKI4lLiEg8ZQ" name="basicTrafficModel" type="_BBrcwHoFEeGKI4lLiEg8ZQ" association="_1-WAQ3oGEeGKI4lLiEg8ZQ">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1-WAQXoGEeGKI4lLiEg8ZQ" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1-WAQnoGEeGKI4lLiEg8ZQ" value="1"/>
     </ownedAttribute>
@@ -855,7 +855,7 @@
     <ownedAttribute xmi:id="_4D5g8HkpEeGD85n1_uVhrQ" name="deltaAdvance" isLeaf="true" type="_bl090HkpEeGD85n1_uVhrQ"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="_AHyBcJNNEeGXzIsEVnNqOw" name="SimulationModel"/>
-  <packagedElement xmi:type="uml:Usage" xmi:id="_kFXwgJNVEeGXzIsEVnNqOw" name="Usage1" supplier="_y8O_MHkLEeGD85n1_uVhrQ" client="_gP8CsHkMEeGD85n1_uVhrQ"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_kFXwgJNVEeGXzIsEVnNqOw" name="Usage1" supplier="_fVG-EHlMEeGD85n1_uVhrQ" client="_gP8CsHkMEeGD85n1_uVhrQ"/>
   <packagedElement xmi:type="uml:Association" xmi:id="_7hecU5NaEeGXzIsEVnNqOw" name="statisticsManager_buildingSimulator_1" memberEnd="_7hecVJNaEeGXzIsEVnNqOw _7hecUJNaEeGXzIsEVnNqOw">
     <ownedEnd xmi:id="_7hecVJNaEeGXzIsEVnNqOw" name="statisticsManager" type="_9CJvEHg2EeGg3MScEJDOrQ" association="_7hecU5NaEeGXzIsEVnNqOw">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7hecVZNaEeGXzIsEVnNqOw" value="1"/>

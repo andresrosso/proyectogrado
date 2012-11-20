@@ -51,7 +51,7 @@ public class GuiController {
     /**
      * Description of the method startSimulation.
      */
-    public void startSimulation() {
+    public void startSimulation(java.awt.event.ActionEvent evt) {
     	// Start of user code for method startSimulation
     	// End of user code
     }

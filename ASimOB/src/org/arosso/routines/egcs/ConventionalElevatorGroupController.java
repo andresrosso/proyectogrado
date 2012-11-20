@@ -22,10 +22,7 @@ import org.slf4j.LoggerFactory;
  * Description of conventionalElevatorGroupController.
  */
 public class ConventionalElevatorGroupController implements ElevatorGroupController {
-    /**
-     * Description of the property rutineManager.
-     */
-    public RoutineManager rutineManager = null;
+
     
     /**
      * Logger
@@ -45,45 +42,14 @@ public class ConventionalElevatorGroupController implements ElevatorGroupControl
     	logger.debug("ConventionalElevatorGroupController created!");
     	buildingModel = BuildingModel.getInstance();
     }
-    
-    public void assignCalls(Passenger passenger) {
-	    logger.info("Assinging calls of the building");	
-    }
-    
-    /**
-     * Description of the method assignCallToElevator.
-     */
-    public void assignCallToElevator() {
-    	// Start of user code for method assignCallToElevator
-    	// End of user code
-    }
-     
-    /**
-     * {@inheritDoc}
-     * @see .ElevatorGroupController
-     *
-     */
-    public void assignCall(Passenger passenger) {
+
+
+	@Override
+	public int assignCall(Passenger passenger) {
 	    logger.debug("Assinging calls of the building");	
-	    
-    }
-    
-    
-    /**
-     * Returns rutineManager.
-     * @return rutineManager
-     */
-    public RoutineManager getRutineManager() {
-    	return this.rutineManager;
-    }
-    
-    /**
-     * Sets a value to attribute rutineManager. 
-     * @param newRutineManager
-     */
-    public void setRutineManager(RoutineManager newRutineManager) {
-        this.rutineManager = newRutineManager;
-    }
+		return 0;
+	}
+     
     
     
 }

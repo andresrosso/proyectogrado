@@ -1,7 +1,6 @@
 package org.arosso.sim;
 import java.io.IOException;
 
-import org.arosso.gui.GraphicManager;
 import org.arosso.gui.GuiController;
 import org.arosso.model.BuildingModel;
 import org.arosso.model.BuildingModel.SIM_STATE;
@@ -31,11 +30,6 @@ public class BuildingSimulator {
     public RoutineManager routineManager = null;
     
     /**
-     * Description of the property graphicManager.
-     */
-    public GraphicManager graphicManager = null;
-    
-    /**
      * Description of the property statisticsManager.
      */
     public StatisticsManager statisticsManager = null;
@@ -53,7 +47,7 @@ public class BuildingSimulator {
     /**
      * Description of the property simTime.
      */
-    public Double simTime = null;
+    public Double simTime = 0D;
     
     /**
      * Logger
@@ -99,19 +93,30 @@ public class BuildingSimulator {
     	building.simState = SIM_STATE.STARTED;
     	routineManager.start();
     }
-     
+
     /**
      * Description of the method pauseSimulation.
      */
     public void pauseSimulation() {
     	logger.info("BuildingSimulator paused!");
+    	building.simState = SIM_STATE.PAUSED;
+    }
+
+    /**
+     * Description of the method pauseSimulation.
+     */
+    public void resumeSimulation() {
+    	logger.info("BuildingSimulator paused!");
+    	building.simState = SIM_STATE.STARTED;
     }
      
+    
     /**
      * Description of the method stopSimulation.
      */
     public void stopSimulation() {
     	logger.info("BuildingSimulator stopped!");
+    	building.simState = SIM_STATE.STOPPED;
     }
      
     /**
@@ -160,21 +165,6 @@ public class BuildingSimulator {
         this.routineManager = newRoutineManager;
     }
     
-    /**
-     * Returns graphicManager.
-     * @return graphicManager 
-     */
-    public GraphicManager getGraphicManager() {
-    	return this.graphicManager;
-    }
-    
-    /**
-     * Sets a value to attribute graphicManager. 
-     * @param newGraphicManager 
-     */
-    public void setGraphicManager(GraphicManager newGraphicManager) {
-        this.graphicManager = newGraphicManager;
-    }
     
     /**
      * Returns statisticsManager.
@@ -254,13 +244,12 @@ public class BuildingSimulator {
      */
     public static void main(String[] args){
     	BuildingSimulator simulator = new BuildingSimulator();
+    	
     	try {
-			simulator.init();
-			System.out.println(simulator);
-			simulator.startSimulation();
+			//simulator.init();
+			//System.out.println(simulator);
+			//simulator.startSimulation();
 			
-		} catch (IOException e) {
-			simulator.logger.error("Error",e);
 		} catch (Exception e) {
 			simulator.logger.error("Error",e);
 		}

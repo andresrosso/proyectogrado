@@ -1,0 +1,93 @@
+<navigation:TabPanes title="Tab Panes" maximized="true"
+    xmlns:bxml="http://pivot.apache.org/bxml"
+    xmlns:content="org.apache.pivot.wtk.content"
+    xmlns:navigation="org.apache.pivot.tutorials.navigation"
+    xmlns="org.apache.pivot.wtk">
+    <bxml:define>
+        <Prompt bxml:id="confirmCloseTabPrompt" title="Confirm Close Tab"
+            message="Really close this tab?"
+            options="['Cancel', 'OK']" selectedOptionIndex="1"/>
+    </bxml:define>
+ 
+    <TablePane styles="{padding:8, horizontalSpacing:6}">
+        <columns>
+            <TablePane.Column width="1*"/>
+            <TablePane.Column/>
+        </columns>
+ 
+        <TablePane.Row height="1*">
+            <Border styles="{padding:12}">
+                <BoxPane>
+                    <TabPane bxml:id="tabPane">
+                        <corner>
+                            <BoxPane bxml:id="cornerBoxPane" styles="{horizontalAlignment:'right'}">
+                                <TextInput textSize="10"/>
+                            </BoxPane>
+                        </corner>
+ 
+                        <BoxPane styles="{horizontalAlignment:'center', verticalAlignment:'center'}">
+                            <TabPane.tabData>
+                                <content:ButtonData icon="/org/apache/pivot/tutorials/bell.png"
+                                    text="Bell"/>
+                            </TabPane.tabData>
+                            <Border styles="{padding:2}">
+                                <Label text="240x180" preferredWidth="240" preferredHeight="180"
+                                    styles="{horizontalAlignment:'center', verticalAlignment:'center'}"/>
+                            </Border>
+                        </BoxPane>
+ 
+                        <BoxPane styles="{horizontalAlignment:'center', verticalAlignment:'center'}">
+                            <TabPane.tabData>
+                                <content:ButtonData icon="/org/apache/pivot/tutorials/clock.png"
+                                    text="Clock"/>
+                            </TabPane.tabData>
+                            <Border styles="{padding:2}">
+                                <Label text="320x240" preferredWidth="320" preferredHeight="240"
+                                    styles="{horizontalAlignment:'center', verticalAlignment:'center'}"/>
+                            </Border>
+                        </BoxPane>
+ 
+                        <BoxPane styles="{horizontalAlignment:'center', verticalAlignment:'center'}">
+                            <TabPane.tabData>
+                                <content:ButtonData icon="/org/apache/pivot/tutorials/house.png"
+                                    text="House"/>
+                            </TabPane.tabData>
+                            <Border styles="{padding:2}">
+                                <Label text="480x360" preferredWidth="480" preferredHeight="360"
+                                    styles="{horizontalAlignment:'center', verticalAlignment:'center'}"/>
+                            </Border>
+                        </BoxPane>
+ 
+                        <BoxPane enabled="false">
+                            <TabPane.tabData>
+                                <content:ButtonData icon="/org/apache/pivot/tutorials/star.png"
+                                    text="Star"/>
+                            </TabPane.tabData>
+ 
+                            <Border styles="{padding:2}">
+                                <Label text="480x360 (disabled)" preferredWidth="480" preferredHeight="360"
+                                    styles="{horizontalAlignment:'center', verticalAlignment:'center'}"/>
+                            </Border>
+                        </BoxPane>
+                    </TabPane>
+                </BoxPane>
+            </Border>
+ 
+            <Border styles="{padding:2}">
+                <BoxPane orientation="vertical" styles="{padding:4, spacing:6}">
+                    <Checkbox bxml:id="closeableCheckbox" buttonData="Closeable"/>
+                    <Checkbox bxml:id="collapsibleCheckbox" buttonData="Collapsible"/>
+ 
+                    <Label text="Tab orientation:"/>
+                    <bxml:define>
+                        <ButtonGroup bxml:id="tabOrientation"/>
+                    </bxml:define>
+                    <RadioButton bxml:id="horizontalRadioButton" buttonData="Horizontal" selected="true"
+                        buttonGroup="$tabOrientation"/>
+                    <RadioButton bxml:id="verticalRadioButton" buttonData="Vertical"
+                        buttonGroup="$tabOrientation"/>
+                </BoxPane>
+            </Border>
+        </TablePane.Row>
+    </TablePane>
+</navigation:TabPanes>

@@ -38,7 +38,7 @@ public class BuildingModel extends SimulationModel {
     /**
      * Description of the property passenger.
      */
-	private ArrayList<Passenger> passenger = new ArrayList<Passenger>();
+	private ArrayList<Passenger> calls = new ArrayList<Passenger>();
     
     /**
      * Description of the property elevatorGroupController.
@@ -123,11 +123,9 @@ public class BuildingModel extends SimulationModel {
         Float passangerTransferTime= Float.valueOf(prop.getProperty(PROP_SET.SIMULATION,"passangerTransferTime"));
         Integer restFloor=  Integer.valueOf(prop.getProperty(PROP_SET.SIMULATION,"numElevators"));
         elevators = new Vector<Elevator>(numElevators);
-        int counter = 1;
-        for(Elevator elevator : elevators){
-        	elevator = new Elevator(counter, capacity, aceleration, speed, jerk, doorCloseTime, doorOpenTime, passangerTransferTime, restFloor);
+        for(int j=0;j<numElevators;j++){
+        	Elevator elevator = new Elevator(j, capacity, aceleration, speed, jerk, doorCloseTime, doorOpenTime, passangerTransferTime, restFloor);
         	elevators.add(elevator);
-        	counter++;
         }
     }   
     
@@ -187,16 +185,16 @@ public class BuildingModel extends SimulationModel {
      * Returns passenger.
      * @return passenger 
      */
-    public ArrayList<Passenger> getPassenger() {
-    	return this.passenger;
+    public ArrayList<Passenger> getCalls() {
+    	return this.calls;
     }
     
     /**
      * Sets a value to attribute passenger. 
      * @param newpassenger 
      */
-    public void setpassenger(ArrayList<Passenger> newpassenger) {
-        this.passenger = newpassenger;
+    public void setCalls(ArrayList<Passenger> newCalls) {
+        this.calls = newCalls;
     }
     
     /**
@@ -235,7 +233,7 @@ public class BuildingModel extends SimulationModel {
      * Returns floorGapDistance.
      * @return floorGapDistance 
      */
-    public Object getFloorGapDistance() {
+    public Float getFloorGapDistance() {
     	return this.floorGapDistance;
     }
     
@@ -251,8 +249,8 @@ public class BuildingModel extends SimulationModel {
      * Returns numElevator.
      * @return numElevator 
      */
-    public Object getNumElevator() {
-    	return this.numElevators;
+    public int getNumElevators() {
+    	return numElevators;
     }
     
     /**
@@ -302,6 +300,14 @@ public class BuildingModel extends SimulationModel {
     	model += "Floor Gap Distance: "+this.floorGapDistance+"\n";
     	return model;
     }
+
+	public SIM_STATE getSimState() {
+		return simState;
+	}
+
+	public void setSimState(SIM_STATE simState) {
+		this.simState = simState;
+	}
     
     
 }

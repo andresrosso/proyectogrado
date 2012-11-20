@@ -16,19 +16,18 @@ import java.util.Vector;
 public class Elevator {
 	
 
-    public enum Direction{
-    	UP, DOWN;
+	public enum Direction{
+    	UP, DOWN, NONE;
+    }
+	
+	public enum State{
+    	MOVING, STOPPED, IN_FLOOR, OUT_OF_SERVICE;
     }
 	
     /**
      * Description of the property elevatorId.
      */
     public Integer elevatorId = 0;
-    
-    /**
-     * Description of the property isInService.
-     */
-    public Integer isInService = 0;
     
     /**
      * Description of the property capacity.
@@ -71,36 +70,34 @@ public class Elevator {
      * Description of the property restFloor.
      */
     public Integer restFloor = 0;
-    
+
     /**
-     * Description of the property isResting.
-     */
-    public Boolean isResting = true;
-    
-    /**
-     * Description of the property passengers.
+     * Array of people inside the elevator -passenger-.
      */
     public Vector<Passenger> passengers = new Vector<Passenger>();
-    
-    public Direction direction = Direction.UP;
+    /**
+     *  Array of people waiting in the floor the elevator -call-.
+     */
+    public Vector<Passenger> calls = new Vector<Passenger>();
+
+	/**
+	 * Direccion of elevator
+	 */
+    public Direction direction = Direction.NONE;
+	/**
+	 * State of elevator
+	 */
+    public State state = State.STOPPED;
     
     /**
      * Description of the property position.
      */
     public Float position = 0.0f;
     
-    public Direction dir;
-    
-    
-    /**
-     * The constructor.
-     */
-    public Elevator() {
-    	// Start of user code constructor
-    	super();
-    	// End of user code
-    }
-    
+	/**
+	 * Ammount of time that the elevator has been stopped
+	 */
+	public Float stoppedTime = 0f;
     
     
     public Elevator(Integer elevatorId, Integer capacity, Float aceleration,
@@ -116,6 +113,8 @@ public class Elevator {
 		this.doorOpenTime = doorOpenTime;
 		this.passangerTransferTime = passangerTransferTime;
 		this.restFloor = restFloor;
+		this.position = restFloor.floatValue();
+		this.state = State.STOPPED;
 	}
 
 
@@ -159,22 +158,6 @@ public class Elevator {
      */
     public void setElevatorId(Integer newElevatorId) {
         this.elevatorId = newElevatorId;
-    }
-    
-    /**
-     * Returns isInService.
-     * @return isInService 
-     */
-    public Integer getIsInService() {
-    	return this.isInService;
-    }
-    
-    /**
-     * Sets a value to attribute isInService. 
-     * @param newIsInService 
-     */
-    public void setIsInService(Integer newIsInService) {
-        this.isInService = newIsInService;
     }
     
     /**
@@ -322,22 +305,6 @@ public class Elevator {
     }
     
     /**
-     * Returns isResting.
-     * @return isResting 
-     */
-    public Boolean getIsResting() {
-    	return this.isResting;
-    }
-    
-    /**
-     * Sets a value to attribute isResting. 
-     * @param newIsResting 
-     */
-    public void setIsResting(Boolean newIsResting) {
-        this.isResting = newIsResting;
-    }
-    
-    /**
      * Returns passengers.
      * @return passengers 
      */
@@ -368,6 +335,37 @@ public class Elevator {
     public void setPosition(Float newPosition) {
         this.position = newPosition;
     }
-    
+
+
+
+	public State getState() {
+		return state;
+	}
+
+
+
+	public void setState(State state) {
+		this.state = state;
+	}
+
+
+
+	public Vector<Passenger> getCalls() {
+		return calls;
+	}
+
+
+
+	public void setCalls(Vector<Passenger> calls) {
+		this.calls = calls;
+	}
+
+	public void addCall(Passenger call){
+		this.calls.add(call);
+	}
+	
+	public void addPassenger(Passenger passenger){
+		this.passengers.add(passenger);
+	}
     
 }

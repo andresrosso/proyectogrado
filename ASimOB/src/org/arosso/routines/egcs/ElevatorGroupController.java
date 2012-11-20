@@ -16,20 +16,12 @@ import org.arosso.model.Passenger;
  * Description of ElevatorGroupController.
  */
 public interface ElevatorGroupController {
-	/**
-	 * Description of the property .
-	 */
-	
-	// Start of user code (user defined attributes)
-	
-	// End of user code
 	
 	/**
-	 * Description of the method AssignCallToElevator.
+	 * 
+	 * @param passenger Passanger information
+	 * @return elevator that won the call
 	 */
-	public void assignCall(Passenger passenger);
-	
-	// Start of user code (user defined methods)
-	
-	// End of user code
+	public int assignCall(Passenger passenger);
+
 }
