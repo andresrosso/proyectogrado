@@ -1,0 +1,59 @@
+<Window title="Hello BXML!" maximized="true"
+    xmlns:bxml="http://pivot.apache.org/bxml"
+    xmlns="org.apache.pivot.wtk">
+    <Label text="Hello BXML!"
+        styles="{font:'Arial bold 24', color:'#ff0000',
+            horizontalAlignment:'center', verticalAlignment:'center'}"/>
+            
+    <BoxPane orientation="vertical">
+        <PushButton buttonData="Show Alert">
+            <buttonPressListeners>
+                importPackage(org.apache.pivot.wtk);
+                function buttonPressed(button) {
+                    Alert.alert("This is an Alert.", frame);
+                }
+            </buttonPressListeners>
+        </PushButton>
+ 
+        <PushButton buttonData="Show Prompt">
+            <buttonPressListeners>
+                importPackage(org.apache.pivot.wtk);
+                function buttonPressed(button) {
+                    Prompt.prompt("This is a Prompt.", frame);
+                }
+            </buttonPressListeners>
+        </PushButton>
+ 
+        <PushButton buttonData="Show Dialog">
+            <buttonPressListeners>
+                importPackage(org.apache.pivot.wtk);
+                function buttonPressed(button) {
+                    dialog.open(frame, null);
+                }
+            </buttonPressListeners>
+        </PushButton>
+ 
+        <PushButton buttonData="Show Sheet">
+            <buttonPressListeners>
+                importPackage(org.apache.pivot.wtk);
+                function buttonPressed(button) {
+                    sheet.open(frame, null);
+                }
+            </buttonPressListeners>
+        </PushButton>
+ 
+        <PushButton buttonData="Show Palette">
+            <buttonPressListeners>
+                importPackage(org.apache.pivot.wtk);
+                function buttonPressed(button) {
+                    if (palette == null) {
+                        palette = application.load("palette.bxml");
+                        palette.setLocation(frame.getX() + frame.getWidth() + 20, frame.getY() + 20);
+                    }
+ 
+                    palette.open(frame);
+                }
+            </buttonPressListeners>
+        </PushButton>
+    </BoxPane>
+</Window>

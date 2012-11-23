@@ -5,5 +5,11 @@
 	<classpathentry kind="lib" path="lib/logback-classic-1.0.3.jar"/>
 	<classpathentry kind="lib" path="lib/logback-core-1.0.3.jar"/>
 	<classpathentry kind="lib" path="lib/slf4j-api-1.6.4.jar"/>
+	<classpathentry kind="lib" path="lib/pivot-charts-2.0.2.jar"/>
+	<classpathentry kind="lib" path="lib/pivot-core-2.0.2.jar"/>
+	<classpathentry kind="lib" path="lib/pivot-web-2.0.2.jar"/>
+	<classpathentry kind="lib" path="lib/pivot-web-server-2.0.2.jar"/>
+	<classpathentry kind="lib" path="lib/pivot-wtk-2.0.2.jar"/>
+	<classpathentry kind="lib" path="lib/pivot-wtk-terra-2.0.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

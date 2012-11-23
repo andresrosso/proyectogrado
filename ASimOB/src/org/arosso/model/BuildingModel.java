@@ -17,7 +17,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Alejandra Bordamalo
+ * Andres Rosso
  */
 public class BuildingModel extends SimulationModel {
 	/** 
