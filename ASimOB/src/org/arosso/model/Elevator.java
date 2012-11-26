@@ -21,13 +21,13 @@ public class Elevator {
     }
 	
 	public enum State{
-    	MOVING, STOPPED, IN_FLOOR, OUT_OF_SERVICE;
+    	MOVING, OPEN_DOOR, CLOSE_DOOR, COMING_PASS, EXIT_PASS, OUT_OF_SERVICE, RESTING;
     }
 	
     /**
      * Description of the property elevatorId.
      */
-    public Integer elevatorId = 0;
+    public Integer id = 0;
     
     /**
      * Description of the property capacity.
@@ -87,7 +87,7 @@ public class Elevator {
 	/**
 	 * State of elevator
 	 */
-    public State state = State.STOPPED;
+    public State state = State.RESTING;
     
     /**
      * Description of the property position.
@@ -104,7 +104,7 @@ public class Elevator {
 			Float speed, Float jerk, Float doorCloseTime, Float doorOpenTime,
 			Float passangerTransferTime, Integer restFloor) {
 		super();
-		this.elevatorId = elevatorId;
+		this.id = elevatorId;
 		this.capacity = capacity;
 		this.aceleration = aceleration;
 		this.speed = speed;
@@ -114,7 +114,7 @@ public class Elevator {
 		this.passangerTransferTime = passangerTransferTime;
 		this.restFloor = restFloor;
 		this.position = restFloor.floatValue();
-		this.state = State.STOPPED;
+		this.state = State.RESTING;
 	}
 
 
@@ -148,16 +148,16 @@ public class Elevator {
      * Returns elevatorId.
      * @return elevatorId 
      */
-    public Integer getElevatorId() {
-    	return this.elevatorId;
+    public Integer getId() {
+    	return this.id;
     }
     
     /**
      * Sets a value to attribute elevatorId. 
      * @param newElevatorId 
      */
-    public void setElevatorId(Integer newElevatorId) {
-        this.elevatorId = newElevatorId;
+    public void setId(Integer newElevatorId) {
+        this.id = newElevatorId;
     }
     
     /**

@@ -3,6 +3,7 @@ import java.io.IOException;
 
 import javax.lang.model.element.ElementKind;
 
+import org.arosso.exception.ElevatorIlegalState;
 import org.arosso.model.BuildingModel;
 import org.arosso.model.Elevator;
 import org.arosso.model.Passenger;
@@ -24,10 +25,16 @@ public class ElevatorController extends SimulationRoutine {
      * Building model referfence
      */
     BuildingModel buildingModel;
+    
     /**
      * 
      */
-    private Float targetStopTime = 0f;
+    private Float currentTaskTime = 0f;
+    
+    /**
+     * The ammount of time that the task takes
+     */
+    private Float taskTimeMAX = 0f;
     
     /**
      * Logger
@@ -55,10 +62,26 @@ public class ElevatorController extends SimulationRoutine {
     @Override
     public void execute() {
     	logger.info("Controlling the elevator car");
-    	//Update de elevator state at this simulation time
-    	updateElevatorState(buildingModel.getSimulationClock());
-    	//Elevator state
-    	switch(elevator.getState()){
+    	//Check if there is a task running
+    	if(taskTimeMAX==0){
+    		//There is a task running, so do it
+    		switch(elevator.getState()){
+			case MOVING:
+				doMoveElevator();
+				break;
+    		case RESTING:
+    			
+    			break;
+			case OUT_OF_SERVICE:
+				break;
+    		default:
+    			throw new ElevatorIlegalState("The elevaor ("+this.getElevator().getElevatorId()+
+    					") is supposed to be -MOVING, RESTING OR OUT OF SERVICE- but is "+this.getElevator().getState() );
+    			break;
+    		};
+    	}else{
+    		//There is a task running, so do it
+    		switch(elevator.getState()){
 			case IN_FLOOR:
 				break;
     		case MOVING:
@@ -71,15 +94,49 @@ public class ElevatorController extends SimulationRoutine {
     		default:
     			break;
     	};
+    	}
+    	
+    	//Update de elevator state at this simulation time
+    	updateElevatorState(buildingModel.getSimulationClock());
+    	//Elevator state
+    	
     	//After all do calculate the elevator direccition
     	elevator.setDirection(calcDirection());
     }
     
     /**
+     * Move the elevator to the next position
+     */
+	private void doMoveElevator(){
+		float position = calcNextMovement();
+		//Verify if the elevator is in floor
+		boolean hasDecimals = (((int)(round(position*100))) % 100) != 0;
+		if(hasDecimals){
+			logger.debug("Elevator "+this.elevator.getId()+" in floor");
+			//if there are passengers
+			if(this.elevator.getPassengers().size()>0){
+				
+			}else{
+				//if there are calls
+				if(this.elevator.getCalls().size()>0){
+					
+				}else{
+					//Go to next position
+					elevator.setPosition(position);
+				}
+				logger.debug("Mock call for Elevator "+this.elevator.getId()+" in floor");
+			}
+		}else{
+			//Go to next position
+			elevator.setPosition(position);
+		}
+	}
+	
+    /**
      * Returns elevator.
      * @return elevator 
      */
-    public Object getElevator() {
+    public Elevator getElevator() {
     	return this.elevator;
     }
     
@@ -137,6 +194,10 @@ public class ElevatorController extends SimulationRoutine {
     	//doorOpenTime
     	//passangerTransferTime
     	return 0;
+    }
+    
+    public boolean checkPassengerGetsGoalFloor(){
+    	
     }
     
 }
