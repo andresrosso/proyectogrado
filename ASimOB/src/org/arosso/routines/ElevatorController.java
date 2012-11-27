@@ -1,8 +1,9 @@
 package org.arosso.routines;
+import java.awt.List;
 import java.io.IOException;
+import java.util.ArrayList;
 
-import javax.lang.model.element.ElementKind;
-
+import org.arosso.exception.CallIllegalState;
 import org.arosso.exception.ElevatorIlegalState;
 import org.arosso.model.BuildingModel;
 import org.arosso.model.Elevator;
@@ -14,7 +15,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Description of ElevatorController.
  */
-public class ElevatorController extends SimulationRoutine {
+public class ElevatorController extends SimulationRoutine implements IElevatorController {
     
     /**
      * Description of the property elevator.
@@ -35,6 +36,11 @@ public class ElevatorController extends SimulationRoutine {
      * The ammount of time that the task takes
      */
     private Float taskTimeMAX = 0f;
+    
+    /**
+     * Passengers to exit from the elevator
+     */
+    ArrayList<Passenger> passToExit = new ArrayList<Passenger>();
     
     /**
      * Logger
@@ -75,7 +81,7 @@ public class ElevatorController extends SimulationRoutine {
 			case OUT_OF_SERVICE:
 				break;
     		default:
-    			throw new ElevatorIlegalState("The elevaor ("+this.getElevator().getElevatorId()+
+    			throw new ElevatorIlegalState("The elevator ("+this.getElevator().getId()+
     					") is supposed to be -MOVING, RESTING OR OUT OF SERVICE- but is "+this.getElevator().getState() );
     			break;
     		};
@@ -110,8 +116,9 @@ public class ElevatorController extends SimulationRoutine {
 	private void doMoveElevator(){
 		float position = calcNextMovement();
 		//Verify if the elevator is in floor
-		boolean hasDecimals = (((int)(round(position*100))) % 100) != 0;
-		if(hasDecimals){
+		boolean isInFloor = (position - ((int)position)) == 0;
+		//IS IN FLOOR
+		if(isInFloor){
 			logger.debug("Elevator "+this.elevator.getId()+" in floor");
 			//if there are passengers
 			if(this.elevator.getPassengers().size()>0){
@@ -199,5 +206,109 @@ public class ElevatorController extends SimulationRoutine {
     public boolean checkPassengerGetsGoalFloor(){
     	
     }
+
+	@Override
+	public void addCall(Passenger call) {
+		switch(call.getType()){
+		case CALL:
+			removeMockCalls();
+			elevator.addCall(call);
+			break;
+		case MOCK_CALL:
+			if(elevator.getCalls().size()>0 || elevator.getPassengers().size()>0){
+				logger.error("There are more calls, so something is wrong with that mock call");
+			}else{
+				logger.info("Going to rest the elevator "+elevator.getId());
+			}
+			break;
+		default:
+			new CallIllegalState("Its no supposed to happen, the call is not of type CALL or PASSENGER");
+		}
+	}
+
+	@Override
+	public void removeCall(Passenger call) {
+		// TODO Auto-generated method stub
+		this.elevator.getCalls().remove(call);
+		logger.debug("The call "+call+", was removed.");
+	}
+
+	@Override
+	public void addPassenger(Passenger passenger) {
+		removeMockCalls();
+		if(directionValidForPassenger(passenger)){
+			elevator.addPassenger(passenger);
+		}else{
+			logger.error("The passenger "+passenger+", could not be added.");
+		}
+	}
+
+	@Override
+	public void removePassenger(Passenger passenger) {
+		// TODO Auto-generated method stub
+		this.elevator.getPassengers().remove(passenger);
+		logger.debug("The passenger "+passenger+", was removed.");
+	}
+	
+	/**
+	 * Check if the direction of the call is valid
+	 * @param call
+	 * @return
+	 */
+	private boolean directionValidForPassenger(Passenger pass){
+		if( getPassDirection(pass)==elevator.getDirection() || 
+				(elevator.getDirection() == Elevator.Direction.NONE) ){
+			return true;
+		}else{
+			new CallIllegalState("The passenger is not going in same direction of elevator. "+pass);
+			return false;
+		}
+	}
+	
+	/**
+	 * Check if the direction of the call is valid
+	 * @param call
+	 * @return
+	 */
+	boolean directionValidForCall(Passenger call){
+		//TODO: CHEECK ENYTHING
+		return true;
+	}
+	
+	/**
+	 * Remove the mocks calls
+	 */
+	public void removeMockCalls(){
+		for(Passenger call : elevator.getCalls()){
+			if(call.getType()==Passenger.Type.MOCK_CALL){
+				elevator.getCalls().remove(call);
+			}
+		}
+	}
+	
+	public Elevator.Direction getPassDirection(Passenger pass){
+		if(pass.getOriginFloor()<pass.getDestinationFloor()){
+			return Elevator.Direction.UP;
+		}else if(pass.getOriginFloor()>pass.getDestinationFloor()){
+			return Elevator.Direction.DOWN;
+		}else{
+			new CallIllegalState("There is a call with no direction, it is so strange :S "+pass);
+			return Elevator.Direction.NONE;
+		}
+	}
+	
+	
+	public boolean makeListPassengersGetsDestFloor(int destFloor){
+		if(passToExit.size()>0){
+			new CallIllegalState("The list of exit passengers should be empty before that check , "+passToExit);
+			return false;
+		}
+		for(Passenger pass : elevator.getPassengers()){
+			if(pass.getDestinationFloor()==destFloor){
+				passToExit.add(pass);
+			}
+		}
+		return passToExit.size()>0;
+	}
     
 }

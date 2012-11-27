@@ -13,35 +13,45 @@ package org.arosso.model;
  * Description of Passenger.
  */
 public class Passenger {
+	
+	public enum Type {
+    	CALL, PASSENGER, MOCK_CALL;
+    }
+	
     /**
      * Description of the property arrivalTime.
      */
-    public Double arrivalTime = 0.0D;
+    private Double arrivalTime = 0.0D;
     
     /**
      * Description of the property pushedTime.
      */
-    public Double pushedTime = 0.0D;
+    private Double pushedTime = 0.0D;
     
     /**
      * Description of the property pulledTime.
      */
-    public Double pulledTime = 0.0D;
+    private Double pulledTime = 0.0D;
     
     /**
      * Description of the property originFloor.
      */
-    public Integer originFloor = 0;
+    private Integer originFloor = 0;
     
     /**
      * Description of the property destinationFloor.
      */
-    public Integer destinationFloor = 0;
+    private Integer destinationFloor = 0;
     
     /**
      * Description of the property assignedElevator.
      */
-    public Integer assignedElevator = 0;
+    private Integer assignedElevator = 0;
+    
+    /**
+     * Type of call, for default is CALL the will be PASSENGER
+     */
+    private Type type = Type.CALL;
     
     // Start of user code (user defined attributes)
     
@@ -167,5 +177,13 @@ public class Passenger {
     public String toString() {
     	return "Po("+this.originFloor+") Pd("+this.destinationFloor+") "+" At("+this.arrivalTime+")";
     }
+
+	public Type getType() {
+		return type;
+	}
+
+	public void setType(Type type) {
+		this.type = type;
+	}
     
 }

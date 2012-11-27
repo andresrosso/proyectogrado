@@ -55,14 +55,14 @@ public class ArrivalChecker extends SimulationRoutine {
     
     @Override
     public void execute() {
-    	
     	//Look for a call that take place in this moment of simulation
     	for(Passenger call: buildingModel.getCalls()){
     		//If a new passager arrives to the system, this passager is assigned to an elevator
     		if(buildingModel.getSimulationClock() == call.getArrivalTime()){
     			logger.info("Assign call "+call);
     			int elevator = controller.assignCall(call);
-    			buildingModel.getElevators().get(elevator).addCall(call);
+    			//buildingModel.getElevators().get(elevator).addCall(call);
+    			asd
     			logger.info("Checking for passangers arrivals> call assigned to elev("+elevator+"), call detail ["+call+"]");
     		}
     	}
