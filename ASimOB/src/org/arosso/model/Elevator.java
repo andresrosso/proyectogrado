@@ -6,6 +6,8 @@ package org.arosso.model;
  */
 
 import java.util.Vector;
+
+import org.arosso.model.Passenger.Type;
 // Start of user code (user defined imports)	
 
 // End of user code
@@ -93,6 +95,11 @@ public class Elevator {
 	 * Description of the property position.
 	 */
 	private Float position = 0.0f;
+	
+	/**
+	 * Target floor.
+	 */
+	private int targetFloor = 0;
 
 
 	public Elevator(Integer elevatorId, Integer capacity, Float aceleration,
@@ -108,6 +115,7 @@ public class Elevator {
 		this.doorOpenTime = doorOpenTime;
 		this.passangerTransferTime = passangerTransferTime;
 		this.restFloor = restFloor;
+		this.targetFloor = restFloor;
 		this.position = restFloor.floatValue();
 		this.state = State.RESTING;
 	}
@@ -350,6 +358,18 @@ public class Elevator {
 
 	public void addPassenger(Passenger passenger) {
 		this.passengers.add(passenger);
+	}
+	
+	public void addPassengers(Vector<Passenger> passengers) {
+		this.passengers.addAll(passengers);
+	}
+
+	public int getTargetFloor() {
+		return targetFloor;
+	}
+
+	public void setTargetFloor(int targetFloor) {
+		this.targetFloor = targetFloor;
 	}
 
 }

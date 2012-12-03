@@ -14,7 +14,7 @@ package org.arosso.sim;
  */
 public abstract class SimulationModel {
 	
-	private Double simulationClock=0D;
+	private Float simulationClock=0f;
 	
 	private Integer delayTime=0;
 	
@@ -22,11 +22,12 @@ public abstract class SimulationModel {
 	
 	private Long endSimulationTime=0L;
 
-	public Double getSimulationClock() {
+	public Float getSimulationClock() {
+		simulationClock = (float) (Math.round((simulationClock)*10.0f)/10.0f);
 		return simulationClock;
 	}
 
-	public void setSimulationClock(Double simulationClock) {
+	public void setSimulationClock(Float simulationClock) {
 		this.simulationClock = simulationClock;
 	}
 

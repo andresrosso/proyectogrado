@@ -18,7 +18,29 @@ public class ElevatorCellRenderer extends DefaultTableCellRenderer {
 		// Get the status for the current row.
 		ElevatorTableModel tableModel = (ElevatorTableModel) table.getModel();
 		if (tableModel.isElevatorInFloor(row, col)) {
-			l.setBackground(Color.GREEN);
+			switch (tableModel.getState(col)) {
+			case MOVING:
+				l.setBackground(Color.GREEN);
+				break;
+			case OPEN_DOOR:
+				l.setBackground(Color.RED);
+				break;
+			case COMING_PASS:
+				l.setBackground(Color.RED);
+				break;
+			case EXIT_PASS:
+				l.setBackground(Color.RED);
+				break;
+			case CLOSE_DOOR:
+				l.setBackground(Color.YELLOW);
+				break;
+			case RESTING:
+				l.setBackground(Color.BLUE);
+				break;
+			case OUT_OF_SERVICE:
+				l.setBackground(Color.BLACK);
+				break;
+			}
 		} else {
 			l.setBackground(Color.GRAY);
 		}

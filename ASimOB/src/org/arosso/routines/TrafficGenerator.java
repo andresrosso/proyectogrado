@@ -3,6 +3,7 @@ package org.arosso.routines;
 import static org.arosso.util.Constants.ASIMOB_PATH;
 
 import java.io.IOException;
+import java.util.Vector;
 
 import org.arosso.model.BuildingModel;
 import org.arosso.model.Passenger;
@@ -22,6 +23,7 @@ public class TrafficGenerator extends SimulationRoutine {
      */
     private TrafficModel trafficModel = null;
     
+    private Vector<Passenger> generatedCalls = new Vector<Passenger>();
     /**
      * 
      */
@@ -65,16 +67,32 @@ public class TrafficGenerator extends SimulationRoutine {
     
     @Override
     public void execute() {
-    	logger.info("Generating passangers");
-    	int pass2gen = this.trafficModel.getEstimatedPassengerNumber(buildingModel.getSimulationClock());
+    	
+    	/*int pass2gen = this.trafficModel.getEstimatedPassengerNumber(buildingModel.getSimulationClock());
     	for(int j=0;j<=pass2gen; j++){
-    		Passenger passenger = new Passenger();
-    		passenger.setArrivalTime( this.trafficModel.getEstimatedArrivalTime(buildingModel.getSimulationClock()) );
-    		passenger.setOriginFloor( this.trafficModel.getEstimatedOriginFloor(buildingModel.getSimulationClock()) );
-    		passenger.setDestinationFloor( this.trafficModel.getEstimatedDestinationFloor(buildingModel.getSimulationClock()) );
-    		buildingModel.getPassenger().add(passenger);
-    		logger.info("Passenger generated "+passenger);
-    	}
+    		Passenger passenger = new Passenger(
+    				this.trafficModel.getEstimatedArrivalTime(buildingModel.getSimulationClock()),
+    				this.trafficModel.getEstimatedOriginFloor(buildingModel.getSimulationClock()),
+    				this.trafficModel.getEstimatedDestinationFloor(buildingModel.getSimulationClock()), 
+    				Passenger.Type.CALL);
+    		buildingModel.getCalls().add(passenger);
+    		logger.info("Call generated "+passenger);
+    	}*/
+    	generateMockCalls();
+    	logger.info("Generating calls = "+generatedCalls);
+    	buildingModel.getCalls().addAll(generatedCalls);
+    	generatedCalls.clear();
+    }
+    
+    public void generateMockCalls(){
+    	Passenger passenger = new Passenger(1,2,8,Passenger.Type.CALL);
+    	generatedCalls.add(passenger);
+    	passenger = new Passenger(2,4,10,Passenger.Type.CALL);
+    	generatedCalls.add(passenger);
+    	passenger = new Passenger(7,7,5,Passenger.Type.CALL);
+    	generatedCalls.add(passenger);
+    	passenger = new Passenger(9,9,0,Passenger.Type.CALL);
+    	generatedCalls.add(passenger);
     }
     
     /**

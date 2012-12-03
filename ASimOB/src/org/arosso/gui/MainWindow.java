@@ -8,7 +8,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.text.DecimalFormat;
-import java.util.Random;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -19,14 +18,14 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
 
 import org.arosso.model.BuildingModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class MainWindow implements ActionListener, Runnable {
-
+public class MainWindow extends Thread implements ActionListener {
+	
+	Thread hilo;
 	private JFrame frmBuildingSimulator;
 	private GuiController controller;
 	private GuiModel guiModel;
@@ -40,11 +39,11 @@ public class MainWindow implements ActionListener, Runnable {
 	JButton initButton;
 	JButton pauseButton;
 	JButton stopButton;
-	
+
 	/**
 	 * Logger
 	 */
-	Logger logger = LoggerFactory.getLogger(this.getClass());
+	static Logger logger = LoggerFactory.getLogger(MainWindow.class);
 
 	/**
 	 * Create the application.
@@ -96,7 +95,8 @@ public class MainWindow implements ActionListener, Runnable {
 
 		JPanel simActionButtonsPanel = new JPanel();
 		simInformation.add(simActionButtonsPanel);
-		simActionButtonsPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		simActionButtonsPanel
+				.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
 		initButton = new JButton("Init");
 		initButton.addActionListener(this);
@@ -115,17 +115,18 @@ public class MainWindow implements ActionListener, Runnable {
 		JPanel simGraphics = new JPanel();
 		simGraphics.setLayout(new BorderLayout(0, 0));
 		simGraphics.setAutoscrolls(true);
-		simGraphics.setBorder(BorderFactory.createLineBorder(Color.black) );
-		
-		//Elevator MATRIX MODEL
+		simGraphics.setBorder(BorderFactory.createLineBorder(Color.black));
+
+		// Elevator MATRIX MODEL
 		ElevatorTableModel elevatorModel = new ElevatorTableModel(guiModel);
 		elevatorModel.setRowCount(guiModel.getNumFloors());
-		elevatorModel.setColumnCount(guiModel.getNumElevators()+1);
+		elevatorModel.setColumnCount(guiModel.getNumElevators() + 1);
 		canvas = new JTable(elevatorModel);
-		for(int j=1;j<=guiModel.getNumElevators();j++){
-			canvas.getColumnModel().getColumn(j).setCellRenderer(new ElevatorCellRenderer());
+		for (int j = 1; j <= guiModel.getNumElevators(); j++) {
+			canvas.getColumnModel().getColumn(j)
+					.setCellRenderer(new ElevatorCellRenderer());
 		}
-		
+
 		simGraphics.add(canvas);
 		simPanel.setLayout(new BoxLayout(simPanel, BoxLayout.X_AXIS));
 		simPanel.add(simInformation);
@@ -142,7 +143,7 @@ public class MainWindow implements ActionListener, Runnable {
 
 	public void updateGuiModel() {
 		DecimalFormat df = new DecimalFormat("#.###");
-		lblTiempo.setText("Tiempo: " + df.format(guiModel.getSimClock()) );
+		lblTiempo.setText("Tiempo: " + df.format(guiModel.getSimClock()));
 		canvas.updateUI();
 	}
 
@@ -178,18 +179,18 @@ public class MainWindow implements ActionListener, Runnable {
 				}
 			}
 		} catch (Exception e) {
-			logger.error(e.getMessage());
+			logger.error("Error action performed "+e.getMessage());
+			e.printStackTrace();
 		}
 	}
 
 	@Override
 	public void run() {
 		while (!guiModel.isSimulationFinished()) {
-			if(guiModel.getSimState().equals(BuildingModel.SIM_STATE.STARTED)){
-				guiModel.getBuildingModel().getElevators().get(0).setPosition((float)(Math.random()*guiModel.getNumFloors()-1));
+			if (guiModel.getSimState().equals(BuildingModel.SIM_STATE.STARTED)) {
 				updateGuiModel();
 			}
-			//Sleep the time for X delay time
+			// Sleep the time for X delay time
 			try {
 				Thread.sleep(guiModel.getBuildingModel().getDelayTime());
 			} catch (InterruptedException e) {
@@ -199,22 +200,22 @@ public class MainWindow implements ActionListener, Runnable {
 		}
 	}
 
+
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		MainWindow window;
 		try {
+			MainWindow window;
 			window = new MainWindow();
 			window.frmBuildingSimulator.setVisible(true);
-			window.run();
+			window.start();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			logger.error("Error en el simulador : "+e);
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			logger.error("Error en el simulador : "+e);
 			e.printStackTrace();
 		}
 	}
-
 }

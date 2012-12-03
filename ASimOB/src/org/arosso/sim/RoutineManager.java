@@ -77,6 +77,7 @@ public class RoutineManager extends Thread {
 		//Add Arrival checker routine
 		arrivalChecker = new ArrivalChecker("Arrival Checker", ROUTINE_DEFAULT_ACTIVATION_TIME);
 		registeredRoutines.add(arrivalChecker);
+		elevatorController = new ElevatorController[buildingModel.getNumElevators()];
 		//Add a elevator controller routine for each elevator
 		for(int j=0; j<buildingModel.getNumElevators(); j++){
 			elevatorController[j] = new ElevatorController("Elevator Controller ["+j+"]", 
@@ -93,15 +94,19 @@ public class RoutineManager extends Thread {
 	public void run() {
 		while (buildingModel.getSimulationClock() <= buildingModel.getEndSimulationTime() && buildingModel.simState != SIM_STATE.STOPPED) {
 			if (buildingModel.simState == SIM_STATE.STARTED) {
-				// Advance time
-				buildingModel.setSimulationClock(buildingModel.getSimulationClock() + buildingModel.getDeltaAdvaceTime());
 				// Execute the routines that take place at that time
 				for (SimulationRoutine routine : registeredRoutines) {
-					if (buildingModel.getSimulationClock() % routine.activationTime == 0) {
+					//Calc the routine 
+					float roudedCarry = (float) (Math.round((buildingModel.getSimulationClock() % routine.activationTime)*100.0f)/100.0f);
+					//Simulation running
+					//logger.info("SimClock "+buildingModel.getSimulationClock()+", " +	"Routine (" +routine.getRoutineName() +") ActTime("+routine.getActivationTime()+") = " + (roudedCarry) );
+					if ( roudedCarry == 0) {
 						logger.debug("Executing routine (" + routine.getRoutineName() + ") at time:" + buildingModel.getSimulationClock());
 						routine.execute();
 					}
 				}
+				// Advance time
+				buildingModel.setSimulationClock(buildingModel.getSimulationClock() + buildingModel.getDeltaAdvaceTime());
 			}
 			//Sleep the time for X delay time
 			try {

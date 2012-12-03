@@ -11,7 +11,7 @@ public class GuiModel {
 
 	private BuildingSimulator simulator;
 	private BuildingModel buildingModel;
-	private Double simClock;
+	private Float simClock;
 	private String lastName;
 	private BuildingModel.SIM_STATE simState;
 	private boolean simulationFinished = false;
@@ -26,7 +26,7 @@ public class GuiModel {
 	
 	public void startSimulation() throws IOException, Exception{
 		simulator.init();
-		buildingModel.setSimulationClock(0d);
+		buildingModel.setSimulationClock(0f);
 		simulator.startSimulation();
 	}
 
@@ -42,7 +42,7 @@ public class GuiModel {
 		simulator.stopSimulation();
 	}
 	
-	public Double getSimClock() {
+	public Float getSimClock() {
 		simClock = buildingModel.getSimulationClock();
 		return simClock;
 	}

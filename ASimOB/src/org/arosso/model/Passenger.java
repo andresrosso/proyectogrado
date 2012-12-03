@@ -5,6 +5,8 @@
 
 package org.arosso.model;
 
+import org.arosso.exception.CallIllegalState;
+
 // Start of user code (user defined imports)	
 
 // End of user code
@@ -21,17 +23,17 @@ public class Passenger {
     /**
      * Description of the property arrivalTime.
      */
-    private Double arrivalTime = 0.0D;
+    private int arrivalTime = 0;
     
     /**
      * Description of the property pushedTime.
      */
-    private Double pushedTime = 0.0D;
+    private Float pushedTime = 0.0f;
     
     /**
      * Description of the property pulledTime.
      */
-    private Double pulledTime = 0.0D;
+    private Float pulledTime = 0.0f;
     
     /**
      * Description of the property originFloor.
@@ -60,13 +62,26 @@ public class Passenger {
     /**
      * The constructor.
      */
-    public Passenger() {
+    private Passenger() {
     	// Start of user code constructor
     	super();
     	// End of user code
     }
     
-    /**
+    
+    
+    public Passenger(int arrivalTime, Integer originFloor,
+			Integer destinationFloor, Type type) {
+		super();
+		this.arrivalTime = arrivalTime;
+		this.originFloor = originFloor;
+		this.destinationFloor = destinationFloor;
+		this.type = type;
+	}
+
+
+
+	/**
      * Description of the method getTravelTime.
      * @return 
      */
@@ -81,7 +96,7 @@ public class Passenger {
      * Returns arrivalTime.
      * @return arrivalTime 
      */
-    public Double getArrivalTime() {
+    public int getArrivalTime() {
     	return this.arrivalTime;
     }
     
@@ -89,7 +104,7 @@ public class Passenger {
      * Sets a value to attribute arrivalTime. 
      * @param newArrivalTime 
      */
-    public void setArrivalTime(Double newArrivalTime) {
+    public void setArrivalTime(int newArrivalTime) {
         this.arrivalTime = newArrivalTime;
     }
     
@@ -97,7 +112,7 @@ public class Passenger {
      * Returns pushedTime.
      * @return pushedTime 
      */
-    public Double getPushedTime() {
+    public Float getPushedTime() {
     	return this.pushedTime;
     }
     
@@ -105,7 +120,7 @@ public class Passenger {
      * Sets a value to attribute pushedTime. 
      * @param newPushedTime 
      */
-    public void setPushedTime(Double newPushedTime) {
+    public void setPushedTime(Float newPushedTime) {
         this.pushedTime = newPushedTime;
     }
     
@@ -113,7 +128,7 @@ public class Passenger {
      * Returns pulledTime.
      * @return pulledTime 
      */
-    public Double getPulledTime() {
+    public Float getPulledTime() {
     	return this.pulledTime;
     }
     
@@ -121,7 +136,7 @@ public class Passenger {
      * Sets a value to attribute pulledTime. 
      * @param newPulledTime 
      */
-    public void setPulledTime(Double newPulledTime) {
+    public void setPulledTime(Float newPulledTime) {
         this.pulledTime = newPulledTime;
     }
     
@@ -171,6 +186,17 @@ public class Passenger {
      */
     public void setAssignedElevator(Integer newAssignedElevator) {
         this.assignedElevator = newAssignedElevator;
+    }
+    
+    public Elevator.Direction getDirection(){
+    	if(this.getOriginFloor()<this.getDestinationFloor()){
+			return Elevator.Direction.UP;
+		}else if(this.getOriginFloor()>this.getDestinationFloor()){
+			return Elevator.Direction.DOWN;
+		}else{
+			new CallIllegalState("There is a call with no direction, it is so strange :S "+this);
+			return Elevator.Direction.NONE;
+		}
     }
     
     @Override

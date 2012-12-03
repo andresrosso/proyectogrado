@@ -11,5 +11,8 @@
 	<classpathentry kind="lib" path="lib/pivot-web-server-2.0.2.jar"/>
 	<classpathentry kind="lib" path="lib/pivot-wtk-2.0.2.jar"/>
 	<classpathentry kind="lib" path="lib/pivot-wtk-terra-2.0.2.jar"/>
+	<classpathentry kind="lib" path="lib/beansbinding-1.2.1.jar"/>
+	<classpathentry kind="lib" path="lib/hsqldb.jar"/>
+	<classpathentry kind="lib" path="lib/sqltool.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

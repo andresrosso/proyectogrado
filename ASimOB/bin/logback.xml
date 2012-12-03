@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<configuration>
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <!-- encoders are assigned the type
+         ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+    <encoder>
+      <pattern>%-5level %logger{35} - %msg %n</pattern>
+    </encoder>
+  </appender>
+	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
+		<file>logfile.log</file>
+		<append>false</append>
+		<encoder>
+			<pattern>%-4relative [%thread] %-5level %logger{35} - %msg %n</pattern>
+		</encoder>
+	</appender>
+	<appender name="ElevatorController-FILE" class="ch.qos.logback.core.FileAppender">
+		<file>ElevatorController.log</file>
+		<append>false</append>
+		<encoder>
+			<pattern>%msg %n</pattern>
+		</encoder>
+	</appender>
+	<!-- additivity=false ensures analytics data only goes to the analytics 
+		log -->
+	<logger name="org.arosso.routines.ElevatorController" level="DEBUG" additivity="false">
+		<!-- <appender-ref ref="ElevatorController-FILE" /> -->
+		<appender-ref ref="STDOUT" />
+	</logger>
+	<root >
+		<appender-ref ref="FILE" />
+		
+		<appender-ref ref="ElevatorController-FILE" />
+	</root>
+</configuration>

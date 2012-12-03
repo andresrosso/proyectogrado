@@ -8,6 +8,8 @@ import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 
+import org.arosso.model.Elevator;
+
 public class ElevatorTableModel extends DefaultTableModel {
 
 	private static final long serialVersionUID = 1L;
@@ -70,11 +72,15 @@ public class ElevatorTableModel extends DefaultTableModel {
     	}else{
     		return false;
     	}
+    } 
+    
+    public Elevator.State getState(int elevator){
+    	return guiModel.getBuildingModel().getElevators().get(elevator-1).getState();
     }
     
     class TablaListener implements TableModelListener {
         public void tableChanged( TableModelEvent evt ) {
-          System.out.println("Se modifico algun datos en la tabla : "+evt.getSource().toString());
+          System.out.println("Se modifico algun dato en la tabla : "+evt.getSource().toString());
         }
       }
 }

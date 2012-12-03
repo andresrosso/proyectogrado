@@ -1,0 +1,18 @@
+Propery for simulation ready to load[/simulation.properties] 
+getting (numElevators) = 2 
+getting (numFloors) = 50 
+getting (floorGapDistance) = 2 
+getting (endSimulationTime) = 20000 
+getting (deltaAdvaceTime) = 1 
+getting (delayTime) = 1000 
+getting (capacity) = 8 
+getting (aceleration) = 0.5 
+getting (jerk) = 0.5 
+getting (speed) = 1 
+getting (doorCloseTime) = 1 
+getting (doorOpenTime) = 1 
+getting (passangerTransferTime) = 1 
+getting (numElevators) = 2 
+getting (portalFloors) = [0],[1],[2] 
+BuildingModel loaded 
+BuildingSimulator created! 
