@@ -28,7 +28,7 @@ public abstract class SimulationModel {
 	}
 
 	public void setSimulationClock(Float simulationClock) {
-		this.simulationClock = simulationClock;
+		this.simulationClock = (float) (Math.round((simulationClock)*10.0f)/10.0f);
 	}
 
 	public Integer getDelayTime() {

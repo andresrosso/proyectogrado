@@ -121,7 +121,7 @@ public class BuildingModel extends SimulationModel {
         Float doorCloseTime= Float.valueOf(prop.getProperty(PROP_SET.SIMULATION,"doorCloseTime"));
         Float doorOpenTime= Float.valueOf(prop.getProperty(PROP_SET.SIMULATION,"doorOpenTime"));
         Float passangerTransferTime= Float.valueOf(prop.getProperty(PROP_SET.SIMULATION,"passangerTransferTime"));
-        Integer restFloor=  Integer.valueOf(prop.getProperty(PROP_SET.SIMULATION,"numElevators"));
+        Integer restFloor=  Integer.valueOf(prop.getProperty(PROP_SET.SIMULATION,"restFloor"));
         elevators = new Vector<Elevator>(numElevators);
         for(int j=0;j<numElevators;j++){
         	Elevator elevator = new Elevator(j, capacity, aceleration, speed, jerk, doorCloseTime, doorOpenTime, passangerTransferTime, restFloor);

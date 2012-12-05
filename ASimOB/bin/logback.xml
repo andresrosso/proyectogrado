@@ -23,13 +23,13 @@
 	</appender>
 	<!-- additivity=false ensures analytics data only goes to the analytics 
 		log -->
-	<logger name="org.arosso.routines.ElevatorController" level="DEBUG" additivity="false">
+	<logger name="org.arosso.routines.ElevatorController" level="INFO" additivity="false">
 		<!-- <appender-ref ref="ElevatorController-FILE" /> -->
-		<appender-ref ref="STDOUT" />
+		<appender-ref ref="ElevatorController-FILE" />
+		
 	</logger>
 	<root >
 		<appender-ref ref="FILE" />
-		
-		<appender-ref ref="ElevatorController-FILE" />
+		<appender-ref ref="STDOUT" />
 	</root>
 </configuration>

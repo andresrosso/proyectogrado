@@ -79,7 +79,15 @@ public class ElevatorController extends SimulationRoutine implements
 
 	@Override
     public void execute() {
-    	
+    	logger.info("Time ("+buildingModel.getSimulationClock()+") " +
+    			", Pos("+elevator.getPosition()+ ")"+
+    			", Calls("+elevator.getCalls()+") "+
+    			", Pass("+elevator.getPassengers()+")"+
+    			", Dir("+elevator.getDirection()+")"+
+    			", STATE("+elevator.getState()+")"+
+    			", TFloor("+elevator.getTargetFloor()+")"
+    			//"Elevator ["+elevator.getId()+"] " +
+    			);
     	//Check if there is a task running
     	if( taskTimeMAX==0 || (currentTaskTime.floatValue()==taskTimeMAX.floatValue()) ){
     		//There is a task running, so do it
@@ -111,7 +119,15 @@ public class ElevatorController extends SimulationRoutine implements
     	}else{
     		currentTaskTime += buildingModel.getDeltaAdvaceTime();
     	}
-    	logger.info("Time ("+buildingModel.getSimulationClock()+") Elevator ["+elevator.getId()+"] STATE ("+elevator.getState()+") Position ("+elevator.getPosition()+") Direction ("+elevator.getDirection()+") calls("+elevator.getCalls()+") Passengers ("+elevator.getPassengers()+") ");
+    	logger.info("Time ("+buildingModel.getSimulationClock()+") " +
+    			", Pos("+elevator.getPosition()+ ")"+
+    			", Calls("+elevator.getCalls()+") "+
+    			", Pass("+elevator.getPassengers()+")"+
+    			", Dir("+elevator.getDirection()+")"+
+    			", STATE("+elevator.getState()+")"+
+    			", TFloor("+elevator.getTargetFloor()+")"
+    			//"Elevator ["+elevator.getId()+"] " +
+    			);
     }
     	
     /**
@@ -132,7 +148,13 @@ public class ElevatorController extends SimulationRoutine implements
 			}
 			elevator.setState(Elevator.State.MOVING);
 		} else {
-			return;
+			if(elevator.getPosition().intValue()==elevator.getRestFloor()){
+				return;	
+			}else{
+				elevator.getCalls().add(new Passenger(buildingModel.getSimulationClock().intValue()+1, elevator.getRestFloor(),elevator.getRestFloor(),Passenger.Type.MOCK_CALL));
+				findDirectionAndTargetFloor();
+				elevator.setState(Elevator.State.MOVING);
+			}
 		}
 	}
 	
@@ -252,11 +274,7 @@ public class ElevatorController extends SimulationRoutine implements
 		}//If there are calls
 		else if(!elevator.getCalls().isEmpty()){
 			findDirectionAndTargetFloor();
-		}else if(elevator.getPosition().intValue() == elevator.getRestFloor()){
-			elevator.getCalls().add(new Passenger(buildingModel.getSimulationClock().intValue(),elevator.getRestFloor(),elevator.getRestFloor(),Passenger.Type.MOCK_CALL));
-			findDirectionAndTargetFloor();
 		}else{
-			//TODO Create a mock call
 			elevator.setState(Elevator.State.RESTING);
 			return;
 		}
@@ -284,13 +302,15 @@ public class ElevatorController extends SimulationRoutine implements
 	 * Remove calls in other direcion
 	 */
 	public Vector<Passenger> removeDifferentDirectionCalls(Vector<Passenger> callList, Elevator.Direction validDirection ){
+		Vector<Passenger> callLisToRemove = new Vector<Passenger>();
 		for(Passenger passenger : callList){
 			if(passenger.getDirection() == validDirection || elevator.getDirection() == Elevator.Direction.NONE ){
 				logger.debug("Elevator ["+elevator.getId()+"] The call is valid for thge direction. call = "+passenger);
 			}else{
-				callList.remove(passenger);
+				callLisToRemove.add(passenger);
 			}
 		}
+		callList.removeAll(callLisToRemove);
 		return callList;
 	}
 	
@@ -451,7 +471,7 @@ public class ElevatorController extends SimulationRoutine implements
 					|| elevator.getPassengers().size() > 0) {
 				logger.error("Elevator ["+elevator.getId()+"] There are more calls, so something is wrong with that mock call");
 			} else {
-				logger.info("Elevator ["+elevator.getId()+"] Going to rest the elevator " + elevator.getId());
+				logger.debug("Elevator ["+elevator.getId()+"] Going to rest the elevator " + elevator.getId());
 			}
 			break;
 		default:

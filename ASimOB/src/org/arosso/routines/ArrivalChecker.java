@@ -1,5 +1,7 @@
 package org.arosso.routines;
 
+import java.util.Vector;
+
 import org.arosso.model.BuildingModel;
 import org.arosso.model.Passenger;
 import org.arosso.routines.egcs.ElevatorGroupController;
@@ -55,6 +57,8 @@ public class ArrivalChecker extends SimulationRoutine {
     
     @Override
     public void execute() {
+    	logger.debug("ArrivalChecker calls: "+buildingModel.getCalls());
+    	Vector<Passenger> callsToDelete = new Vector<Passenger>();
     	//Look for a call that take place in this moment of simulation
     	for(Passenger call: buildingModel.getCalls()){
     		//If a new passager arrives to the system, this passager is assigned to an elevator
@@ -63,8 +67,10 @@ public class ArrivalChecker extends SimulationRoutine {
     			int elevator = controller.assignCall(call);
     			buildingModel.getElevators().get(elevator).addCall(call);
     			logger.info("Checking for passangers arrivals> call assigned to elev("+elevator+"), call detail ["+call+"]");
+    			callsToDelete.add(call);
     		}
     	}
+		buildingModel.getCalls().removeAll(callsToDelete);
     }
     
     

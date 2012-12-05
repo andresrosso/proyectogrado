@@ -17,7 +17,7 @@ import org.slf4j.LoggerFactory;
  * Description of RoutineManager.
  */
 public class RoutineManager extends Thread {
-
+	private Object lock1 = new Object();
 	/**
 	 * Description of the property rutineManager.
 	 */
@@ -74,6 +74,9 @@ public class RoutineManager extends Thread {
 		registeredRoutines = new ArrayList<SimulationRoutine>();
 		//Gets the building model
 		buildingModel = BuildingModel.getInstance();
+		//Add traffic generator routine (dynamic trafficGenerator class load)
+		trafficGenerator = new TrafficGenerator("Traffic Generator");
+		registeredRoutines.add(trafficGenerator);
 		//Add Arrival checker routine
 		arrivalChecker = new ArrivalChecker("Arrival Checker", ROUTINE_DEFAULT_ACTIVATION_TIME);
 		registeredRoutines.add(arrivalChecker);
@@ -85,9 +88,8 @@ public class RoutineManager extends Thread {
 					buildingModel.getElevators().get(j));
 			registeredRoutines.add(elevatorController[j] );
 		}
-		//Add traffic generator routine (dynamic trafficGenerator class load)
-		trafficGenerator = new TrafficGenerator("Traffic Generator");
-		registeredRoutines.add(trafficGenerator);
+
+		
 	}
 
 	@Override
@@ -97,7 +99,7 @@ public class RoutineManager extends Thread {
 				// Execute the routines that take place at that time
 				for (SimulationRoutine routine : registeredRoutines) {
 					//Calc the routine 
-					float roudedCarry = (float) (Math.round((buildingModel.getSimulationClock() % routine.activationTime)*100.0f)/100.0f);
+					float roudedCarry = (float) (Math.round((buildingModel.getSimulationClock() % routine.activationTime)*10.0f)/10.0f);
 					//Simulation running
 					//logger.info("SimClock "+buildingModel.getSimulationClock()+", " +	"Routine (" +routine.getRoutineName() +") ActTime("+routine.getActivationTime()+") = " + (roudedCarry) );
 					if ( roudedCarry == 0) {

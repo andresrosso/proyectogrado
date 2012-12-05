@@ -1,6 +1,7 @@
 package org.arosso.gui;
 
 import java.awt.Color;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -8,17 +9,27 @@ import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 
+import org.arosso.model.BuildingModel;
 import org.arosso.model.Elevator;
+import org.arosso.model.Passenger;
 
 public class ElevatorTableModel extends DefaultTableModel {
 
 	private static final long serialVersionUID = 1L;
 	private GuiModel guiModel;
+	private BuildingModel buildingModel;
 	
 	
 	public ElevatorTableModel(GuiModel guiModel) {
 		this.guiModel = guiModel;
-		addTableModelListener( new TablaListener() );
+		try {
+			buildingModel = BuildingModel.getInstance();
+			addTableModelListener( new TablaListener() );
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	List<Color> rowColours = Arrays.asList(
@@ -64,18 +75,35 @@ public class ElevatorTableModel extends DefaultTableModel {
     public Object getValueAt(int row, int column) {
         return "";
     }
-    
+
     public boolean isElevatorInFloor(int floor, int elevator){
     	floor = getRowCount() - floor;
-    	if((guiModel.getBuildingModel().getElevators().get(elevator-1).getPosition()).intValue()==floor){
+    	if(((guiModel.getBuildingModel().getElevators().get(elevator-1).getPosition()).intValue()+1)==floor){
     		return true;
     	}else{
     		return false;
     	}
     } 
     
+    public String callsInFloor(int floor){
+    	String callsInFloor = "";
+    	floor = getRowCount() - floor;
+    	for( Elevator el : guiModel.getBuildingModel().getElevators() ){
+    		for(Passenger pass : el.getCalls()){
+    			if(pass.getOriginFloor()==floor){
+    				callsInFloor += pass;
+    			}
+    		}
+    	}
+    	return callsInFloor;
+    } 
+
     public Elevator.State getState(int elevator){
     	return guiModel.getBuildingModel().getElevators().get(elevator-1).getState();
+    }
+    
+    public String getPassenger(int elevator){
+    	return guiModel.getBuildingModel().getElevators().get(elevator-1).getPassengers().toString();
     }
     
     class TablaListener implements TableModelListener {
@@ -83,4 +111,12 @@ public class ElevatorTableModel extends DefaultTableModel {
           System.out.println("Se modifico algun dato en la tabla : "+evt.getSource().toString());
         }
       }
+
+	public BuildingModel getBuildingModel() {
+		return buildingModel;
+	}
+
+	public void setBuildingModel(BuildingModel buildingModel) {
+		this.buildingModel = buildingModel;
+	}
 }

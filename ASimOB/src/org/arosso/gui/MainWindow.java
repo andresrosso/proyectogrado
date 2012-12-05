@@ -122,6 +122,9 @@ public class MainWindow extends Thread implements ActionListener {
 		elevatorModel.setRowCount(guiModel.getNumFloors());
 		elevatorModel.setColumnCount(guiModel.getNumElevators() + 1);
 		canvas = new JTable(elevatorModel);
+		//FLOOR MODEL
+		canvas.getColumnModel().getColumn(0).setCellRenderer(new FloorCellRenderer());
+		//ELEVATOR COLUMN MODEL
 		for (int j = 1; j <= guiModel.getNumElevators(); j++) {
 			canvas.getColumnModel().getColumn(j)
 					.setCellRenderer(new ElevatorCellRenderer());

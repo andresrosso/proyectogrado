@@ -201,7 +201,8 @@ public class Passenger {
     
     @Override
     public String toString() {
-    	return "Po("+this.originFloor+") Pd("+this.destinationFloor+") "+" At("+this.arrivalTime+")";
+    	//return "Po("+this.originFloor+") Pd("+this.destinationFloor+") "+" At("+this.arrivalTime+")";
+    	return "("+this.originFloor+","+this.destinationFloor+")";
     }
 
 	public Type getType() {
