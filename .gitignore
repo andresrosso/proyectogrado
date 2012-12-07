@@ -1,0 +1,6 @@
+*.log
+*.class
+*.lck
+tmp/
+bin/
+
