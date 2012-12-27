@@ -1,18 +1,14 @@
 package org.arosso.routines;
 
-import java.awt.List;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Vector;
 
-import javax.lang.model.element.ElementKind;
-
+import org.arosso.db.DatabaseMannager;
 import org.arosso.exception.CallIllegalState;
 import org.arosso.exception.ElevatorIlegalState;
 import org.arosso.model.BuildingModel;
 import org.arosso.model.Elevator;
 import org.arosso.model.Passenger;
-import org.arosso.model.Passenger.Type;
 import org.arosso.sim.SimulationRoutine;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -57,11 +53,12 @@ public class ElevatorController extends SimulationRoutine implements
 	 */
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	// Elevatror speed
+	// Elevator speed
 	private float speed;
+	
 	// Floor gap distance
 	private float floorGap;
-
+	
 	/**
 	 * The constructor.
 	 * 
@@ -513,9 +510,10 @@ public class ElevatorController extends SimulationRoutine implements
 	
 	@Override
 	public void removePassenger(Passenger passenger) {
-		// TODO Auto-generated method stub
 		this.elevator.getPassengers().remove(passenger);
 		logger.debug("Elevator ["+elevator.getId()+"] The passenger " + passenger + ", was removed.");
+		//Update statistics
+		this.buildingModel.updateStatistics(passenger);
 	}
 	
 	boolean directionValidForAnyPassenger(Vector<Passenger> pass){

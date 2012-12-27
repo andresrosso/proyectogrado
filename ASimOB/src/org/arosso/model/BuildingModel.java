@@ -150,6 +150,14 @@ public class BuildingModel extends SimulationModel {
     }
     
     /**
+     * 
+     * @param passenger
+     */
+    public void updateStatistics(Passenger passenger){
+    	//TODO: update statistics
+    }
+    
+    /**
      * Returns elevator.
      * @return elevator 
      */
