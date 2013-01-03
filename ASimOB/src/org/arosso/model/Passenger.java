@@ -26,14 +26,14 @@ public class Passenger {
     private int arrivalTime = 0;
     
     /**
-     * Description of the property pushedTime.
+     * Description of the property entryTime.
      */
-    private Float pushedTime = 0.0f;
+    private Float entryTime = 0.0f;
     
     /**
-     * Description of the property pulledTime.
+     * Description of the property exitTime.
      */
-    private Float pulledTime = 0.0f;
+    private Float exitTime = 0.0f;
     
     /**
      * Description of the property originFloor.
@@ -109,35 +109,35 @@ public class Passenger {
     }
     
     /**
-     * Returns pushedTime.
-     * @return pushedTime 
+     * Returns entryTime.
+     * @return entryTime 
      */
-    public Float getPushedTime() {
-    	return this.pushedTime;
+    public Float getEntryTime() {
+    	return this.entryTime;
     }
     
     /**
-     * Sets a value to attribute pushedTime. 
+     * Sets a value to attribute entryTime. 
      * @param newPushedTime 
      */
-    public void setPushedTime(Float newPushedTime) {
-        this.pushedTime = newPushedTime;
+    public void setEntryTime(Float newPushedTime) {
+        this.entryTime = newPushedTime;
     }
     
     /**
-     * Returns pulledTime.
-     * @return pulledTime 
+     * Returns exitTime.
+     * @return exitTime 
      */
-    public Float getPulledTime() {
-    	return this.pulledTime;
+    public Float getExitTime() {
+    	return this.exitTime;
     }
     
     /**
-     * Sets a value to attribute pulledTime. 
+     * Sets a value to attribute exitTime. 
      * @param newPulledTime 
      */
-    public void setPulledTime(Float newPulledTime) {
-        this.pulledTime = newPulledTime;
+    public void setExitTime(Float newPulledTime) {
+        this.exitTime = newPulledTime;
     }
     
     /**

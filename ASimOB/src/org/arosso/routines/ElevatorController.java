@@ -10,6 +10,7 @@ import org.arosso.model.BuildingModel;
 import org.arosso.model.Elevator;
 import org.arosso.model.Passenger;
 import org.arosso.sim.SimulationRoutine;
+import org.arosso.stats.StatisticsManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -47,7 +48,12 @@ public class ElevatorController extends SimulationRoutine implements
 	 * Passengers to exit from the elevator
 	 */
 	Vector<Passenger> callsToCome = new Vector<Passenger>();
-
+	
+	/**
+	 * Statistics mannager
+	 */
+	private static StatisticsManager statisticsManager;
+	
 	/**
 	 * Logger
 	 */
@@ -58,6 +64,13 @@ public class ElevatorController extends SimulationRoutine implements
 	
 	// Floor gap distance
 	private float floorGap;
+	
+	/**
+	 * Static code to get the reference of statistics manager
+	 */
+	static{
+		statisticsManager = StatisticsManager.getInstance();
+	}
 	
 	/**
 	 * The constructor.
@@ -490,30 +503,33 @@ public class ElevatorController extends SimulationRoutine implements
 	}
 
 	@Override
+	public void addPassengers(Vector<Passenger> passengers){
+		removeMockCalls();
+		for(Passenger passenger : passengers){
+			this.addPassenger(passenger);
+		}
+	}
+	
+	@Override
 	public void addPassenger(Passenger passenger) {
 		if (directionValidForPassenger(passenger)) {
 			passenger.setType(Passenger.Type.PASSENGER);
 			elevator.addPassenger(passenger);
+			//Sets the time the passeger gets into the elevator
+			passenger.setEntryTime(this.buildingModel.getSimulationClock());
 		} else {
 			logger.error("Elevator ["+elevator.getId()+"] The passenger " + passenger + ", could not be added.");
 		}
 	}
 	
 	@Override
-	public void addPassengers(Vector<Passenger> passengers){
-		removeMockCalls();
-		for(Passenger passenger : passengers){
-			this.addPassenger(passenger);
-			logger.debug("The passenger " + passenger + ", was added.");
-		}
-	}
-	
-	@Override
 	public void removePassenger(Passenger passenger) {
 		this.elevator.getPassengers().remove(passenger);
-		logger.debug("Elevator ["+elevator.getId()+"] The passenger " + passenger + ", was removed.");
+		//Sets the time the passeger exit from elevator
+		passenger.setExitTime(this.buildingModel.getSimulationClock());
 		//Update statistics
-		this.buildingModel.updateStatistics(passenger);
+		statisticsManager.updateStatistics(passenger,this.getElevator().getId());
+		logger.debug("Elevator ["+elevator.getId()+"] The passenger " + passenger + ", was removed.");
 	}
 	
 	boolean directionValidForAnyPassenger(Vector<Passenger> pass){

@@ -20,6 +20,8 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 
 import org.arosso.model.BuildingModel;
+import org.arosso.stats.DynamicWaitingTimeChart;
+import org.arosso.stats.DynamicWaitingTimeChart.DataGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,6 +31,7 @@ public class MainWindow extends Thread implements ActionListener {
 	private JFrame frmBuildingSimulator;
 	private GuiController controller;
 	private GuiModel guiModel;
+	private DynamicWaitingTimeChart dynWT;
 	public boolean simulation;
 
 	// Sunchronized components
@@ -111,6 +114,11 @@ public class MainWindow extends Thread implements ActionListener {
 		stopButton.setEnabled(false);
 		stopButton.addActionListener(this);
 		simActionButtonsPanel.add(stopButton);
+		
+		//Add Dynamic chart
+		dynWT = new DynamicWaitingTimeChart(MIN_PRIORITY);
+		dynWT.new DataGenerator(200).start();
+		simInformation.add(dynWT);
 
 		JPanel simGraphics = new JPanel();
 		simGraphics.setLayout(new BorderLayout(0, 0));

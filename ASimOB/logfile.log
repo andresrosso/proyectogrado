@@ -1,2 +1,18 @@
-218  [main] INFO  org.arosso.db.DatabaseStarter - Database init 
-265  [main] INFO  org.arosso.db.DatabaseStarter - Database (asimobdb). Started in (asimobdb) 
+361  [main] DEBUG org.arosso.util.PropertiesBroker - Propery for simulation ready to load[/simulation.properties] 
+368  [main] DEBUG org.arosso.util.PropertiesBroker - getting (numElevators) = 1 
+368  [main] DEBUG org.arosso.util.PropertiesBroker - getting (numFloors) = 20 
+368  [main] DEBUG org.arosso.util.PropertiesBroker - getting (floorGapDistance) = 1 
+369  [main] DEBUG org.arosso.util.PropertiesBroker - getting (endSimulationTime) = 20000 
+369  [main] DEBUG org.arosso.util.PropertiesBroker - getting (deltaAdvaceTime) = 1 
+369  [main] DEBUG org.arosso.util.PropertiesBroker - getting (delayTime) = 500 
+370  [main] DEBUG org.arosso.util.PropertiesBroker - getting (capacity) = 8 
+370  [main] DEBUG org.arosso.util.PropertiesBroker - getting (aceleration) = 1 
+370  [main] DEBUG org.arosso.util.PropertiesBroker - getting (jerk) = 1 
+370  [main] DEBUG org.arosso.util.PropertiesBroker - getting (speed) = 1 
+370  [main] DEBUG org.arosso.util.PropertiesBroker - getting (doorCloseTime) = 1 
+371  [main] DEBUG org.arosso.util.PropertiesBroker - getting (doorOpenTime) = 1 
+371  [main] DEBUG org.arosso.util.PropertiesBroker - getting (passangerTransferTime) = 1 
+371  [main] DEBUG org.arosso.util.PropertiesBroker - getting (restFloor) = 1 
+374  [main] DEBUG org.arosso.util.PropertiesBroker - getting (portalFloors) = [0],[1],[2] 
+374  [main] INFO  org.arosso.model.BuildingModel - BuildingModel loaded 
+376  [main] DEBUG org.arosso.sim.BuildingSimulator - BuildingSimulator created! 

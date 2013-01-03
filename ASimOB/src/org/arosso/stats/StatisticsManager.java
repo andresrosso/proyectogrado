@@ -2,7 +2,11 @@ package org.arosso.stats;
 import java.util.Observable;
 import java.util.Observer;
 
+import org.arosso.db.DatabaseMannager;
+import org.arosso.model.Passenger;
 import org.arosso.sim.BuildingSimulator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * File generated from the model::StatisticsManager uml Class
@@ -20,24 +24,42 @@ public class StatisticsManager implements Observer {
     /**
      * Description of the property buildingSimulator.
      */
-    public BuildingSimulator buildingSimulator = null;
+    private static StatisticsManager instace = null;
     
     /**
      * Description of the property jasperReportManager.
      */
-    public JasperReportManager jasperReportManager = null;
+    private JasperReportManager jasperReportManager = null;
     
-    // Start of user code (user defined attributes)
+    /**
+     * Database connection manager
+     */
+    private DatabaseMannager databaseMannager;
     
-    // End of user code
+	/**
+	 * Logger
+	 */
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	
+    public static StatisticsManager getInstance(){
+    	if(instace==null){
+    		instace = new StatisticsManager();
+    	}
+    	return instace;
+    }
     
     /**
      * The constructor.
      */
-    public StatisticsManager() {
-    	// Start of user code constructor
+    private StatisticsManager() {
     	super();
-    	// End of user code
+    	try {
+			databaseMannager = DatabaseMannager.getInstance();
+			databaseMannager.createConn();
+			databaseMannager.createTables();
+		} catch (Exception e) {
+			logger.error("Error initilizing HSQLDB",e);
+		}
     }
     
     /**
@@ -57,26 +79,7 @@ public class StatisticsManager implements Observer {
     	// Start of user code for method update
     	// End of user code
     }
-     
-    // Start of user code (user defined methods)
-    
-    // End of user code
-    
-    /**
-     * Returns buildingSimulator.
-     * @return buildingSimulator 
-     */
-    public BuildingSimulator getBuildingSimulator() {
-    	return this.buildingSimulator;
-    }
-    
-    /**
-     * Sets a value to attribute buildingSimulator. 
-     * @param newBuildingSimulator 
-     */
-    public void setBuildingSimulator(BuildingSimulator newBuildingSimulator) {
-        this.buildingSimulator = newBuildingSimulator;
-    }
+
     
     /**
      * Returns jasperReportManager.
@@ -93,6 +96,14 @@ public class StatisticsManager implements Observer {
     public void setJasperReportManager(JasperReportManager newJasperReportManager) {
         this.jasperReportManager = newJasperReportManager;
     }
+    
+    /**
+     * Update database statistics
+     * @param passenger
+     */
+	public void updateStatistics(Passenger passenger, Integer elevatorID) {
+		databaseMannager.insertPassenger(passenger,elevatorID);
+	}
     
     
 }

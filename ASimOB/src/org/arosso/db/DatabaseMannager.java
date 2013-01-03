@@ -44,9 +44,9 @@ public class DatabaseMannager {
 	 * @throws SQLException
 	 */
 	public void destroy() throws SQLException {
+		this.dropTables();
 		this.shutdown();
 		server.shutdown();
-		Statement st = conn.createStatement();
 		logger.info("Database is now down.");
 	}
 
@@ -162,20 +162,24 @@ public class DatabaseMannager {
 			}
 			else{
 				// arrivalTime; originFloor; destinationFloor; type;
-				this.update("CREATE TABLE PASSENGER ( ID INTEGER IDENTITY, ARRIVALTIME DOUBLE, ORIGINFLOOR INTEGER, DESTINATIONFLOOR INTEGER, PASSTYPE VARCHAR(20) )");
+				this.update("CREATE TABLE PASSENGER ( ID INTEGER IDENTITY, ARRIVALTIME DOUBLE, ENTRYTIME DOUBLE, EXITTIME DOUBLE, ORIGINFLOOR INTEGER, DESTINATIONFLOOR INTEGER, PASSTYPE VARCHAR(20), ELEVATOR INTEGER)");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public void insertPassenger(Passenger passenger){
+	public void insertPassenger(Passenger passenger, int elevator){
 		try {
-			this.update("INSERT INTO PASSENGER(ARRIVALTIME,ORIGINFLOOR,DESTINATIONFLOOR,PASSTYPE) VALUES("
+			this.update("INSERT INTO PASSENGER(ARRIVALTIME,ENTRYTIME,EXITTIME,ORIGINFLOOR,DESTINATIONFLOOR,PASSTYPE,ELEVATOR) VALUES("
 					+passenger.getArrivalTime()+","
+					+passenger.getEntryTime()+","
+					+passenger.getExitTime()+","
 					+passenger.getOriginFloor()+","
 					+passenger.getDestinationFloor()+","
-					+"'"+passenger.getType()+"')");
+					+"'"+passenger.getType()+"'," 
+					+elevator
+					+")");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -203,7 +207,7 @@ public class DatabaseMannager {
 			DatabaseMannager db = DatabaseMannager.getInstance();
 			db.createTables();
 			Passenger passenger = new Passenger(2, 4, 10, Passenger.Type.CALL);
-			db.insertPassenger(passenger);
+			db.insertPassenger(passenger,0);
 			// do a query
 			db.query("SELECT * FROM PASSENGER");
 			db.dropTables();
