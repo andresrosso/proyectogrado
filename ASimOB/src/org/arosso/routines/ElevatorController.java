@@ -61,7 +61,7 @@ public class ElevatorController extends SimulationRoutine implements
 
 	// Elevator speed
 	private float speed;
-	
+
 	// Floor gap distance
 	private float floorGap;
 	
@@ -524,12 +524,12 @@ public class ElevatorController extends SimulationRoutine implements
 	
 	@Override
 	public void removePassenger(Passenger passenger) {
-		this.elevator.getPassengers().remove(passenger);
-		//Sets the time the passeger exit from elevator
 		passenger.setExitTime(this.buildingModel.getSimulationClock());
 		//Update statistics
 		statisticsManager.updateStatistics(passenger,this.getElevator().getId());
-		logger.debug("Elevator ["+elevator.getId()+"] The passenger " + passenger + ", was removed.");
+		//Sets the time the passeger exit from elevator
+		this.elevator.getPassengers().remove(passenger);
+		logger.info("Elevator ["+elevator.getId()+"] The passenger " + passenger + ", was removed. -> "+passenger.toStringComplete());
 	}
 	
 	boolean directionValidForAnyPassenger(Vector<Passenger> pass){

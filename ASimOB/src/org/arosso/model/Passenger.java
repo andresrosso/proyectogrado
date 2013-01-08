@@ -204,6 +204,10 @@ public class Passenger {
     	//return "Po("+this.originFloor+") Pd("+this.destinationFloor+") "+" At("+this.arrivalTime+")";
     	return "("+this.originFloor+","+this.destinationFloor+")";
     }
+    
+    public String toStringComplete() {
+    	return "T["+this.arrivalTime+","+this.entryTime+","+this.exitTime+"] D("+this.originFloor+","+this.destinationFloor+")";
+    }
 
 	public Type getType() {
 		return type;

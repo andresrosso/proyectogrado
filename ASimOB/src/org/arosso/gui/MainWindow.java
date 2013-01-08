@@ -8,6 +8,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -20,18 +22,18 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 
 import org.arosso.model.BuildingModel;
-import org.arosso.stats.DynamicWaitingTimeChart;
-import org.arosso.stats.DynamicWaitingTimeChart.DataGenerator;
+import org.arosso.model.Passenger;
+import org.arosso.stats.DynamicXYChart;
+import org.arosso.stats.StatisticsManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class MainWindow extends Thread implements ActionListener {
-	
+public class MainWindow extends Thread implements ActionListener, Observer {
+
 	Thread hilo;
 	private JFrame frmBuildingSimulator;
 	private GuiController controller;
 	private GuiModel guiModel;
-	private DynamicWaitingTimeChart dynWT;
 	public boolean simulation;
 
 	// Sunchronized components
@@ -42,11 +44,25 @@ public class MainWindow extends Thread implements ActionListener {
 	JButton initButton;
 	JButton pauseButton;
 	JButton stopButton;
+	JButton genWTReportpButton;
+	JButton genSTReportpButton;
+	JButton genTEnergyReportpButton;
+
+	// Dynamic charts
+	DynamicXYChart wtChart;
+	DynamicXYChart stChart;
+	DynamicXYChart trafficChart;
+
+	// Simulation statistics
+	StatisticsManager statisticsManager;
+	Float lastExecTime = 0f;
+	int MAX_EXEC_COUNTER = 5;
+	int execCounter = 0;
 
 	/**
 	 * Logger
 	 */
-	static Logger logger = LoggerFactory.getLogger(MainWindow.class);
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	/**
 	 * Create the application.
@@ -57,6 +73,8 @@ public class MainWindow extends Thread implements ActionListener {
 	public MainWindow() throws IOException, Exception {
 		try {
 			guiModel = new GuiModel();
+			statisticsManager = StatisticsManager.getInstance();
+			statisticsManager.addObserver(this);
 			initialize();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -84,22 +102,17 @@ public class MainWindow extends Thread implements ActionListener {
 		tabbedPane.addTab("Simulation", null, simPanel, null);
 
 		JPanel simInformation = new JPanel();
-		simInformation.setLayout(new GridLayout(0, 1, 0, 0));
+		simInformation.setLayout(new BoxLayout(simInformation, BoxLayout.Y_AXIS));
 
 		JPanel summaryPanel = new JPanel();
-		FlowLayout flowLayout = (FlowLayout) summaryPanel.getLayout();
-		flowLayout.setAlignment(FlowLayout.LEFT);
+		summaryPanel.setLayout(new BoxLayout(summaryPanel, BoxLayout.X_AXIS));
 		simInformation.add(summaryPanel);
 		lblTiempo = new JLabel("Tiempo");
 		summaryPanel.add(lblTiempo);
 
-		JLabel label = new JLabel("xxx");
-		simInformation.add(label);
-
 		JPanel simActionButtonsPanel = new JPanel();
 		simInformation.add(simActionButtonsPanel);
-		simActionButtonsPanel
-				.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		simActionButtonsPanel.setLayout(new BoxLayout(simActionButtonsPanel, BoxLayout.X_AXIS));
 
 		initButton = new JButton("Init");
 		initButton.addActionListener(this);
@@ -114,11 +127,21 @@ public class MainWindow extends Thread implements ActionListener {
 		stopButton.setEnabled(false);
 		stopButton.addActionListener(this);
 		simActionButtonsPanel.add(stopButton);
-		
-		//Add Dynamic chart
-		dynWT = new DynamicWaitingTimeChart(MIN_PRIORITY);
-		dynWT.new DataGenerator(200).start();
-		simInformation.add(dynWT);
+
+		// Add Dynamic chartS
+		// Waiting time chart
+		JPanel dynamicChartsPanel = new JPanel();
+		dynamicChartsPanel.setLayout(new BoxLayout(dynamicChartsPanel, BoxLayout.Y_AXIS));
+		simInformation.add(dynamicChartsPanel);
+		// Traffic chart
+		trafficChart = new DynamicXYChart(Color.BLUE, "Traffic");
+		dynamicChartsPanel.add(trafficChart.getChart());
+		// Waiting time chart
+		wtChart = new DynamicXYChart(Color.RED, "Wating Time");
+		dynamicChartsPanel.add(wtChart.getChart());
+		// Service time chart
+		//stChart = new DynamicXYChart(Color.BLUE, "Service Time");
+		//dynamicChartsPanel.add(stChart.getChart());
 
 		JPanel simGraphics = new JPanel();
 		simGraphics.setLayout(new BorderLayout(0, 0));
@@ -130,12 +153,11 @@ public class MainWindow extends Thread implements ActionListener {
 		elevatorModel.setRowCount(guiModel.getNumFloors());
 		elevatorModel.setColumnCount(guiModel.getNumElevators() + 1);
 		canvas = new JTable(elevatorModel);
-		//FLOOR MODEL
+		// FLOOR MODEL
 		canvas.getColumnModel().getColumn(0).setCellRenderer(new FloorCellRenderer());
-		//ELEVATOR COLUMN MODEL
+		// ELEVATOR COLUMN MODEL
 		for (int j = 1; j <= guiModel.getNumElevators(); j++) {
-			canvas.getColumnModel().getColumn(j)
-					.setCellRenderer(new ElevatorCellRenderer());
+			canvas.getColumnModel().getColumn(j).setCellRenderer(new ElevatorCellRenderer());
 		}
 
 		simGraphics.add(canvas);
@@ -144,11 +166,49 @@ public class MainWindow extends Thread implements ActionListener {
 		JScrollPane simGraphicsSP = new JScrollPane(simGraphics);
 		simPanel.add(simGraphicsSP);
 
+		// Stats TAB
 		JPanel statsPanel = new JPanel();
+		statsPanel.setLayout(new BoxLayout(statsPanel, BoxLayout.X_AXIS));
 		tabbedPane.addTab("Statistics", null, statsPanel, null);
+		// Stats container
+		JPanel statsConPanel = new JPanel();
+		statsConPanel.setLayout(new BoxLayout(statsConPanel, BoxLayout.Y_AXIS));
 
-		JLabel lblNewLabel = new JLabel("New label 2");
-		statsPanel.add(lblNewLabel);
+		//Stats panel for buttons
+		JPanel statsActionButtonsPanel = new JPanel();
+		statsActionButtonsPanel.setLayout(new BoxLayout(statsActionButtonsPanel, BoxLayout.X_AXIS));	
+		
+		genWTReportpButton = new JButton("Generate Waiting Time Report");
+		genWTReportpButton.addActionListener(this);
+
+		genSTReportpButton = new JButton("Generate Service Time Report");
+		genSTReportpButton.addActionListener(this);
+
+		genTEnergyReportpButton = new JButton("Generate Service Used Energy Report");
+		genTEnergyReportpButton.addActionListener(this);
+
+		statsActionButtonsPanel.add(genWTReportpButton);
+		statsActionButtonsPanel.add(genSTReportpButton);
+		statsActionButtonsPanel.add(genTEnergyReportpButton);
+
+		// Stats Dynamic chartS
+		// Waiting time chart
+		JPanel statsDynamicChartsPanel = new JPanel();
+		statsDynamicChartsPanel.setLayout(new BoxLayout(statsDynamicChartsPanel, BoxLayout.X_AXIS));
+		// Traffic chart
+		//trafficChart = new DynamicXYChart(Color.GREEN, "Traffic");
+		//statsDynamicChartsPanel.add(trafficChart.getChart());
+		// Waiting time chart
+		//wtChart = new DynamicXYChart(Color.RED, "Wating Time");
+		//statsDynamicChartsPanel.add(wtChart.getChart());
+		// Service time chart
+		stChart = new DynamicXYChart(Color.BLUE, "Service Time");
+		statsDynamicChartsPanel.add(stChart.getChart());
+
+		statsConPanel.add(statsActionButtonsPanel);
+		statsConPanel.add(statsDynamicChartsPanel);
+		statsPanel.add(statsConPanel);
+		
 		frmBuildingSimulator.getContentPane().add(tabbedPane);
 	}
 
@@ -156,6 +216,17 @@ public class MainWindow extends Thread implements ActionListener {
 		DecimalFormat df = new DecimalFormat("#.###");
 		lblTiempo.setText("Tiempo: " + df.format(guiModel.getSimClock()));
 		canvas.updateUI();
+	}
+
+	@Override
+	public void update(Observable obj, Object arg) {
+		if (arg instanceof Passenger) {
+			Passenger pass = (Passenger) arg;
+			wtChart.setData(guiModel.getSimClock(), pass.getEntryTime() - pass.getArrivalTime());
+			stChart.setData(guiModel.getSimClock(), pass.getExitTime() - pass.getArrivalTime());
+			// ;
+			// trafficChart;
+		}
 	}
 
 	public void actionPerformed(ActionEvent event) {
@@ -188,9 +259,21 @@ public class MainWindow extends Thread implements ActionListener {
 					pauseButton.setEnabled(false);
 					initButton.setEnabled(true);
 				}
+				// GENERATE WAITING TIME REPORT
+				if (((JButton) source).equals(genWTReportpButton)) {
+					statisticsManager.generateWTReport();
+				}
+				// GENERATE SERVICE TIME REPORT
+				if (((JButton) source).equals(genSTReportpButton)) {
+					statisticsManager.generateSTReport();
+				}
+				// GENERATE SERVICE TIME REPORT
+				if (((JButton) source).equals(genTEnergyReportpButton)) {
+					statisticsManager.generateTEnergyReport();
+				}
 			}
 		} catch (Exception e) {
-			logger.error("Error action performed "+e.getMessage());
+			logger.error("Error action performed " + e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -211,22 +294,19 @@ public class MainWindow extends Thread implements ActionListener {
 		}
 	}
 
-
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
 		try {
+			System.out.println("java.endorsed.dirs:\n" + System.getProperty("java.endorsed.dirs"));
 			MainWindow window;
 			window = new MainWindow();
 			window.frmBuildingSimulator.setVisible(true);
 			window.start();
-		} catch (IOException e) {
-			logger.error("Error en el simulador : "+e);
-			e.printStackTrace();
 		} catch (Exception e) {
-			logger.error("Error en el simulador : "+e);
 			e.printStackTrace();
 		}
 	}
+
 }

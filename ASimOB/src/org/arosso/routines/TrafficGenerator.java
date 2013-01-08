@@ -94,17 +94,16 @@ public class TrafficGenerator extends SimulationRoutine {
 	}
 
 	public void generateMockCalls() {
-		Passenger passenger = new Passenger(0, 2, 8, Passenger.Type.CALL);
+		Passenger passenger = new Passenger( (int)(buildingModel.getSimulationClock()+0), 2, 8, Passenger.Type.CALL);
 		generatedCalls.add(passenger);
-		passenger = new Passenger(2, 4, 10, Passenger.Type.CALL);
+		passenger = new Passenger((int)(buildingModel.getSimulationClock()+2), 4, 10, Passenger.Type.CALL);
 		generatedCalls.add(passenger);
-		passenger = new Passenger(5, 7, 5, Passenger.Type.CALL);
+		passenger = new Passenger((int)(buildingModel.getSimulationClock()+5), 7, 5, Passenger.Type.CALL);
 		generatedCalls.add(passenger);
-		passenger = new Passenger(10, 9, 1, Passenger.Type.CALL);
+		passenger = new Passenger((int)(buildingModel.getSimulationClock()+10), 9, 1, Passenger.Type.CALL);
 		generatedCalls.add(passenger);
-		passenger = new Passenger(53, 10, 13, Passenger.Type.CALL);
+		passenger = new Passenger((int)(buildingModel.getSimulationClock()+53), 10, 13, Passenger.Type.CALL);
 		generatedCalls.add(passenger);
-		
 	}
 
 	/**

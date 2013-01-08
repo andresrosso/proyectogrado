@@ -102,6 +102,11 @@ public class Elevator {
 	private int targetFloor = 0;
 
 
+	/**
+	 * Floor runned for each elevator
+	 */
+	private float floorsRunned;
+	
 	public Elevator(Integer elevatorId, Integer capacity, Float aceleration,
 			Float speed, Float jerk, Float doorCloseTime, Float doorOpenTime,
 			Float passangerTransferTime, Integer restFloor) {
@@ -118,6 +123,7 @@ public class Elevator {
 		this.targetFloor = restFloor;
 		this.position = restFloor.floatValue();
 		this.state = State.RESTING;
+		this.floorsRunned=0;
 	}
 
 	/**
@@ -333,6 +339,7 @@ public class Elevator {
 	 * @param newPosition
 	 */
 	public void setPosition(Float newPosition) {
+		floorsRunned++;
 		this.position = newPosition;
 	}
 
@@ -370,6 +377,10 @@ public class Elevator {
 
 	public void setTargetFloor(int targetFloor) {
 		this.targetFloor = targetFloor;
+	}
+
+	public float getFloorsRunned() {
+		return floorsRunned;
 	}
 
 }

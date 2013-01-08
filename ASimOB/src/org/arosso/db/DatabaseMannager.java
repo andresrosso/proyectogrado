@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Vector;
 
 import org.arosso.model.Passenger;
 import org.hsqldb.Server;
@@ -14,30 +15,30 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class DatabaseMannager {
-	
+
 	/**
 	 * Logger
 	 */
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
-	
+
 	private Server server;
 	private Connection conn;
 	private String dbURL;
-	
-	private static DatabaseMannager instance = null; 
-	
+	public Vector regs = new Vector();
+
+	private static DatabaseMannager instance = null;
+
 	private DatabaseMannager() {
 		logger.info("Database init");
 	}
-	
+
 	public static DatabaseMannager getInstance() throws Exception {
-		if(instance==null){
+		if (instance == null) {
 			instance = new DatabaseMannager();
 			instance.initialize();
 		}
 		return instance;
 	}
-
 
 	/**
 	 * 
@@ -61,7 +62,7 @@ public class DatabaseMannager {
 
 	/**
 	 * 
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public void initialize() throws Exception {
 		server = new Server();
@@ -70,8 +71,7 @@ public class DatabaseMannager {
 		// String dbpath = sce.getServletContext().getInitParameter("dbpath");
 		dbURL = (new java.io.File(".").getCanonicalPath());
 		server.setDatabasePath(0, dbURL);
-		logger.info("Database (" + server.getDatabaseName(0, true)
-				+ "). Started in (" + server.getDatabaseName(0, true) + ")");
+		logger.info("Database (" + server.getDatabaseName(0, true) + "). Started in (" + server.getDatabaseName(0, true) + ")");
 		// server.setLogWriter(logger.get); // can use custom writer
 		// server.setErrWriter(null); // can use custom writer
 		server.start();
@@ -134,7 +134,8 @@ public class DatabaseMannager {
 		// choose to make a new one each time
 		rs = st.executeQuery(expression); // run the query
 		// do something with the result set.
-		dump(rs);
+		//dump(rs);
+		dumpInObject(rs);
 		st.close(); // NOTE!! if you close a statement the associated ResultSet
 					// is
 	}
@@ -154,13 +155,14 @@ public class DatabaseMannager {
 		}
 		st.close();
 	}
-	
-	public void createTables(){
+
+	public void createTables() {
 		try {
-			if(tableExists("PASSENGER")){
+			if (tableExists("PASSENGER")) {
 				logger.info("table already exists");
-			}
-			else{
+				dropTables();
+				this.createTables();
+			} else {
 				// arrivalTime; originFloor; destinationFloor; type;
 				this.update("CREATE TABLE PASSENGER ( ID INTEGER IDENTITY, ARRIVALTIME DOUBLE, ENTRYTIME DOUBLE, EXITTIME DOUBLE, ORIGINFLOOR INTEGER, DESTINATIONFLOOR INTEGER, PASSTYPE VARCHAR(20), ELEVATOR INTEGER)");
 			}
@@ -168,46 +170,65 @@ public class DatabaseMannager {
 			e.printStackTrace();
 		}
 	}
-	
-	public void insertPassenger(Passenger passenger, int elevator){
+
+	public void insertPassenger(Passenger passenger, int elevator) {
 		try {
-			this.update("INSERT INTO PASSENGER(ARRIVALTIME,ENTRYTIME,EXITTIME,ORIGINFLOOR,DESTINATIONFLOOR,PASSTYPE,ELEVATOR) VALUES("
-					+passenger.getArrivalTime()+","
-					+passenger.getEntryTime()+","
-					+passenger.getExitTime()+","
-					+passenger.getOriginFloor()+","
-					+passenger.getDestinationFloor()+","
-					+"'"+passenger.getType()+"'," 
-					+elevator
-					+")");
+			this.update("INSERT INTO PASSENGER(ARRIVALTIME,ENTRYTIME,EXITTIME,ORIGINFLOOR,DESTINATIONFLOOR,PASSTYPE,ELEVATOR) VALUES(" + 
+						passenger.getArrivalTime() 		+ "," + 
+					    passenger.getEntryTime()		+ "," + 
+						passenger.getExitTime() 		+ "," + 
+					    passenger.getOriginFloor() 		+ "," + 
+						passenger.getDestinationFloor() + "," + 
+					    "'" + passenger.getType() + "'," + 
+						elevator + ")");
+			logger.info("Insert pass: "+passenger.toStringComplete());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
-	
-	public void dropTables(){
+
+	public void dropTables() {
 		try {
 			this.update("DROP TABLE PASSENGER");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
-	
-	private boolean tableExists(String table) throws SQLException{
-		  DatabaseMetaData metadata = this.conn.getMetaData();
-		  ResultSet result = metadata.getTables(null,null,table,new String[] { "TABLE" });
-		  boolean exists = result.next();
-		  result.close();
-		  return exists;
+
+	private boolean tableExists(String table) throws SQLException {
+		DatabaseMetaData metadata = this.conn.getMetaData();
+		ResultSet result = metadata.getTables(null, null, table, new String[] { "TABLE" });
+		boolean exists = result.next();
+		result.close();
+		return exists;
+	}
+
+	public Vector dumpInObject(ResultSet rs) throws SQLException {
+		regs.clear();
+		// the order of the rows in a cursor are implementation dependent unless you use the SQL ORDER statement
+		ResultSetMetaData meta = rs.getMetaData();
+		int colmax = meta.getColumnCount();
+		int i;
+		Object o = null;
+		Vector registro = new Vector(colmax);
+		for (; rs.next();) {
+			registro = new Vector(colmax);
+			for (i = 0; i < colmax; ++i) {
+				o = rs.getObject(i + 1); // Is SQL the first column is indexed
+				registro.add(o);
+			}
+			regs.add(registro);
+		}
+		return regs;
 	}
 
 	public static void main(String[] args) {
-		
+
 		try {
 			DatabaseMannager db = DatabaseMannager.getInstance();
 			db.createTables();
 			Passenger passenger = new Passenger(2, 4, 10, Passenger.Type.CALL);
-			db.insertPassenger(passenger,0);
+			db.insertPassenger(passenger, 0);
 			// do a query
 			db.query("SELECT * FROM PASSENGER");
 			db.dropTables();

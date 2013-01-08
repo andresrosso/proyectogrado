@@ -20,11 +20,13 @@ import org.slf4j.LoggerFactory;
 /**
  * Description of StatisticsManager.
  */
-public class StatisticsManager implements Observer {
+public class StatisticsManager extends Observable {
     /**
      * Description of the property buildingSimulator.
      */
     private static StatisticsManager instace = null;
+    
+    
     
     /**
      * Description of the property jasperReportManager.
@@ -54,6 +56,7 @@ public class StatisticsManager implements Observer {
     private StatisticsManager() {
     	super();
     	try {
+    		jasperReportManager = new JasperReportManager();
 			databaseMannager = DatabaseMannager.getInstance();
 			databaseMannager.createConn();
 			databaseMannager.createTables();
@@ -69,17 +72,6 @@ public class StatisticsManager implements Observer {
     	// Start of user code for method generateServiceTimeReport
     	// End of user code
     }
-     
-    /**
-     * Description of the method update.
-     * @param obj 
-     * @param arg 
-     */
-    public void update(Observable obj, Object arg) {
-    	// Start of user code for method update
-    	// End of user code
-    }
-
     
     /**
      * Returns jasperReportManager.
@@ -102,7 +94,23 @@ public class StatisticsManager implements Observer {
      * @param passenger
      */
 	public void updateStatistics(Passenger passenger, Integer elevatorID) {
+		System.err.print("updateStatistics "+ passenger);
 		databaseMannager.insertPassenger(passenger,elevatorID);
+		setChanged();
+		notifyObservers(passenger);
+	}
+	
+	public void generateWTReport(){
+		jasperReportManager.getWTimeJReport();
+	}
+
+
+	public void generateSTReport(){
+		jasperReportManager.getSTimeJReport();
+	}
+	
+	public void generateTEnergyReport(){
+		jasperReportManager.getTEnergyJReport();
 	}
     
     
