@@ -49,17 +49,13 @@ public class TrafficGenerator extends SimulationRoutine {
 	 * 
 	 * @throws Exception
 	 */
-	public TrafficGenerator(String routineName, String buildingPropsFile)
-			throws IOException, Exception {
+	public TrafficGenerator(String routineName, String buildingPropsFile) throws IOException, Exception {
 		super();
 		// Read model properties
 		PropertiesBroker propertiesBroker = PropertiesBroker.getInstance();
-		String modelClass = propertiesBroker.getProperty(PROP_SET.SIMULATION,
-				"trafficModelImplementation");
-		Float trafficGenActivationTime = Float.valueOf(propertiesBroker
-				.getProperty(PROP_SET.SIMULATION, "trafficGenActivationTime"));
-		logger.info("BuildingModel made based on properties ("
-				+ buildingPropsFile + ")");
+		String modelClass = propertiesBroker.getProperty(PROP_SET.SIMULATION, "trafficModelImplementation");
+		Float trafficGenActivationTime = Float.valueOf(propertiesBroker.getProperty(PROP_SET.SIMULATION, "trafficGenActivationTime"));
+		logger.info("BuildingModel made based on properties (" + buildingPropsFile + ")");
 		ClassLoader classLoader = this.getClass().getClassLoader();
 		Class myObjectClass = classLoader.loadClass(modelClass);
 		trafficModel = (TrafficModel) myObjectClass.newInstance();
@@ -73,37 +69,46 @@ public class TrafficGenerator extends SimulationRoutine {
 
 	@Override
 	synchronized public void execute() {
-			/*
-			 * int pass2gen =
-			 * this.trafficModel.getEstimatedPassengerNumber(buildingModel
-			 * .getSimulationClock()); for(int j=0;j<=pass2gen; j++){ Passenger
-			 * passenger = new Passenger(
-			 * this.trafficModel.getEstimatedArrivalTime
-			 * (buildingModel.getSimulationClock()),
-			 * this.trafficModel.getEstimatedOriginFloor
-			 * (buildingModel.getSimulationClock()),
-			 * this.trafficModel.getEstimatedDestinationFloor
-			 * (buildingModel.getSimulationClock()), Passenger.Type.CALL);
-			 * buildingModel.getCalls().add(passenger);
-			 * logger.info("Call generated "+passenger); }
-			 */
-			generateMockCalls();
-			logger.info("Generating calls = " + generatedCalls);
-			buildingModel.getCalls().addAll(generatedCalls);
-			generatedCalls.clear();
+		int pass2gen = this.trafficModel.getEstimatedPassengerNumber(buildingModel.getSimulationClock());
+		Float time = buildingModel.getSimulationClock();
+		
+		for (int j = 0; j <= pass2gen; j++) {
+			int originFloor = this.trafficModel.getEstimatedOriginFloor(time);
+			int destinationFloor = this.trafficModel.getEstimatedDestinationFloor(time);
+			if(originFloor==destinationFloor){
+				originFloor++;
+			}
+			Passenger passenger = new Passenger(
+					this.trafficModel.getEstimatedArrivalTime(time).intValue(), 
+					originFloor, 
+					destinationFloor, 
+					Passenger.Type.CALL);
+			buildingModel.getCalls().add(passenger);
+			logger.info("Call generated " + passenger);
+		}
+		//generateMockCalls();
+		logger.info("Generating calls = " + generatedCalls);
+		buildingModel.getCalls().addAll(generatedCalls);
+		generatedCalls.clear();
 	}
 
 	public void generateMockCalls() {
-		Passenger passenger = new Passenger( (int)(buildingModel.getSimulationClock()+0), 2, 8, Passenger.Type.CALL);
+		Passenger passenger = new Passenger((int) (buildingModel.getSimulationClock() + 0), 20, 39, Passenger.Type.CALL);
 		generatedCalls.add(passenger);
-		passenger = new Passenger((int)(buildingModel.getSimulationClock()+2), 4, 10, Passenger.Type.CALL);
+		passenger = new Passenger((int) (buildingModel.getSimulationClock() + 5), 20, 33, Passenger.Type.CALL);
 		generatedCalls.add(passenger);
-		passenger = new Passenger((int)(buildingModel.getSimulationClock()+5), 7, 5, Passenger.Type.CALL);
+		passenger = new Passenger((int) (buildingModel.getSimulationClock() + 24), 5, 37, Passenger.Type.CALL);
 		generatedCalls.add(passenger);
-		passenger = new Passenger((int)(buildingModel.getSimulationClock()+10), 9, 1, Passenger.Type.CALL);
+		passenger = new Passenger((int) (buildingModel.getSimulationClock() + 27), 3, 32, Passenger.Type.CALL);
 		generatedCalls.add(passenger);
-		passenger = new Passenger((int)(buildingModel.getSimulationClock()+53), 10, 13, Passenger.Type.CALL);
+		passenger = new Passenger((int) (buildingModel.getSimulationClock() + 24), 0, 37, Passenger.Type.CALL);
 		generatedCalls.add(passenger);
+		/*
+		passenger = new Passenger((int) (buildingModel.getSimulationClock() + 10), 9, 1, Passenger.Type.CALL);
+		generatedCalls.add(passenger);
+		passenger = new Passenger((int) (buildingModel.getSimulationClock() + 53), 10, 13, Passenger.Type.CALL);
+		generatedCalls.add(passenger);
+		*/
 	}
 
 	/**

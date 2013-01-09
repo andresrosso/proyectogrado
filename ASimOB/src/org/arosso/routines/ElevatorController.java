@@ -1,9 +1,10 @@
 package org.arosso.routines;
 
 import java.io.IOException;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.Vector;
 
-import org.arosso.db.DatabaseMannager;
 import org.arosso.exception.CallIllegalState;
 import org.arosso.exception.ElevatorIlegalState;
 import org.arosso.model.BuildingModel;
@@ -18,7 +19,7 @@ import org.slf4j.LoggerFactory;
  * Description of ElevatorController.
  */
 public class ElevatorController extends SimulationRoutine implements
-		IElevatorController {
+		IElevatorController, Observer {
 
 	/**
 	 * Description of the property elevator.
@@ -83,6 +84,8 @@ public class ElevatorController extends SimulationRoutine implements
 		super(routineName, activationTime);
 		this.elevator = elevator;
 		speed = elevator.getSpeed();
+		//Add observer to notify a call added
+		elevator.addObserver(this);
 		buildingModel = BuildingModel.getInstance();
 		floorGap = buildingModel.getFloorGapDistance();
 	}
@@ -98,6 +101,9 @@ public class ElevatorController extends SimulationRoutine implements
     			", TFloor("+elevator.getTargetFloor()+")"
     			//"Elevator ["+elevator.getId()+"] " +
     			);
+    	if((currentTaskTime.floatValue()>taskTimeMAX.floatValue()) ||currentTaskTime.floatValue()<0 || taskTimeMAX.floatValue()<0 ){
+    		logger.error("The current task time is not appropiate, look at that!!! currentTaskTime( "+currentTaskTime.floatValue()+") taskTimeMAX ("+taskTimeMAX.floatValue()+")");
+    	}
     	//Check if there is a task running
     	if( taskTimeMAX==0 || (currentTaskTime.floatValue()==taskTimeMAX.floatValue()) ){
     		//There is a task running, so do it
@@ -123,8 +129,7 @@ public class ElevatorController extends SimulationRoutine implements
 				doComingPassengerTask();
 				break;
     		default:
-    			new ElevatorIlegalState("The elevator ("+this.getElevator().getId()+
-    					") is supposed to be -MOVING, RESTING OR OUT OF SERVICE- but is "+this.getElevator().getState() );
+    			new ElevatorIlegalState("The elevator ("+this.getElevator().getId()+") is supposed to be -MOVING, RESTING OR OUT OF SERVICE- but is "+this.getElevator().getState() );
     		}
     	}else{
     		currentTaskTime += buildingModel.getDeltaAdvaceTime();
@@ -144,6 +149,7 @@ public class ElevatorController extends SimulationRoutine implements
      * Task for resting state
      */
 	private void doRestingTask() {
+		callsToCome.clear();
 		// If there are calls
 		if (elevator.getCalls().size() > 0) {
 			// if all call has the same direction
@@ -153,17 +159,17 @@ public class ElevatorController extends SimulationRoutine implements
 			}else{
 				// get better route call
 				//TODO: Its no really  common so do it easy
-				logger.error("Elevator ["+elevator.getId()+"] This is not common but, there are 2 calls in different direction");
+				logger.error("Error on doRestingTask>> Elevator ["+elevator.getId()+"] This is not common but, there are 2 calls in different direction");
 				findDirectionAndTargetFloor();
 			}
-			elevator.setState(Elevator.State.MOVING);
+			this.changeState(Elevator.State.MOVING, 0);
 		} else {
 			if(elevator.getPosition().intValue()==elevator.getRestFloor()){
 				return;	
 			}else{
 				elevator.getCalls().add(new Passenger(buildingModel.getSimulationClock().intValue()+1, elevator.getRestFloor(),elevator.getRestFloor(),Passenger.Type.MOCK_CALL));
 				findDirectionAndTargetFloor();
-				elevator.setState(Elevator.State.MOVING);
+				this.changeState(Elevator.State.MOVING, 0);
 			}
 		}
 	}
@@ -183,16 +189,14 @@ public class ElevatorController extends SimulationRoutine implements
 			//If there are passengers that get destination floor
 			if(hasReachFloorForCall(elevator.getPassengers())){
 				logger.debug("Elevator ["+elevator.getId()+"] Open door for passenger exit. " + passToExit);
-				currentTaskTime = buildingModel.getDeltaAdvaceTime();
-				taskTimeMAX = elevator.getDoorOpenTime();
-				elevator.setState(Elevator.State.OPEN_DOOR);
+				this.changeState(Elevator.State.OPEN_DOOR, elevator.getDoorOpenTime());
 			}//Check if there are calls in floor
 			else if(hasReachFloorForCall(elevator.getCalls())){
 				//Check if it is a mock call
 				if(elevator.getCalls().get(0).getType() == Passenger.Type.MOCK_CALL){
 					elevator.setTargetFloor(elevator.getPosition().intValue());
 					elevator.setDirection(Elevator.Direction.NONE);
-					elevator.setState(Elevator.State.RESTING);
+					this.changeState(Elevator.State.RESTING, 0);
 					elevator.getCalls().remove(0);
 					if(elevator.getCalls().size()>0){
 						logger.warn("Elevator ["+elevator.getId()+"] There was a mock call and other type for the elevator. Strange-");
@@ -203,17 +207,18 @@ public class ElevatorController extends SimulationRoutine implements
 				else{
 					if(directionValidForAnyPassenger(callsToCome)){
 						logger.debug("Elevator ["+elevator.getId()+"] Open door for call. " + callsToCome);
-						currentTaskTime = buildingModel.getDeltaAdvaceTime();
-						taskTimeMAX = elevator.getDoorOpenTime();
-						elevator.setState(Elevator.State.OPEN_DOOR);
+						this.changeState(Elevator.State.OPEN_DOOR, elevator.getDoorOpenTime());
 					}else{
 						if (elevator.getPassengers().isEmpty()) {
-							elevator.setDirection(Elevator.Direction.NONE);
-							currentTaskTime = buildingModel.getDeltaAdvaceTime();
-							taskTimeMAX = elevator.getDoorOpenTime();
-							elevator.setState(Elevator.State.OPEN_DOOR);
+							if(elevator.getPosition().intValue()==elevator.getTargetFloor()){
+								elevator.setDirection(Elevator.Direction.NONE);
+								this.changeState(Elevator.State.OPEN_DOOR, elevator.getDoorOpenTime());
+							}
+							else{
+								return;
+							}
 						}else{
-							logger.debug("Elevator ["+elevator.getId()+"] Continue moving ignoring different direction call" + callsToCome);
+							logger.info("Elevator ["+elevator.getId()+"] Continue moving ignoring different direction call" + callsToCome);
 							return;
 						}
 					}
@@ -230,33 +235,31 @@ public class ElevatorController extends SimulationRoutine implements
 	 * Open the elevator door
 	 */
 	private void doOpenDoorTask() {
+		callsToCome.clear();
 		//If there are passengers that get destination floor
 		if(hasReachFloorForCall(elevator.getPassengers())){
-			elevator.setState(Elevator.State.EXIT_PASS);
-			currentTaskTime = buildingModel.getDeltaAdvaceTime();
-			taskTimeMAX = elevator.getPassangerTransferTime()*(passToExit.size());
+			this.changeState(Elevator.State.EXIT_PASS, elevator.getPassangerTransferTime()*(passToExit.size()));
 			logger.debug("Elevator ["+elevator.getId()+"] has reach floor to exit a passenger ");
 		}else if(hasReachFloorForCall(elevator.getCalls())){
 			//Check if there are passengers
 			if (!elevator.getPassengers().isEmpty()) {
+				findDirectionAndTargetFloor();
 				callsToCome = removeDifferentDirectionCalls(callsToCome, elevator.getDirection());
 			}else{
 				if(allCallsHasSameDirection(callsToCome)){
 					logger.debug("Elevator ["+elevator.getId()+"] All calls has the same direction.");
 				}else{
-					logger.error("Elevator ["+elevator.getId()+"] There are calls in different direction.");
+					logger.error("Error on doOpenDoorTask>> Elevator ["+elevator.getId()+"] There are calls in different direction.");
 				}
 			}
 			logger.debug("Elevator ["+elevator.getId()+"] has reach floor to pickUp a passenger ");
 			findDirectionAndTargetFloor();
-			elevator.setState(Elevator.State.COMING_PASS);
-			taskTimeMAX = elevator.getPassangerTransferTime()*(callsToCome.size());
+			this.changeState(Elevator.State.COMING_PASS, elevator.getPassangerTransferTime()*(callsToCome.size()));
 		}else{
-			currentTaskTime = buildingModel.getDeltaAdvaceTime();
-			taskTimeMAX = elevator.getDoorCloseTime();
-			elevator.setState(Elevator.State.CLOSE_DOOR);
+			this.changeState(Elevator.State.CLOSE_DOOR, elevator.getDoorCloseTime());
 		}
 	}
+	
 
 	/**
 	 * Exit passenger from the elevator
@@ -285,11 +288,12 @@ public class ElevatorController extends SimulationRoutine implements
 		else if(!elevator.getCalls().isEmpty()){
 			findDirectionAndTargetFloor();
 		}else{
-			elevator.setState(Elevator.State.RESTING);
+			this.changeState(Elevator.State.RESTING, 0);
 			return;
 		}
-		elevator.setState(Elevator.State.MOVING);
-		currentTaskTime = taskTimeMAX = 0f;
+		this.changeState(Elevator.State.MOVING, 0);
+		callsToCome.clear();
+		passToExit.clear();
 	}
 
 	/**
@@ -298,14 +302,14 @@ public class ElevatorController extends SimulationRoutine implements
 	private void doComingPassengerTask() {
 		this.removeCalls(callsToCome);
 		this.addPassengers(callsToCome);
-		callsToCome.clear();
+		logger.error("COMING PASS>>"+callsToCome);
 		if(directionValidForAnyPassenger(elevator.getPassengers())){
-			elevator.setState(Elevator.State.CLOSE_DOOR);
-			currentTaskTime = buildingModel.getDeltaAdvaceTime();
-			taskTimeMAX = elevator.getDoorCloseTime();
+			this.changeState(Elevator.State.CLOSE_DOOR, elevator.getDoorCloseTime());
+			logger.error("COMING PASS DIR VALID>>"+callsToCome);
 		}else{
-			logger.error("Elevator ["+elevator.getId()+"] There are passengers in different direction, pass: "+elevator.getPassengers());
+			logger.error("Error on doComingPassengerTask>> Elevator ["+elevator.getId()+"] There are passengers in different direction, pass: "+elevator.getPassengers());
 		}
+		callsToCome.clear();
 	}
 	
 	/**
@@ -315,11 +319,12 @@ public class ElevatorController extends SimulationRoutine implements
 		Vector<Passenger> callLisToRemove = new Vector<Passenger>();
 		for(Passenger passenger : callList){
 			if(passenger.getDirection() == validDirection || elevator.getDirection() == Elevator.Direction.NONE ){
-				logger.debug("Elevator ["+elevator.getId()+"] The call is valid for thge direction. call = "+passenger);
+				logger.debug("Elevator ["+elevator.getId()+"] The call is valid for the direction. call = "+passenger);
 			}else{
 				callLisToRemove.add(passenger);
 			}
 		}
+		logger.info("removeDifferentDirectionCalls>> Elevator ["+elevator.getId()+"] removecalls = "+callLisToRemove);
 		callList.removeAll(callLisToRemove);
 		return callList;
 	}
@@ -364,9 +369,16 @@ public class ElevatorController extends SimulationRoutine implements
 			elevator.setTargetFloor(highestCall.getDestinationFloor());
 			logger.debug("Elevator ["+elevator.getId()+"] Find direction based on passenger: "+elevator.getDirection() +", target floor: "+elevator.getTargetFloor());
 		} 
+		//Based on callstocome
+		else if (callsToCome.size() > 0) {
+			elevator.setDirection(callsToCome.get(0).getDirection());
+			// Based on passenger
+			highestCall = getHighestCall(dir,callsToCome);
+			elevator.setTargetFloor(highestCall.getDestinationFloor());
+			logger.debug("Elevator ["+elevator.getId()+"] Find direction based on callstocome: "+elevator.getDirection() +", target floor: "+elevator.getTargetFloor());
+		} 
 		// Based on calls
-		else{
-			if (elevator.getCalls().size() > 0) {
+		else if (elevator.getCalls().size() > 0) {
 				// Based on calls
 				highestCall = getHighestCall(dir,elevator.getCalls());
 				elevator.setTargetFloor(highestCall.getOriginFloor());
@@ -378,8 +390,23 @@ public class ElevatorController extends SimulationRoutine implements
 					elevator.setDirection(Elevator.Direction.NONE);
 				}
 				logger.debug("Elevator ["+elevator.getId()+"] Find direction based on call: "+elevator.getDirection() +", target floor: "+elevator.getTargetFloor());
-			}
 		}
+
+		logger.info("findDirectionAndTargetFloor>> passengers ["+elevator.getPassengers()+"], callsToCome ["+callsToCome+"], calls ["+elevator.getCalls()+"]  = Dir("+elevator.getDirection()+") Tf("+elevator.getTargetFloor()+")" );
+	}
+	
+	/**
+	 * Find the direction of the elevator and its taget floor.
+	 */
+	public int recalculateTargetFloor(Passenger call) {
+		int higestFloor = this.getElevator().getTargetFloor();
+		// Based on call
+		if(this.elevator.getDirection()==Elevator.Direction.UP && call.getOriginFloor()>higestFloor){
+			return  call.getOriginFloor();
+		}else if(this.elevator.getDirection()==Elevator.Direction.DOWN && call.getOriginFloor()<higestFloor){
+			return  call.getOriginFloor();
+		}
+		return higestFloor;
 	}
 
 	/**
@@ -389,19 +416,71 @@ public class ElevatorController extends SimulationRoutine implements
 	 * @return
 	 */
 	public Passenger getHighestCall(Elevator.Direction dir, Vector<Passenger> calls) {
-		int high = 0;
+		
 		Passenger hightCall = calls.get(0);
-		for (Passenger call : calls) {
-			int floor = 0; 
-			if(call.getType() == Passenger.Type.CALL || call.getType() == Passenger.Type.MOCK_CALL){
-				floor = call.getOriginFloor();
-			}else if(call.getType() == Passenger.Type.PASSENGER){
-				floor = call.getDestinationFloor();
+		int highFloor;
+		//If is a call or a passenger
+		if(hightCall.getType() == Passenger.Type.CALL || hightCall.getType() == Passenger.Type.MOCK_CALL){
+			highFloor=hightCall.getOriginFloor();
+		}else{
+			highFloor=hightCall.getDestinationFloor();
+		}
+		
+		//If the elevator does not have direction, take the on way call or change direction
+		if(dir==Elevator.Direction.NONE){
+			boolean in_it = false;
+			int hightDiff = 0;
+			for (Passenger call : calls) {
+				if(call.getType() == Passenger.Type.CALL || call.getType() == Passenger.Type.MOCK_CALL){
+					//Getting account of the last elevator direction
+					if(elevator.getDirection()==Elevator.Direction.DOWN && call.getOriginFloor()<elevator.getPosition().intValue() && (call.getOriginFloor()<hightCall.getOriginFloor())){
+							hightCall = call;
+							in_it = true;
+					}else if(elevator.getDirection()==Elevator.Direction.UP && call.getOriginFloor()<elevator.getPosition().intValue() && (call.getOriginFloor()>hightCall.getOriginFloor())){
+							hightCall = call;
+							in_it = true;
+					}
+				}
 			}
-			int diff = Math.abs(elevator.getPosition().intValue() - floor);
-			if (diff > high) {
-				high = diff;
-				hightCall = call;
+			//If there are not calls in the same direction
+			if(in_it==false){
+				for (Passenger call : calls) {
+					if(call.getType() == Passenger.Type.CALL || call.getType() == Passenger.Type.MOCK_CALL){
+						if(Math.abs(call.getOriginFloor()-elevator.getPosition().intValue())>hightDiff){
+								hightCall = call;
+								hightDiff = Math.abs(call.getOriginFloor()-elevator.getPosition().intValue());
+								in_it=false;
+						}
+					}
+				}
+			}
+		}
+		//If the elevator has direction, take the highest call 
+		else{
+			for (Passenger call : calls) {
+				int floor = 0; 
+				//for passenger
+				if(call.getType() == Passenger.Type.PASSENGER){
+					floor = call.getDestinationFloor();
+					if(floor>highFloor && dir==Elevator.Direction.UP){
+						highFloor = floor;
+						hightCall = call;
+					}else if(floor<highFloor && dir==Elevator.Direction.DOWN){
+						highFloor = floor;
+						hightCall = call;
+					}
+				}
+				//for calls
+				else if( (call.getType() == Passenger.Type.CALL || call.getType() == Passenger.Type.MOCK_CALL) && call.getDirection()==dir){
+					floor = call.getOriginFloor();
+					if(floor>highFloor && dir==Elevator.Direction.UP){
+						highFloor = floor;
+						hightCall = call;
+					}else if(floor<highFloor && dir==Elevator.Direction.DOWN){
+						highFloor = floor;
+						hightCall = call;
+					}
+				}
 			}
 		}
 		return hightCall;
@@ -423,10 +502,6 @@ public class ElevatorController extends SimulationRoutine implements
 	 */
 	public void setElevator(Elevator newElevator) {
 		this.elevator = newElevator;
-	}
-
-	private void updateElevatorState(Double time) {
-
 	}
 
 	/**
@@ -479,7 +554,7 @@ public class ElevatorController extends SimulationRoutine implements
 		case MOCK_CALL:
 			if (elevator.getCalls().size() > 0
 					|| elevator.getPassengers().size() > 0) {
-				logger.error("Elevator ["+elevator.getId()+"] There are more calls, so something is wrong with that mock call");
+				logger.error("Error on addCall>> Elevator ["+elevator.getId()+"] There are more calls, so something is wrong with that mock call");
 			} else {
 				logger.debug("Elevator ["+elevator.getId()+"] Going to rest the elevator " + elevator.getId());
 			}
@@ -518,7 +593,7 @@ public class ElevatorController extends SimulationRoutine implements
 			//Sets the time the passeger gets into the elevator
 			passenger.setEntryTime(this.buildingModel.getSimulationClock());
 		} else {
-			logger.error("Elevator ["+elevator.getId()+"] The passenger " + passenger + ", could not be added.");
+			logger.error("Error on addPassenger>> Elevator ["+elevator.getId()+"] The passenger " + passenger + ", could not be added.");
 		}
 	}
 	
@@ -579,5 +654,25 @@ public class ElevatorController extends SimulationRoutine implements
 		}
 		return passToExit.size() > 0;
 	}
+	
+	private void changeState(Elevator.State state,float taskTimeMAX){
+		elevator.setState(state);
+		this.taskTimeMAX = taskTimeMAX;
+		if(taskTimeMAX>0){
+			currentTaskTime = buildingModel.getDeltaAdvaceTime();
+		}else{
+			currentTaskTime = 0f;
+		}
+		logger.info("Changing state ("+state+") timeMax("+taskTimeMAX+")");
+	}
 
+	@Override
+	public void update(Observable obj, Object arg) {
+		if (arg instanceof Passenger) {
+			Passenger pass = (Passenger) arg;
+			int targetFloor = this.recalculateTargetFloor(pass);
+			this.elevator.setTargetFloor(targetFloor);
+			logger.info("Call added>> Time ("+buildingModel.getSimulationClock()+") " +"Call "+pass.toStringComplete()+" TF("+targetFloor+")");
+		}
+	}
 }

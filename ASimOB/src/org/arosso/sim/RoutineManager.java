@@ -4,6 +4,8 @@ import static org.arosso.util.Constants.ROUTINE_DEFAULT_ACTIVATION_TIME;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 import org.arosso.model.BuildingModel;
 import org.arosso.model.BuildingModel.SIM_STATE;
@@ -96,6 +98,7 @@ public class RoutineManager extends Thread {
 	public void run() {
 		while (buildingModel.getSimulationClock() <= buildingModel.getEndSimulationTime() && buildingModel.simState != SIM_STATE.STOPPED) {
 			if (buildingModel.simState == SIM_STATE.STARTED) {
+				Lock lock  = new ReentrantReadWriteLock().writeLock();
 				// Execute the routines that take place at that time
 				for (SimulationRoutine routine : registeredRoutines) {
 					//Calc the routine 
@@ -103,8 +106,14 @@ public class RoutineManager extends Thread {
 					//Simulation running
 					//logger.info("SimClock "+buildingModel.getSimulationClock()+", " +	"Routine (" +routine.getRoutineName() +") ActTime("+routine.getActivationTime()+") = " + (roudedCarry) );
 					if ( roudedCarry == 0) {
-						logger.debug("Executing routine (" + routine.getRoutineName() + ") at time:" + buildingModel.getSimulationClock());
-						routine.execute();
+						synchronized(this){
+							logger.debug("Executing routine (" + routine.getRoutineName() + ") at time:" + buildingModel.getSimulationClock());
+							synchronized(lock){
+								lock.lock();
+								routine.execute();
+								lock.unlock();
+							}
+						}
 					}
 				}
 				// Advance time

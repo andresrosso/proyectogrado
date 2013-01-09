@@ -23,25 +23,25 @@ public interface TrafficModel {
 	 * Description of the method getEstimatedPassengerNumber.
 	 * @param time 
 	 */
-	public int getEstimatedPassengerNumber(Double time);
+	public int getEstimatedPassengerNumber(Float time);
 	
 	/**
 	 * Description of the method getEstimatedOriginFloor.
 	 * @param time 
 	 */
-	public int getEstimatedOriginFloor(Double time);
+	public int getEstimatedOriginFloor(Float time);
 	
 	/**
 	 * Description of the method getEstimatedDestinationFloor.
 	 * @param time 
 	 */
-	public int getEstimatedDestinationFloor(Double time);
+	public int getEstimatedDestinationFloor(Float time);
 	
 	/**
 	 * Description of the method getEstimatedArrivalTime.
 	 * @param time 
 	 */
-	public Double getEstimatedArrivalTime(Double time);
+	public Float getEstimatedArrivalTime(Float time);
 	
 	/**
 	 * Description of the method getTrafficMode.
