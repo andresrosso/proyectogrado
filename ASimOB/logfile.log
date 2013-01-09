@@ -1,577 +1,567 @@
-368  [main] DEBUG org.arosso.util.PropertiesBroker - Propery for simulation ready to load[/simulation.properties] 
-373  [main] DEBUG org.arosso.util.PropertiesBroker - getting (numElevators) = 1 
-374  [main] DEBUG org.arosso.util.PropertiesBroker - getting (numFloors) = 20 
-374  [main] DEBUG org.arosso.util.PropertiesBroker - getting (floorGapDistance) = 1 
-375  [main] DEBUG org.arosso.util.PropertiesBroker - getting (endSimulationTime) = 20000 
-375  [main] DEBUG org.arosso.util.PropertiesBroker - getting (deltaAdvaceTime) = 1 
-375  [main] DEBUG org.arosso.util.PropertiesBroker - getting (delayTime) = 200 
-376  [main] DEBUG org.arosso.util.PropertiesBroker - getting (capacity) = 8 
-376  [main] DEBUG org.arosso.util.PropertiesBroker - getting (aceleration) = 1 
-376  [main] DEBUG org.arosso.util.PropertiesBroker - getting (jerk) = 1 
-376  [main] DEBUG org.arosso.util.PropertiesBroker - getting (speed) = 1 
-376  [main] DEBUG org.arosso.util.PropertiesBroker - getting (doorCloseTime) = 1 
-376  [main] DEBUG org.arosso.util.PropertiesBroker - getting (doorOpenTime) = 1 
-377  [main] DEBUG org.arosso.util.PropertiesBroker - getting (passangerTransferTime) = 1 
-377  [main] DEBUG org.arosso.util.PropertiesBroker - getting (restFloor) = 1 
-380  [main] DEBUG org.arosso.util.PropertiesBroker - getting (portalFloors) = [0],[1],[2] 
-380  [main] INFO  org.arosso.model.BuildingModel - BuildingModel loaded 
-381  [main] DEBUG org.arosso.sim.BuildingSimulator - BuildingSimulator created! 
-387  [main] INFO  org.arosso.db.DatabaseMannager - Database init 
-417  [main] INFO  org.arosso.db.DatabaseMannager - Database (asimobdb). Started in (asimobdb) 
-1000 [main] INFO  org.arosso.db.DatabaseMannager - table already exists 
-4088 [AWT-EventQueue-0] INFO  org.arosso.gui.MainWindow - Action: javax.swing.JButton[,0,0,51x26,alignmentX=0.0,alignmentY=0.5,border=javax.swing.plaf.BorderUIResource$CompoundBorderUIResource@5c29ea31,flags=296,maximumSize=,minimumSize=,preferredSize=,defaultIcon=,disabledIcon=,disabledSelectedIcon=,margin=javax.swing.plaf.InsetsUIResource[top=2,left=14,bottom=2,right=14],paintBorder=true,paintFocus=true,pressedIcon=,rolloverEnabled=true,rolloverIcon=,rolloverSelectedIcon=,selectedIcon=,text=Init,defaultCapable=true] 
-4101 [AWT-EventQueue-0] DEBUG org.arosso.util.PropertiesBroker - getting (trafficModelImplementation) = org.arosso.model.BasicTrafficModel 
-4101 [AWT-EventQueue-0] DEBUG org.arosso.util.PropertiesBroker - getting (trafficGenActivationTime) = 350 
-4102 [AWT-EventQueue-0] INFO  o.arosso.routines.TrafficGenerator - BuildingModel made based on properties (/) 
-4106 [AWT-EventQueue-0] INFO  org.arosso.model.BasicTrafficModel - class org.arosso.model.BasicTrafficModel loaded! 
-4106 [AWT-EventQueue-0] DEBUG o.arosso.routines.TrafficGenerator - TrafficGenerator created! 
-4108 [AWT-EventQueue-0] INFO  org.arosso.routines.ArrivalChecker - ArrivalChecker loaded! 
-4109 [AWT-EventQueue-0] DEBUG org.arosso.util.PropertiesBroker - getting (egcsImplementation) = org.arosso.routines.egcs.ConventionalElevatorGroupController 
-4113 [AWT-EventQueue-0] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker using EGCS class org.arosso.routines.egcs.ConventionalElevatorGroupController 
-4113 [AWT-EventQueue-0] DEBUG o.a.r.e.ConventionalElevatorGroupController - ConventionalElevatorGroupController created! 
-4120 [AWT-EventQueue-0] INFO  org.arosso.sim.BuildingSimulator - BuildingSimulator initiated! 
-4120 [AWT-EventQueue-0] INFO  org.arosso.sim.BuildingSimulator - BuildingSimulator started! 
-4139 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Traffic Generator) at time:0.0 
-4142 [Thread-5] INFO  o.arosso.routines.TrafficGenerator - Generating calls = [(2,8), (4,10), (7,5), (9,1), (10,13)] 
-4142 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:0.0 
-4142 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(2,8), (4,10), (7,5), (9,1), (10,13)] 
-4143 [Thread-5] INFO  org.arosso.routines.ArrivalChecker - Assign call (2,8) 
-4143 [Thread-5] DEBUG o.a.r.e.ConventionalElevatorGroupController - Assinging calls of the building 
-4143 [Thread-5] INFO  org.arosso.routines.ArrivalChecker - Checking for passangers arrivals> call assigned to elev(0), call detail [(2,8)] 
-4144 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:0.0 
-4344 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:1.0 
-4344 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(4,10), (7,5), (9,1), (10,13)] 
-4345 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:1.0 
-4546 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:2.0 
-4546 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(4,10), (7,5), (9,1), (10,13)] 
-4546 [Thread-5] INFO  org.arosso.routines.ArrivalChecker - Assign call (4,10) 
-4547 [Thread-5] DEBUG o.a.r.e.ConventionalElevatorGroupController - Assinging calls of the building 
-4547 [Thread-5] INFO  org.arosso.routines.ArrivalChecker - Checking for passangers arrivals> call assigned to elev(0), call detail [(4,10)] 
-4547 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:2.0 
-4748 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:3.0 
-4748 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(7,5), (9,1), (10,13)] 
-4748 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:3.0 
-4949 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:4.0 
-4949 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(7,5), (9,1), (10,13)] 
-4949 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:4.0 
-5150 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:5.0 
-5150 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(7,5), (9,1), (10,13)] 
-5150 [Thread-5] INFO  org.arosso.routines.ArrivalChecker - Assign call (7,5) 
-5151 [Thread-5] DEBUG o.a.r.e.ConventionalElevatorGroupController - Assinging calls of the building 
-5151 [Thread-5] INFO  org.arosso.routines.ArrivalChecker - Checking for passangers arrivals> call assigned to elev(0), call detail [(7,5)] 
-5151 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:5.0 
-5353 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:6.0 
-5353 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(9,1), (10,13)] 
-5353 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:6.0 
-5554 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:7.0 
-5554 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(9,1), (10,13)] 
-5554 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:7.0 
-5756 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:8.0 
-5756 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(9,1), (10,13)] 
-5756 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:8.0 
-5957 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:9.0 
-5957 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(9,1), (10,13)] 
-5957 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:9.0 
-6158 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:10.0 
-6158 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(9,1), (10,13)] 
-6158 [Thread-5] INFO  org.arosso.routines.ArrivalChecker - Assign call (9,1) 
-6159 [Thread-5] DEBUG o.a.r.e.ConventionalElevatorGroupController - Assinging calls of the building 
-6159 [Thread-5] INFO  org.arosso.routines.ArrivalChecker - Checking for passangers arrivals> call assigned to elev(0), call detail [(9,1)] 
-6159 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:10.0 
-6360 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:11.0 
-6360 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-6360 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:11.0 
-6561 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:12.0 
-6561 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-6561 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:12.0 
-6763 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:13.0 
-6763 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-6763 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:13.0 
-6963 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:14.0 
-6963 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-6963 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:14.0 
-7164 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:15.0 
-7164 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-7164 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:15.0 
-7168 [Thread-5] INFO  org.arosso.db.DatabaseMannager - Insert pass: T[0,3.0,15.0] D(2,8) 
-7369 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:16.0 
-7369 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-7369 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:16.0 
-7570 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:17.0 
-7570 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-7570 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:17.0 
-7770 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:18.0 
-7770 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-7770 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:18.0 
-7970 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:19.0 
-7970 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-7970 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:19.0 
-8170 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:20.0 
-8170 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-8170 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:20.0 
-8171 [Thread-5] INFO  org.arosso.db.DatabaseMannager - Insert pass: T[2,8.0,20.0] D(4,10) 
-8372 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:21.0 
-8372 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-8372 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:21.0 
-8572 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:22.0 
-8572 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-8572 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:22.0 
-8772 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:23.0 
-8772 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-8772 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:23.0 
-8972 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:24.0 
-8972 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-8972 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:24.0 
-9173 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:25.0 
-9173 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-9173 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:25.0 
-9373 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:26.0 
-9373 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-9373 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:26.0 
-9589 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:27.0 
-9589 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-9590 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:27.0 
-9790 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:28.0 
-9790 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-9790 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:28.0 
-9990 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:29.0 
-9990 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-9990 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:29.0 
-10190 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:30.0 
-10190 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-10190 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:30.0 
-10391 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:31.0 
-10391 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-10391 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:31.0 
-10592 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:32.0 
-10592 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-10592 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:32.0 
-10793 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:33.0 
-10793 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-10793 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:33.0 
-10994 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:34.0 
-10994 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-10994 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:34.0 
-10997 [Thread-5] INFO  org.arosso.db.DatabaseMannager - Insert pass: T[5,29.0,34.0] D(7,5) 
-11198 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:35.0 
-11198 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-11198 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:35.0 
-11400 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:36.0 
-11400 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-11400 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:36.0 
-11601 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:37.0 
-11601 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-11601 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:37.0 
-11802 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:38.0 
-11802 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-11802 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:38.0 
-12003 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:39.0 
-12003 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-12003 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:39.0 
-12204 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:40.0 
-12204 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-12204 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:40.0 
-12405 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:41.0 
-12405 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-12405 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:41.0 
-12407 [Thread-5] INFO  org.arosso.db.DatabaseMannager - Insert pass: T[10,24.0,41.0] D(9,1) 
-12608 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:42.0 
-12608 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-12608 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:42.0 
-12809 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:43.0 
-12809 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-12809 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:43.0 
-13010 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:44.0 
-13010 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-13010 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:44.0 
-13211 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:45.0 
-13211 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-13211 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:45.0 
-13412 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:46.0 
-13412 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-13412 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:46.0 
-13613 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:47.0 
-13613 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-13613 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:47.0 
-13814 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:48.0 
-13814 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-13814 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:48.0 
-14015 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:49.0 
-14015 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-14015 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:49.0 
-14216 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:50.0 
-14216 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-14216 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:50.0 
-14417 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:51.0 
-14417 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-14417 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:51.0 
-14619 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:52.0 
-14619 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-14619 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:52.0 
-14820 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:53.0 
-14820 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
-14820 [Thread-5] INFO  org.arosso.routines.ArrivalChecker - Assign call (10,13) 
-14820 [Thread-5] DEBUG o.a.r.e.ConventionalElevatorGroupController - Assinging calls of the building 
-14821 [Thread-5] INFO  org.arosso.routines.ArrivalChecker - Checking for passangers arrivals> call assigned to elev(0), call detail [(10,13)] 
-14821 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:53.0 
-15021 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:54.0 
-15021 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-15021 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:54.0 
-15222 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:55.0 
-15222 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-15222 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:55.0 
-15423 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:56.0 
-15423 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-15423 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:56.0 
-15624 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:57.0 
-15624 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-15624 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:57.0 
-15825 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:58.0 
-15825 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-15825 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:58.0 
-16026 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:59.0 
-16026 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-16026 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:59.0 
-16227 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:60.0 
-16227 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-16227 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:60.0 
-16428 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:61.0 
-16428 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-16428 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:61.0 
-16629 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:62.0 
-16629 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-16629 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:62.0 
-16830 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:63.0 
-16830 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-16830 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:63.0 
-17031 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:64.0 
-17031 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-17031 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:64.0 
-17232 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:65.0 
-17232 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-17232 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:65.0 
-17433 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:66.0 
-17433 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-17433 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:66.0 
-17634 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:67.0 
-17634 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-17634 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:67.0 
-17835 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:68.0 
-17835 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-17835 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:68.0 
-18035 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:69.0 
-18035 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-18035 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:69.0 
-18236 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:70.0 
-18236 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-18236 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:70.0 
-18237 [Thread-5] INFO  org.arosso.db.DatabaseMannager - Insert pass: T[53,64.0,70.0] D(10,13) 
-18437 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:71.0 
-18437 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-18437 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:71.0 
-18638 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:72.0 
-18638 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-18638 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:72.0 
-18838 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:73.0 
-18838 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-18838 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:73.0 
-19039 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:74.0 
-19039 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-19039 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:74.0 
-19239 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:75.0 
-19239 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-19239 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:75.0 
-19440 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:76.0 
-19440 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-19440 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:76.0 
-19641 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:77.0 
-19641 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-19641 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:77.0 
-19842 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:78.0 
-19842 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-19842 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:78.0 
-20042 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:79.0 
-20042 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-20042 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:79.0 
-20243 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:80.0 
-20243 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-20243 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:80.0 
-20444 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:81.0 
-20444 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-20444 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:81.0 
-20644 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:82.0 
-20644 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-20644 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:82.0 
-20844 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:83.0 
-20844 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-20844 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:83.0 
-21045 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:84.0 
-21045 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-21045 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:84.0 
-21245 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:85.0 
-21245 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-21245 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:85.0 
-21445 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:86.0 
-21445 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-21445 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:86.0 
-21646 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:87.0 
-21646 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-21646 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:87.0 
-21846 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:88.0 
-21846 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-21846 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:88.0 
-22046 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:89.0 
-22046 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-22046 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:89.0 
-22247 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:90.0 
-22247 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-22247 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:90.0 
-22448 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:91.0 
-22448 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-22448 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:91.0 
-22649 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:92.0 
-22649 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-22649 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:92.0 
-22852 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:93.0 
-22852 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-22852 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:93.0 
-23053 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:94.0 
-23053 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-23053 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:94.0 
-23258 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:95.0 
-23258 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-23258 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:95.0 
-23459 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:96.0 
-23459 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-23459 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:96.0 
-23660 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:97.0 
-23660 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-23660 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:97.0 
-23861 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:98.0 
-23861 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-23861 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:98.0 
-24062 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:99.0 
-24062 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-24062 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:99.0 
-24263 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:100.0 
-24263 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-24263 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:100.0 
-24464 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:101.0 
-24464 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-24464 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:101.0 
-24665 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:102.0 
-24665 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-24665 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:102.0 
-24866 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:103.0 
-24866 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-24866 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:103.0 
-25066 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:104.0 
-25066 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-25066 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:104.0 
-25267 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:105.0 
-25267 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-25267 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:105.0 
-25468 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:106.0 
-25468 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-25468 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:106.0 
-25669 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:107.0 
-25669 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-25669 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:107.0 
-25870 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:108.0 
-25870 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-25870 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:108.0 
-26071 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:109.0 
-26071 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-26071 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:109.0 
-26272 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:110.0 
-26272 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-26272 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:110.0 
-26474 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:111.0 
-26474 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-26474 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:111.0 
-26674 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:112.0 
-26674 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-26674 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:112.0 
-26875 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:113.0 
-26875 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-26875 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:113.0 
-27076 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:114.0 
-27076 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-27076 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:114.0 
-27277 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:115.0 
-27277 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-27277 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:115.0 
-27478 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:116.0 
-27478 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-27478 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:116.0 
-27679 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:117.0 
-27679 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-27679 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:117.0 
-27880 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:118.0 
-27880 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-27880 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:118.0 
-28081 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:119.0 
-28081 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-28081 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:119.0 
-28282 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:120.0 
-28282 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-28282 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:120.0 
-28483 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:121.0 
-28483 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-28483 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:121.0 
-28684 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:122.0 
-28684 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-28684 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:122.0 
-28885 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:123.0 
-28885 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-28885 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:123.0 
-29086 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:124.0 
-29086 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-29086 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:124.0 
-29287 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:125.0 
-29287 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-29287 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:125.0 
-29488 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:126.0 
-29488 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-29488 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:126.0 
-29689 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:127.0 
-29689 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-29689 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:127.0 
-29890 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:128.0 
-29890 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-29890 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:128.0 
-30091 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:129.0 
-30091 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-30091 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:129.0 
-30291 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:130.0 
-30291 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-30291 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:130.0 
-30492 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:131.0 
-30492 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-30492 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:131.0 
-30693 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:132.0 
-30693 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-30693 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:132.0 
-30894 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:133.0 
-30894 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-30894 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:133.0 
-31095 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:134.0 
-31095 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-31095 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:134.0 
-31296 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:135.0 
-31296 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-31296 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:135.0 
-31497 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:136.0 
-31497 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-31497 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:136.0 
-31698 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:137.0 
-31698 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-31698 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:137.0 
-31899 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:138.0 
-31899 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-31899 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:138.0 
-32100 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:139.0 
-32100 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-32100 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:139.0 
-32301 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:140.0 
-32301 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-32301 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:140.0 
-32501 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:141.0 
-32501 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-32501 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:141.0 
-32702 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:142.0 
-32702 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-32702 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:142.0 
-32903 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:143.0 
-32903 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-32903 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:143.0 
-33104 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:144.0 
-33104 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-33104 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:144.0 
-33305 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:145.0 
-33305 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-33305 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:145.0 
-33505 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:146.0 
-33505 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-33505 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:146.0 
-33706 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:147.0 
-33706 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-33706 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:147.0 
-33906 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:148.0 
-33906 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-33906 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:148.0 
-34107 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:149.0 
-34107 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-34107 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:149.0 
-34308 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:150.0 
-34308 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-34308 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:150.0 
-34508 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:151.0 
-34508 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-34508 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:151.0 
-34708 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:152.0 
-34708 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-34708 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:152.0 
-34909 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:153.0 
-34909 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-34909 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:153.0 
-35109 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:154.0 
-35109 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-35109 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:154.0 
-35309 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:155.0 
-35309 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-35309 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:155.0 
-35509 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:156.0 
-35509 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-35509 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:156.0 
-35710 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:157.0 
-35710 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-35710 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:157.0 
-35911 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:158.0 
-35911 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-35911 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:158.0 
-36112 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:159.0 
-36112 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-36112 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:159.0 
-36313 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:160.0 
-36313 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-36313 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:160.0 
-36514 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:161.0 
-36514 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-36514 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:161.0 
-36715 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:162.0 
-36715 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-36715 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:162.0 
-36916 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:163.0 
-36916 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-36916 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:163.0 
-37116 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:164.0 
-37116 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-37116 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:164.0 
-37317 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:165.0 
-37317 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-37317 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:165.0 
-37518 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:166.0 
-37518 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-37518 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:166.0 
-37719 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:167.0 
-37719 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-37720 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:167.0 
-37920 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:168.0 
-37920 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-37920 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:168.0 
-38120 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:169.0 
-38120 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-38120 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:169.0 
-38321 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:170.0 
-38321 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-38321 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:170.0 
-38522 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:171.0 
-38522 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-38522 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:171.0 
-38723 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:172.0 
-38723 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-38723 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:172.0 
-38923 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:173.0 
-38923 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
-38923 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:173.0 
+402  [main] DEBUG org.arosso.util.PropertiesBroker - Propery for simulation ready to load[/simulation.properties] 
+409  [main] DEBUG org.arosso.util.PropertiesBroker - getting (numElevators) = 1 
+410  [main] DEBUG org.arosso.util.PropertiesBroker - getting (numFloors) = 200 
+410  [main] DEBUG org.arosso.util.PropertiesBroker - getting (floorGapDistance) = 1 
+411  [main] DEBUG org.arosso.util.PropertiesBroker - getting (endSimulationTime) = 20000 
+411  [main] DEBUG org.arosso.util.PropertiesBroker - getting (deltaAdvaceTime) = 1 
+411  [main] DEBUG org.arosso.util.PropertiesBroker - getting (delayTime) = 200 
+411  [main] DEBUG org.arosso.util.PropertiesBroker - getting (capacity) = 8 
+412  [main] DEBUG org.arosso.util.PropertiesBroker - getting (aceleration) = 1 
+412  [main] DEBUG org.arosso.util.PropertiesBroker - getting (jerk) = 1 
+412  [main] DEBUG org.arosso.util.PropertiesBroker - getting (speed) = 1 
+412  [main] DEBUG org.arosso.util.PropertiesBroker - getting (doorCloseTime) = 1 
+412  [main] DEBUG org.arosso.util.PropertiesBroker - getting (doorOpenTime) = 1 
+412  [main] DEBUG org.arosso.util.PropertiesBroker - getting (passangerTransferTime) = 1 
+413  [main] DEBUG org.arosso.util.PropertiesBroker - getting (restFloor) = 1 
+416  [main] DEBUG org.arosso.util.PropertiesBroker - getting (portalFloors) = [0],[1],[2] 
+416  [main] INFO  org.arosso.model.BuildingModel - BuildingModel loaded 
+418  [main] DEBUG org.arosso.sim.BuildingSimulator - BuildingSimulator created! 
+425  [main] INFO  org.arosso.db.DatabaseMannager - Database init 
+467  [main] INFO  org.arosso.db.DatabaseMannager - Database (asimobdb). Started in (asimobdb) 
+1130 [main] INFO  org.arosso.db.DatabaseMannager - table already exists 
+5963 [AWT-EventQueue-0] INFO  org.arosso.gui.MainWindow - Action: javax.swing.JButton[,0,0,51x26,alignmentX=0.0,alignmentY=0.5,border=javax.swing.plaf.BorderUIResource$CompoundBorderUIResource@5c29ea31,flags=296,maximumSize=,minimumSize=,preferredSize=,defaultIcon=,disabledIcon=,disabledSelectedIcon=,margin=javax.swing.plaf.InsetsUIResource[top=2,left=14,bottom=2,right=14],paintBorder=true,paintFocus=true,pressedIcon=,rolloverEnabled=true,rolloverIcon=,rolloverSelectedIcon=,selectedIcon=,text=Init,defaultCapable=true] 
+5976 [AWT-EventQueue-0] DEBUG org.arosso.util.PropertiesBroker - getting (trafficModelImplementation) = org.arosso.model.BasicTrafficModel 
+5976 [AWT-EventQueue-0] DEBUG org.arosso.util.PropertiesBroker - getting (trafficGenActivationTime) = 350 
+5977 [AWT-EventQueue-0] INFO  o.arosso.routines.TrafficGenerator - BuildingModel made based on properties (/) 
+5978 [AWT-EventQueue-0] INFO  org.arosso.model.BasicTrafficModel - class org.arosso.model.BasicTrafficModel loaded! 
+5978 [AWT-EventQueue-0] DEBUG o.arosso.routines.TrafficGenerator - TrafficGenerator created! 
+5979 [AWT-EventQueue-0] INFO  org.arosso.routines.ArrivalChecker - ArrivalChecker loaded! 
+5980 [AWT-EventQueue-0] DEBUG org.arosso.util.PropertiesBroker - getting (egcsImplementation) = org.arosso.routines.egcs.ConventionalElevatorGroupController 
+5981 [AWT-EventQueue-0] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker using EGCS class org.arosso.routines.egcs.ConventionalElevatorGroupController 
+5981 [AWT-EventQueue-0] DEBUG o.a.r.e.ConventionalElevatorGroupController - ConventionalElevatorGroupController created! 
+5984 [AWT-EventQueue-0] INFO  org.arosso.sim.BuildingSimulator - BuildingSimulator initiated! 
+5984 [AWT-EventQueue-0] INFO  org.arosso.sim.BuildingSimulator - BuildingSimulator started! 
+5986 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Traffic Generator) at time:0.0 
+5988 [Thread-5] INFO  o.arosso.routines.TrafficGenerator - Generating calls = [(2,8), (4,10), (7,5), (9,1), (10,13)] 
+5988 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:0.0 
+5988 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(2,8), (4,10), (7,5), (9,1), (10,13)] 
+5989 [Thread-5] INFO  org.arosso.routines.ArrivalChecker - Assign call (2,8) 
+5989 [Thread-5] DEBUG o.a.r.e.ConventionalElevatorGroupController - Assinging calls of the building 
+5989 [Thread-5] INFO  org.arosso.routines.ArrivalChecker - Checking for passangers arrivals> call assigned to elev(0), call detail [(2,8)] 
+5989 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:0.0 
+6190 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:1.0 
+6190 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(4,10), (7,5), (9,1), (10,13)] 
+6190 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:1.0 
+6391 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:2.0 
+6391 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(4,10), (7,5), (9,1), (10,13)] 
+6391 [Thread-5] INFO  org.arosso.routines.ArrivalChecker - Assign call (4,10) 
+6391 [Thread-5] DEBUG o.a.r.e.ConventionalElevatorGroupController - Assinging calls of the building 
+6391 [Thread-5] INFO  org.arosso.routines.ArrivalChecker - Checking for passangers arrivals> call assigned to elev(0), call detail [(4,10)] 
+6391 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:2.0 
+6591 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:3.0 
+6591 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(7,5), (9,1), (10,13)] 
+6591 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:3.0 
+6792 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:4.0 
+6792 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(7,5), (9,1), (10,13)] 
+6792 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:4.0 
+6993 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:5.0 
+6993 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(7,5), (9,1), (10,13)] 
+6993 [Thread-5] INFO  org.arosso.routines.ArrivalChecker - Assign call (7,5) 
+6993 [Thread-5] DEBUG o.a.r.e.ConventionalElevatorGroupController - Assinging calls of the building 
+6994 [Thread-5] INFO  org.arosso.routines.ArrivalChecker - Checking for passangers arrivals> call assigned to elev(0), call detail [(7,5)] 
+6994 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:5.0 
+7195 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:6.0 
+7195 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(9,1), (10,13)] 
+7196 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:6.0 
+7396 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:7.0 
+7396 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(9,1), (10,13)] 
+7396 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:7.0 
+7597 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:8.0 
+7597 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(9,1), (10,13)] 
+7597 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:8.0 
+7619 [AWT-EventQueue-0] INFO  org.arosso.gui.MainWindow - Action: javax.swing.JButton[,408,0,247x26,alignmentX=0.0,alignmentY=0.5,border=javax.swing.plaf.BorderUIResource$CompoundBorderUIResource@5c29ea31,flags=296,maximumSize=,minimumSize=,preferredSize=,defaultIcon=,disabledIcon=,disabledSelectedIcon=,margin=javax.swing.plaf.InsetsUIResource[top=2,left=14,bottom=2,right=14],paintBorder=true,paintFocus=true,pressedIcon=,rolloverEnabled=true,rolloverIcon=,rolloverSelectedIcon=,selectedIcon=,text=Generate Service Used Energy Report,defaultCapable=true] 
+7798 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:9.0 
+7798 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(9,1), (10,13)] 
+7798 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:9.0 
+7998 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:10.0 
+7998 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(9,1), (10,13)] 
+7998 [Thread-5] INFO  org.arosso.routines.ArrivalChecker - Assign call (9,1) 
+7998 [Thread-5] DEBUG o.a.r.e.ConventionalElevatorGroupController - Assinging calls of the building 
+7998 [Thread-5] INFO  org.arosso.routines.ArrivalChecker - Checking for passangers arrivals> call assigned to elev(0), call detail [(9,1)] 
+7998 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:10.0 
+8200 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:11.0 
+8200 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+8200 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:11.0 
+8400 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:12.0 
+8400 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+8400 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:12.0 
+8601 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:13.0 
+8601 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+8601 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:13.0 
+8801 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:14.0 
+8801 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+8801 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:14.0 
+9001 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:15.0 
+9001 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+9001 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:15.0 
+9003 [Thread-5] INFO  org.arosso.db.DatabaseMannager - Insert pass: T[0,3.0,15.0] D(2,8) 
+9205 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:16.0 
+9205 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+9205 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:16.0 
+9405 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:17.0 
+9405 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+9405 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:17.0 
+9605 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:18.0 
+9605 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+9605 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:18.0 
+9807 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:19.0 
+9807 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+9807 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:19.0 
+10007 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:20.0 
+10007 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+10007 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:20.0 
+10008 [Thread-5] INFO  org.arosso.db.DatabaseMannager - Insert pass: T[2,8.0,20.0] D(4,10) 
+10209 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:21.0 
+10209 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+10209 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:21.0 
+10410 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:22.0 
+10410 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+10410 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:22.0 
+10610 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:23.0 
+10610 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+10610 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:23.0 
+10811 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:24.0 
+10811 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+10811 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:24.0 
+11011 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:25.0 
+11011 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+11011 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:25.0 
+11212 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:26.0 
+11212 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+11212 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:26.0 
+11412 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:27.0 
+11412 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+11412 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:27.0 
+11613 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:28.0 
+11613 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+11613 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:28.0 
+11817 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:29.0 
+11817 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+11817 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:29.0 
+12018 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:30.0 
+12018 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+12018 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:30.0 
+12219 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:31.0 
+12219 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+12219 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:31.0 
+12420 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:32.0 
+12420 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+12420 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:32.0 
+12620 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:33.0 
+12620 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+12620 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:33.0 
+12821 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:34.0 
+12821 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+12821 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:34.0 
+12824 [Thread-5] INFO  org.arosso.db.DatabaseMannager - Insert pass: T[5,29.0,34.0] D(7,5) 
+13025 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:35.0 
+13025 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+13025 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:35.0 
+13226 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:36.0 
+13226 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+13226 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:36.0 
+13427 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:37.0 
+13427 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+13427 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:37.0 
+13628 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:38.0 
+13628 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+13628 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:38.0 
+13829 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:39.0 
+13829 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+13829 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:39.0 
+14030 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:40.0 
+14030 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+14030 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:40.0 
+14231 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:41.0 
+14231 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+14231 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:41.0 
+14232 [Thread-5] INFO  org.arosso.db.DatabaseMannager - Insert pass: T[10,24.0,41.0] D(9,1) 
+14433 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:42.0 
+14433 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+14433 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:42.0 
+14633 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:43.0 
+14633 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+14633 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:43.0 
+14835 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:44.0 
+14835 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+14835 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:44.0 
+15036 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:45.0 
+15036 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+15036 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:45.0 
+15237 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:46.0 
+15237 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+15237 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:46.0 
+15438 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:47.0 
+15438 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+15438 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:47.0 
+15638 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:48.0 
+15638 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+15638 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:48.0 
+15838 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:49.0 
+15838 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+15838 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:49.0 
+16038 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:50.0 
+16039 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+16039 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:50.0 
+16240 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:51.0 
+16240 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+16240 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:51.0 
+16441 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:52.0 
+16441 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+16441 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:52.0 
+16648 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:53.0 
+16649 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [(10,13)] 
+16649 [Thread-5] INFO  org.arosso.routines.ArrivalChecker - Assign call (10,13) 
+16649 [Thread-5] DEBUG o.a.r.e.ConventionalElevatorGroupController - Assinging calls of the building 
+16649 [Thread-5] INFO  org.arosso.routines.ArrivalChecker - Checking for passangers arrivals> call assigned to elev(0), call detail [(10,13)] 
+16649 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:53.0 
+16850 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:54.0 
+16850 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+16850 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:54.0 
+17050 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:55.0 
+17050 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+17050 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:55.0 
+17251 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:56.0 
+17251 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+17251 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:56.0 
+17452 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:57.0 
+17452 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+17452 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:57.0 
+17653 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:58.0 
+17653 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+17653 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:58.0 
+17854 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:59.0 
+17854 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+17854 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:59.0 
+18055 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:60.0 
+18055 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+18055 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:60.0 
+18256 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:61.0 
+18256 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+18256 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:61.0 
+18457 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:62.0 
+18457 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+18457 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:62.0 
+18658 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:63.0 
+18658 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+18658 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:63.0 
+18859 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:64.0 
+18859 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+18859 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:64.0 
+19060 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:65.0 
+19060 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+19060 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:65.0 
+19261 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:66.0 
+19261 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+19261 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:66.0 
+19462 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:67.0 
+19462 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+19462 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:67.0 
+19663 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:68.0 
+19663 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+19663 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:68.0 
+19864 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:69.0 
+19864 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+19864 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:69.0 
+20065 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:70.0 
+20065 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+20065 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:70.0 
+20067 [Thread-5] INFO  org.arosso.db.DatabaseMannager - Insert pass: T[53,64.0,70.0] D(10,13) 
+20268 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:71.0 
+20268 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+20268 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:71.0 
+20469 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:72.0 
+20469 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+20469 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:72.0 
+20670 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:73.0 
+20670 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+20670 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:73.0 
+20871 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:74.0 
+20871 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+20871 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:74.0 
+21072 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:75.0 
+21072 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+21073 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:75.0 
+21274 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:76.0 
+21274 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+21274 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:76.0 
+21475 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:77.0 
+21475 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+21475 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:77.0 
+21676 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:78.0 
+21676 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+21676 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:78.0 
+21877 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:79.0 
+21877 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+21877 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:79.0 
+22078 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:80.0 
+22078 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+22078 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:80.0 
+22279 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:81.0 
+22279 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+22279 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:81.0 
+22480 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:82.0 
+22480 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+22480 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:82.0 
+22681 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:83.0 
+22681 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+22681 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:83.0 
+22882 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:84.0 
+22882 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+22883 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:84.0 
+23083 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:85.0 
+23083 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+23083 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:85.0 
+23284 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:86.0 
+23284 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+23284 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:86.0 
+23485 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:87.0 
+23485 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+23485 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:87.0 
+23685 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:88.0 
+23685 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+23685 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:88.0 
+23886 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:89.0 
+23886 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+23886 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:89.0 
+24086 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:90.0 
+24086 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+24086 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:90.0 
+24287 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:91.0 
+24287 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+24287 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:91.0 
+24488 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:92.0 
+24488 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+24488 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:92.0 
+24689 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:93.0 
+24689 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+24689 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:93.0 
+24803 [AWT-EventQueue-0] INFO  org.arosso.gui.MainWindow - Action: javax.swing.JButton[,204,0,204x26,alignmentX=0.0,alignmentY=0.5,border=javax.swing.plaf.BorderUIResource$CompoundBorderUIResource@5c29ea31,flags=296,maximumSize=,minimumSize=,preferredSize=,defaultIcon=,disabledIcon=,disabledSelectedIcon=,margin=javax.swing.plaf.InsetsUIResource[top=2,left=14,bottom=2,right=14],paintBorder=true,paintFocus=true,pressedIcon=,rolloverEnabled=true,rolloverIcon=,rolloverSelectedIcon=,selectedIcon=,text=Generate Service Time Report,defaultCapable=true] 
+24821 [AWT-EventQueue-0] INFO  org.arosso.stats.STimeJReportGraph - Tam regs (5 
+24821 [AWT-EventQueue-0] INFO  org.arosso.stats.STimeJReportGraph - [[15.0], [18.0], [29.0], [31.0], [17.0]] 
+24822 [AWT-EventQueue-0] INFO  org.arosso.stats.STimeJReportGraph - X(0) Y(15.0) 
+24822 [AWT-EventQueue-0] INFO  org.arosso.stats.STimeJReportGraph - X(1) Y(18.0) 
+24822 [AWT-EventQueue-0] INFO  org.arosso.stats.STimeJReportGraph - X(2) Y(29.0) 
+24823 [AWT-EventQueue-0] INFO  org.arosso.stats.STimeJReportGraph - X(3) Y(31.0) 
+24823 [AWT-EventQueue-0] INFO  org.arosso.stats.STimeJReportGraph - X(4) Y(17.0) 
+24890 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:94.0 
+24890 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+24890 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:94.0 
+25090 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:95.0 
+25090 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+25090 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:95.0 
+25311 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:96.0 
+25312 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+25312 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:96.0 
+25512 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:97.0 
+25512 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+25512 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:97.0 
+25713 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:98.0 
+25713 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+25713 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:98.0 
+25914 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:99.0 
+25914 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+25914 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:99.0 
+26115 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:100.0 
+26115 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+26115 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:100.0 
+26316 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:101.0 
+26316 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+26316 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:101.0 
+26516 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:102.0 
+26516 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+26516 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:102.0 
+26717 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:103.0 
+26717 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+26717 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:103.0 
+26918 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:104.0 
+26918 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+26918 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:104.0 
+27119 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:105.0 
+27119 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+27119 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:105.0 
+27319 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:106.0 
+27319 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+27319 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:106.0 
+27520 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:107.0 
+27520 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+27520 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:107.0 
+27720 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:108.0 
+27720 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+27720 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:108.0 
+27921 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:109.0 
+27921 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+27921 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:109.0 
+28084 [AWT-EventQueue-0] INFO  org.arosso.gui.MainWindow - Action: javax.swing.JButton[,0,0,204x26,alignmentX=0.0,alignmentY=0.5,border=javax.swing.plaf.BorderUIResource$CompoundBorderUIResource@5c29ea31,flags=296,maximumSize=,minimumSize=,preferredSize=,defaultIcon=,disabledIcon=,disabledSelectedIcon=,margin=javax.swing.plaf.InsetsUIResource[top=2,left=14,bottom=2,right=14],paintBorder=true,paintFocus=true,pressedIcon=,rolloverEnabled=true,rolloverIcon=,rolloverSelectedIcon=,selectedIcon=,text=Generate Waiting Time Report,defaultCapable=true] 
+28086 [AWT-EventQueue-0] INFO  org.arosso.stats.WTimeJReportGraph - Tam regs (5 
+28086 [AWT-EventQueue-0] INFO  org.arosso.stats.WTimeJReportGraph - [[3.0], [6.0], [24.0], [14.0], [11.0]] 
+28086 [AWT-EventQueue-0] INFO  org.arosso.stats.WTimeJReportGraph - X(0) Y(3.0) 
+28087 [AWT-EventQueue-0] INFO  org.arosso.stats.WTimeJReportGraph - X(1) Y(6.0) 
+28087 [AWT-EventQueue-0] INFO  org.arosso.stats.WTimeJReportGraph - X(2) Y(24.0) 
+28087 [AWT-EventQueue-0] INFO  org.arosso.stats.WTimeJReportGraph - X(3) Y(14.0) 
+28087 [AWT-EventQueue-0] INFO  org.arosso.stats.WTimeJReportGraph - X(4) Y(11.0) 
+28122 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:110.0 
+28122 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+28128 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:110.0 
+28328 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:111.0 
+28328 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+28328 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:111.0 
+28528 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:112.0 
+28528 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+28528 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:112.0 
+28728 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:113.0 
+28728 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+28728 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:113.0 
+28928 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:114.0 
+28928 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+28928 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:114.0 
+29129 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:115.0 
+29129 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+29129 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:115.0 
+29330 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:116.0 
+29330 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+29330 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:116.0 
+29530 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:117.0 
+29530 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+29530 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:117.0 
+29730 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:118.0 
+29730 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+29730 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:118.0 
+29931 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:119.0 
+29931 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+29931 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:119.0 
+30132 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:120.0 
+30132 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+30132 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:120.0 
+30332 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:121.0 
+30332 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+30332 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:121.0 
+30532 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:122.0 
+30532 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+30532 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:122.0 
+30733 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:123.0 
+30733 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+30733 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:123.0 
+30934 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:124.0 
+30934 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+30934 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:124.0 
+31135 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:125.0 
+31135 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+31135 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:125.0 
+31336 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:126.0 
+31336 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+31336 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:126.0 
+31537 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:127.0 
+31537 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+31537 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:127.0 
+31738 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:128.0 
+31738 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+31738 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:128.0 
+31939 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:129.0 
+31939 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+31939 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:129.0 
+32140 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:130.0 
+32140 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+32140 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:130.0 
+32341 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:131.0 
+32341 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+32341 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:131.0 
+32542 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:132.0 
+32542 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+32542 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:132.0 
+32743 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:133.0 
+32743 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+32743 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:133.0 
+32944 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:134.0 
+32944 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+32944 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:134.0 
+33145 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:135.0 
+33145 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+33145 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:135.0 
+33346 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:136.0 
+33346 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+33346 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:136.0 
+33547 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:137.0 
+33547 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+33547 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:137.0 
+33748 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:138.0 
+33748 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+33748 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:138.0 
+33949 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:139.0 
+33949 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+33949 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:139.0 
+34150 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:140.0 
+34150 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+34150 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:140.0 
+34351 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:141.0 
+34351 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+34351 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:141.0 
+34552 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:142.0 
+34552 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+34552 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:142.0 
+34753 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:143.0 
+34753 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+34753 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:143.0 
+34954 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:144.0 
+34954 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+34954 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:144.0 
+35155 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:145.0 
+35155 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+35155 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:145.0 
+35356 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:146.0 
+35356 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+35356 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:146.0 
+35557 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:147.0 
+35557 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+35557 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:147.0 
+35758 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:148.0 
+35758 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+35758 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:148.0 
+35959 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:149.0 
+35959 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+35959 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:149.0 
+36160 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:150.0 
+36160 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+36160 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:150.0 
+36361 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:151.0 
+36361 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+36361 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:151.0 
+36562 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:152.0 
+36562 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+36562 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:152.0 
+36763 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:153.0 
+36763 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+36763 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:153.0 
+36964 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:154.0 
+36964 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+36964 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:154.0 
+37165 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:155.0 
+37165 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+37165 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:155.0 
+37366 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:156.0 
+37366 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+37366 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:156.0 
+37567 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:157.0 
+37567 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+37567 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:157.0 
+37768 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:158.0 
+37768 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+37768 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:158.0 
+37968 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:159.0 
+37968 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+37968 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:159.0 
+38168 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:160.0 
+38168 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+38168 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:160.0 
+38369 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:161.0 
+38369 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+38369 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:161.0 
+38570 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:162.0 
+38570 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+38570 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:162.0 
+38771 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:163.0 
+38771 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+38771 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:163.0 
+38972 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Arrival Checker) at time:164.0 
+38972 [Thread-5] DEBUG org.arosso.routines.ArrivalChecker - ArrivalChecker calls: [] 
+38972 [Thread-5] DEBUG org.arosso.sim.RoutineManager - Executing routine (Elevator Controller [0]) at time:164.0 

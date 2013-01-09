@@ -39,7 +39,11 @@ public class MainWindow extends Thread implements ActionListener, Observer {
 	// Sunchronized components
 	JLabel lblTiempo;
 	JTable canvas;
-
+	
+	//Main panels
+	private JPanel simPanel;
+	private JPanel statsPanel;
+	
 	// Actions
 	JButton initButton;
 	JButton pauseButton;
@@ -98,119 +102,17 @@ public class MainWindow extends Thread implements ActionListener, Observer {
 
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 
-		JPanel simPanel = new JPanel();
+		//Add sim panel
+		initializeSimTab();
 		tabbedPane.addTab("Simulation", null, simPanel, null);
-
-		JPanel simInformation = new JPanel();
-		simInformation.setLayout(new BoxLayout(simInformation, BoxLayout.Y_AXIS));
-
-		JPanel summaryPanel = new JPanel();
-		summaryPanel.setLayout(new BoxLayout(summaryPanel, BoxLayout.X_AXIS));
-		simInformation.add(summaryPanel);
-		lblTiempo = new JLabel("Tiempo");
-		summaryPanel.add(lblTiempo);
-
-		JPanel simActionButtonsPanel = new JPanel();
-		simInformation.add(simActionButtonsPanel);
-		simActionButtonsPanel.setLayout(new BoxLayout(simActionButtonsPanel, BoxLayout.X_AXIS));
-
-		initButton = new JButton("Init");
-		initButton.addActionListener(this);
-		simActionButtonsPanel.add(initButton);
-
-		pauseButton = new JButton("Pause");
-		pauseButton.setEnabled(false);
-		pauseButton.addActionListener(this);
-		simActionButtonsPanel.add(pauseButton);
-
-		stopButton = new JButton("Stop");
-		stopButton.setEnabled(false);
-		stopButton.addActionListener(this);
-		simActionButtonsPanel.add(stopButton);
-
-		// Add Dynamic chartS
-		// Waiting time chart
-		JPanel dynamicChartsPanel = new JPanel();
-		dynamicChartsPanel.setLayout(new BoxLayout(dynamicChartsPanel, BoxLayout.Y_AXIS));
-		simInformation.add(dynamicChartsPanel);
-		// Traffic chart
-		trafficChart = new DynamicXYChart(Color.BLUE, "Traffic");
-		dynamicChartsPanel.add(trafficChart.getChart());
-		// Waiting time chart
-		wtChart = new DynamicXYChart(Color.RED, "Wating Time");
-		dynamicChartsPanel.add(wtChart.getChart());
-		// Service time chart
-		//stChart = new DynamicXYChart(Color.BLUE, "Service Time");
-		//dynamicChartsPanel.add(stChart.getChart());
-
-		JPanel simGraphics = new JPanel();
-		simGraphics.setLayout(new BorderLayout(0, 0));
-		simGraphics.setAutoscrolls(true);
-		simGraphics.setBorder(BorderFactory.createLineBorder(Color.black));
-
-		// Elevator MATRIX MODEL
-		ElevatorTableModel elevatorModel = new ElevatorTableModel(guiModel);
-		elevatorModel.setRowCount(guiModel.getNumFloors());
-		elevatorModel.setColumnCount(guiModel.getNumElevators() + 1);
-		canvas = new JTable(elevatorModel);
-		// FLOOR MODEL
-		canvas.getColumnModel().getColumn(0).setCellRenderer(new FloorCellRenderer());
-		// ELEVATOR COLUMN MODEL
-		for (int j = 1; j <= guiModel.getNumElevators(); j++) {
-			canvas.getColumnModel().getColumn(j).setCellRenderer(new ElevatorCellRenderer());
-		}
-
-		simGraphics.add(canvas);
-		simPanel.setLayout(new BoxLayout(simPanel, BoxLayout.X_AXIS));
-		simPanel.add(simInformation);
-		JScrollPane simGraphicsSP = new JScrollPane(simGraphics);
-		simPanel.add(simGraphicsSP);
-
-		// Stats TAB
-		JPanel statsPanel = new JPanel();
-		statsPanel.setLayout(new BoxLayout(statsPanel, BoxLayout.X_AXIS));
+		
+		//Add stats pannel
+		initilizeStatsTab();
 		tabbedPane.addTab("Statistics", null, statsPanel, null);
-		// Stats container
-		JPanel statsConPanel = new JPanel();
-		statsConPanel.setLayout(new BoxLayout(statsConPanel, BoxLayout.Y_AXIS));
 
-		//Stats panel for buttons
-		JPanel statsActionButtonsPanel = new JPanel();
-		statsActionButtonsPanel.setLayout(new BoxLayout(statsActionButtonsPanel, BoxLayout.X_AXIS));	
-		
-		genWTReportpButton = new JButton("Generate Waiting Time Report");
-		genWTReportpButton.addActionListener(this);
-
-		genSTReportpButton = new JButton("Generate Service Time Report");
-		genSTReportpButton.addActionListener(this);
-
-		genTEnergyReportpButton = new JButton("Generate Service Used Energy Report");
-		genTEnergyReportpButton.addActionListener(this);
-
-		statsActionButtonsPanel.add(genWTReportpButton);
-		statsActionButtonsPanel.add(genSTReportpButton);
-		statsActionButtonsPanel.add(genTEnergyReportpButton);
-
-		// Stats Dynamic chartS
-		// Waiting time chart
-		JPanel statsDynamicChartsPanel = new JPanel();
-		statsDynamicChartsPanel.setLayout(new BoxLayout(statsDynamicChartsPanel, BoxLayout.X_AXIS));
-		// Traffic chart
-		//trafficChart = new DynamicXYChart(Color.GREEN, "Traffic");
-		//statsDynamicChartsPanel.add(trafficChart.getChart());
-		// Waiting time chart
-		//wtChart = new DynamicXYChart(Color.RED, "Wating Time");
-		//statsDynamicChartsPanel.add(wtChart.getChart());
-		// Service time chart
-		stChart = new DynamicXYChart(Color.BLUE, "Service Time");
-		statsDynamicChartsPanel.add(stChart.getChart());
-
-		statsConPanel.add(statsActionButtonsPanel);
-		statsConPanel.add(statsDynamicChartsPanel);
-		statsPanel.add(statsConPanel);
-		
 		frmBuildingSimulator.getContentPane().add(tabbedPane);
 	}
+	
 
 	public void updateGuiModel() {
 		DecimalFormat df = new DecimalFormat("#.###");
@@ -224,8 +126,6 @@ public class MainWindow extends Thread implements ActionListener, Observer {
 			Passenger pass = (Passenger) arg;
 			wtChart.setData(guiModel.getSimClock(), pass.getEntryTime() - pass.getArrivalTime());
 			stChart.setData(guiModel.getSimClock(), pass.getExitTime() - pass.getArrivalTime());
-			// ;
-			// trafficChart;
 		}
 	}
 
@@ -294,6 +194,113 @@ public class MainWindow extends Thread implements ActionListener, Observer {
 		}
 	}
 
+
+	public void initializeSimTab(){
+		simPanel = new JPanel();
+
+		JPanel simInformation = new JPanel();
+		simInformation.setLayout(new BoxLayout(simInformation, BoxLayout.Y_AXIS));
+
+		JPanel summaryPanel = new JPanel();
+		summaryPanel.setLayout(new BoxLayout(summaryPanel, BoxLayout.X_AXIS));
+		simInformation.add(summaryPanel);
+		lblTiempo = new JLabel("Tiempo");
+		summaryPanel.add(lblTiempo);
+
+		JPanel simActionButtonsPanel = new JPanel();
+		simInformation.add(simActionButtonsPanel);
+		simActionButtonsPanel.setLayout(new BoxLayout(simActionButtonsPanel, BoxLayout.X_AXIS));
+
+		initButton = new JButton("Init");
+		initButton.addActionListener(this);
+		simActionButtonsPanel.add(initButton);
+
+		pauseButton = new JButton("Pause");
+		pauseButton.setEnabled(false);
+		pauseButton.addActionListener(this);
+		simActionButtonsPanel.add(pauseButton);
+
+		stopButton = new JButton("Stop");
+		stopButton.setEnabled(false);
+		stopButton.addActionListener(this);
+		simActionButtonsPanel.add(stopButton);
+
+		// Add Dynamic chartS
+		// Waiting time chart
+		JPanel dynamicChartsPanel = new JPanel();
+		dynamicChartsPanel.setLayout(new BoxLayout(dynamicChartsPanel, BoxLayout.Y_AXIS));
+		simInformation.add(dynamicChartsPanel);
+		// Traffic chart
+		trafficChart = new DynamicXYChart(Color.BLUE, "Traffic");
+		dynamicChartsPanel.add(trafficChart.getChart());
+		// Waiting time chart
+		wtChart = new DynamicXYChart(Color.RED, "Wating Time");
+		dynamicChartsPanel.add(wtChart.getChart());
+		// Service time chart
+		// stChart = new DynamicXYChart(Color.BLUE, "Service Time");
+		// dynamicChartsPanel.add(stChart.getChart());
+
+		JPanel simGraphics = new JPanel();
+		simGraphics.setLayout(new BorderLayout(0, 0));
+		simGraphics.setAutoscrolls(true);
+		simGraphics.setBorder(BorderFactory.createLineBorder(Color.black));
+
+		// Elevator MATRIX MODEL
+		ElevatorTableModel elevatorModel = new ElevatorTableModel(guiModel);
+		elevatorModel.setRowCount(guiModel.getNumFloors());
+		elevatorModel.setColumnCount(guiModel.getNumElevators() + 1);
+		canvas = new JTable(elevatorModel);
+		// FLOOR MODEL
+		canvas.getColumnModel().getColumn(0).setCellRenderer(new FloorCellRenderer());
+		// ELEVATOR COLUMN MODEL
+		for (int j = 1; j <= guiModel.getNumElevators(); j++) {
+			canvas.getColumnModel().getColumn(j).setCellRenderer(new ElevatorCellRenderer());
+		}
+
+		simGraphics.add(canvas);
+		simPanel.setLayout(new BoxLayout(simPanel, BoxLayout.X_AXIS));
+		simPanel.add(simInformation);
+		JScrollPane simGraphicsSP = new JScrollPane(simGraphics);
+		simPanel.add(simGraphicsSP);
+	}
+
+	public void initilizeStatsTab() {
+		// Stats TAB
+		statsPanel = new JPanel();
+		statsPanel.setLayout(new BoxLayout(statsPanel, BoxLayout.X_AXIS));
+
+		// Stats container
+		JPanel statsConPanel = new JPanel();
+		statsConPanel.setLayout(new BoxLayout(statsConPanel, BoxLayout.Y_AXIS));
+
+		// Stats panel for buttons
+		JPanel statsActionButtonsPanel = new JPanel();
+		statsActionButtonsPanel.setLayout(new BoxLayout(statsActionButtonsPanel, BoxLayout.X_AXIS));
+
+		genWTReportpButton = new JButton("Generate Waiting Time Report");
+		genWTReportpButton.addActionListener(this);
+
+		genSTReportpButton = new JButton("Generate Service Time Report");
+		genSTReportpButton.addActionListener(this);
+
+		genTEnergyReportpButton = new JButton("Generate Service Used Energy Report");
+		genTEnergyReportpButton.addActionListener(this);
+
+		statsActionButtonsPanel.add(genWTReportpButton);
+		statsActionButtonsPanel.add(genSTReportpButton);
+		statsActionButtonsPanel.add(genTEnergyReportpButton);
+
+		// Stats Dynamic chartS
+		JPanel statsDynamicChartsPanel = new JPanel();
+		statsDynamicChartsPanel.setLayout(new BoxLayout(statsDynamicChartsPanel, BoxLayout.X_AXIS));
+		stChart = new DynamicXYChart(Color.BLUE, "Service Time");
+		statsDynamicChartsPanel.add(stChart.getChart());
+
+		statsConPanel.add(statsActionButtonsPanel);
+		statsConPanel.add(statsDynamicChartsPanel);
+		statsPanel.add(statsConPanel);
+	}
+	
 	/**
 	 * Launch the application.
 	 */

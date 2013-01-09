@@ -1,6 +1,9 @@
 package org.arosso.stats;
 
+import static org.arosso.util.Constants.*;
+
 import java.awt.Image;
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -18,6 +21,7 @@ import net.sf.jasperreports.view.JasperViewer;
 import org.arosso.db.DatabaseMannager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 
 
 /**
@@ -48,9 +52,8 @@ public class JasperReportManager {
      * The constructor.
      */
     public JasperReportManager() {
-    	// Start of user code constructor
     	super();
-    	// End of user code
+		new File(JASPER_REPORTS_PATH).mkdirs();
     }
 
 	public void getWTimeJReport() {
@@ -68,9 +71,9 @@ public class JasperReportManager {
 			DatabaseMannager broker = DatabaseMannager.getInstance();
 			JasperPrint printReport = JasperFillManager.fillReport(report,parametrosReporte, new JREmptyDataSource());
 			//Generamos el objeto previe del reporte
-			JasperViewer viewer = new JasperViewer(printReport);
+			JasperViewer viewer = new JasperViewer(printReport,false);
 			String date = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
-			JasperExportManager.exportReportToPdfFile(printReport, WT_REPORT+"_"+date+".pdf");
+			JasperExportManager.exportReportToPdfFile(printReport, JASPER_REPORTS_PATH+"/"+WT_REPORT+"_"+date+".pdf");
 			viewer.setVisible(true);
 		} catch (Exception e) {
 			logger.error("Error generating report",e);
@@ -91,9 +94,9 @@ public class JasperReportManager {
 			JasperReport report = (JasperReport)JRLoader.loadObject(this.getClass().getResourceAsStream(ST_REPORT+".jasper"));
 			JasperPrint printReport = JasperFillManager.fillReport(report,parametrosReporte, new JREmptyDataSource());
 			//Generamos el objeto previe del reporte
-			JasperViewer viewer = new JasperViewer(printReport);
+			JasperViewer viewer = new JasperViewer(printReport,false);
 			String date = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
-			JasperExportManager.exportReportToPdfFile(printReport, ST_REPORT+"_"+date+".pdf");
+			JasperExportManager.exportReportToPdfFile(printReport, JASPER_REPORTS_PATH+"/"+ST_REPORT+"_"+date+".pdf");
 			viewer.setVisible(true);
 		} catch (Exception e) {
 			logger.error("Error generating report",e);
@@ -119,10 +122,10 @@ public class JasperReportManager {
 			//objeto JASPERPRINT
 			JasperPrint printReport = JasperFillManager.fillReport(report,parametrosReporte, new JREmptyDataSource());
 			//Generamos el objeto previe del reporte
-			JasperViewer viewer = new JasperViewer(printReport);
+			JasperViewer viewer = new JasperViewer(printReport,false);
 			//Generamos el objeto previe del reporte
 			String date = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
-			JasperExportManager.exportReportToPdfFile(printReport, TENERGY_REPORT+"_"+date+".pdf");
+			JasperExportManager.exportReportToPdfFile(printReport, JASPER_REPORTS_PATH+"/"+TENERGY_REPORT+"_"+date+".pdf");
 			viewer.setVisible(true);
 		} catch (Exception e) {
 			logger.error("Error generating report",e);
