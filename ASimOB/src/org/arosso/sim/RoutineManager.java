@@ -4,8 +4,8 @@ import static org.arosso.util.Constants.ROUTINE_DEFAULT_ACTIVATION_TIME;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
+import java.util.Collections;
+import java.util.List;
 
 import org.arosso.model.BuildingModel;
 import org.arosso.model.BuildingModel.SIM_STATE;
@@ -19,7 +19,6 @@ import org.slf4j.LoggerFactory;
  * Description of RoutineManager.
  */
 public class RoutineManager extends Thread {
-	private Object lock1 = new Object();
 	/**
 	 * Description of the property rutineManager.
 	 */
@@ -96,35 +95,33 @@ public class RoutineManager extends Thread {
 
 	@Override
 	public void run() {
-		while (buildingModel.getSimulationClock() <= buildingModel.getEndSimulationTime() && buildingModel.simState != SIM_STATE.STOPPED) {
-			if (buildingModel.simState == SIM_STATE.STARTED) {
-				Lock lock  = new ReentrantReadWriteLock().writeLock();
-				// Execute the routines that take place at that time
-				for (SimulationRoutine routine : registeredRoutines) {
-					//Calc the routine 
-					float roudedCarry = (float) (Math.round((buildingModel.getSimulationClock() % routine.activationTime)*10.0f)/10.0f);
-					//Simulation running
-					//logger.info("SimClock "+buildingModel.getSimulationClock()+", " +	"Routine (" +routine.getRoutineName() +") ActTime("+routine.getActivationTime()+") = " + (roudedCarry) );
-					if ( roudedCarry == 0) {
-						synchronized(this){
+		List<SimulationRoutine> listSync = Collections.synchronizedList(registeredRoutines);
+		synchronized(listSync){
+			while (buildingModel.getSimulationClock() <= buildingModel.getEndSimulationTime() && buildingModel.simState != SIM_STATE.STOPPED) {
+				if (buildingModel.simState == SIM_STATE.STARTED) {
+					// Execute the routines that take place at that time
+					for (SimulationRoutine routine : listSync) {
+						//Calc the routine 
+						float roudedCarry = (float) (Math.round((buildingModel.getSimulationClock() % routine.activationTime)*10.0f)/10.0f);
+						//Simulation running
+						//logger.info("SimClock "+buildingModel.getSimulationClock()+", " +	"Routine (" +routine.getRoutineName() +") ActTime("+routine.getActivationTime()+") = " + (roudedCarry) );
+						if ( roudedCarry == 0) {
 							logger.debug("Executing routine (" + routine.getRoutineName() + ") at time:" + buildingModel.getSimulationClock());
-							synchronized(lock){
-								lock.lock();
+							synchronized(logger){
 								routine.execute();
-								lock.unlock();
 							}
 						}
 					}
+					// Advance time
+					buildingModel.setSimulationClock(buildingModel.getSimulationClock() + buildingModel.getDeltaAdvaceTime());
 				}
-				// Advance time
-				buildingModel.setSimulationClock(buildingModel.getSimulationClock() + buildingModel.getDeltaAdvaceTime());
-			}
-			//Sleep the time for X delay time
-			try {
-				Thread.sleep(buildingModel.getDelayTime());
-			} catch (InterruptedException e) {
-				logger.error("Error dalaying executed routines", e);
-				e.printStackTrace();
+				//Sleep the time for X delay time
+				try {
+					Thread.sleep(buildingModel.getDelayTime());
+				} catch (InterruptedException e) {
+					logger.error("Error dalaying executed routines", e);
+					e.printStackTrace();
+				}
 			}
 		}
 		logger.info("Simulation has finished state : " + buildingModel.simState);

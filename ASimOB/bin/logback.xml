@@ -14,6 +14,13 @@
 			<pattern>%-4relative [%thread] %-5level %logger{35} - %msg %n</pattern>
 		</encoder>
 	</appender>
+	<appender name="FILE-ERROR" class="ch.qos.logback.core.FileAppender" >
+		<file>Error-logfile.log</file>
+		<append>false</append>
+		<encoder>
+			<pattern>%-4relative [%thread] %-5level %logger{35} - %msg %n</pattern>
+		</encoder>
+	</appender>
 	<appender name="ElevatorController-FILE" class="ch.qos.logback.core.FileAppender">
 		<file>ElevatorController.log</file>
 		<append>false</append>
@@ -26,7 +33,12 @@
 	<logger name="org.arosso.routines.ElevatorController" level="INFO" additivity="false">
 		<!-- <appender-ref ref="ElevatorController-FILE" /> -->
 		<appender-ref ref="ElevatorController-FILE" />
-		
+	</logger>
+	<!-- additivity=false ensures analytics data only goes to the analytics 
+		log -->
+	<logger name="org.arosso." level="ERROR" additivity="false">
+		<!-- <appender-ref ref="ElevatorController-FILE" /> -->
+		<appender-ref ref="FILE-ERROR" />
 	</logger>
 	<root >
 		<appender-ref ref="FILE" />

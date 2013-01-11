@@ -361,14 +361,14 @@ public class Elevator extends Observable {
 	}
 
 	public void addCall(Passenger call) {
-		for(Passenger passenger : this.calls){
+		/*for(Passenger passenger : this.calls){
 			if(passenger.getType() == Passenger.Type.MOCK_CALL){
 				this.calls.remove(passenger);
 			}
-		}
-		this.calls.add(call);
+		}*/
+		this.calls.add(call);/*
     	setChanged();
-		notifyObservers(call);
+		notifyObservers(call);*/
 	}
 
 	public void addPassenger(Passenger passenger) {
