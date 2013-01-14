@@ -6,6 +6,8 @@
 package org.arosso.model;
 
 import org.arosso.exception.CallIllegalState;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 // Start of user code (user defined imports)	
 
@@ -20,6 +22,9 @@ public class Passenger {
     	CALL, PASSENGER, MOCK_CALL;
     }
 	
+	private static int numPassengers = 0;
+	private String id;
+	
     /**
      * Description of the property arrivalTime.
      */
@@ -28,12 +33,12 @@ public class Passenger {
     /**
      * Description of the property entryTime.
      */
-    private Float entryTime = 0.0f;
+    private int entryTime = 0;
     
     /**
      * Description of the property exitTime.
      */
-    private Float exitTime = 0.0f;
+    private int exitTime = 0;
     
     /**
      * Description of the property originFloor.
@@ -55,9 +60,11 @@ public class Passenger {
      */
     private Type type = Type.CALL;
     
-    // Start of user code (user defined attributes)
-    
-    // End of user code
+
+    /**
+     * Logger
+     */
+    Logger logger = LoggerFactory.getLogger(this.getClass());
     
     /**
      * The constructor.
@@ -65,7 +72,7 @@ public class Passenger {
     private Passenger() {
     	// Start of user code constructor
     	super();
-    	// End of user code
+    	id = String.valueOf((numPassengers++));
     }
     
     
@@ -77,6 +84,7 @@ public class Passenger {
 		this.originFloor = originFloor;
 		this.destinationFloor = destinationFloor;
 		this.type = type;
+		this.id = String.valueOf((numPassengers++));
 	}
 
 
@@ -112,7 +120,8 @@ public class Passenger {
      * Returns entryTime.
      * @return entryTime 
      */
-    public Float getEntryTime() {
+    public int getEntryTime() {
+    	//logger.info(">>get.entrytime="+this.entryTime+" pass"+this.toStringComplete());
     	return this.entryTime;
     }
     
@@ -120,15 +129,16 @@ public class Passenger {
      * Sets a value to attribute entryTime. 
      * @param newPushedTime 
      */
-    public void setEntryTime(Float newPushedTime) {
+    public void setEntryTime(int newPushedTime) {
         this.entryTime = newPushedTime;
+        logger.info(">>set.entrytime="+newPushedTime+" pass"+this.toStringComplete());
     }
     
     /**
      * Returns exitTime.
      * @return exitTime 
      */
-    public Float getExitTime() {
+    public int getExitTime() {
     	return this.exitTime;
     }
     
@@ -136,7 +146,7 @@ public class Passenger {
      * Sets a value to attribute exitTime. 
      * @param newPulledTime 
      */
-    public void setExitTime(Float newPulledTime) {
+    public void setExitTime(int newPulledTime) {
         this.exitTime = newPulledTime;
     }
     
@@ -201,8 +211,8 @@ public class Passenger {
     
     @Override
     public String toString() {
-    	//return "Po("+this.originFloor+") Pd("+this.destinationFloor+") "+" At("+this.arrivalTime+")";
-    	return "("+this.originFloor+","+this.destinationFloor+")";
+    	return "T["+this.arrivalTime+","+this.entryTime+","+this.exitTime+"] D("+this.originFloor+","+this.destinationFloor+")";
+    	//return "("+this.originFloor+","+this.destinationFloor+")";
     }
     
     public String toStringComplete() {
@@ -215,6 +225,12 @@ public class Passenger {
 
 	public void setType(Type type) {
 		this.type = type;
+	}
+
+
+
+	public String getId() {
+		return id;
 	}
     
 }

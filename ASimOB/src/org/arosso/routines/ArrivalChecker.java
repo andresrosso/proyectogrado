@@ -33,7 +33,6 @@ public class ArrivalChecker extends SimulationRoutine {
      * 
      */
     private BuildingModel buildingModel;
-
     
     /**
      * Logger

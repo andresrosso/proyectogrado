@@ -62,26 +62,10 @@ public class BuildingSimulator {
     	super();
     	logger.debug("BuildingSimulator created!");
     }
-    
-    /**
-     * Description of the method generateSummaryReport.
-     */
-    private void generateSummaryReport() {
-    	// Start of user code for method generateSummaryReport
-    	// End of user code
-    }
-     
-    /**
-     * Description of the method updateStatistics.
-     */
-    private void updateStatistics() {
-    	// Start of user code for method updateStatistics
-    	// End of user code
-    }
-    
+   
     public void init() throws IOException, Exception{
     	building = BuildingModel.getInstance();
-    	routineManager = new RoutineManager();
+    	routineManager = RoutineManager.getInstance();
     	logger.info("BuildingSimulator initiated!");
     }
      

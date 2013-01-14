@@ -16,7 +16,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Description of conventionalElevatorGroupController.
  */
-public class ConventionalElevatorGroupController implements ElevatorGroupController {
+public class AIElevatorGroupController implements ElevatorGroupController {
 
     
     /**
@@ -32,7 +32,7 @@ public class ConventionalElevatorGroupController implements ElevatorGroupControl
      * @throws Exception 
      * @throws IOException 
      */
-    public ConventionalElevatorGroupController() throws Exception {
+    public AIElevatorGroupController() throws Exception {
     	super();
     	logger.debug("ConventionalElevatorGroupController created!");
     	buildingModel = BuildingModel.getInstance();

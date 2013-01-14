@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Vector;
 
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
@@ -89,7 +90,8 @@ public class ElevatorTableModel extends DefaultTableModel {
     	String callsInFloor = "";
     	floor = getRowCount() - floor;
     	for( Elevator el : guiModel.getBuildingModel().getElevators() ){
-    		for(Passenger pass : el.getCalls()){
+    		Vector<Passenger> calls = (Vector<Passenger>)el.getCalls().clone();
+    		for(Passenger pass : calls){
     			if(pass.getOriginFloor()==floor){
     				callsInFloor += pass;
     			}

@@ -12,6 +12,7 @@ import org.arosso.model.BuildingModel.SIM_STATE;
 import org.arosso.routines.ArrivalChecker;
 import org.arosso.routines.ElevatorController;
 import org.arosso.routines.TrafficGenerator;
+import org.arosso.routines.egcs.ai.AnnInputWVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,7 +23,7 @@ public class RoutineManager extends Thread {
 	/**
 	 * Description of the property rutineManager.
 	 */
-	private RoutineManager rutineManager = null;
+	private static RoutineManager instance = null;
 
 	/**
 	 * Description of the property registeredRoutines.
@@ -59,9 +60,16 @@ public class RoutineManager extends Thread {
 	 * @throws Exception
 	 * @throws IOException
 	 */
-	public RoutineManager() throws IOException, Exception {
+	private RoutineManager() throws IOException, Exception {
 		super();
 		init();
+	}
+	
+	public static RoutineManager getInstance() throws Exception{
+		if(instance==null){
+			instance = new RoutineManager();
+		}
+		return instance;
 	}
 
 	/**
@@ -124,6 +132,8 @@ public class RoutineManager extends Thread {
 				}
 			}
 		}
+		//Save the ANN
+		AnnInputWVO.getInstance().writeToFile();
 		logger.info("Simulation has finished state : " + buildingModel.simState);
 	}
 
@@ -198,24 +208,6 @@ public class RoutineManager extends Thread {
 	}
 
 	/**
-	 * Returns rutineManager.
-	 * 
-	 * @return rutineManager
-	 */
-	public RoutineManager getRutineManager() {
-		return this.rutineManager;
-	}
-
-	/**
-	 * Sets a value to attribute rutineManager.
-	 * 
-	 * @param newRutineManager
-	 */
-	public void setRutineManager(RoutineManager newRutineManager) {
-		this.rutineManager = newRutineManager;
-	}
-
-	/**
 	 * Returns registeredRoutines.
 	 * 
 	 * @return registeredRoutines
@@ -253,11 +245,15 @@ public class RoutineManager extends Thread {
 
 	@Override
 	public String toString() {
-		String routines = "";
+		String routinesList = "";
 		for (SimulationRoutine routine : registeredRoutines) {
-			routines += routine;
+			routinesList += routine;
 		}
-		return super.toString();
+		return routinesList;
+	}
+
+	public TrafficGenerator getTrafficGenerator() {
+		return trafficGenerator;
 	}
 
 }

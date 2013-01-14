@@ -10,6 +10,7 @@ import org.arosso.exception.ElevatorIlegalState;
 import org.arosso.model.BuildingModel;
 import org.arosso.model.Elevator;
 import org.arosso.model.Passenger;
+import org.arosso.routines.egcs.ai.AnnTrainer;
 import org.arosso.sim.SimulationRoutine;
 import org.arosso.stats.StatisticsManager;
 import org.slf4j.Logger;
@@ -65,6 +66,9 @@ public class ElevatorController extends SimulationRoutine implements
 
 	// Floor gap distance
 	private float floorGap;
+	
+	//Trainer for ANN
+	AnnTrainer trainer = new AnnTrainer();
 	
 	/**
 	 * Static code to get the reference of statistics manager
@@ -158,7 +162,6 @@ public class ElevatorController extends SimulationRoutine implements
 				findDirectionAndTargetFloor();
 			}else{
 				// get better route call
-				//TODO: Its no really  common so do it easy
 				logger.error("Error on doRestingTask>> Elevator ["+elevator.getId()+"] This is not common but, there are 2 calls in different direction");
 				findDirectionAndTargetFloor();
 			}
@@ -588,10 +591,10 @@ public class ElevatorController extends SimulationRoutine implements
 	@Override
 	public void addPassenger(Passenger passenger) {
 		if (directionValidForPassenger(passenger)) {
+			passenger.setEntryTime(buildingModel.getSimulationClock().intValue());
 			passenger.setType(Passenger.Type.PASSENGER);
 			elevator.addPassenger(passenger);
 			//Sets the time the passeger gets into the elevator
-			passenger.setEntryTime(this.buildingModel.getSimulationClock());
 		} else {
 			logger.error("Error on addPassenger>> Elevator ["+elevator.getId()+"] The passenger " + passenger + ", could not be added.");
 		}
@@ -599,11 +602,11 @@ public class ElevatorController extends SimulationRoutine implements
 	
 	@Override
 	public void removePassenger(Passenger passenger) {
-		passenger.setExitTime(this.buildingModel.getSimulationClock());
+		passenger.setExitTime(this.buildingModel.getSimulationClock().intValue());
 		//Update statistics
 		statisticsManager.updateStatistics(passenger,this.getElevator().getId());
-		//Sets the time the passeger exit from elevator
-		this.elevator.getPassengers().remove(passenger);
+		//Sets the time the passenger exit from elevator
+		this.elevator.removePassenger(passenger);
 		logger.info("Elevator ["+elevator.getId()+"] The passenger " + passenger + ", was removed. -> "+passenger.toStringComplete());
 	}
 	

@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.util.Vector;
 
 import org.arosso.model.BuildingModel;
+import org.arosso.model.Passenger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -105,6 +106,27 @@ public class BasicTrafficModel implements TrafficModel {
     public void setTrafficDensity(Vector <Float> newTrafficDensity) {
         this.trafficDensity = newTrafficDensity;
     }
+
+	@Override
+	public Vector<Passenger> getPassengersForPeriod(int time) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Float getEstimatedTrafficIn(int time) {
+		return null;
+	}
+
+	@Override
+	public Float getEstimatedTrafficOut(int time) {
+		return null;
+	}
+
+	@Override
+	public Float getEstimatedTrafficInterfloor(int time) {
+		return null;
+	}
     
     
 }
