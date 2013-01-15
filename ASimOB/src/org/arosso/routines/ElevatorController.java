@@ -10,7 +10,7 @@ import org.arosso.exception.ElevatorIlegalState;
 import org.arosso.model.BuildingModel;
 import org.arosso.model.Elevator;
 import org.arosso.model.Passenger;
-import org.arosso.routines.egcs.ai.AnnTrainer;
+import org.arosso.routines.egcs.ai.AnnTrainerW;
 import org.arosso.sim.SimulationRoutine;
 import org.arosso.stats.StatisticsManager;
 import org.slf4j.Logger;
@@ -68,7 +68,7 @@ public class ElevatorController extends SimulationRoutine implements
 	private float floorGap;
 	
 	//Trainer for ANN
-	AnnTrainer trainer = new AnnTrainer();
+	AnnTrainerW trainer = new AnnTrainerW();
 	
 	/**
 	 * Static code to get the reference of statistics manager

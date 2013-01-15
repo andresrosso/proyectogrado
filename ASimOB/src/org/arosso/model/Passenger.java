@@ -211,8 +211,8 @@ public class Passenger {
     
     @Override
     public String toString() {
-    	return "T["+this.arrivalTime+","+this.entryTime+","+this.exitTime+"] D("+this.originFloor+","+this.destinationFloor+")";
-    	//return "("+this.originFloor+","+this.destinationFloor+")";
+    	//return "T["+this.arrivalTime+","+this.entryTime+","+this.exitTime+"] D("+this.originFloor+","+this.destinationFloor+")";
+    	return "("+this.originFloor+","+this.destinationFloor+")";
     }
     
     public String toStringComplete() {

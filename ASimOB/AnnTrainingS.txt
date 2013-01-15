@@ -1,0 +1,1074 @@
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3244. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3245. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3246. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3247. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3248. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3249. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3250. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3251. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3252. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3253. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3254. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3255. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3256. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3257. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3258. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3259. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3260. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3261. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3262. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3263. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3264. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3265. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3266. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3267. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3268. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3269. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3270. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3271. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3272. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3273. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3274. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3275. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3276. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3277. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3278. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3279. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3280. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3281. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3282. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3283. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3284. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3285. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3286. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3287. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3288. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3289. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3290. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3291. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3292. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3293. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3294. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3295. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3296. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3297. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3298. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3299. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3300. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3301. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3302. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3303. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3304. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3305. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3306. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3307. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3308. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3309. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3310. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3311. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3312. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3313. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3314. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3315. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3316. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3317. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3318. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3319. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3320. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3321. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3322. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3323. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3324. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3325. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3326. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3327. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3328. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3329. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3330. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3331. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3332. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3333. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3334. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3335. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3336. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3337. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3338. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3339. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3340. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3341. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3342. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3343. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3344. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3345. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3346. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3347. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3348. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3349. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3350. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3351. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3352. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3353. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3354. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3355. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3356. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3357. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3358. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3359. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3360. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3361. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3362. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3363. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3364. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3365. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3366. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3367. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3368. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3369. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3370. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3371. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3372. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3373. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3374. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3375. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3376. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3377. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3378. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3379. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3380. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3381. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3382. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3383. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3384. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3385. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3386. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3387. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3388. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3389. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3390. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3391. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3392. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3393. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3394. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3395. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3396. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3397. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3398. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3399. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3400. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3401. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3402. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3403. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3404. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3405. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3406. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3407. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3408. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3409. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3410. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3411. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3412. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3413. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3414. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3415. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3416. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3417. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3418. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3419. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3420. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3421. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3422. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3423. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3424. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3425. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3426. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3427. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3428. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3429. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3430. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3431. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3432. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3433. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3434. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3435. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3436. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3437. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3438. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3439. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3440. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3441. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3442. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3443. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3444. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3445. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3446. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3447. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3448. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3449. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3450. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3451. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3452. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3453. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3454. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3455. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3456. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3457. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3458. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3459. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3460. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3461. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3462. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3463. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3464. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3465. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3466. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3467. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3468. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3469. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3470. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3471. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3472. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3473. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3474. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3475. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3476. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3477. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3478. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3479. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3480. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3481. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3482. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3483. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3484. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3485. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3486. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3487. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3488. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3489. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3490. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3491. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3492. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3493. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3494. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3495. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3496. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3497. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3498. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3499. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3500. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3501. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3502. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3503. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3504. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3505. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3506. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3507. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3508. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3509. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3510. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3511. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3512. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3513. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3514. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3515. Returning 0.
+[Thread-1] [WARN] - org.joone.io.StreamInputTokenizer - Warning during reading input stream. Requested token not found in line 3516. Returning 0.
+7990 epochs remaining - RMSE = 6.726763373653001E-4
+7980 epochs remaining - RMSE = 5.667849018933072E-4
+7970 epochs remaining - RMSE = 5.615012731678253E-4
+7960 epochs remaining - RMSE = 5.560200833209374E-4
+7950 epochs remaining - RMSE = 5.50640911408954E-4
+7940 epochs remaining - RMSE = 5.453677762665709E-4
+7930 epochs remaining - RMSE = 5.401979186077973E-4
+7920 epochs remaining - RMSE = 5.351285521622785E-4
+7910 epochs remaining - RMSE = 5.301569935167118E-4
+7900 epochs remaining - RMSE = 5.252806595551542E-4
+7890 epochs remaining - RMSE = 5.204970625593061E-4
+7880 epochs remaining - RMSE = 5.15803805549281E-4
+7870 epochs remaining - RMSE = 5.111985778966135E-4
+7860 epochs remaining - RMSE = 5.066791511926333E-4
+7850 epochs remaining - RMSE = 5.022433753544487E-4
+7840 epochs remaining - RMSE = 4.978891749532216E-4
+7830 epochs remaining - RMSE = 4.936145457500672E-4
+7820 epochs remaining - RMSE = 4.894175514255404E-4
+7810 epochs remaining - RMSE = 4.852963204913416E-4
+7800 epochs remaining - RMSE = 4.8124904337105284E-4
+7790 epochs remaining - RMSE = 4.7727396964105566E-4
+7780 epochs remaining - RMSE = 4.733694054197329E-4
+7770 epochs remaining - RMSE = 4.695337108971063E-4
+7760 epochs remaining - RMSE = 4.6576529799577984E-4
+7750 epochs remaining - RMSE = 4.620626281551325E-4
+7740 epochs remaining - RMSE = 4.5842421023149576E-4
+7730 epochs remaining - RMSE = 4.548485985067964E-4
+7720 epochs remaining - RMSE = 4.5133439080049137E-4
+7710 epochs remaining - RMSE = 4.4788022667727894E-4
+7700 epochs remaining - RMSE = 4.4448478574569413E-4
+7690 epochs remaining - RMSE = 4.411467860425693E-4
+7680 epochs remaining - RMSE = 4.3786498249789597E-4
+7670 epochs remaining - RMSE = 4.346381654755139E-4
+7660 epochs remaining - RMSE = 4.314651593861428E-4
+7650 epochs remaining - RMSE = 4.283448213674291E-4
+7640 epochs remaining - RMSE = 4.252760400284506E-4
+7630 epochs remaining - RMSE = 4.2225773425416283E-4
+7620 epochs remaining - RMSE = 4.1928885206756047E-4
+7610 epochs remaining - RMSE = 4.1636836954512385E-4
+7600 epochs remaining - RMSE = 4.134952897839196E-4
+7590 epochs remaining - RMSE = 4.1066864191656086E-4
+7580 epochs remaining - RMSE = 4.078874801721304E-4
+7570 epochs remaining - RMSE = 4.0515088298058276E-4
+7560 epochs remaining - RMSE = 4.0245795211766314E-4
+7550 epochs remaining - RMSE = 3.998078118891714E-4
+7540 epochs remaining - RMSE = 3.971996083521111E-4
+7530 epochs remaining - RMSE = 3.9463250857028263E-4
+7520 epochs remaining - RMSE = 3.9210569990369117E-4
+7510 epochs remaining - RMSE = 3.89618389328818E-4
+7500 epochs remaining - RMSE = 3.8716980278937884E-4
+7490 epochs remaining - RMSE = 3.8475918457462726E-4
+7480 epochs remaining - RMSE = 3.823857967255232E-4
+7470 epochs remaining - RMSE = 3.8004891846567506E-4
+7460 epochs remaining - RMSE = 3.777478456571827E-4
+7450 epochs remaining - RMSE = 3.754818902791037E-4
+7440 epochs remaining - RMSE = 3.732503799282031E-4
+7430 epochs remaining - RMSE = 3.710526573405763E-4
+7420 epochs remaining - RMSE = 3.688880799329359E-4
+7410 epochs remaining - RMSE = 3.667560193630386E-4
+7400 epochs remaining - RMSE = 3.646558611079089E-4
+7390 epochs remaining - RMSE = 3.6258700405925704E-4
+7380 epochs remaining - RMSE = 3.6054886013532053E-4
+7370 epochs remaining - RMSE = 3.5854085390811345E-4
+7360 epochs remaining - RMSE = 3.5656242224517913E-4
+7350 epochs remaining - RMSE = 3.546130139660773E-4
+7340 epochs remaining - RMSE = 3.526920895117298E-4
+7330 epochs remaining - RMSE = 3.5079912062673527E-4
+7320 epochs remaining - RMSE = 3.489335900539497E-4
+7310 epochs remaining - RMSE = 3.470949912405076E-4
+7300 epochs remaining - RMSE = 3.45282828055014E-4
+7290 epochs remaining - RMSE = 3.4349661451557405E-4
+7280 epochs remaining - RMSE = 3.4173587452709643E-4
+7270 epochs remaining - RMSE = 3.400001416293971E-4
+7260 epochs remaining - RMSE = 3.382889587532417E-4
+7250 epochs remaining - RMSE = 3.366018779861247E-4
+7240 epochs remaining - RMSE = 3.349384603456871E-4
+7230 epochs remaining - RMSE = 3.332982755616994E-4
+7220 epochs remaining - RMSE = 3.316809018651782E-4
+7210 epochs remaining - RMSE = 3.300859257850206E-4
+7200 epochs remaining - RMSE = 3.2851294195168477E-4
+7190 epochs remaining - RMSE = 3.2696155290717525E-4
+7180 epochs remaining - RMSE = 3.2543136892162117E-4
+7170 epochs remaining - RMSE = 3.239220078158367E-4
+7160 epochs remaining - RMSE = 3.224330947898359E-4
+7150 epochs remaining - RMSE = 3.209642622564382E-4
+7140 epochs remaining - RMSE = 3.1951514968087575E-4
+7130 epochs remaining - RMSE = 3.1808540342457664E-4
+7120 epochs remaining - RMSE = 3.166746765947248E-4
+7110 epochs remaining - RMSE = 3.1528262889777794E-4
+7100 epochs remaining - RMSE = 3.13908926497731E-4
+7090 epochs remaining - RMSE = 3.1255324187851616E-4
+7080 epochs remaining - RMSE = 3.1121525371063637E-4
+7070 epochs remaining - RMSE = 3.098946467213301E-4
+7060 epochs remaining - RMSE = 3.0859111156908826E-4
+7050 epochs remaining - RMSE = 3.0730434472099323E-4
+7040 epochs remaining - RMSE = 3.06034048334159E-4
+7030 epochs remaining - RMSE = 3.047799301400094E-4
+7020 epochs remaining - RMSE = 3.035417033320867E-4
+7010 epochs remaining - RMSE = 3.023190864565117E-4
+7000 epochs remaining - RMSE = 3.011118033055273E-4
+6990 epochs remaining - RMSE = 2.99919582813965E-4
+6980 epochs remaining - RMSE = 2.9874215895821286E-4
+6970 epochs remaining - RMSE = 2.975792706577232E-4
+6960 epochs remaining - RMSE = 2.964306616792441E-4
+6950 epochs remaining - RMSE = 2.9529608054311765E-4
+6940 epochs remaining - RMSE = 2.9417528043218505E-4
+6930 epochs remaining - RMSE = 2.930680191026167E-4
+6920 epochs remaining - RMSE = 2.9197405879699225E-4
+6910 epochs remaining - RMSE = 2.9089316615958167E-4
+6900 epochs remaining - RMSE = 2.898251121532541E-4
+6890 epochs remaining - RMSE = 2.8876967197847343E-4
+6880 epochs remaining - RMSE = 2.877266249943175E-4
+6870 epochs remaining - RMSE = 2.8669575464083767E-4
+6860 epochs remaining - RMSE = 2.8567684836357476E-4
+6850 epochs remaining - RMSE = 2.846696975392962E-4
+6840 epochs remaining - RMSE = 2.8367409740378435E-4
+6830 epochs remaining - RMSE = 2.826898469805117E-4
+6820 epochs remaining - RMSE = 2.8171674901179426E-4
+6810 epochs remaining - RMSE = 2.8075460989031303E-4
+6800 epochs remaining - RMSE = 2.7980323959277137E-4
+6790 epochs remaining - RMSE = 2.7886245161450106E-4
+6780 epochs remaining - RMSE = 2.7793206290576734E-4
+6770 epochs remaining - RMSE = 2.770118938088689E-4
+6760 epochs remaining - RMSE = 2.761017679968941E-4
+6750 epochs remaining - RMSE = 2.7520151241336037E-4
+6740 epochs remaining - RMSE = 2.7431095721331127E-4
+6730 epochs remaining - RMSE = 2.734299357053042E-4
+6720 epochs remaining - RMSE = 2.725582842943483E-4
+6710 epochs remaining - RMSE = 2.71695842426717E-4
+6700 epochs remaining - RMSE = 2.708424525346133E-4
+6690 epochs remaining - RMSE = 2.699979599828586E-4
+6680 epochs remaining - RMSE = 2.691622130159202E-4
+6670 epochs remaining - RMSE = 2.683350627064485E-4
+6660 epochs remaining - RMSE = 2.675163629040953E-4
+6650 epochs remaining - RMSE = 2.667059701858641E-4
+6640 epochs remaining - RMSE = 2.6590374380699164E-4
+6630 epochs remaining - RMSE = 2.6510954565283165E-4
+6620 epochs remaining - RMSE = 2.643232401915546E-4
+6610 epochs remaining - RMSE = 2.635446944277412E-4
+6600 epochs remaining - RMSE = 2.6277377785661457E-4
+6590 epochs remaining - RMSE = 2.6201036241937063E-4
+6580 epochs remaining - RMSE = 2.612543224588315E-4
+6570 epochs remaining - RMSE = 2.6050553467647395E-4
+6560 epochs remaining - RMSE = 2.5976387808965035E-4
+6550 epochs remaining - RMSE = 2.5902923398984625E-4
+6540 epochs remaining - RMSE = 2.583014859014192E-4
+6530 epochs remaining - RMSE = 2.5758051954153505E-4
+6520 epochs remaining - RMSE = 2.5686622278000274E-4
+6510 epochs remaining - RMSE = 2.561584856005071E-4
+6500 epochs remaining - RMSE = 2.5545720006226347E-4
+6490 epochs remaining - RMSE = 2.547622602620837E-4
+6480 epochs remaining - RMSE = 2.5407356229752777E-4
+6470 epochs remaining - RMSE = 2.533910042300557E-4
+6460 epochs remaining - RMSE = 2.527144860497427E-4
+6450 epochs remaining - RMSE = 2.520439096395352E-4
+6440 epochs remaining - RMSE = 2.513791787407946E-4
+6430 epochs remaining - RMSE = 2.5072019891926665E-4
+6420 epochs remaining - RMSE = 2.5006687753158447E-4
+6410 epochs remaining - RMSE = 2.494191236922577E-4
+6400 epochs remaining - RMSE = 2.487768482414225E-4
+6390 epochs remaining - RMSE = 2.481399637129108E-4
+6380 epochs remaining - RMSE = 2.475083843030118E-4
+6370 epochs remaining - RMSE = 2.468820258397773E-4
+6360 epochs remaining - RMSE = 2.462608057527513E-4
+6350 epochs remaining - RMSE = 2.4564464304306774E-4
+6340 epochs remaining - RMSE = 2.4503345825453655E-4
+6330 epochs remaining - RMSE = 2.4442717344467716E-4
+6320 epochs remaining - RMSE = 2.438257121566922E-4
+6310 epochs remaining - RMSE = 2.4322899939145125E-4
+6300 epochs remaining - RMSE = 2.4263696158049019E-4
+6290 epochs remaining - RMSE = 2.4204952655892733E-4
+6280 epochs remaining - RMSE = 2.4146662353936329E-4
+6270 epochs remaining - RMSE = 2.4088818308571868E-4
+6260 epochs remaining - RMSE = 2.4031413708803284E-4
+6250 epochs remaining - RMSE = 2.397444187371283E-4
+6240 epochs remaining - RMSE = 2.3917896250042042E-4
+6230 epochs remaining - RMSE = 2.3861770409733292E-4
+6220 epochs remaining - RMSE = 2.3806058047581643E-4
+6210 epochs remaining - RMSE = 2.375075297889362E-4
+6200 epochs remaining - RMSE = 2.3695849137191945E-4
+6190 epochs remaining - RMSE = 2.364134057195768E-4
+6180 epochs remaining - RMSE = 2.3587221446433858E-4
+6170 epochs remaining - RMSE = 2.35334860354275E-4
+6160 epochs remaining - RMSE = 2.348012872318312E-4
+6150 epochs remaining - RMSE = 2.3427144001292728E-4
+6140 epochs remaining - RMSE = 2.3374526466615566E-4
+6130 epochs remaining - RMSE = 2.3322270819251946E-4
+6120 epochs remaining - RMSE = 2.3270371860578196E-4
+6110 epochs remaining - RMSE = 2.321882449125451E-4
+6100 epochs remaining - RMSE = 2.3167623709335677E-4
+6090 epochs remaining - RMSE = 2.311676460836531E-4
+6080 epochs remaining - RMSE = 2.3066242375538895E-4
+6070 epochs remaining - RMSE = 2.3016052289867196E-4
+6060 epochs remaining - RMSE = 2.2966189720405284E-4
+6050 epochs remaining - RMSE = 2.2916650124487066E-4
+6040 epochs remaining - RMSE = 2.2867429046012776E-4
+6030 epochs remaining - RMSE = 2.2818522113748834E-4
+6020 epochs remaining - RMSE = 2.2769925039664327E-4
+6010 epochs remaining - RMSE = 2.2721633617310699E-4
+6000 epochs remaining - RMSE = 2.267364372021936E-4
+5990 epochs remaining - RMSE = 2.2625951300318274E-4
+5980 epochs remaining - RMSE = 2.2578552386400035E-4
+5970 epochs remaining - RMSE = 2.253144308260789E-4
+5960 epochs remaining - RMSE = 2.248461956693669E-4
+5950 epochs remaining - RMSE = 2.243807808979349E-4
+5940 epochs remaining - RMSE = 2.2391814972538336E-4
+5930 epochs remaining - RMSE = 2.2345826606110782E-4
+5920 epochs remaining - RMSE = 2.2300109449615712E-4
+5910 epochs remaining - RMSE = 2.2254660029000562E-4
+5900 epochs remaining - RMSE = 2.2209474935706435E-4
+5890 epochs remaining - RMSE = 2.2164550825368824E-4
+5880 epochs remaining - RMSE = 2.211988441654201E-4
+5870 epochs remaining - RMSE = 2.207547248944125E-4
+5860 epochs remaining - RMSE = 2.203131188470826E-4
+5850 epochs remaining - RMSE = 2.198739950220861E-4
+5840 epochs remaining - RMSE = 2.1943732299843936E-4
+5830 epochs remaining - RMSE = 2.190030729238098E-4
+5820 epochs remaining - RMSE = 2.1857121550321494E-4
+5810 epochs remaining - RMSE = 2.181417219878099E-4
+5800 epochs remaining - RMSE = 2.1771456416380607E-4
+5790 epochs remaining - RMSE = 2.1728971434182483E-4
+5780 epochs remaining - RMSE = 2.1686714534630152E-4
+5770 epochs remaining - RMSE = 2.164468305050879E-4
+5760 epochs remaining - RMSE = 2.1602874363928115E-4
+5750 epochs remaining - RMSE = 2.156128590533396E-4
+5740 epochs remaining - RMSE = 2.1519915152523554E-4
+5730 epochs remaining - RMSE = 2.1478759629682564E-4
+5720 epochs remaining - RMSE = 2.1437816906467555E-4
+5710 epochs remaining - RMSE = 2.1397084597045941E-4
+5700 epochs remaining - RMSE = 2.1356560359242122E-4
+5690 epochs remaining - RMSE = 2.1316241893599142E-4
+5680 epochs remaining - RMSE = 2.1276126942554915E-4
+5670 epochs remaining - RMSE = 2.1236213289563895E-4
+5660 epochs remaining - RMSE = 2.119649875825529E-4
+5650 epochs remaining - RMSE = 2.115698121166003E-4
+5640 epochs remaining - RMSE = 2.1117658551345642E-4
+5630 epochs remaining - RMSE = 2.1078528716676545E-4
+5620 epochs remaining - RMSE = 2.1039589684023824E-4
+5610 epochs remaining - RMSE = 2.100083946601465E-4
+5600 epochs remaining - RMSE = 2.0962276110787856E-4
+5590 epochs remaining - RMSE = 2.0923897701264604E-4
+5580 epochs remaining - RMSE = 2.0885702354444874E-4
+5570 epochs remaining - RMSE = 2.084768822072261E-4
+5560 epochs remaining - RMSE = 2.0809853483158124E-4
+5550 epochs remaining - RMSE = 2.0772196356847781E-4
+5540 epochs remaining - RMSE = 2.073471508826337E-4
+5530 epochs remaining - RMSE = 2.0697407954595285E-4
+5520 epochs remaining - RMSE = 2.0660273263124336E-4
+5510 epochs remaining - RMSE = 2.062330935062182E-4
+5500 epochs remaining - RMSE = 2.0586514582707704E-4
+5490 epochs remaining - RMSE = 2.054988735329876E-4
+5480 epochs remaining - RMSE = 2.0513426083997255E-4
+5470 epochs remaining - RMSE = 2.0477129223545192E-4
+5460 epochs remaining - RMSE = 2.0440995247239378E-4
+5450 epochs remaining - RMSE = 2.040502265641438E-4
+5440 epochs remaining - RMSE = 2.0369209977882073E-4
+5430 epochs remaining - RMSE = 2.0333555763421028E-4
+5420 epochs remaining - RMSE = 2.0298058589263113E-4
+5410 epochs remaining - RMSE = 2.026271705557809E-4
+5400 epochs remaining - RMSE = 2.0227529785997683E-4
+5390 epochs remaining - RMSE = 2.0192495427121486E-4
+5380 epochs remaining - RMSE = 2.0157612648043398E-4
+5370 epochs remaining - RMSE = 2.0122880139887144E-4
+5360 epochs remaining - RMSE = 2.0088296615373454E-4
+5350 epochs remaining - RMSE = 2.005386080834168E-4
+5340 epochs remaining - RMSE = 2.001957147333753E-4
+5330 epochs remaining - RMSE = 1.9985427385182133E-4
+5320 epochs remaining - RMSE = 1.9951427338548144E-4
+5310 epochs remaining - RMSE = 1.9917570147567237E-4
+5300 epochs remaining - RMSE = 1.9883854645396688E-4
+5290 epochs remaining - RMSE = 1.9850279683871652E-4
+5280 epochs remaining - RMSE = 1.98168441330864E-4
+5270 epochs remaining - RMSE = 1.9783546881026282E-4
+5260 epochs remaining - RMSE = 1.9750386833218016E-4
+5250 epochs remaining - RMSE = 1.971736291233446E-4
+5240 epochs remaining - RMSE = 1.9684474057877474E-4
+5230 epochs remaining - RMSE = 1.9651719225807288E-4
+5220 epochs remaining - RMSE = 1.9619097388222327E-4
+5210 epochs remaining - RMSE = 1.958660753299938E-4
+5200 epochs remaining - RMSE = 1.9554248663512908E-4
+5190 epochs remaining - RMSE = 1.9522019798271295E-4
+5180 epochs remaining - RMSE = 1.9489919970641664E-4
+5170 epochs remaining - RMSE = 1.9457948228519467E-4
+5160 epochs remaining - RMSE = 1.9426103634052823E-4
+5150 epochs remaining - RMSE = 1.939438526333036E-4
+5140 epochs remaining - RMSE = 1.9362792206112676E-4
+5130 epochs remaining - RMSE = 1.9331323565532308E-4
+5120 epochs remaining - RMSE = 1.929997845784875E-4
+5110 epochs remaining - RMSE = 1.9268756012153418E-4
+5100 epochs remaining - RMSE = 1.9237655370126826E-4
+5090 epochs remaining - RMSE = 1.920667568576487E-4
+5080 epochs remaining - RMSE = 1.9175816125133573E-4
+5070 epochs remaining - RMSE = 1.9145075866138E-4
+5060 epochs remaining - RMSE = 1.911445409825613E-4
+5050 epochs remaining - RMSE = 1.9083950022326442E-4
+5040 epochs remaining - RMSE = 1.9053562850296682E-4
+5030 epochs remaining - RMSE = 1.902329180502047E-4
+5020 epochs remaining - RMSE = 1.8993136120012453E-4
+5010 epochs remaining - RMSE = 1.896309503924969E-4
+5000 epochs remaining - RMSE = 1.8933167816953064E-4
+4990 epochs remaining - RMSE = 1.8903353717381584E-4
+4980 epochs remaining - RMSE = 1.8873652014627355E-4
+4970 epochs remaining - RMSE = 1.8844061992425622E-4
+4960 epochs remaining - RMSE = 1.8814582943942775E-4
+4950 epochs remaining - RMSE = 1.878521417160972E-4
+4940 epochs remaining - RMSE = 1.8755954986919912E-4
+4930 epochs remaining - RMSE = 1.872680471024793E-4
+4920 epochs remaining - RMSE = 1.869776267068031E-4
+4910 epochs remaining - RMSE = 1.8668828205830926E-4
+4900 epochs remaining - RMSE = 1.8640000661685746E-4
+4890 epochs remaining - RMSE = 1.8611279392417512E-4
+4880 epochs remaining - RMSE = 1.858266376023198E-4
+4870 epochs remaining - RMSE = 1.855415313520917E-4
+4860 epochs remaining - RMSE = 1.8525746895152155E-4
+4850 epochs remaining - RMSE = 1.8497444425414234E-4
+4840 epochs remaining - RMSE = 1.8469245118780717E-4
+4830 epochs remaining - RMSE = 1.8441148375286762E-4
+4820 epochs remaining - RMSE = 1.8413153602099376E-4
+4810 epochs remaining - RMSE = 1.8385260213378072E-4
+4800 epochs remaining - RMSE = 1.8357467630116594E-4
+4790 epochs remaining - RMSE = 1.8329775280028122E-4
+4780 epochs remaining - RMSE = 1.8302182597413174E-4
+4770 epochs remaining - RMSE = 1.827468902301535E-4
+4760 epochs remaining - RMSE = 1.824729400392193E-4
+4750 epochs remaining - RMSE = 1.821999699340509E-4
+4740 epochs remaining - RMSE = 1.8192797450848058E-4
+4730 epochs remaining - RMSE = 1.8165694841574932E-4
+4720 epochs remaining - RMSE = 1.8138688636788175E-4
+4710 epochs remaining - RMSE = 1.811177831340897E-4
+4700 epochs remaining - RMSE = 1.8084963354005404E-4
+4690 epochs remaining - RMSE = 1.8058243246656195E-4
+4680 epochs remaining - RMSE = 1.8031617484869515E-4
+4670 epochs remaining - RMSE = 1.8005085567459844E-4
+4660 epochs remaining - RMSE = 1.7978646998455865E-4
+4650 epochs remaining - RMSE = 1.7952301287001873E-4
+4640 epochs remaining - RMSE = 1.7926047947266826E-4
+4630 epochs remaining - RMSE = 1.7899886498337847E-4
+4620 epochs remaining - RMSE = 1.7873816464131144E-4
+4610 epochs remaining - RMSE = 1.784783737331588E-4
+4600 epochs remaining - RMSE = 1.782194875920791E-4
+4590 epochs remaining - RMSE = 1.7796150159688962E-4
+4580 epochs remaining - RMSE = 1.7770441117128795E-4
+4570 epochs remaining - RMSE = 1.7744821178300175E-4
+4560 epochs remaining - RMSE = 1.7719289894282123E-4
+4550 epochs remaining - RMSE = 1.769384682040571E-4
+4540 epochs remaining - RMSE = 1.7668491516162119E-4
+4530 epochs remaining - RMSE = 1.7643223545132924E-4
+4520 epochs remaining - RMSE = 1.7618042474904974E-4
+4510 epochs remaining - RMSE = 1.759294787702237E-4
+4500 epochs remaining - RMSE = 1.7567939326883984E-4
+4490 epochs remaining - RMSE = 1.7543016403698806E-4
+4480 epochs remaining - RMSE = 1.7518178690406825E-4
+4470 epochs remaining - RMSE = 1.7493425773616107E-4
+4460 epochs remaining - RMSE = 1.7468757243538157E-4
+4450 epochs remaining - RMSE = 1.744417269392928E-4
+4440 epochs remaining - RMSE = 1.7419671722011996E-4
+4430 epochs remaining - RMSE = 1.7395253928434535E-4
+4420 epochs remaining - RMSE = 1.737091891720631E-4
+4410 epochs remaining - RMSE = 1.7346666295625022E-4
+4400 epochs remaining - RMSE = 1.7322495674243496E-4
+4390 epochs remaining - RMSE = 1.7298406666798875E-4
+4380 epochs remaining - RMSE = 1.7274398890156572E-4
+4370 epochs remaining - RMSE = 1.725047196427381E-4
+4360 epochs remaining - RMSE = 1.722662551212635E-4
+4350 epochs remaining - RMSE = 1.7202859159675925E-4
+4340 epochs remaining - RMSE = 1.717917253580852E-4
+4330 epochs remaining - RMSE = 1.7155565272292705E-4
+4320 epochs remaining - RMSE = 1.7132037003727977E-4
+4310 epochs remaining - RMSE = 1.7108587367502227E-4
+4300 epochs remaining - RMSE = 1.7085216003744625E-4
+4290 epochs remaining - RMSE = 1.7061922555281452E-4
+4280 epochs remaining - RMSE = 1.7038706667588826E-4
+4270 epochs remaining - RMSE = 1.7015567988761698E-4
+4260 epochs remaining - RMSE = 1.6992506169456718E-4
+4250 epochs remaining - RMSE = 1.6969520862856452E-4
+4240 epochs remaining - RMSE = 1.694661172464647E-4
+4230 epochs remaining - RMSE = 1.692377841295168E-4
+4220 epochs remaining - RMSE = 1.6901020588313786E-4
+4210 epochs remaining - RMSE = 1.6878337913645773E-4
+4200 epochs remaining - RMSE = 1.6855730054202088E-4
+4190 epochs remaining - RMSE = 1.6833196677540872E-4
+4180 epochs remaining - RMSE = 1.681073745349452E-4
+4170 epochs remaining - RMSE = 1.6788352054116285E-4
+4160 epochs remaining - RMSE = 1.676604015367236E-4
+4150 epochs remaining - RMSE = 1.6743801428594372E-4
+4140 epochs remaining - RMSE = 1.6721635557448677E-4
+4130 epochs remaining - RMSE = 1.6699542220909825E-4
+4120 epochs remaining - RMSE = 1.6677521101732745E-4
+4110 epochs remaining - RMSE = 1.6655571884709714E-4
+4100 epochs remaining - RMSE = 1.6633694256652218E-4
+4090 epochs remaining - RMSE = 1.661188790636168E-4
+4080 epochs remaining - RMSE = 1.6590152524600246E-4
+4070 epochs remaining - RMSE = 1.6568487804058114E-4
+4060 epochs remaining - RMSE = 1.6546893439340138E-4
+4050 epochs remaining - RMSE = 1.6525369126922575E-4
+4040 epochs remaining - RMSE = 1.650391456514426E-4
+4030 epochs remaining - RMSE = 1.648252945416958E-4
+4020 epochs remaining - RMSE = 1.6461213495968448E-4
+4010 epochs remaining - RMSE = 1.6439966394289559E-4
+4000 epochs remaining - RMSE = 1.6418787854650415E-4
+3990 epochs remaining - RMSE = 1.6397677584288E-4
+3980 epochs remaining - RMSE = 1.6376635292163718E-4
+3970 epochs remaining - RMSE = 1.6355660688928804E-4
+3960 epochs remaining - RMSE = 1.633475348689929E-4
+3950 epochs remaining - RMSE = 1.6313913400039352E-4
+3940 epochs remaining - RMSE = 1.6293140143951813E-4
+3930 epochs remaining - RMSE = 1.6272433435833244E-4
+3920 epochs remaining - RMSE = 1.625179299447784E-4
+3910 epochs remaining - RMSE = 1.6231218540245076E-4
+3900 epochs remaining - RMSE = 1.6210709795048235E-4
+3890 epochs remaining - RMSE = 1.619026648232586E-4
+3880 epochs remaining - RMSE = 1.6169888327035033E-4
+3870 epochs remaining - RMSE = 1.614957505563422E-4
+3860 epochs remaining - RMSE = 1.6129326396049372E-4
+3850 epochs remaining - RMSE = 1.610914207767477E-4
+3840 epochs remaining - RMSE = 1.6089021831350558E-4
+3830 epochs remaining - RMSE = 1.6068965389345936E-4
+3820 epochs remaining - RMSE = 1.6048972485343358E-4
+3810 epochs remaining - RMSE = 1.602904285441876E-4
+3800 epochs remaining - RMSE = 1.600917623304437E-4
+3790 epochs remaining - RMSE = 1.5989372359043825E-4
+3780 epochs remaining - RMSE = 1.596963097160433E-4
+3770 epochs remaining - RMSE = 1.5949951811244508E-4
+3760 epochs remaining - RMSE = 1.5930334619819824E-4
+3750 epochs remaining - RMSE = 1.591077914048297E-4
+3740 epochs remaining - RMSE = 1.589128511769865E-4
+3730 epochs remaining - RMSE = 1.5871852297204918E-4
+3720 epochs remaining - RMSE = 1.585248042601601E-4
+3710 epochs remaining - RMSE = 1.583316925241338E-4
+3700 epochs remaining - RMSE = 1.581391852591168E-4
+3690 epochs remaining - RMSE = 1.5794727997270065E-4
+3680 epochs remaining - RMSE = 1.5775597418471725E-4
+3670 epochs remaining - RMSE = 1.57565265427024E-4
+3660 epochs remaining - RMSE = 1.5737515124359647E-4
+3650 epochs remaining - RMSE = 1.5718562919019797E-4
+3640 epochs remaining - RMSE = 1.5699669683449358E-4
+3630 epochs remaining - RMSE = 1.5680835175571503E-4
+3620 epochs remaining - RMSE = 1.566205915447394E-4
+3610 epochs remaining - RMSE = 1.5643341380383924E-4
+3600 epochs remaining - RMSE = 1.562468161467237E-4
+3590 epochs remaining - RMSE = 1.5606079619832309E-4
+3580 epochs remaining - RMSE = 1.558753515948053E-4
+3570 epochs remaining - RMSE = 1.5569047998333936E-4
+3560 epochs remaining - RMSE = 1.5550617902218125E-4
+3550 epochs remaining - RMSE = 1.5532244638029926E-4
+3540 epochs remaining - RMSE = 1.5513927973770278E-4
+3530 epochs remaining - RMSE = 1.5495667678490417E-4
+3520 epochs remaining - RMSE = 1.5477463522320018E-4
+3510 epochs remaining - RMSE = 1.5459315276437663E-4
+3500 epochs remaining - RMSE = 1.5441222713067685E-4
+3490 epochs remaining - RMSE = 1.5423185605470223E-4
+3480 epochs remaining - RMSE = 1.5405203727939085E-4
+3470 epochs remaining - RMSE = 1.5387276855796452E-4
+3460 epochs remaining - RMSE = 1.5369404765369784E-4
+3450 epochs remaining - RMSE = 1.5351587233991234E-4
+3440 epochs remaining - RMSE = 1.5333824040009253E-4
+3430 epochs remaining - RMSE = 1.5316114962743899E-4
+3420 epochs remaining - RMSE = 1.5298459782522332E-4
+3410 epochs remaining - RMSE = 1.5280858280632088E-4
+3400 epochs remaining - RMSE = 1.5263310239337769E-4
+3390 epochs remaining - RMSE = 1.5245815441875272E-4
+3380 epochs remaining - RMSE = 1.5228373672430658E-4
+3370 epochs remaining - RMSE = 1.5210984716148857E-4
+3360 epochs remaining - RMSE = 1.5193648359112304E-4
+3350 epochs remaining - RMSE = 1.5176364388347176E-4
+3340 epochs remaining - RMSE = 1.5159132591816495E-4
+3330 epochs remaining - RMSE = 1.5141952758398984E-4
+3320 epochs remaining - RMSE = 1.5124824677898227E-4
+3310 epochs remaining - RMSE = 1.5107748141046323E-4
+3300 epochs remaining - RMSE = 1.5090722939460993E-4
+3290 epochs remaining - RMSE = 1.507374886567786E-4
+3280 epochs remaining - RMSE = 1.5056825713134802E-4
+3270 epochs remaining - RMSE = 1.5039953276145998E-4
+3260 epochs remaining - RMSE = 1.5023131349929368E-4
+3250 epochs remaining - RMSE = 1.5006359730571856E-4
+3240 epochs remaining - RMSE = 1.4989638215042028E-4
+3230 epochs remaining - RMSE = 1.49729666011813E-4
+3220 epochs remaining - RMSE = 1.4956344687697506E-4
+3210 epochs remaining - RMSE = 1.4939772274148627E-4
+3200 epochs remaining - RMSE = 1.4923249160966512E-4
+3190 epochs remaining - RMSE = 1.4906775149419114E-4
+3180 epochs remaining - RMSE = 1.4890350041632273E-4
+3170 epochs remaining - RMSE = 1.4873973640568114E-4
+3160 epochs remaining - RMSE = 1.4857645750026544E-4
+3150 epochs remaining - RMSE = 1.4841366174637283E-4
+3140 epochs remaining - RMSE = 1.4825134719865515E-4
+3130 epochs remaining - RMSE = 1.4808951191992982E-4
+3120 epochs remaining - RMSE = 1.479281539812761E-4
+3110 epochs remaining - RMSE = 1.4776727146187006E-4
+3100 epochs remaining - RMSE = 1.4760686244900712E-4
+3090 epochs remaining - RMSE = 1.474469250380695E-4
+3080 epochs remaining - RMSE = 1.4728745733244688E-4
+3070 epochs remaining - RMSE = 1.4712845744353003E-4
+3060 epochs remaining - RMSE = 1.4696992349063346E-4
+3050 epochs remaining - RMSE = 1.4681185360097972E-4
+3040 epochs remaining - RMSE = 1.4665424590970113E-4
+3030 epochs remaining - RMSE = 1.4649709855970832E-4
+3020 epochs remaining - RMSE = 1.4634040970164803E-4
+3010 epochs remaining - RMSE = 1.4618417749407642E-4
+3000 epochs remaining - RMSE = 1.4602840010313674E-4
+2990 epochs remaining - RMSE = 1.4587307570267452E-4
+2980 epochs remaining - RMSE = 1.4571820247419125E-4
+2970 epochs remaining - RMSE = 1.455637786067872E-4
+2960 epochs remaining - RMSE = 1.4540980229706514E-4
+2950 epochs remaining - RMSE = 1.4525627174939032E-4
+2940 epochs remaining - RMSE = 1.4510318517529783E-4
+2930 epochs remaining - RMSE = 1.449505407940558E-4
+2920 epochs remaining - RMSE = 1.4479833683221402E-4
+2910 epochs remaining - RMSE = 1.446465715237859E-4
+2900 epochs remaining - RMSE = 1.4449524311016155E-4
+2890 epochs remaining - RMSE = 1.443443498399887E-4
+2880 epochs remaining - RMSE = 1.44193889969298E-4
+2870 epochs remaining - RMSE = 1.440438617613153E-4
+2860 epochs remaining - RMSE = 1.4389426348657375E-4
+2850 epochs remaining - RMSE = 1.43745093422698E-4
+2840 epochs remaining - RMSE = 1.435963498546705E-4
+2830 epochs remaining - RMSE = 1.4344803107447338E-4
+2820 epochs remaining - RMSE = 1.4330013538117005E-4
+2810 epochs remaining - RMSE = 1.4315266108104466E-4
+2800 epochs remaining - RMSE = 1.4300560648732087E-4
+2790 epochs remaining - RMSE = 1.428589699202827E-4
+2780 epochs remaining - RMSE = 1.4271274970717825E-4
+2770 epochs remaining - RMSE = 1.4256694418228585E-4
+2760 epochs remaining - RMSE = 1.4242155168677382E-4
+2750 epochs remaining - RMSE = 1.4227657056867734E-4
+2740 epochs remaining - RMSE = 1.421319991829756E-4
+2730 epochs remaining - RMSE = 1.419878358914518E-4
+2720 epochs remaining - RMSE = 1.4184407906273834E-4
+2710 epochs remaining - RMSE = 1.417007270722677E-4
+2700 epochs remaining - RMSE = 1.4155777830215417E-4
+2690 epochs remaining - RMSE = 1.4141523114141982E-4
+2680 epochs remaining - RMSE = 1.4127308398561125E-4
+2670 epochs remaining - RMSE = 1.41131335237082E-4
+2660 epochs remaining - RMSE = 1.409899833047837E-4
+2650 epochs remaining - RMSE = 1.408490266042933E-4
+2640 epochs remaining - RMSE = 1.4070846355784496E-4
+2630 epochs remaining - RMSE = 1.4056829259426632E-4
+2620 epochs remaining - RMSE = 1.4042851214880628E-4
+2610 epochs remaining - RMSE = 1.402891206634358E-4
+2600 epochs remaining - RMSE = 1.4015011658639718E-4
+2590 epochs remaining - RMSE = 1.400114983725986E-4
+2580 epochs remaining - RMSE = 1.398732644833765E-4
+2570 epochs remaining - RMSE = 1.3973541338639596E-4
+2560 epochs remaining - RMSE = 1.3959794355574285E-4
+2550 epochs remaining - RMSE = 1.3946085347202664E-4
+2540 epochs remaining - RMSE = 1.3932414162197738E-4
+2530 epochs remaining - RMSE = 1.3918780649887155E-4
+2520 epochs remaining - RMSE = 1.390518466021335E-4
+2510 epochs remaining - RMSE = 1.3891626043751346E-4
+2500 epochs remaining - RMSE = 1.387810465170334E-4
+2490 epochs remaining - RMSE = 1.3864620335894817E-4
+2480 epochs remaining - RMSE = 1.3851172948768962E-4
+2470 epochs remaining - RMSE = 1.3837762343392508E-4
+2460 epochs remaining - RMSE = 1.382438837344028E-4
+2450 epochs remaining - RMSE = 1.381105089320889E-4
+2440 epochs remaining - RMSE = 1.3797749757602892E-4
+2430 epochs remaining - RMSE = 1.3784484822131627E-4
+2420 epochs remaining - RMSE = 1.377125594292085E-4
+2410 epochs remaining - RMSE = 1.375806297669093E-4
+2400 epochs remaining - RMSE = 1.3744905780773794E-4
+2390 epochs remaining - RMSE = 1.373178421309239E-4
+2380 epochs remaining - RMSE = 1.3718698132166916E-4
+2370 epochs remaining - RMSE = 1.370564739712409E-4
+2360 epochs remaining - RMSE = 1.3692631867674783E-4
+2350 epochs remaining - RMSE = 1.3679651404122667E-4
+2340 epochs remaining - RMSE = 1.3666705867358553E-4
+2330 epochs remaining - RMSE = 1.365379511886727E-4
+2320 epochs remaining - RMSE = 1.364091902070359E-4
+2310 epochs remaining - RMSE = 1.3628077435521855E-4
+2300 epochs remaining - RMSE = 1.3615270226542293E-4
+2290 epochs remaining - RMSE = 1.360249725756237E-4
+2280 epochs remaining - RMSE = 1.3589758392974606E-4
+2270 epochs remaining - RMSE = 1.3577053497721578E-4
+2260 epochs remaining - RMSE = 1.3564382437333946E-4
+2250 epochs remaining - RMSE = 1.3551745077895768E-4
+2240 epochs remaining - RMSE = 1.353914128607399E-4
+2230 epochs remaining - RMSE = 1.3526570929090167E-4
+2220 epochs remaining - RMSE = 1.3514033874737142E-4
+2210 epochs remaining - RMSE = 1.3501529991357184E-4
+2200 epochs remaining - RMSE = 1.3489059147862764E-4
+2190 epochs remaining - RMSE = 1.3476621213711119E-4
+2180 epochs remaining - RMSE = 1.346421605892747E-4
+2170 epochs remaining - RMSE = 1.3451843554078638E-4
+2160 epochs remaining - RMSE = 1.3439503570283814E-4
+2150 epochs remaining - RMSE = 1.342719597921798E-4
+2140 epochs remaining - RMSE = 1.3414920653090785E-4
+2130 epochs remaining - RMSE = 1.3402677464666044E-4
+2120 epochs remaining - RMSE = 1.339046628724558E-4
+2110 epochs remaining - RMSE = 1.3378286994666566E-4
+2100 epochs remaining - RMSE = 1.3366139461310874E-4
+2090 epochs remaining - RMSE = 1.3354023562101754E-4
+2080 epochs remaining - RMSE = 1.3341939172482808E-4
+2070 epochs remaining - RMSE = 1.3329886168435054E-4
+2060 epochs remaining - RMSE = 1.331786442647486E-4
+2050 epochs remaining - RMSE = 1.330587382364331E-4
+2040 epochs remaining - RMSE = 1.329391423750186E-4
+2030 epochs remaining - RMSE = 1.328198554614535E-4
+2020 epochs remaining - RMSE = 1.3270087628187386E-4
+2010 epochs remaining - RMSE = 1.3258220362753317E-4
+2000 epochs remaining - RMSE = 1.32463836295033E-4
+1990 epochs remaining - RMSE = 1.3234577308599967E-4
+1980 epochs remaining - RMSE = 1.3222801280731225E-4
+1970 epochs remaining - RMSE = 1.3211055427082193E-4
+1960 epochs remaining - RMSE = 1.319933962936251E-4
+1950 epochs remaining - RMSE = 1.3187653769784757E-4
+1940 epochs remaining - RMSE = 1.3175997731067508E-4
+1930 epochs remaining - RMSE = 1.3164371396435647E-4
+1920 epochs remaining - RMSE = 1.315277464961575E-4
+1910 epochs remaining - RMSE = 1.3141207374836903E-4
+1900 epochs remaining - RMSE = 1.3129669456822833E-4
+1890 epochs remaining - RMSE = 1.311816078080289E-4
+1880 epochs remaining - RMSE = 1.310668123248929E-4
+1870 epochs remaining - RMSE = 1.309523069809629E-4
+1860 epochs remaining - RMSE = 1.3083809064329128E-4
+1850 epochs remaining - RMSE = 1.3072416218379054E-4
+1840 epochs remaining - RMSE = 1.306105204792777E-4
+1830 epochs remaining - RMSE = 1.3049716441137317E-4
+1820 epochs remaining - RMSE = 1.3038409286661104E-4
+1810 epochs remaining - RMSE = 1.3027130473629756E-4
+1800 epochs remaining - RMSE = 1.3015879891654033E-4
+1790 epochs remaining - RMSE = 1.3004657430828505E-4
+1780 epochs remaining - RMSE = 1.299346298171624E-4
+1770 epochs remaining - RMSE = 1.2982296435356456E-4
+1760 epochs remaining - RMSE = 1.2971157683269027E-4
+1750 epochs remaining - RMSE = 1.296004661743699E-4
+1740 epochs remaining - RMSE = 1.2948963130311535E-4
+1730 epochs remaining - RMSE = 1.2937907114817022E-4
+1720 epochs remaining - RMSE = 1.2926878464339218E-4
+1710 epochs remaining - RMSE = 1.2915877072725457E-4
+1700 epochs remaining - RMSE = 1.2904902834291797E-4
+1690 epochs remaining - RMSE = 1.289395564380966E-4
+1680 epochs remaining - RMSE = 1.2883035396511947E-4
+1670 epochs remaining - RMSE = 1.2872141988083295E-4
+1660 epochs remaining - RMSE = 1.286127531466266E-4
+1650 epochs remaining - RMSE = 1.2850435272848972E-4
+1640 epochs remaining - RMSE = 1.2839621759685893E-4
+1630 epochs remaining - RMSE = 1.282883467267175E-4
+1620 epochs remaining - RMSE = 1.2818073909742582E-4
+1610 epochs remaining - RMSE = 1.2807339369293123E-4
+1600 epochs remaining - RMSE = 1.2796630950150716E-4
+1590 epochs remaining - RMSE = 1.2785948551596247E-4
+1580 epochs remaining - RMSE = 1.2775292073341523E-4
+1570 epochs remaining - RMSE = 1.27646614155389E-4
+1560 epochs remaining - RMSE = 1.27540564787835E-4
+1550 epochs remaining - RMSE = 1.274347716409745E-4
+1540 epochs remaining - RMSE = 1.2732923372944435E-4
+1530 epochs remaining - RMSE = 1.2722395007212564E-4
+1520 epochs remaining - RMSE = 1.2711891969228358E-4
+1510 epochs remaining - RMSE = 1.2701414161742758E-4
+1500 epochs remaining - RMSE = 1.2690961487922572E-4
+1490 epochs remaining - RMSE = 1.2680533851384918E-4
+1480 epochs remaining - RMSE = 1.267013115614489E-4
+1470 epochs remaining - RMSE = 1.265975330665254E-4
+1460 epochs remaining - RMSE = 1.264940020777939E-4
+1450 epochs remaining - RMSE = 1.2639071764805306E-4
+1440 epochs remaining - RMSE = 1.2628767883432634E-4
+1430 epochs remaining - RMSE = 1.2618488469778028E-4
+1420 epochs remaining - RMSE = 1.260823343036942E-4
+1410 epochs remaining - RMSE = 1.2598002672154797E-4
+1400 epochs remaining - RMSE = 1.2587796102479172E-4
+1390 epochs remaining - RMSE = 1.2577613629105214E-4
+1380 epochs remaining - RMSE = 1.2567455160194087E-4
+1370 epochs remaining - RMSE = 1.2557320604319973E-4
+1360 epochs remaining - RMSE = 1.254720987045548E-4
+1350 epochs remaining - RMSE = 1.2537122867977115E-4
+1340 epochs remaining - RMSE = 1.2527059506661846E-4
+1330 epochs remaining - RMSE = 1.2517019696679118E-4
+1320 epochs remaining - RMSE = 1.2507003348601989E-4
+1310 epochs remaining - RMSE = 1.2497010373395894E-4
+1300 epochs remaining - RMSE = 1.2487040682418327E-4
+1290 epochs remaining - RMSE = 1.247709418741991E-4
+1280 epochs remaining - RMSE = 1.2467170800542195E-4
+1270 epochs remaining - RMSE = 1.2457270434311884E-4
+1260 epochs remaining - RMSE = 1.2447393001648076E-4
+1250 epochs remaining - RMSE = 1.2437538415850064E-4
+1240 epochs remaining - RMSE = 1.242770659061026E-4
+1230 epochs remaining - RMSE = 1.2417897439982216E-4
+1220 epochs remaining - RMSE = 1.240811087843449E-4
+1210 epochs remaining - RMSE = 1.2398346820771065E-4
+1200 epochs remaining - RMSE = 1.238860518221193E-4
+1190 epochs remaining - RMSE = 1.2378885878335752E-4
+1180 epochs remaining - RMSE = 1.2369188825092972E-4
+1170 epochs remaining - RMSE = 1.2359513938813607E-4
+1160 epochs remaining - RMSE = 1.2349861136197349E-4
+1150 epochs remaining - RMSE = 1.2340230334310679E-4
+1140 epochs remaining - RMSE = 1.233062145059195E-4
+1130 epochs remaining - RMSE = 1.2321034402844308E-4
+1120 epochs remaining - RMSE = 1.23114691092314E-4
+1110 epochs remaining - RMSE = 1.230192548829171E-4
+1100 epochs remaining - RMSE = 1.229240345891185E-4
+1090 epochs remaining - RMSE = 1.2282902940350006E-4
+1080 epochs remaining - RMSE = 1.2273423852219678E-4
+1070 epochs remaining - RMSE = 1.2263966114490224E-4
+1060 epochs remaining - RMSE = 1.2254529647483034E-4
+1050 epochs remaining - RMSE = 1.224511437188236E-4
+1040 epochs remaining - RMSE = 1.2235720208720482E-4
+1030 epochs remaining - RMSE = 1.2226347079386521E-4
+1020 epochs remaining - RMSE = 1.221699490560937E-4
+1010 epochs remaining - RMSE = 1.2207663609473015E-4
+1000 epochs remaining - RMSE = 1.2198353113406853E-4
+990 epochs remaining - RMSE = 1.2189063340188333E-4
+980 epochs remaining - RMSE = 1.2179794212933334E-4
+970 epochs remaining - RMSE = 1.2170545655107222E-4
+960 epochs remaining - RMSE = 1.2161317590512594E-4
+950 epochs remaining - RMSE = 1.2152109943286663E-4
+940 epochs remaining - RMSE = 1.2142922637912738E-4
+930 epochs remaining - RMSE = 1.2133755599210414E-4
+920 epochs remaining - RMSE = 1.2124608752324913E-4
+910 epochs remaining - RMSE = 1.2115482022747982E-4
+900 epochs remaining - RMSE = 1.2106375336295147E-4
+890 epochs remaining - RMSE = 1.2097288619114677E-4
+880 epochs remaining - RMSE = 1.2088221797688855E-4
+870 epochs remaining - RMSE = 1.2079174798818002E-4
+860 epochs remaining - RMSE = 1.2070147549642375E-4
+850 epochs remaining - RMSE = 1.2061139977614826E-4
+840 epochs remaining - RMSE = 1.205215201051504E-4
+830 epochs remaining - RMSE = 1.2043183576455672E-4
+820 epochs remaining - RMSE = 1.2034234603857943E-4
+810 epochs remaining - RMSE = 1.2025305021464576E-4
+800 epochs remaining - RMSE = 1.2016394758341371E-4
+790 epochs remaining - RMSE = 1.2007503743866688E-4
+780 epochs remaining - RMSE = 1.1998631907735689E-4
+770 epochs remaining - RMSE = 1.1989779179959787E-4
+760 epochs remaining - RMSE = 1.1980945490858895E-4
+750 epochs remaining - RMSE = 1.1972130771067416E-4
+740 epochs remaining - RMSE = 1.1963334951531331E-4
+730 epochs remaining - RMSE = 1.1954557963496133E-4
+720 epochs remaining - RMSE = 1.1945799738525237E-4
+710 epochs remaining - RMSE = 1.1937060208484404E-4
+700 epochs remaining - RMSE = 1.1928339305538711E-4
+690 epochs remaining - RMSE = 1.1919636962161043E-4
+680 epochs remaining - RMSE = 1.1910953111132383E-4
+670 epochs remaining - RMSE = 1.1902287685522747E-4
+660 epochs remaining - RMSE = 1.189364061870667E-4
+650 epochs remaining - RMSE = 1.1885011844357271E-4
+640 epochs remaining - RMSE = 1.1876401296439838E-4
+630 epochs remaining - RMSE = 1.1867808909223742E-4
+620 epochs remaining - RMSE = 1.1859234617257229E-4
+610 epochs remaining - RMSE = 1.1850678355404541E-4
+600 epochs remaining - RMSE = 1.184214005879778E-4
+590 epochs remaining - RMSE = 1.1833619662871757E-4
+580 epochs remaining - RMSE = 1.1825117103342161E-4
+570 epochs remaining - RMSE = 1.1816632316223977E-4
+560 epochs remaining - RMSE = 1.1808165237806523E-4
+550 epochs remaining - RMSE = 1.1799715804673302E-4
+540 epochs remaining - RMSE = 1.1791283953678579E-4
+530 epochs remaining - RMSE = 1.1782869621976177E-4
+520 epochs remaining - RMSE = 1.177447274698836E-4
+510 epochs remaining - RMSE = 1.1766093266419781E-4
+500 epochs remaining - RMSE = 1.1757731118255855E-4
+490 epochs remaining - RMSE = 1.1749386240760882E-4
+480 epochs remaining - RMSE = 1.174105857246645E-4
+470 epochs remaining - RMSE = 1.1732748052194333E-4
+460 epochs remaining - RMSE = 1.1724454619024428E-4
+450 epochs remaining - RMSE = 1.1716178212311975E-4
+440 epochs remaining - RMSE = 1.1707918771696103E-4
+430 epochs remaining - RMSE = 1.1699676237070326E-4
+420 epochs remaining - RMSE = 1.1691450548605724E-4
+410 epochs remaining - RMSE = 1.1683241646735884E-4
+400 epochs remaining - RMSE = 1.1675049472163774E-4
+390 epochs remaining - RMSE = 1.1666873965859056E-4
+380 epochs remaining - RMSE = 1.1658715069052106E-4
+370 epochs remaining - RMSE = 1.1650572723228574E-4
+360 epochs remaining - RMSE = 1.1642446870157761E-4
+350 epochs remaining - RMSE = 1.1634337451848752E-4
+340 epochs remaining - RMSE = 1.1626244410576489E-4
+330 epochs remaining - RMSE = 1.161816768887048E-4
+320 epochs remaining - RMSE = 1.161010722952548E-4
+310 epochs remaining - RMSE = 1.1602062975586454E-4
+300 epochs remaining - RMSE = 1.1594034870348417E-4
+290 epochs remaining - RMSE = 1.1586022857368303E-4
+280 epochs remaining - RMSE = 1.1578026880449064E-4
+270 epochs remaining - RMSE = 1.1570046883649116E-4
+260 epochs remaining - RMSE = 1.1562082811273056E-4
+250 epochs remaining - RMSE = 1.1554134607873228E-4
+240 epochs remaining - RMSE = 1.1546202218257613E-4
+230 epochs remaining - RMSE = 1.1538285587470538E-4
+220 epochs remaining - RMSE = 1.1530384660803493E-4
+210 epochs remaining - RMSE = 1.1522499383796861E-4
+200 epochs remaining - RMSE = 1.1514629702231802E-4
+190 epochs remaining - RMSE = 1.1506775562133211E-4
+180 epochs remaining - RMSE = 1.1498936909765348E-4
+170 epochs remaining - RMSE = 1.1491113691630536E-4
+160 epochs remaining - RMSE = 1.1483305854463179E-4
+150 epochs remaining - RMSE = 1.1475513345255248E-4
+140 epochs remaining - RMSE = 1.1467736111217361E-4
+130 epochs remaining - RMSE = 1.1459974099795902E-4
+120 epochs remaining - RMSE = 1.1452227258685589E-4
+110 epochs remaining - RMSE = 1.1444495535802798E-4
+100 epochs remaining - RMSE = 1.1436778879298061E-4
+90 epochs remaining - RMSE = 1.1429077237545846E-4
+80 epochs remaining - RMSE = 1.142139055917099E-4
+70 epochs remaining - RMSE = 1.141371879300568E-4
+60 epochs remaining - RMSE = 1.1406061888120014E-4
+50 epochs remaining - RMSE = 1.1398419793810167E-4
+40 epochs remaining - RMSE = 1.1390792459595058E-4
+30 epochs remaining - RMSE = 1.1383179835228363E-4
+20 epochs remaining - RMSE = 1.1375581870666608E-4
+10 epochs remaining - RMSE = 1.1367998516113673E-4
+Training finished
+Ann saved

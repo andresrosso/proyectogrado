@@ -12,6 +12,7 @@ import org.arosso.model.BuildingModel.SIM_STATE;
 import org.arosso.routines.ArrivalChecker;
 import org.arosso.routines.ElevatorController;
 import org.arosso.routines.TrafficGenerator;
+import org.arosso.routines.egcs.ai.AnnInputSVO;
 import org.arosso.routines.egcs.ai.AnnInputWVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -134,6 +135,7 @@ public class RoutineManager extends Thread {
 		}
 		//Save the ANN
 		AnnInputWVO.getInstance().writeToFile();
+		AnnInputSVO.getInstance().writeToFile();
 		logger.info("Simulation has finished state : " + buildingModel.simState);
 	}
 

@@ -1,30 +1,179 @@
 package org.arosso.routines.egcs.ai;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.util.HashMap;
+import java.util.Set;
+
+import org.arosso.model.Elevator;
+import org.arosso.model.Elevator.Direction;
+import org.arosso.routines.egcs.ai.AnnInputSVO.InputSVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class AnnInputSVO {
 	
-	float posElevatorAtAssign;
-	float passInElevator;
-	float inputTraffic;
-	float outputTraffic;
-	float interfloorTraffic;
-	float directionElevator;
-	float timeToWait;
+	private static AnnInputSVO instance = null;
+	
+	/**
+	 * INPUT MAP
+	 */
+	private HashMap<String, InputSVO> inputWMap = new HashMap<String, InputSVO>();
 	
     /**
      * Logger
      */
     Logger logger = LoggerFactory.getLogger(this.getClass());
-	
-	public void recordAI(){
-		logger.info(posElevatorAtAssign+";"+
-					passInElevator+";"+
+    
+
+	public class InputSVO{
+		float passInElevator;
+		float inputTraffic;
+		float outputTraffic;
+		float interfloorTraffic;
+		float directionElevator;
+		float timeToService;
+		
+		public InputSVO() {
+			super();
+		}
+		
+		public InputSVO(float passInElevator, float inputTraffic, float outputTraffic, float interfloorTraffic, float directionElevator) {
+			super();
+			this.passInElevator = passInElevator;
+			this.inputTraffic = inputTraffic;
+			this.outputTraffic = outputTraffic;
+			this.interfloorTraffic = interfloorTraffic;
+			this.directionElevator = directionElevator;
+		}
+
+
+		public String toString(){
+			return 	passInElevator+";"+
 					inputTraffic+";"+
 					outputTraffic+";"+
 					interfloorTraffic+";"+
 					directionElevator+";"+
-					timeToWait);
+					timeToService;
+		}
+	}
+	
+	private AnnInputSVO() {
+		super();
+	}
+	
+	public static AnnInputSVO getInstance(){
+		if(instance==null){
+			instance = new AnnInputSVO();
+		}
+		return instance;
+	}
+	
+	public void addInputSVO(float passInElevator, float inputTraffic, float outputTraffic, float interfloorTraffic, Elevator.Direction directionElevator, String pass){
+		InputSVO annInputSVO = new InputSVO();
+		annInputSVO.passInElevator = passInElevator;
+		annInputSVO.inputTraffic = inputTraffic;
+		annInputSVO.outputTraffic = outputTraffic;
+		annInputSVO.interfloorTraffic = interfloorTraffic;
+		if(directionElevator==Direction.UP){
+			annInputSVO.directionElevator = 1;
+		}else if(directionElevator==Direction.DOWN){
+			annInputSVO.directionElevator = 0.5f;
+		}else{
+			annInputSVO.directionElevator = 0;
+		}
+		this.inputWMap.put(pass, annInputSVO);
+	}
+	
+	public float getPassInElevator(String pass) {
+		InputSVO annInputSVO = inputWMap.get(pass);
+		return annInputSVO.passInElevator;
+	}
+
+	public void setPassInElevator(float passInElevator, String pass) {
+		InputSVO annInputSVO = inputWMap.get(pass);
+		annInputSVO.passInElevator = passInElevator;
+	}
+
+	public float getInputTraffic(String pass) {
+		InputSVO annInputSVO = inputWMap.get(pass);
+		return annInputSVO.inputTraffic;
+	}
+
+	public void setInputTraffic(float inputTraffic, String pass) {
+		InputSVO annInputSVO = inputWMap.get(pass);
+		annInputSVO.inputTraffic = inputTraffic;
+	}
+
+	public float getOutputTraffic(String pass) {
+		InputSVO annInputSVO = inputWMap.get(pass);
+		return annInputSVO.outputTraffic;
+	}
+
+	public void setOutputTraffic(float outputTraffic, String pass) {
+		InputSVO annInputSVO = inputWMap.get(pass);
+		annInputSVO.outputTraffic = outputTraffic;
+	}
+
+	public float getInterfloorTraffic(String pass) {
+		InputSVO annInputSVO = inputWMap.get(pass);
+		return annInputSVO.interfloorTraffic;
+	}
+
+	public void setInterfloorTraffic(float interfloorTraffic, String pass) {
+		InputSVO annInputSVO = inputWMap.get(pass);
+		annInputSVO.interfloorTraffic = interfloorTraffic;
+	}
+
+	public float getDirectionElevator(String pass) {
+		InputSVO annInputSVO = inputWMap.get(pass);
+		return annInputSVO.directionElevator;
+	}
+
+	public void setDirectionElevator(float directionElevator, String pass) {
+		InputSVO annInputSVO = inputWMap.get(pass);
+		annInputSVO.directionElevator = directionElevator;
+	}
+
+	public float getTimeToService(String pass) {
+		InputSVO annInputSVO = inputWMap.get(pass);
+		return annInputSVO.timeToService;
+	}
+
+	public void setTimeToService(float timeToService, String pass) {
+		InputSVO annInputSVO = inputWMap.get(pass);
+		annInputSVO.timeToService = timeToService;
+	}
+
+	public HashMap<String, InputSVO> getInputWMap() {
+		return inputWMap;
+	}
+
+	public void setInputWMap(HashMap<String, InputSVO> inputWMap) {
+		this.inputWMap = inputWMap;
+	}
+	
+	public void writeToFile(){
+		try{
+			  // Create file 
+			  FileWriter fstream = new FileWriter("AnnInputSVO.train");
+			  BufferedWriter out = new BufferedWriter(fstream);
+			  Set<String> keys = inputWMap.keySet();
+			  for(String key : keys){
+				  out.write( (inputWMap.get(key)).toString() );
+				  out.write( "\n" );
+			  }
+			  out.close();
+		}catch (Exception e){//Catch exception if any
+			  System.err.println("Error: " + e.getMessage());
+		}
+	}
+
+	public Logger getLogger() {
+		return logger;
+	}
+
+	public void setLogger(Logger logger) {
+		this.logger = logger;
 	}
 }

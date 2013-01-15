@@ -45,9 +45,11 @@ public class ConventionalElevatorGroupController implements ElevatorGroupControl
 		Elevator bestMatch = null;
 		//Assign the nearest elevator in the same direction
 		for(Elevator e : buildingModel.getElevators()){
-			if(e.getDirection()==passenger.getDirection()){
-				if( Math.abs(e.getPosition().intValue()-passenger.getOriginFloor()) < distMin) {
-					bestMatch = e;
+			if(e.getCapacity()>e.getPassengers().size()){
+				if(e.getDirection()==passenger.getDirection()){
+					if( Math.abs(e.getPosition().intValue()-passenger.getOriginFloor()) < distMin) {
+						bestMatch = e;
+					}
 				}
 			}
 		}
