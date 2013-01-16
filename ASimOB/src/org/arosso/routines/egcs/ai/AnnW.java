@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.ObjectInput;
 import java.io.ObjectInputStream;
 
+import org.arosso.model.Elevator;
 import org.arosso.routines.egcs.ai.AnnInputWVO.InputWVO;
 import org.joone.engine.DirectSynapse;
 import org.joone.engine.Layer;
@@ -28,7 +29,7 @@ public class AnnW  {
 	 */
 	public static void main(String[] args) {
 		AnnW annBrake = new AnnW();
-		InputWVO inputSVO = AnnInputWVO.getInstance().new InputWVO(0.275f, 0.0f, 0.59f, 0.11f, 0.11f, 1.0f);
+		InputWVO inputSVO = AnnInputWVO.getInstance().new InputWVO(0.275f, 0.0f, 0.59f, 0.11f, 0.11f, Elevator.Direction.DOWN);
 		annBrake.Go(inputSVO);
 	}
 

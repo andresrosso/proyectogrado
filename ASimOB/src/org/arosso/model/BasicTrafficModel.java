@@ -51,7 +51,7 @@ public class BasicTrafficModel implements TrafficModel {
      *
      * @param time
      */
-    public int getEstimatedPassengerNumber(Double time) {
+    public int getEstimatedPassengerNumber(Float time) {
     	return (int)(Math.random()*10);
     }
     
@@ -61,7 +61,7 @@ public class BasicTrafficModel implements TrafficModel {
      *
      * @param time
      */
-    public int getEstimatedDestinationFloor(Double time) {
+    public int getEstimatedDestinationFloor(Float time) {
     	int destFloor = (int)(Math.random()*buildingModel.getNumFloors());
     	return destFloor;
     }
@@ -72,7 +72,7 @@ public class BasicTrafficModel implements TrafficModel {
      *
      * @param time
      */
-    public int getEstimatedOriginFloor(Double time) {
+    public int getEstimatedOriginFloor(Float time) {
     	int oriFloor = (int)(Math.random()*buildingModel.getNumFloors());
     	return oriFloor;
     }
@@ -83,9 +83,9 @@ public class BasicTrafficModel implements TrafficModel {
      *
      * @param time
      */
-    public Double getEstimatedArrivalTime(Double time) {
+    public Float getEstimatedArrivalTime(Float time) {
     	//The arrival period is 5 minutes
-    	Double arrivalTime = time + (int)(Math.random()*300);
+    	Float arrivalTime = time + (int)(Math.random()*300);
     	return arrivalTime;
     }
     
@@ -105,6 +105,30 @@ public class BasicTrafficModel implements TrafficModel {
     public void setTrafficDensity(Vector <Float> newTrafficDensity) {
         this.trafficDensity = newTrafficDensity;
     }
+
+	@Override
+	public Vector<Passenger> getPassengersForPeriod(int time) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Float getEstimatedTrafficIn(int time) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Float getEstimatedTrafficOut(int time) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Float getEstimatedTrafficInterfloor(int time) {
+		// TODO Auto-generated method stub
+		return null;
+	}
     
     
 }

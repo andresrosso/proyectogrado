@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.ObjectInput;
 import java.io.ObjectInputStream;
 
+import org.arosso.model.Elevator;
 import org.arosso.routines.egcs.ai.AnnInputSVO.InputSVO;
 import org.joone.engine.DirectSynapse;
 import org.joone.engine.Layer;
@@ -28,7 +29,7 @@ public class AnnS  {
 	 */
 	public static void main(String[] args) {
 		AnnS annBrake = new AnnS();
-		InputSVO inputSVO = AnnInputSVO.getInstance().new InputSVO(0.25f, 0.12f, 0.22f, 0.31f, 0.5f);
+		InputSVO inputSVO = AnnInputSVO.getInstance().new InputSVO(0.25f, 0.12f, 0.22f, 0.31f, Elevator.Direction.UP);
 		annBrake.Go(inputSVO);
 	}
 
@@ -73,7 +74,7 @@ public class AnnS  {
 				System.out.println("ANN OUTPUT = "+pattern.getArray()[j]);
 				return pattern.getArray()[j];
 			}*/
-			
+			return pattern.getArray()[0];
 		}
 		return -1;
 	}

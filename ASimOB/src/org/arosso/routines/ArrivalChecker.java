@@ -64,9 +64,11 @@ public class ArrivalChecker extends SimulationRoutine {
     		if(buildingModel.getSimulationClock().intValue() == call.getArrivalTime()){
     			logger.info("Assign call "+call);
     			int elevator = controller.assignCall(call);
-    			buildingModel.getElevators().get(elevator).addCall(call);
-    			logger.info("Checking for passangers arrivals> call assigned to elev("+elevator+"), call detail ["+call+"]");
-    			callsToDelete.add(call);
+    			if(elevator>=0){
+    				buildingModel.getElevators().get(elevator).addCall(call);
+        			logger.info("Checking for passangers arrivals> call assigned to elev("+elevator+"), call detail ["+call+"]");
+        			callsToDelete.add(call);
+    			}
     		}
     	}
 		buildingModel.getCalls().removeAll(callsToDelete);

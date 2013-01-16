@@ -40,14 +40,20 @@ public class AnnInputWVO {
 			super();
 		}
 
-		public InputWVO(float posElevatorAtAssign, float passInElevator, float inputTraffic, float outputTraffic, float interfloorTraffic, float directionElevator) {
+		public InputWVO(float posElevatorAtAssign, float passInElevator, float inputTraffic, float outputTraffic, float interfloorTraffic, Elevator.Direction directionElevatorT) {
 			super();
 			this.posElevatorAtAssign = posElevatorAtAssign;
 			this.passInElevator = passInElevator;
 			this.inputTraffic = inputTraffic;
 			this.outputTraffic = outputTraffic;
 			this.interfloorTraffic = interfloorTraffic;
-			this.directionElevator = directionElevator;
+			if(directionElevatorT==Direction.UP){
+				directionElevator = 1;
+			}else if(directionElevatorT==Direction.DOWN){
+				directionElevator = 0.5f;
+			}else{
+				directionElevator = 0;
+			}
 		}
 
 		public String toString(){
@@ -73,19 +79,7 @@ public class AnnInputWVO {
 	}
 	
 	public void addInputWVO(float posElevatorAtAssign, float passInElevator, float inputTraffic, float outputTraffic, float interfloorTraffic, Elevator.Direction directionElevator, String pass){
-		InputWVO annInputWVO = new InputWVO();
-		annInputWVO.posElevatorAtAssign = posElevatorAtAssign;
-		annInputWVO.passInElevator = passInElevator;
-		annInputWVO.inputTraffic = inputTraffic;
-		annInputWVO.outputTraffic = outputTraffic;
-		annInputWVO.interfloorTraffic = interfloorTraffic;
-		if(directionElevator==Direction.UP){
-			annInputWVO.directionElevator = 1;
-		}else if(directionElevator==Direction.DOWN){
-			annInputWVO.directionElevator = 0.5f;
-		}else{
-			annInputWVO.directionElevator = 0;
-		}
+		InputWVO annInputWVO = new InputWVO(posElevatorAtAssign,passInElevator,inputTraffic,outputTraffic,interfloorTraffic,directionElevator);
 		this.inputWMap.put(pass, annInputWVO);
 	}
 

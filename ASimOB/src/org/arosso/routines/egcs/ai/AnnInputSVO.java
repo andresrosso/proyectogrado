@@ -38,13 +38,19 @@ public class AnnInputSVO {
 			super();
 		}
 		
-		public InputSVO(float passInElevator, float inputTraffic, float outputTraffic, float interfloorTraffic, float directionElevator) {
+		public InputSVO(float passInElevator, float inputTraffic, float outputTraffic, float interfloorTraffic, Elevator.Direction directionElevatorT) {
 			super();
 			this.passInElevator = passInElevator;
 			this.inputTraffic = inputTraffic;
 			this.outputTraffic = outputTraffic;
 			this.interfloorTraffic = interfloorTraffic;
-			this.directionElevator = directionElevator;
+			if(directionElevatorT==Direction.UP){
+				directionElevator = 1;
+			}else if(directionElevatorT==Direction.DOWN){
+				directionElevator = 0.5f;
+			}else{
+				directionElevator = 0;
+			}
 		}
 
 
@@ -70,18 +76,7 @@ public class AnnInputSVO {
 	}
 	
 	public void addInputSVO(float passInElevator, float inputTraffic, float outputTraffic, float interfloorTraffic, Elevator.Direction directionElevator, String pass){
-		InputSVO annInputSVO = new InputSVO();
-		annInputSVO.passInElevator = passInElevator;
-		annInputSVO.inputTraffic = inputTraffic;
-		annInputSVO.outputTraffic = outputTraffic;
-		annInputSVO.interfloorTraffic = interfloorTraffic;
-		if(directionElevator==Direction.UP){
-			annInputSVO.directionElevator = 1;
-		}else if(directionElevator==Direction.DOWN){
-			annInputSVO.directionElevator = 0.5f;
-		}else{
-			annInputSVO.directionElevator = 0;
-		}
+		InputSVO annInputSVO = new InputSVO(passInElevator,inputTraffic,outputTraffic,inputTraffic,directionElevator);
 		this.inputWMap.put(pass, annInputSVO);
 	}
 	

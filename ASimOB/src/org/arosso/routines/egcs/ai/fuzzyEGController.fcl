@@ -1,0 +1,100 @@
+FUNCTION_BLOCK brake
+
+VAR_INPUT
+    tEspera : REAL;
+    tViaje : REAL;
+    porcentajeOcupacion : REAL;
+    paradasEnPO : REAL;
+    paradasEnPD : REAL;
+END_VAR
+
+VAR_OUTPUT
+    prioridad : REAL;
+END_VAR
+
+FUZZIFY tEspera
+    TERM vlow := gauss 0 0.1;
+    TERM low := gauss 0.25 0.1;
+    TERM medium := gauss 0.5 0.1;
+    TERM big := gauss 0.75 0.1;
+    TERM vbig := gauss 1 0.1;
+END_FUZZIFY
+
+FUZZIFY tViaje
+    TERM vlow := gauss 0 0.1;
+    TERM low := gauss 0.25 0.1;
+    TERM medium := gauss 0.5 0.1;
+    TERM big := gauss 0.75 0.1;
+    TERM vbig := gauss 1 0.1;
+END_FUZZIFY
+
+FUZZIFY porcentajeOcupacion
+    TERM low := gauss 0.1 0.2;
+    TERM medium := gauss 0.6 0.2;
+    TERM big := gauss 1 0.2;
+END_FUZZIFY
+
+FUZZIFY paradasEnPO
+    TERM vlow := gauss 0 0.1;
+    TERM low := gauss 0.25 0.1;
+    TERM medium := gauss 0.5 0.1;
+    TERM big := gauss 0.75 0.1;
+    TERM vbig := gauss 1 0.1;
+END_FUZZIFY
+
+FUZZIFY paradasEnPD
+    TERM vlow := gauss 0 0.1;
+    TERM low := gauss 0.25 0.1;
+    TERM medium := gauss 0.5 0.1;
+    TERM big := gauss 0.75 0.1;
+    TERM vbig := gauss 1 0.1;
+END_FUZZIFY
+
+DEFUZZIFY prioridad
+    TERM vlow := gauss 0 0.1;
+    TERM low := gauss 0.25 0.1;
+    TERM medium := gauss 0.5 0.1;
+    TERM big := gauss 0.75 0.1;
+    TERM vbig := gauss 1 0.1;
+
+    METHOD : COG;        // Use 'Center Of Gravity' defuzzification method
+    DEFAULT := 0;        // Default value is 0 (if no rule activates defuzzifier)
+END_DEFUZZIFY
+
+RULEBLOCK No1     // rules 
+    //AND : MIN;    // defines how we combine sets 
+    //ACT : MIN;    // how we activate outputs which have more than 1 rule 
+    ACCU : MAX;   // how we combine the membership functions of the output variables. 
+
+    //Inference rules
+    RULE 1  : IF tEspera IS vlow   THEN prioridad 		IS vbig 	WITH 1;
+    RULE 2  : IF tEspera IS low    THEN prioridad 		IS big 		WITH 1;
+    RULE 3  : IF tEspera IS medium THEN prioridad 		IS medium 	WITH 1;
+    RULE 4  : IF tEspera IS big    THEN prioridad 		IS low 		WITH 1;
+    RULE 5  : IF tEspera IS vbig   THEN prioridad		IS vlow	 	WITH 1;
+    
+    RULE 6  : IF tViaje IS vlow   THEN prioridad 		IS vbig 	WITH 1;
+    RULE 7  : IF tViaje IS low    THEN prioridad 		IS big 		WITH 1;
+    RULE 8  : IF tViaje IS medium THEN prioridad 		IS medium 	WITH 1;
+    RULE 9  : IF tViaje IS big    THEN prioridad 		IS low 		WITH 1;
+    RULE 10 : IF tViaje IS vbig   THEN prioridad		IS vlow 	WITH 1;
+    
+    RULE 11 : IF porcentajeOcupacion IS low   	THEN prioridad IS big 		WITH 0.5;
+    RULE 12 : IF porcentajeOcupacion IS medium  THEN prioridad IS medium 	WITH 0.5;
+    RULE 13 : IF porcentajeOcupacion IS big	 	THEN prioridad IS low 		WITH 0.5;
+    
+    RULE 14 : IF paradasEnPO IS vlow   THEN prioridad 	IS vlow 	WITH 0.5;
+    RULE 15 : IF paradasEnPO IS low    THEN prioridad 	IS low 		WITH 0.5;
+    RULE 16 : IF paradasEnPO IS medium THEN prioridad 	IS medium 	WITH 0.5;
+    RULE 17 : IF paradasEnPO IS big    THEN prioridad 	IS big 		WITH 0.5;
+    RULE 18 : IF paradasEnPO IS vbig   THEN prioridad	IS vbig 	WITH 0.5;
+    
+    RULE 19 : IF paradasEnPD IS vlow   THEN prioridad 	IS vlow 	WITH 0.5;
+    RULE 20 : IF paradasEnPD IS low    THEN prioridad 	IS low 		WITH 0.5;
+    RULE 21 : IF paradasEnPD IS medium THEN prioridad 	IS medium 	WITH 0.5;
+    RULE 22 : IF paradasEnPD IS big    THEN prioridad 	IS big 		WITH 0.5;
+    RULE 23 : IF paradasEnPD IS vbig   THEN prioridad	IS vbig 	WITH 0.5;
+    
+END_RULEBLOCK
+
+END_FUNCTION_BLOCK
