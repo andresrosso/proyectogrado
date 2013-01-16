@@ -36,5 +36,6 @@
 	<classpathentry kind="lib" path="lib/xercesSamples.jar"/>
 	<classpathentry kind="lib" path="lib/xml-apis.jar"/>
 	<classpathentry kind="lib" path="lib/joone-engine.jar"/>
+	<classpathentry kind="lib" path="lib/jFuzzyLogic_v3.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -67,33 +67,33 @@ RULEBLOCK No1     // rules
     ACCU : MAX;   // how we combine the membership functions of the output variables. 
 
     //Inference rules
-    RULE 1  : IF tEspera IS vlow   THEN prioridad 		IS vbig 	WITH 1;
-    RULE 2  : IF tEspera IS low    THEN prioridad 		IS big 		WITH 1;
-    RULE 3  : IF tEspera IS medium THEN prioridad 		IS medium 	WITH 1;
-    RULE 4  : IF tEspera IS big    THEN prioridad 		IS low 		WITH 1;
-    RULE 5  : IF tEspera IS vbig   THEN prioridad		IS vlow	 	WITH 1;
+    RULE 1  : IF tEspera IS vlow   THEN prioridad 		IS vbig 	WITH 0.4;
+    RULE 2  : IF tEspera IS low    THEN prioridad 		IS big 		WITH 0.4;
+    RULE 3  : IF tEspera IS medium THEN prioridad 		IS medium 	WITH 0.4;
+    RULE 4  : IF tEspera IS big    THEN prioridad 		IS low 		WITH 0.4;
+    RULE 5  : IF tEspera IS vbig   THEN prioridad		IS vlow	 	WITH 0.4;
     
-    RULE 6  : IF tViaje IS vlow   THEN prioridad 		IS vbig 	WITH 1;
-    RULE 7  : IF tViaje IS low    THEN prioridad 		IS big 		WITH 1;
-    RULE 8  : IF tViaje IS medium THEN prioridad 		IS medium 	WITH 1;
-    RULE 9  : IF tViaje IS big    THEN prioridad 		IS low 		WITH 1;
-    RULE 10 : IF tViaje IS vbig   THEN prioridad		IS vlow 	WITH 1;
+    RULE 6  : IF tViaje IS vlow   THEN prioridad 		IS vbig 	WITH 0.4;
+    RULE 7  : IF tViaje IS low    THEN prioridad 		IS big 		WITH 0.4;
+    RULE 8  : IF tViaje IS medium THEN prioridad 		IS medium 	WITH 0.4;
+    RULE 9  : IF tViaje IS big    THEN prioridad 		IS low 		WITH 0.4;
+    RULE 10 : IF tViaje IS vbig   THEN prioridad		IS vlow 	WITH 0.4;
     
-    RULE 11 : IF porcentajeOcupacion IS low   	THEN prioridad IS big 		WITH 0.5;
-    RULE 12 : IF porcentajeOcupacion IS medium  THEN prioridad IS medium 	WITH 0.5;
-    RULE 13 : IF porcentajeOcupacion IS big	 	THEN prioridad IS low 		WITH 0.5;
+    RULE 11 : IF porcentajeOcupacion IS low   	THEN prioridad IS big 		WITH 0.1;
+    RULE 12 : IF porcentajeOcupacion IS medium  THEN prioridad IS medium 	WITH 0.1;
+    RULE 13 : IF porcentajeOcupacion IS big	 	THEN prioridad IS low 		WITH 0.1;
     
-    RULE 14 : IF paradasEnPO IS vlow   THEN prioridad 	IS vlow 	WITH 0.5;
-    RULE 15 : IF paradasEnPO IS low    THEN prioridad 	IS low 		WITH 0.5;
-    RULE 16 : IF paradasEnPO IS medium THEN prioridad 	IS medium 	WITH 0.5;
-    RULE 17 : IF paradasEnPO IS big    THEN prioridad 	IS big 		WITH 0.5;
-    RULE 18 : IF paradasEnPO IS vbig   THEN prioridad	IS vbig 	WITH 0.5;
+    RULE 14 : IF paradasEnPO IS vlow   THEN prioridad 	IS vlow 	WITH 1;
+    RULE 15 : IF paradasEnPO IS low    THEN prioridad 	IS low 		WITH 1;
+    RULE 16 : IF paradasEnPO IS medium THEN prioridad 	IS medium 	WITH 1;
+    RULE 17 : IF paradasEnPO IS big    THEN prioridad 	IS big 		WITH 1;
+    RULE 18 : IF paradasEnPO IS vbig   THEN prioridad	IS vbig 	WITH 1;
     
-    RULE 19 : IF paradasEnPD IS vlow   THEN prioridad 	IS vlow 	WITH 0.5;
-    RULE 20 : IF paradasEnPD IS low    THEN prioridad 	IS low 		WITH 0.5;
-    RULE 21 : IF paradasEnPD IS medium THEN prioridad 	IS medium 	WITH 0.5;
-    RULE 22 : IF paradasEnPD IS big    THEN prioridad 	IS big 		WITH 0.5;
-    RULE 23 : IF paradasEnPD IS vbig   THEN prioridad	IS vbig 	WITH 0.5;
+    RULE 19 : IF paradasEnPD IS vlow   THEN prioridad 	IS vlow 	WITH 1;
+    RULE 20 : IF paradasEnPD IS low    THEN prioridad 	IS low 		WITH 1;
+    RULE 21 : IF paradasEnPD IS medium THEN prioridad 	IS medium 	WITH 1;
+    RULE 22 : IF paradasEnPD IS big    THEN prioridad 	IS big 		WITH 1;
+    RULE 23 : IF paradasEnPD IS vbig   THEN prioridad	IS vbig 	WITH 1;
     
 END_RULEBLOCK
 

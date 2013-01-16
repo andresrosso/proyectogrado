@@ -32,7 +32,7 @@ public class STimeJReportGraph {
 			final XYSeries series = new XYSeries("Tiempo De Servicio");
 			series.add(0, 0);
 			DatabaseMannager db = DatabaseMannager.getInstance();
-			db.query("SELECT (EXITTIME-ARRIVALTIME) from PASSENGER");
+			db.query("SELECT (EXITTIME-ENTRYTIME) from PASSENGER");
 			int tam = db.regs.size();
 			logger.info("Tam regs ("+tam+"");
 			logger.info(db.regs.toString());

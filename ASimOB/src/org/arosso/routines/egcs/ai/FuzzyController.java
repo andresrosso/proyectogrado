@@ -47,7 +47,7 @@ public class FuzzyController implements ElevatorGroupController {
 	@Override
 	public int assignCall(Passenger passenger) {
 		try {
-			Elevator bestMatch = null;
+			Elevator bestMatch = BuildingModel.getInstance().getElevators().get((int)(Math.random()*BuildingModel.getInstance().getNumElevators()));
 			FuzzyController brake = new FuzzyController();
 			// ANN
 			AnnS sTime = new AnnS();
@@ -91,8 +91,8 @@ public class FuzzyController implements ElevatorGroupController {
 				brake.fis.setVariable("tEspera", waitingTime);
 				brake.fis.setVariable("tViaje", serviceTime);
 				brake.fis.setVariable("porcentajeOcupacion", passInElev);
-				brake.fis.setVariable("paradasEnPO", cPo / 10f);
-				brake.fis.setVariable("paradasEnPD", cPd / 10f);
+				brake.fis.setVariable("paradasEnPO", cPo / 5f);
+				brake.fis.setVariable("paradasEnPD", cPd / 5f);
 
 				// Evaluate
 				brake.fis.evaluate();
@@ -140,11 +140,11 @@ public class FuzzyController implements ElevatorGroupController {
 		brake.fis.chart();
 
 		// Set inputs
-		brake.fis.setVariable("tEspera", 0.9);
-		brake.fis.setVariable("tViaje", 0.9);
-		brake.fis.setVariable("porcentajeOcupacion", 0.1);
+		brake.fis.setVariable("tEspera", 0.6);
+		brake.fis.setVariable("tViaje", 0.5);
+		brake.fis.setVariable("porcentajeOcupacion", 0.5);
 		brake.fis.setVariable("paradasEnPO", 0.2);
-		brake.fis.setVariable("paradasEnPD", 0.2);
+		brake.fis.setVariable("paradasEnPD", 0);
 
 		// Evaluate
 		brake.fis.evaluate();

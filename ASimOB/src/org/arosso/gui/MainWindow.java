@@ -125,7 +125,7 @@ public class MainWindow extends Thread implements ActionListener, Observer {
 		if (arg instanceof Passenger) {
 			Passenger pass = (Passenger) arg;
 			wtChart.setData(guiModel.getSimClock(), pass.getEntryTime() - pass.getArrivalTime());
-			stChart.setData(guiModel.getSimClock(), pass.getExitTime() - pass.getArrivalTime());
+			stChart.setData(guiModel.getSimClock(), pass.getExitTime() - pass.getEntryTime());
 		}
 	}
 

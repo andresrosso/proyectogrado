@@ -88,9 +88,9 @@ public class JasperReportManager {
 			Image imagen = stgraph.getGraphic();
 			parametrosReporte.put("tespera",imagen);//Constantes.getInstance().getRutaRelativa()+"imagenes//save.gif"
 			//Cargamos los parametros de las estadisticas
-			parametrosReporte.put("media",String.valueOf(WTimeJReportGraph.media));
-			parametrosReporte.put("varianza",String.valueOf(WTimeJReportGraph.varianza));
-			parametrosReporte.put("desviacion",String.valueOf(WTimeJReportGraph.desviacionEstandar));
+			parametrosReporte.put("media",String.valueOf(STimeJReportGraph.media));
+			parametrosReporte.put("varianza",String.valueOf(STimeJReportGraph.varianza));
+			parametrosReporte.put("desviacion",String.valueOf(STimeJReportGraph.desviacionEstandar));
 			JasperReport report = (JasperReport)JRLoader.loadObject(this.getClass().getResourceAsStream(ST_REPORT+".jasper"));
 			JasperPrint printReport = JasperFillManager.fillReport(report,parametrosReporte, new JREmptyDataSource());
 			//Generamos el objeto previe del reporte
