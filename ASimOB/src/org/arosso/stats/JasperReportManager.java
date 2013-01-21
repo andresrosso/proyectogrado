@@ -41,8 +41,15 @@ public class JasperReportManager {
     
 	//reports
 	private static String WT_REPORT = "WTimeJReport";
+	private static String WTHOUR_REPORT = "WTHourTimeJReport";
+	private static String WTACUM_REPORT = "WTAcumTimeJReport";
+	private static String WTUSER_REPORT = "WTUserTimeJReport";
 	private static String ST_REPORT = "STimeJReport";
 	private static String TENERGY_REPORT = "TEnergyJReport";
+	private static String TRAFFIC_REPORT = "TrafficJReport";
+	private static String TRAFFIC_OUT_REPORT = "TrafficOutJReport";
+	private static String TRAFFIC_IN_REPORT = "TrafficInJReport";
+	private static String TRAFFIC_INTERFLOOR_REPORT = "TrafficInterfloorJReport";
 	/**
 	 * Logger
 	 */
@@ -55,6 +62,106 @@ public class JasperReportManager {
     	super();
 		new File(JASPER_REPORTS_PATH).mkdirs();
     }
+
+	public void getTrafficOutJReport() {
+		try {
+			Map parametrosReporte=new HashMap(); //Mapa de Parametros del reporte
+			//Armamos el MAP
+			TrafficOUTJReportGraph tespera = new TrafficOUTJReportGraph();
+			Image imagen = tespera.getGraphic();
+			parametrosReporte.put("tespera",imagen);
+			parametrosReporte.put("title","Reporte Tráfico Generado Salida");
+			//Cargamos los parametros de las estadisticas
+			parametrosReporte.put("media",String.valueOf(TrafficOUTJReportGraph.media));
+			parametrosReporte.put("varianza",String.valueOf(TrafficOUTJReportGraph.varianza));
+			parametrosReporte.put("desviacion",String.valueOf(TrafficOUTJReportGraph.desviacionEstandar));
+			JasperReport report = (JasperReport)JRLoader.loadObject(this.getClass().getResourceAsStream(TRAFFIC_REPORT+".jasper"));
+			DatabaseMannager broker = DatabaseMannager.getInstance();
+			JasperPrint printReport = JasperFillManager.fillReport(report,parametrosReporte, new JREmptyDataSource());
+			//Generamos el objeto previe del reporte
+			JasperViewer viewer = new JasperViewer(printReport,false);
+			String date = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
+			JasperExportManager.exportReportToPdfFile(printReport, JASPER_REPORTS_PATH+"/"+TRAFFIC_OUT_REPORT+"_"+date+".pdf");
+			viewer.setVisible(true);
+		}catch (Exception e) {
+			logger.error("Error generating report",e);
+		}
+	}
+
+	public void getTrafficInJReport() {
+		try {
+			Map parametrosReporte=new HashMap(); //Mapa de Parametros del reporte
+			//Armamos el MAP
+			TrafficINJReportGraph tespera = new TrafficINJReportGraph();
+			Image imagen = tespera.getGraphic();
+			parametrosReporte.put("tespera",imagen);
+			parametrosReporte.put("title","Reporte Tráfico Generado Entrada");
+			//Cargamos los parametros de las estadisticas
+			parametrosReporte.put("media",String.valueOf(TrafficINJReportGraph.media));
+			parametrosReporte.put("varianza",String.valueOf(TrafficINJReportGraph.varianza));
+			parametrosReporte.put("desviacion",String.valueOf(TrafficINJReportGraph.desviacionEstandar));
+			JasperReport report = (JasperReport)JRLoader.loadObject(this.getClass().getResourceAsStream(TRAFFIC_REPORT+".jasper"));
+			DatabaseMannager broker = DatabaseMannager.getInstance();
+			JasperPrint printReport = JasperFillManager.fillReport(report,parametrosReporte, new JREmptyDataSource());
+			//Generamos el objeto previe del reporte
+			JasperViewer viewer = new JasperViewer(printReport,false);
+			String date = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
+			JasperExportManager.exportReportToPdfFile(printReport, JASPER_REPORTS_PATH+"/"+TRAFFIC_IN_REPORT+"_"+date+".pdf");
+			viewer.setVisible(true);
+		} catch (Exception e) {
+			logger.error("Error generating report",e);
+		}
+	}
+	
+	public void getTrafficInterfloorJReport() {
+		try {
+			Map parametrosReporte=new HashMap(); //Mapa de Parametros del reporte
+			//Armamos el MAP
+			TrafficInterFloorJReportGraph tespera = new TrafficInterFloorJReportGraph();
+			Image imagen = tespera.getGraphic();
+			parametrosReporte.put("tespera",imagen);
+			parametrosReporte.put("title","Reporte Tráfico Generado Entrepisos");
+			//Cargamos los parametros de las estadisticas
+			parametrosReporte.put("media",String.valueOf(TrafficInterFloorJReportGraph.media));
+			parametrosReporte.put("varianza",String.valueOf(TrafficInterFloorJReportGraph.varianza));
+			parametrosReporte.put("desviacion",String.valueOf(TrafficInterFloorJReportGraph.desviacionEstandar));
+			JasperReport report = (JasperReport)JRLoader.loadObject(this.getClass().getResourceAsStream(TRAFFIC_REPORT+".jasper"));
+			DatabaseMannager broker = DatabaseMannager.getInstance();
+			JasperPrint printReport = JasperFillManager.fillReport(report,parametrosReporte, new JREmptyDataSource());
+			//Generamos el objeto previe del reporte
+			JasperViewer viewer = new JasperViewer(printReport,false);
+			String date = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
+			JasperExportManager.exportReportToPdfFile(printReport, JASPER_REPORTS_PATH+"/"+TRAFFIC_INTERFLOOR_REPORT+"_"+date+".pdf");
+			viewer.setVisible(true);
+		}catch (Exception e) {
+			logger.error("Error generating report",e);
+		}
+	}
+
+	public void getTrafficJReport() {
+		try {
+			Map parametrosReporte=new HashMap(); //Mapa de Parametros del reporte
+			//Armamos el MAP
+			TrafficJReportGraph tespera = new TrafficJReportGraph();
+			Image imagen = tespera.getGraphic();
+			parametrosReporte.put("tespera",imagen);
+			parametrosReporte.put("title","Reporte Tráfico Generado");
+			//Cargamos los parametros de las estadisticas
+			parametrosReporte.put("media",String.valueOf(TrafficJReportGraph.media));
+			parametrosReporte.put("varianza",String.valueOf(TrafficJReportGraph.varianza));
+			parametrosReporte.put("desviacion",String.valueOf(TrafficJReportGraph.desviacionEstandar));
+			JasperReport report = (JasperReport)JRLoader.loadObject(this.getClass().getResourceAsStream(TRAFFIC_REPORT+".jasper"));
+			DatabaseMannager broker = DatabaseMannager.getInstance();
+			JasperPrint printReport = JasperFillManager.fillReport(report,parametrosReporte, new JREmptyDataSource());
+			//Generamos el objeto previe del reporte
+			JasperViewer viewer = new JasperViewer(printReport,false);
+			String date = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
+			JasperExportManager.exportReportToPdfFile(printReport, JASPER_REPORTS_PATH+"/"+TRAFFIC_REPORT+"_"+date+".pdf");
+			viewer.setVisible(true);
+		} catch (Exception e) {
+			logger.error("Error generating report",e);
+		}
+	}
 
 	public void getWTimeJReport() {
 		try {
@@ -74,6 +181,79 @@ public class JasperReportManager {
 			JasperViewer viewer = new JasperViewer(printReport,false);
 			String date = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
 			JasperExportManager.exportReportToPdfFile(printReport, JASPER_REPORTS_PATH+"/"+WT_REPORT+"_"+date+".pdf");
+			viewer.setVisible(true);
+		} catch (Exception e) {
+			logger.error("Error generating report",e);
+		}
+	}
+
+	public void getWTAcumJReport() {
+		try {
+			Map parametrosReporte=new HashMap(); //Mapa de Parametros del reporte
+			//Armamos el MAP
+			WTAcumJReportGraph tespera = new WTAcumJReportGraph();
+			Image imagen = tespera.getGraphic();
+			parametrosReporte.put("tespera",imagen);//Constantes.getInstance().getRutaRelativa()+"imagenes//save.gif"
+			//Cargamos los parametros de las estadisticas
+			parametrosReporte.put("media",String.valueOf(WTAcumJReportGraph.media));
+			parametrosReporte.put("varianza",String.valueOf(WTAcumJReportGraph.varianza));
+			parametrosReporte.put("desviacion",String.valueOf(WTAcumJReportGraph.desviacionEstandar));
+			JasperReport report = (JasperReport)JRLoader.loadObject(this.getClass().getResourceAsStream(WT_REPORT+".jasper"));
+			DatabaseMannager broker = DatabaseMannager.getInstance();
+			JasperPrint printReport = JasperFillManager.fillReport(report,parametrosReporte, new JREmptyDataSource());
+			//Generamos el objeto previe del reporte
+			JasperViewer viewer = new JasperViewer(printReport,false);
+			String date = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
+			JasperExportManager.exportReportToPdfFile(printReport, JASPER_REPORTS_PATH+"/"+WTACUM_REPORT+"_"+date+".pdf");
+			viewer.setVisible(true);
+		} catch (Exception e) {
+			logger.error("Error generating report",e);
+		}
+	}
+	
+
+	public void getWTHourJReport() {
+		try {
+			Map parametrosReporte=new HashMap(); //Mapa de Parametros del reporte
+			//Armamos el MAP
+			WTHourJReportGraph tespera = new WTHourJReportGraph();
+			Image imagen = tespera.getGraphic();
+			parametrosReporte.put("tespera",imagen);//Constantes.getInstance().getRutaRelativa()+"imagenes//save.gif"
+			//Cargamos los parametros de las estadisticas
+			parametrosReporte.put("media",String.valueOf(WTHourJReportGraph.media));
+			parametrosReporte.put("varianza",String.valueOf(WTHourJReportGraph.varianza));
+			parametrosReporte.put("desviacion",String.valueOf(WTHourJReportGraph.desviacionEstandar));
+			JasperReport report = (JasperReport)JRLoader.loadObject(this.getClass().getResourceAsStream(WT_REPORT+".jasper"));
+			DatabaseMannager broker = DatabaseMannager.getInstance();
+			JasperPrint printReport = JasperFillManager.fillReport(report,parametrosReporte, new JREmptyDataSource());
+			//Generamos el objeto previe del reporte
+			JasperViewer viewer = new JasperViewer(printReport,false);
+			String date = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
+			JasperExportManager.exportReportToPdfFile(printReport, JASPER_REPORTS_PATH+"/"+WTHOUR_REPORT+"_"+date+".pdf");
+			viewer.setVisible(true);
+		} catch (Exception e) {
+			logger.error("Error generating report",e);
+		}
+	}
+	
+	public void getWTUserJReport() {
+		try {
+			Map parametrosReporte=new HashMap(); //Mapa de Parametros del reporte
+			//Armamos el MAP
+			WTUsersJReportGraph tespera = new WTUsersJReportGraph();
+			Image imagen = tespera.getGraphic();
+			parametrosReporte.put("tespera",imagen);//Constantes.getInstance().getRutaRelativa()+"imagenes//save.gif"
+			//Cargamos los parametros de las estadisticas
+			parametrosReporte.put("media",String.valueOf(WTHourJReportGraph.media));
+			parametrosReporte.put("varianza",String.valueOf(WTHourJReportGraph.varianza));
+			parametrosReporte.put("desviacion",String.valueOf(WTHourJReportGraph.desviacionEstandar));
+			JasperReport report = (JasperReport)JRLoader.loadObject(this.getClass().getResourceAsStream(WT_REPORT+".jasper"));
+			DatabaseMannager broker = DatabaseMannager.getInstance();
+			JasperPrint printReport = JasperFillManager.fillReport(report,parametrosReporte, new JREmptyDataSource());
+			//Generamos el objeto previe del reporte
+			JasperViewer viewer = new JasperViewer(printReport,false);
+			String date = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
+			JasperExportManager.exportReportToPdfFile(printReport, JASPER_REPORTS_PATH+"/"+WTUSER_REPORT+"_"+date+".pdf");
 			viewer.setVisible(true);
 		} catch (Exception e) {
 			logger.error("Error generating report",e);
@@ -131,16 +311,5 @@ public class JasperReportManager {
 			logger.error("Error generating report",e);
 		}
 	}
-	
-    /**
-     * Description of the method generateJasperReport.
-     */
-    public void generateJasperReport() {
-
-    }
-
-
-
-	
 
 }

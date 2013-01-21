@@ -104,7 +104,6 @@ public class StatisticsManager extends Observable {
 		jasperReportManager.getWTimeJReport();
 	}
 
-
 	public void generateSTReport(){
 		jasperReportManager.getSTimeJReport();
 	}
@@ -112,6 +111,33 @@ public class StatisticsManager extends Observable {
 	public void generateTEnergyReport(){
 		jasperReportManager.getTEnergyJReport();
 	}
-    
+	
+	public void generateTrafficJReport(){
+		jasperReportManager.getTrafficJReport();
+	}
+
+	public void generateTrafficInJReport(){
+		jasperReportManager.getTrafficInJReport();
+	}
+
+	public void generateTrafficOutJReport(){
+		jasperReportManager.getTrafficOutJReport();
+	}
+
+	public void generateTrafficInterfloorJReport(){
+		jasperReportManager.getTrafficInterfloorJReport();
+	}
+	
+	public void generateWTHourJReport(){
+		jasperReportManager.getWTHourJReport();
+	}
+	
+	public void generateWTUserJReport(){
+		jasperReportManager.getWTUserJReport();
+	}
+	
+	public void generateWTAcumJReport(){
+		jasperReportManager.getWTAcumJReport();
+	}
     
 }

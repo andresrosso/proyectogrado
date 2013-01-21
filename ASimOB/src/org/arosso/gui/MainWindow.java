@@ -2,6 +2,7 @@ package org.arosso.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -48,9 +49,16 @@ public class MainWindow extends Thread implements ActionListener, Observer {
 	JButton initButton;
 	JButton pauseButton;
 	JButton stopButton;
-	JButton genWTReportpButton;
+	JButton genWTReportButton;
+	JButton genWTHourReportButton;
+	JButton genWTAcumReportButton;
+	JButton genWTUserReportButton;
 	JButton genSTReportpButton;
 	JButton genTEnergyReportpButton;
+	JButton genTrafficJReportpButton;
+	JButton genTrafficOutJReportButton;
+	JButton genTrafficInJReportpButton;
+	JButton genTrafficInterfloorJReportpButton;
 
 	// Dynamic charts
 	DynamicXYChart wtChart;
@@ -160,8 +168,20 @@ public class MainWindow extends Thread implements ActionListener, Observer {
 					initButton.setEnabled(true);
 				}
 				// GENERATE WAITING TIME REPORT
-				if (((JButton) source).equals(genWTReportpButton)) {
+				if (((JButton) source).equals(genWTReportButton)) {
 					statisticsManager.generateWTReport();
+				}
+				// GENERATE WAITING TIME REPORT
+				if (((JButton) source).equals(genWTHourReportButton)) {
+					statisticsManager.generateWTHourJReport();
+				}
+				// GENERATE WAITING TIME REPORT
+				if (((JButton) source).equals(genWTUserReportButton)) {
+					statisticsManager.generateWTUserJReport();
+				}
+				// GENERATE WAITING TIME REPORT
+				if (((JButton) source).equals(genWTAcumReportButton)) {
+					statisticsManager.generateWTAcumJReport();
 				}
 				// GENERATE SERVICE TIME REPORT
 				if (((JButton) source).equals(genSTReportpButton)) {
@@ -170,6 +190,22 @@ public class MainWindow extends Thread implements ActionListener, Observer {
 				// GENERATE SERVICE TIME REPORT
 				if (((JButton) source).equals(genTEnergyReportpButton)) {
 					statisticsManager.generateTEnergyReport();
+				}
+				// GENERATE TRAFFIC REPORT
+				if (((JButton) source).equals(genTrafficJReportpButton)) {
+					statisticsManager.generateTrafficJReport();
+				}
+				// GENERATE TRAFFIC REPORT
+				if (((JButton) source).equals(genTrafficInJReportpButton)) {
+					statisticsManager.generateTrafficInJReport();
+				}
+				// GENERATE TRAFFIC REPORT
+				if (((JButton) source).equals(genTrafficOutJReportButton)) {
+					statisticsManager.generateTrafficOutJReport();
+				}
+				// GENERATE TRAFFIC REPORT
+				if (((JButton) source).equals(genTrafficInterfloorJReportpButton)) {
+					statisticsManager.generateTrafficInterfloorJReport();
 				}
 			}
 		} catch (Exception e) {
@@ -271,14 +307,24 @@ public class MainWindow extends Thread implements ActionListener, Observer {
 
 		// Stats container
 		JPanel statsConPanel = new JPanel();
-		statsConPanel.setLayout(new BoxLayout(statsConPanel, BoxLayout.Y_AXIS));
+		statsConPanel.setLayout(new BoxLayout(statsConPanel, BoxLayout.LINE_AXIS));
 
 		// Stats panel for buttons
 		JPanel statsActionButtonsPanel = new JPanel();
-		statsActionButtonsPanel.setLayout(new BoxLayout(statsActionButtonsPanel, BoxLayout.X_AXIS));
+		statsActionButtonsPanel.setLayout(new BoxLayout(statsActionButtonsPanel, BoxLayout.Y_AXIS));
 
-		genWTReportpButton = new JButton("Generate Waiting Time Report");
-		genWTReportpButton.addActionListener(this);
+		genWTReportButton = new JButton("Generate Waiting Time Report");
+		genWTReportButton.addActionListener(this);
+		
+		genWTHourReportButton = new JButton("Generate Waiting Time Each Hour Report");
+		genWTHourReportButton.addActionListener(this);
+
+		genWTUserReportButton = new JButton("Generate Waiting Time x Users");
+		genWTUserReportButton.addActionListener(this);
+
+
+		genWTAcumReportButton = new JButton("Generate Waiting Time Accumulate");
+		genWTAcumReportButton.addActionListener(this);
 
 		genSTReportpButton = new JButton("Generate Service Time Report");
 		genSTReportpButton.addActionListener(this);
@@ -286,9 +332,28 @@ public class MainWindow extends Thread implements ActionListener, Observer {
 		genTEnergyReportpButton = new JButton("Generate Service Used Energy Report");
 		genTEnergyReportpButton.addActionListener(this);
 
-		statsActionButtonsPanel.add(genWTReportpButton);
+		genTrafficJReportpButton = new JButton("Generate Traffic Report");
+		genTrafficJReportpButton.addActionListener(this);
+
+		genTrafficInJReportpButton = new JButton("Generate Input Traffic Report");
+		genTrafficInJReportpButton.addActionListener(this);
+
+		genTrafficOutJReportButton = new JButton("Generate Output Traffic Report");
+		genTrafficOutJReportButton.addActionListener(this);
+
+		genTrafficInterfloorJReportpButton = new JButton("Generate Interfloor Traffic Report");
+		genTrafficInterfloorJReportpButton.addActionListener(this);
+
+		statsActionButtonsPanel.add(genWTReportButton);
+		statsActionButtonsPanel.add(genWTHourReportButton);
+		statsActionButtonsPanel.add(genWTUserReportButton);
+		statsActionButtonsPanel.add(genWTAcumReportButton);
 		statsActionButtonsPanel.add(genSTReportpButton);
 		statsActionButtonsPanel.add(genTEnergyReportpButton);
+		statsActionButtonsPanel.add(genTrafficJReportpButton);
+		statsActionButtonsPanel.add(genTrafficInJReportpButton);
+		statsActionButtonsPanel.add(genTrafficOutJReportButton);
+		statsActionButtonsPanel.add(genTrafficInterfloorJReportpButton);
 
 		// Stats Dynamic chartS
 		JPanel statsDynamicChartsPanel = new JPanel();

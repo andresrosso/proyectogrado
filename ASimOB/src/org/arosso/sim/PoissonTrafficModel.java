@@ -91,10 +91,10 @@ public class PoissonTrafficModel implements TrafficModel {
 	}
 
 	@Override
-	public Vector<Passenger> getPassengersForPeriod(int time) {
+	public Vector<Passenger> getPassengersForPeriod(int timeI) {
 		Vector<Passenger> passengers = new Vector<Passenger>();
 		try {
-			time = time - (timeGap*countFractions);
+			int time = timeI - (timeGap*countFractions);
 			if(countFractions==numFractions){
 				countFractions=0;
 			}else{
@@ -104,9 +104,10 @@ public class PoissonTrafficModel implements TrafficModel {
 			String trInS = (String) trafficIN.get(Integer.toString(time));
 			int trIn = (int)((Float.valueOf(trInS)/100)*population);
 			for (int j = 0; j < trIn; j++) {
-				int arrivalTime = time + (int) (Math.random() * timeGap);
+				int arrivalTime = timeI + (int) (Math.random() * timeGap);
 				int destFloor = (int) (Math.random() * (buildingModel.getNumFloors() - 1) + 1);
 				Passenger passenger = new Passenger(arrivalTime, 0, destFloor, Passenger.Type.CALL);
+				logger.info("Passenger generated: "+passenger.toStringComplete());
 				passengers.add(passenger);
 			}
 			logger.info("Incoming traffic Time("+time+")  ("+trIn+") = ");
@@ -114,7 +115,7 @@ public class PoissonTrafficModel implements TrafficModel {
 			String trInterS = (String) trafficINTERFLOOR.get(Integer.toString(time));
 			int trInter = (int)((Float.valueOf(trInterS)/100)*population);
 			for (int j = 0; j < trInter; j++) {
-				int arrivalTime = time + (int) (Math.random() * timeGap);
+				int arrivalTime = timeI + (int) (Math.random() * timeGap);
 				int originFloor = (int) (Math.random() * (buildingModel.getNumFloors() - 1) + 1);
 				int destFloor = (int) (Math.random() * (buildingModel.getNumFloors() - 1) + 1);
 				if (originFloor == destFloor) {
@@ -124,6 +125,7 @@ public class PoissonTrafficModel implements TrafficModel {
 					}
 				}
 				Passenger passenger = new Passenger(arrivalTime, originFloor, destFloor, Passenger.Type.CALL);
+				logger.info("Passenger generated: "+passenger.toStringComplete());
 				passengers.add(passenger);
 			}
 			logger.info("INTERFLOOR traffic Time("+time+") ("+trInter+") = ");
@@ -131,9 +133,10 @@ public class PoissonTrafficModel implements TrafficModel {
 			String trOutS = (String) trafficOUT.get(Integer.toString(time));
 			int trOut = (int)((Float.valueOf(trOutS)/100)*population);
 			for (int j = 0; j < trOut; j++) {
-				int arrivalTime = time + (int) (Math.random() * timeGap);
+				int arrivalTime = timeI + (int) (Math.random() * timeGap);
 				int originFloor = (int) (Math.random() * (buildingModel.getNumFloors() - 1) + 1);
 				Passenger passenger = new Passenger(arrivalTime, originFloor, 0, Passenger.Type.CALL);
+				logger.info("Passenger generated: "+passenger.toStringComplete());
 				passengers.add(passenger);
 			}
 			logger.info("OUTGOING traffic Time("+time+") ("+trOut+") = ");
@@ -209,7 +212,6 @@ public class PoissonTrafficModel implements TrafficModel {
 			System.out.println(model.getPassengersForPeriod(1200));
 			System.out.println(model.getPassengersForPeriod(1500));
 			System.out.println(model.getPassengersForPeriod(1800));
-			
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (Exception e) {

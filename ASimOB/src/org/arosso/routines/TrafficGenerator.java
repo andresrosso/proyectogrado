@@ -90,7 +90,9 @@ public class TrafficGenerator extends SimulationRoutine {
 		logger.info("Generating calls = " + generatedCalls);
 		buildingModel.getCalls().addAll(generatedCalls);
 		generatedCalls.clear();*/
-		buildingModel.getCalls().addAll(trafficModel.getPassengersForPeriod(time.intValue()));
+		Vector<Passenger> passengers = trafficModel.getPassengersForPeriod(time.intValue());
+		buildingModel.getCalls().addAll(passengers);
+		logger.info("Traffic generator, generated calls ["+passengers.size()+"]");
 	}
 
 	public void generateMockCalls() {

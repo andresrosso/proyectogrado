@@ -138,6 +138,8 @@ public class AnnTrainerS implements NeuralNetListener {
 									 */
 		monitor.setLearning(true); /* The net must be trained */
 		nnet.go(); /* The net starts the training job */
+		
+		//monitor.isValidation();
 	}
 
 	public void netStopped(NeuralNetEvent e) {
